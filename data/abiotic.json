@@ -1,0 +1,18 @@
+[
+	{
+		type:"StairUp",
+		sprites:[],
+		canGoThrough:false,
+		action:[["crash","go through"]],
+		size:[2,2],
+		buddyType:"StairDown",
+	},
+	{
+		type:"StairDown",
+		sprites:[],
+		canGoThrough:false,
+		action:[["crash","go through"]],
+		size:[2,2],
+		buddyType:"StairUp",
+	}
+]

@@ -1,0 +1,14 @@
+[
+	{
+		type:"Slime",
+		sprites:[],
+		action:[["crash","fight"]],
+		size:[1,1],
+		buddyType:null,
+		HP:200,
+		ATK:10,
+		DEF:10,
+		Money:20,
+		EXP:30,
+	}
+]
