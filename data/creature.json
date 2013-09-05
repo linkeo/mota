@@ -1,7 +1,7 @@
 [
 	{
 		type:"Slime",
-		sprites:[],
+		sprites:{normal:[[15],[14],[13]]},
 		action:[["crash","fight"]],
 		size:[1,1],
 		buddyType:null,

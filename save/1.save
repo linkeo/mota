@@ -1,0 +1,13 @@
+{
+	name:"Orzmt",
+	lv:14,
+	hp:200,
+	atk:10,
+	def:14,
+	money:1222,
+	keys:[14,22,14],
+	tools:[147],
+	floor:14,
+	savetime:"1982-5-6",
+	levels:[]//like level.json
+}

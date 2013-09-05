@@ -1,15 +1,13 @@
 package com.nju.se.team.mota.temp;
 
-import java.io.File;
-import java.util.ArrayList;
+import java.io.FileNotFoundException;
+import com.nju.se.team.mota.data.DataLoader;
+
 
 public class TempUsage {
-	public static void main(String[] args) {
-		String path = "image/sprite/";
-		File dir = new File(path);
-		for(File f : dir.listFiles()){
-			if(f.isFile())
-				System.out.println(f.getName().split("\\.")[0]+"="+f.getPath());
-		}
+	public static void main(String[] args) throws FileNotFoundException {
+		for(int i : DataLoader.getLevelFloors())
+		System.out.println(i+"==>"+DataLoader.getLevelDefine(i));
 	}
 }
+

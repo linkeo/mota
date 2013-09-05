@@ -1,7 +1,8 @@
+[data]
 abiotics=data\abiotic.json
 creatures=data\creature.json
 levels=data\level.json
-savedir=save\
+[image]
 door=image\sprite\door.png
 door2=image\sprite\door2.png
 enemy01=image\sprite\enemy01.png

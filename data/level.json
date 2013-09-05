@@ -1,38 +1,42 @@
 [
 	{
-		level:24,
+		level:1,
 		size:[16,16],
 		abiotics:[
 			{
-				name:"Stair1_1"
-				type:"Stair"
-				buddy:"Stair2_1"
+				name:"Stair1_1",
+				type:"Stair",
+				buddy:"Stair2_1",
 				position:[2,1]
 			},
 			{
-				name:"wall00001"
-				type:"wall"
-				buddy:"Stair2_1"
+				name:"wall00001",
+				type:"wall",
+				buddy:null,
 				position:[2,2]
 			}
+		],
+		creatures:[
 		]
 	},
 	{
-		level:25,
+		level:2,
 		size:[16,16],
 		abiotics:[
 			{
-				name:"Stair1_1"
-				type:"Stair"
-				buddy:"Stair2_1"
+				name:"Stair2_1",
+				type:"Stair",
+				buddy:"Stair1_1",
 				position:[2,1]
 			},
 			{
-				name:"wall00001"
-				type:"wall"
-				buddy:"Stair2_1"
+				name:"wall00002",
+				type:"wall",
+				buddy:null,
 				position:[2,2]
 			}
+		],
+		creatures:[
 		]
 	}
 ]
