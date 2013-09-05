@@ -9,5 +9,5 @@
 	tools:[147],
 	floor:14,
 	savetime:"1982-5-6",
-	levels:[]//like level.json
+	levels:[]
 }

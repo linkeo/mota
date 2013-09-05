@@ -21,9 +21,14 @@ public class Unit {
 	private String buddyType;
 	
 	public Unit() {
-		// TODO Auto-generated constructor stub
+		name = "floor";
+		type = "floor";
+		sprites = new HashMap<UnitStatus, Animation>();
+		action = new HashMap<Condition, String>();
+		position = new int[]{1,1};
+		size = new int[]{1,1};
 	}
-	public static Unit create(JSONObject json){
+	public static Unit make(JSONObject json){
 		Unit instance = new Unit();
 		instance.load(json);
 		return instance;
@@ -35,7 +40,7 @@ public class Unit {
 		HashMap<UnitStatus, Animation> sprite = new HashMap<UnitStatus, Animation>();
 		JSONObject oSprite = json.getJSONObject("sprites");
 		for(Object o : oSprite.keySet()){
-			sprite.put(UnitStatus.load((String)o), Animation.create(oSprite.getJSONArray((String)o)));
+			sprite.put(UnitStatus.load((String)o), Animation.make(oSprite.getJSONArray((String)o)));
 		}
 		setSprites(sprite);
 		HashMap<Condition, String> action = new HashMap<Condition, String>();
@@ -47,9 +52,8 @@ public class Unit {
 		setPosition(new int[]{json.getJSONArray("postion").getInt(0),json.getJSONArray("postion").getInt(1)});
 		setSize(new int[]{json.getJSONArray("size").getInt(0),json.getJSONArray("size").getInt(1)});
 		setFloor(json.getInt("floor"));
-		setBuddy(json.getString("buddy"));
-		setBuddyType(json.getString("buddyType"));
-
+		setBuddy(json.optString("buddy"));
+		setBuddyType(json.optString("buddyType"));
 	}
 	
 	public String getName() {

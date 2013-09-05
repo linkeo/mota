@@ -1,6 +1,10 @@
 package com.nju.se.team.mota.game;
 
+import java.util.HashSet;
 import java.util.Set;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import com.nju.se.team.mota.game.unit.Abiotic;
 import com.nju.se.team.mota.game.unit.Creature;
@@ -10,8 +14,29 @@ public class Level {
 	private int size[];
 	private Set<Abiotic> abiotics;
 	private Set<Creature> creatures; 
-	public Level() {
-		// TODO Auto-generated constructor stub
+	public Level() {//default
+		size=new int[]{19,19};
+		abiotics = new HashSet<Abiotic>();
+		creatures = new HashSet<Creature>();
+	}
+	public static Level make(JSONObject json){
+		Level l = new Level();
+		l.load(json);
+		return l;
+	}
+	public void load(JSONObject json){
+		setLevel(json.getInt("level"));
+		JSONArray sizej = json.getJSONArray("size");
+		int[] size = new int[sizej.length()];
+		for(int i=0;i<size.length;++i)
+			size[i]=sizej.getInt(i);
+		setSize(size);
+		JSONArray as = json.getJSONArray("abiotics");
+		for(int i=0;i<as.length();++i)
+			abiotics.add(Abiotic.make(as.getJSONObject(i)));
+		JSONArray cs = json.getJSONArray("creatures");
+		for(int i=0;i<cs.length();++i)
+			creatures.add(Creature.make(cs.getJSONObject(i)));
 	}
 	public int getLevel() {
 		return level;

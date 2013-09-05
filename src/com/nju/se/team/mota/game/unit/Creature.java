@@ -16,9 +16,15 @@ public class Creature extends Unit{
 	private int Money;
 	private int EXP;
 	
-	public Creature() {}
+	public Creature() {
+		HP = 10;
+		ATK = 1;
+		DEF = 1;
+		Money = 0;
+		EXP = 0;
+	}
 	
-	public static Creature create(JSONObject json){
+	public static Creature make(JSONObject json){
 		Creature instance = new Creature();
 		instance.load(json);
 		return instance;
@@ -30,7 +36,7 @@ public class Creature extends Unit{
 		setName(json.getString("name"));
 		setPosition(new int[]{json.getJSONArray("postion").getInt(0),json.getJSONArray("postion").getInt(1)});
 		setFloor(json.getInt("floor"));
-		setBuddy(json.getString("buddy"));
+		setBuddy(json.optString("buddy"));
 
 	}
 	public void loadType(JSONObject json){
@@ -38,7 +44,7 @@ public class Creature extends Unit{
 		HashMap<UnitStatus, Animation> sprite = new HashMap<UnitStatus, Animation>();
 		JSONObject oSprite = json.getJSONObject("sprites");
 		for(Object o : oSprite.keySet()){
-			sprite.put(UnitStatus.load((String)o), Animation.create(oSprite.getJSONArray((String)o)));
+			sprite.put(UnitStatus.load((String)o), Animation.make(oSprite.getJSONArray((String)o)));
 		}
 		setSprites(sprite);
 		HashMap<Condition, String> action = new HashMap<Condition, String>();
@@ -48,7 +54,7 @@ public class Creature extends Unit{
 		}
 		setAction(action);
 		setSize(new int[]{json.getJSONArray("size").getInt(0),json.getJSONArray("size").getInt(1)});
-		setBuddyType(json.getString("buddyType"));
+		setBuddyType(json.optString("buddyType"));
 		setHP(json.getInt("HP"));
 		setATK(json.getInt("ATK"));
 		setDEF(json.getInt("DEF"));

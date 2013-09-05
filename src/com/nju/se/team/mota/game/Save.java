@@ -1,5 +1,7 @@
 package com.nju.se.team.mota.game;
 
+import org.json.JSONObject;
+
 public class Save {
 	private String name;
 	private int lv;
@@ -14,6 +16,32 @@ public class Save {
 	private Level[] levels;
 	public Save() {
 		// TODO Auto-generated constructor stub
+	}
+	public static Save make(JSONObject json){
+		Save s = new Save();
+		s.load(json);;
+		return s;
+	}
+	public void load(JSONObject json){
+		setName(json.getString("name"));
+		setLv(json.getInt("lv"));
+		setHp(json.getInt("hp"));
+		setAtk(json.getInt("atk"));
+		setDef(json.getInt("def"));
+		setMoney(json.getInt("money"));
+		setKeys(new int[]{json.getJSONArray("keys").getInt(0),json.getJSONArray("keys").getInt(1),json.getJSONArray("keys").getInt(2)});
+		int[] tools = new int[json.getJSONArray("tools").length()];
+		for(int i=0;i<json.getJSONArray("tools").length();++i){
+			tools[i] = json.getJSONArray("tools").getInt(i);
+		}
+		setTools(tools);
+		setFloor(json.getInt("floor"));
+		setSavetime(json.getString("savetime"));
+		Level[] levels = new Level[json.getJSONArray("levels").length()];
+		for(int i=0;i<json.getJSONArray("tools").length();++i){
+			levels[i] = Level.make(json.getJSONArray("levels").getJSONObject(i));
+		}
+		setLevels(levels);
 	}
 	public String getName() {
 		return name;

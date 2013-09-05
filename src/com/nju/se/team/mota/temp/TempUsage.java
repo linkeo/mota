@@ -1,13 +1,14 @@
 package com.nju.se.team.mota.temp;
 
 import java.io.FileNotFoundException;
-import com.nju.se.team.mota.data.DataLoader;
+import org.json.JSONObject;
+
+import com.nju.se.team.mota.game.unit.Unit;
 
 
 public class TempUsage {
 	public static void main(String[] args) throws FileNotFoundException {
-		for(int i : DataLoader.getLevelFloors())
-		System.out.println(i+"==>"+DataLoader.getLevelDefine(i));
+		System.out.println(new JSONObject(new Unit()));
 	}
 }
 

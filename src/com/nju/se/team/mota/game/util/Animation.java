@@ -9,7 +9,9 @@ import com.nju.se.team.mota.data.ImageLoader;
 public class Animation {
 	String[][] images;
 	int currentFrame, imageCnt;
-	
+	public Animation() {
+		images = new String[0][0];
+	}
 	public void update(){
 		currentFrame = (currentFrame+1)%imageCnt;
 	}
@@ -31,7 +33,7 @@ public class Animation {
 			}
 		}
 	}
-	public static Animation create(JSONArray json){
+	public static Animation make(JSONArray json){
 		Animation a = new Animation();
 		a.load(json);
 		return a;
