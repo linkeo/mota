@@ -3,6 +3,7 @@ package com.nju.se.team.mota.data;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Set;
 
 import javax.imageio.ImageIO;
 
@@ -49,6 +50,11 @@ public class ImageLoader {
 		for(int i=0;i<keys.length;++i)
 			images[i]=get(keys[i]);
 		return images;
+	}
+	public static Set<String> getKeySet(){
+		if(instance==null)
+			load();
+		return instance.imageMap.keySet();
 	}
 	
 }

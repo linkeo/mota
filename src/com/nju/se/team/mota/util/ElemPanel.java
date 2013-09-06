@@ -1,11 +1,9 @@
-package com.nju.se.team.mota.temp;
+package com.nju.se.team.mota.util;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
 import com.nju.se.team.mota.editor.Colors;
@@ -16,27 +14,28 @@ public class ElemPanel extends JLayeredPane{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected static Color
+	protected Color
 			color_normal = Colors.THEME_COLOR,
 			color_hover = Colors.THEME_COLOR_LIGHT,
 			color_active = Colors.THEME_COLOR_2;
 	private boolean isSelected = false,selectable;
-	private static ImageIcon iiSelected = new ImageIcon("image/selected.png");
-	private JLabel lSelected = new JLabel(iiSelected);
 	public ElemPanel(boolean selectable){
 		if(selectable){
 			this.setBackground(color_normal);
 		}
 		this.setLayout(null);
 		this.setOpaque(true);
-		this.add(lSelected, Integer.MIN_VALUE);
 		this.setSelected(false);
 		this.selectable = selectable;
 		this.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				if(isSelectable())
-					ElemPanel.this.setBackground(color_hover);//Ðü¸¡ÑÕÉ«
+				if(isSelectable()){
+					if(isSelected)
+						ElemPanel.this.setBackground(color_active);//Ðü¸¡ÑÕÉ«
+					else
+						ElemPanel.this.setBackground(color_hover);//Ðü¸¡ÑÕÉ«
+				}
 			}
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -45,42 +44,40 @@ public class ElemPanel extends JLayeredPane{
 			}
 			@Override
 			public void mouseExited(MouseEvent arg0) {
-				if(isSelectable())
-					ElemPanel.this.setBackground(color_normal);//ÆÕÍ¨ÑÕÉ«
+				if(isSelectable()){
+					if(isSelected)
+						ElemPanel.this.setBackground(color_active);//Ðü¸¡ÑÕÉ«
+					else
+						ElemPanel.this.setBackground(color_normal);//Ðü¸¡ÑÕÉ«
+				}
 			}
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
-				if(isSelectable())
-					ElemPanel.this.setBackground(color_hover);//Ðü¸¡ÑÕÉ«
+				if(isSelectable()){
+					if(isSelected)
+						ElemPanel.this.setBackground(color_active);//Ðü¸¡ÑÕÉ«
+					else
+						ElemPanel.this.setBackground(color_hover);//Ðü¸¡ÑÕÉ«
+				}
 			}
 		});
-	}
-	@Override
-	public void repaint() {
-		lSelected.setBounds(getWidth()-34, 2, 32, 29);
-		if(isSelected)
-			lSelected.setVisible(true);
-		else
-			lSelected.setVisible(false);
-			
-		super.repaint();
 	}
 	public void cancelSelected(){
 		if(selectable){
 			isSelected = false;
-			lSelected.setVisible(false);//
+			setBackground(color_normal);
 		}
 	}
 	public void select(){
 		if(selectable){
 			isSelected = true;
-			lSelected.setVisible(true);//Ñ¡ÖÐ
+			setBackground(color_active);
 		}
 	}
 	public void setSelected(boolean b){
 		if(selectable){
-			isSelected = b;
-			lSelected.setVisible(b);//Ñ¡ÖÐ
+			if(b) select();
+			else cancelSelected();
 		}
 	}
 	public boolean isSelected(){

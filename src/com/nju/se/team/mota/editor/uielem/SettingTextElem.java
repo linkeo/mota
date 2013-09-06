@@ -3,7 +3,7 @@ package com.nju.se.team.mota.editor.uielem;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import com.nju.se.team.mota.temp.ElemPanel;
+import com.nju.se.team.mota.util.ElemPanel;
 
 public class SettingTextElem extends ElemPanel implements SettingElem{
 
@@ -16,11 +16,13 @@ public class SettingTextElem extends ElemPanel implements SettingElem{
 	public SettingTextElem(String label){this(label,"");}
 	public SettingTextElem(String label, String defaultValue) {
 		super(false);
-		setSize(300, 30);
+		setSize(280, 20);
 		this.label = new JLabel(label);
 		this.value = new JTextField(defaultValue);
-		this.label.setBounds(0, 0, 100, 30);
-		this.value.setBounds(100, 0, 200, 30);
+		this.add(this.label);
+		this.add(this.value);
+		this.label.setBounds(0, 0, 90, 20);
+		this.value.setBounds(90, 0, 190, 20);
 	}
 	@Override
 	public String getResult() {

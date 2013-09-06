@@ -9,6 +9,7 @@ public class EditorMain {
 		EditorFrame f = new EditorFrame();
 		f.setVisible(true);
 		f.setLocationRelativeTo(null);
+
 	}/**
 	 * 设置LookAndFeel为系统样式, 
 	 * 并设置Label, Button, TextField, TextArea的字体为微软雅黑(Plain,12) <br/><b>注:</b> 必须在使用Swing之前调用.

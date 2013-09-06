@@ -1,7 +1,8 @@
-package com.nju.se.team.mota.temp;
+package com.nju.se.team.mota.util;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.MouseEvent;
@@ -94,7 +95,8 @@ public class ListPanel extends JScrollPane implements MouseListener, ComponentLi
 		adjustSize();
 	}
 	public void adjustSize(){
-		int LIST_WIDTH = getSize().width-16;
+//		int LIST_WIDTH = getSize().width-16;
+		int LIST_WIDTH = getViewport().getSize().width;
 		int n = elems.size();
 		int currentX = WGAP;
 		int currentY = HGAP;
@@ -203,6 +205,11 @@ public class ListPanel extends JScrollPane implements MouseListener, ComponentLi
 	@Override
 	public void componentResized(ComponentEvent e) {
 		adjustSize();
+	}
+	@Override
+	public void paint(Graphics g){
+		adjustSize();
+		super.paint(g);
 	}
 	@Override
 	public void componentMoved(ComponentEvent e) {}
