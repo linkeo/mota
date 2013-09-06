@@ -1,13 +1,10 @@
-package com.nju.se.team.mota.editor;
+package com.nju.se.team.mota.editor.uielem;
 
-import java.awt.image.BufferedImage;
-
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import com.nju.se.team.mota.util.ElemPanel;
 
-public class ResElem  extends ElemPanel {
+public class StatusElem extends ElemPanel {
 
 	/**
 	 * 
@@ -15,12 +12,10 @@ public class ResElem  extends ElemPanel {
 	private static final long serialVersionUID = 1L;
 	
 	JLabel value;
-	BufferedImage res;
 	
-	public ResElem(BufferedImage res) {
-		super(false);
-		this.res = res;
-		this.value = new JLabel(new ImageIcon(res));
+	public StatusElem(String value) {
+		super(true);
+		this.value = new JLabel(value);
 		this.value.setOpaque(false);
 		add(this.value);
 		setSize(this.value.getPreferredSize());
@@ -28,8 +23,8 @@ public class ResElem  extends ElemPanel {
 		this.value.setSize(this.value.getPreferredSize());
 	}
 	
-	public BufferedImage getRes(){
-		return res;
+	public String getValue(){
+		return value.getText();
 	}
 	
 }

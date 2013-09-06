@@ -2,6 +2,8 @@ package com.nju.se.team.mota.editor;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -10,16 +12,24 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import com.nju.se.team.mota.data.ImageLoader;
+import com.nju.se.team.mota.editor.uielem.ActionElem;
+import com.nju.se.team.mota.editor.uielem.ResElem;
 import com.nju.se.team.mota.editor.uielem.SettingCheckElem;
 import com.nju.se.team.mota.editor.uielem.SettingComboElem;
 import com.nju.se.team.mota.editor.uielem.SettingElem;
+import com.nju.se.team.mota.editor.uielem.SettingIntegerElem;
 import com.nju.se.team.mota.editor.uielem.SettingPointItem;
 import com.nju.se.team.mota.editor.uielem.SettingTextElem;
+import com.nju.se.team.mota.editor.uielem.StatusElem;
+import com.nju.se.team.mota.game.util.Condition;
+import com.nju.se.team.mota.game.util.TypeEnum;
+import com.nju.se.team.mota.util.ElemPanel;
 import com.nju.se.team.mota.util.ListPanel;
 
 public class TypeDefinePanel extends JPanel {
@@ -31,7 +41,7 @@ public class TypeDefinePanel extends JPanel {
 	JPanel leftPanel;
 		JPanel left_topPanel;
 			JLabel typeLabel;
-			JComboBox<String> typeComboBox;
+			JComboBox<TypeEnum> typeComboBox;
 			JLabel subTypeLabel;
 			JComboBox<String> subTypeComboBox;
 		ListPanel typeEditPanel;
@@ -42,6 +52,11 @@ public class TypeDefinePanel extends JPanel {
 			SettingCheckElem setcangt;
 			SettingPointItem setsize;
 			SettingComboElem<String> setbt;
+			SettingIntegerElem setHP;
+			SettingIntegerElem setATK;
+			SettingIntegerElem setDEF;
+			SettingIntegerElem setMoney;
+			SettingIntegerElem setEXP;
 		ListPanel actionListPanel;
 			JButton actionAddButton;
 			JButton actionEditButton;
@@ -68,7 +83,7 @@ public class TypeDefinePanel extends JPanel {
 		leftPanel = new JPanel(null);
 			left_topPanel = new JPanel(null);
 				typeLabel = new JLabel("类型组:");
-				typeComboBox = new JComboBox<String>(new String[]{"生物","静物"});
+				typeComboBox = new JComboBox<TypeEnum>(TypeEnum.values());
 				subTypeLabel = new JLabel("类型:");
 				subTypeComboBox = new JComboBox<String>(new String[]{"Wall","StairUp"});
 			typeEditPanel = new ListPanel("属性设置");
@@ -131,22 +146,59 @@ public class TypeDefinePanel extends JPanel {
 		setPreferredSize(getSize());
 		calcLayout();
 		
-
-		typeEditPanel.add(setname = new SettingTextElem("类型名:", "Wall"));
-		typeEditPanel.add(setcangt =  new SettingCheckElem("可穿透:", false));
-		typeEditPanel.add(setsize = new SettingPointItem("尺寸:", 1, 1, 1, 5, 1, 5));
-		typeEditPanel.add(setbt = new SettingComboElem<String>("配对类型:", "Wall", new String[]{"Wall","StairUp"}));
 		
 		
-		actionListPanel.add(new ActionElem("crash", "open"));
-		actionListPanel.add(new ActionElem("leave", "close"));
+		actionListPanel.add(new ActionElem(Condition.CRASH, "open"));
+		actionListPanel.add(new ActionElem(Condition.CLOSETO, "close"));
 		
 		ArrayList<String> keys = new ArrayList<String>(ImageLoader.getKeySet());
 		Collections.sort(keys);
 		for(String s : keys)
-			resListPanel.add(new ResElem(ImageLoader.get(s)));
+			resListPanel.add(new ResElem(s));
 		
 		addListeners();
+		typeSelected((TypeEnum) typeComboBox.getSelectedItem());
+	}
+	public void addType(){
+		TypeEnum type = (TypeEnum) typeComboBox.getSelectedItem();
+		setname.setValue("new");
+		setsize.setValue(1,1);
+		setbt.setValue("none");
+		if(type == TypeEnum.ABIOTIC)
+			setcangt.setValue(false);
+		if(type == TypeEnum.CREATURE){
+			setHP.setValue(10);
+			setATK.setValue(10);
+			setDEF.setValue(10);
+			setMoney.setValue(10);
+			setEXP.setValue(10);
+		}
+		
+	}
+	public void typeSelected(TypeEnum type){
+		typeEditPanel.removeAll();
+		
+		typeEditPanel.add(setname = new SettingTextElem("类型名:", "new"));
+		typeEditPanel.add(setsize = new SettingPointItem("尺寸:", 1, 1, 1, 5, 1, 5));
+		typeEditPanel.add(setbt = new SettingComboElem<String>("配对类型:", "none", new String[]{"none","Wall","StairUp"}));
+		if(type == TypeEnum.ABIOTIC)
+			typeEditPanel.add(setcangt =  new SettingCheckElem("可穿透:", false));
+		if(type == TypeEnum.CREATURE){
+			typeEditPanel.add(setHP = new SettingIntegerElem("血量:", 10, 1, 99999999));
+			typeEditPanel.add(setATK = new SettingIntegerElem("攻击力:", 10, 1, 99999999));
+			typeEditPanel.add(setDEF = new SettingIntegerElem("防御力:", 10, 1, 99999999));
+			typeEditPanel.add(setMoney = new SettingIntegerElem("金钱:", 10, 1, 99999999));
+			typeEditPanel.add(setEXP = new SettingIntegerElem("经验:", 10, 1, 99999999));
+		}
+
+		setsize.addChangeListenerToSpinners(new ChangeListener() {
+			
+			@Override
+			public void stateChanged(ChangeEvent arg0) {
+				frameHolder.setGridSize(setsize.getXValue(), setsize.getYValue());
+			}
+		});
+		
 	}
 	
 	public void addListeners(){
@@ -158,13 +210,59 @@ public class TypeDefinePanel extends JPanel {
 			}
 		});
 		
-		setsize.addChangeListenerToSpinners(new ChangeListener() {
+		typeComboBox.addItemListener(new ItemListener() {
 			
 			@Override
-			public void stateChanged(ChangeEvent arg0) {
-				frameHolder.setGridSize(setsize.getXValue(), setsize.getYValue());
+			public void itemStateChanged(ItemEvent e) {
+
+				if(e.getStateChange()!=ItemEvent.SELECTED){
+					typeSelected((TypeEnum) typeComboBox.getSelectedItem());
+				}
 			}
 		});
+		
+		typeAddButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				addType();
+			}
+		});
+		
+		actionAddButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ActionElem elem = ActionEditDialog.editAction(TypeDefinePanel.this);
+				if(elem.getAction()==null||elem.getAction().equals(""))
+					return;
+				actionListPanel.add(elem);
+			}
+		});
+		
+		actionDeleteButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for(ElemPanel elem : actionListPanel.getSelectedElems())
+					actionListPanel.remove(elem);
+			}
+		});
+		
+		actionEditButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ActionElem selectedElem = (ActionElem) actionListPanel.getSelectedElem();
+				if(selectedElem == null) return;
+				ActionElem elem = ActionEditDialog.editAction(TypeDefinePanel.this, selectedElem);
+				if(elem.getAction()==null||elem.getAction().equals(""))
+					return;
+				actionListPanel.remove(selectedElem);
+				actionListPanel.add(elem);
+			}
+		});
+		
 	}
 	
 	public void calcLayout(){

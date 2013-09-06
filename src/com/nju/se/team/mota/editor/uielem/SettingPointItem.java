@@ -46,4 +46,8 @@ public class SettingPointItem extends ElemPanel implements SettingElem{
 		spinx.addChangeListener(cl);
 		spiny.addChangeListener(cl);
 	}
+	public void setValue(int x, int y) {
+		spinx.setValue(x);
+		spiny.setValue(y);
+	}
 }

@@ -31,5 +31,8 @@ public class SettingCheckElem extends ElemPanel implements SettingElem{
 	public String getResult() {
 		return "\""+label.getText()+"\""+":"+(value.isSelected()?"true":"false");
 	}
+	public void setValue(boolean value) {
+		this.value.setSelected(value);
+	}
 
 }

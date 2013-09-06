@@ -29,5 +29,8 @@ public class SettingComboElem<T> extends ElemPanel implements SettingElem{
 	public String getResult() {
 		return "\""+label.getText()+"\""+":"+combo.getSelectedItem().toString();
 	}
+	public void setValue(T value) {
+		combo.setSelectedItem(value);
+	}
 
 }

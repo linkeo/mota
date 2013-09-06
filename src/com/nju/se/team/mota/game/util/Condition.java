@@ -16,4 +16,8 @@ public enum Condition {
 		default: return null;
 		}
 	}
+	@Override
+	public String toString() {
+		return str;
+	}
 }

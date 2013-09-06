@@ -20,17 +20,14 @@ public class ImageLoader {
 			try {
 				bi = ImageIO.read(ResLoader.getImageFile(s));
 				if(bi.getWidth()%32!=0||bi.getHeight()%32!=0){
-					System.err.println("Image size dismatch."+s);
 					continue;
 				}
-				int n = 0;
 				int w = bi.getWidth()/32;
 				int h = bi.getHeight()/32;
 				for(int i = 0; i < w ; ++i)
 					for(int j = 0; j < h ; ++j){
-						instance.imageMap.put(s+'_'+(++n),bi.getSubimage(i*32, j*32, 32, 32));
+						instance.imageMap.put(s+'_'+j+"x"+i,bi.getSubimage(i*32, j*32, 32, 32));
 					}
-				System.out.println("Image read successfully( "+w+" x "+h+" ).");
 				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
