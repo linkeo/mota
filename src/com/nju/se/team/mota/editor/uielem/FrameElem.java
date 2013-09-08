@@ -13,11 +13,13 @@ public class FrameElem extends ElemPanel {
 	
 	JLabel value;
 	int intvalue;
+	String[][] imagekey;
 	
-	public FrameElem(int value) {
+	public FrameElem(int value, String[][] image) {
 		super(true);
 		intvalue = value;
-		this.value = new JLabel(Integer.toString(value));
+		imagekey = image;
+		this.value = new JLabel(" "+value+" ");
 		this.value.setOpaque(false);
 		add(this.value);
 		setSize(this.value.getPreferredSize());
@@ -27,6 +29,14 @@ public class FrameElem extends ElemPanel {
 	
 	public int getValue(){
 		return intvalue;
+	}
+	
+	public String[][] getImageKey(){
+		return imagekey;
+	}
+
+	public void setImageKey(String[][] imagekey) {
+		this.imagekey = imagekey;
 	}
 	
 }

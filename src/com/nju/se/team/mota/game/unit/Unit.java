@@ -2,8 +2,6 @@ package com.nju.se.team.mota.game.unit;
 
 import java.util.HashMap;
 
-import org.json.JSONObject;
-
 import com.nju.se.team.mota.game.util.Animation;
 import com.nju.se.team.mota.game.util.Condition;
 import com.nju.se.team.mota.game.util.UnitStatus;
@@ -21,41 +19,12 @@ public class Unit {
 	private String buddyType;
 	
 	public Unit() {
-		name = "floor";
-		type = "floor";
+		name = "new";
 		sprites = new HashMap<UnitStatus, Animation>();
 		action = new HashMap<Condition, String>();
 		position = new int[]{1,1};
 		size = new int[]{1,1};
 	}
-	public static Unit make(JSONObject json){
-		Unit instance = new Unit();
-		instance.load(json);
-		return instance;
-	}
-	
-	public void load(JSONObject json){
-		setName(json.getString("name"));
-		setType(json.getString("type"));
-		HashMap<UnitStatus, Animation> sprite = new HashMap<UnitStatus, Animation>();
-		JSONObject oSprite = json.getJSONObject("sprites");
-		for(Object o : oSprite.keySet()){
-			sprite.put(UnitStatus.load((String)o), Animation.make(oSprite.getJSONArray((String)o)));
-		}
-		setSprites(sprite);
-		HashMap<Condition, String> action = new HashMap<Condition, String>();
-		JSONObject oAction = json.getJSONObject("action");
-		for(Object a : oAction.keySet()){
-			action.put(Condition.load((String)a), oAction.getString((String)a));
-		}
-		setAction(action);
-		setPosition(new int[]{json.getJSONArray("postion").getInt(0),json.getJSONArray("postion").getInt(1)});
-		setSize(new int[]{json.getJSONArray("size").getInt(0),json.getJSONArray("size").getInt(1)});
-		setFloor(json.getInt("floor"));
-		setBuddy(json.optString("buddy"));
-		setBuddyType(json.optString("buddyType"));
-	}
-	
 	public String getName() {
 		return name;
 	}

@@ -25,6 +25,13 @@ public class ListPanel extends JScrollPane implements MouseListener, ComponentLi
 	protected JLabel head;
 	protected int HGAP = 10;
 	protected int WGAP = 10;
+	protected boolean multiSelectable = true;
+	public boolean isMultiSelectable() {
+		return multiSelectable;
+	}
+	public void setMultiSelectable(boolean multiSelectable) {
+		this.multiSelectable = multiSelectable;
+	}
 	public ListPanel(){
 		this(null);
 	}
@@ -58,11 +65,11 @@ public class ListPanel extends JScrollPane implements MouseListener, ComponentLi
 		elems.add(comp);
 		list.add(comp);
 		adjustSize();
-		if(comp.isSelectable()&&selectedElem==null){
-			selectedElem = comp;
-			selectedElems.add(comp);
-			comp.select();
-		}
+//		if(comp.isSelectable()&&selectedElem==null){
+//			selectedElem = comp;
+//			selectedElems.add(comp);
+//			comp.select();
+//		}
 		comp.repaint();
 		return comp;
 	}
@@ -72,8 +79,10 @@ public class ListPanel extends JScrollPane implements MouseListener, ComponentLi
 		elems.remove(comp);
 		list.remove(comp);
 		adjustSize();
-		if(comp.isSelectable()&&selectedElem==comp)
+		if(comp.isSelectable()&&selectedElem==comp){
 			comp.cancelSelected();
+			selectedElem = null;
+		}
 	}
 	@Override
 	public void removeAll() {
@@ -148,7 +157,7 @@ public class ListPanel extends JScrollPane implements MouseListener, ComponentLi
 	public void mouseReleased(MouseEvent e) {
 		ElemPanel elem = (ElemPanel)e.getComponent();
 		if(elem.isSelectable()){
-			if(e.isControlDown()){
+			if(isMultiSelectable()&&e.isControlDown()){
 				if(elem.isSelected()){
 					elem.setSelected(false);
 					selectedElems.remove(elem);

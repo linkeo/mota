@@ -32,19 +32,43 @@ public class Creature extends Unit{
 	
 	public void load(JSONObject json){
 		loadType(new JSONObject(DataLoader.getAbioticDefine(json.getString("type"))));
-		
 		setName(json.getString("name"));
-		setPosition(new int[]{json.getJSONArray("postion").getInt(0),json.getJSONArray("postion").getInt(1)});
+		setPosition(new int[]{json.getJSONArray("position").getInt(0),json.getJSONArray("position").getInt(1)});
 		setFloor(json.getInt("floor"));
 		setBuddy(json.optString("buddy"));
 
+	}
+	public JSONObject parseEntityJSON(){
+		JSONObject json = toJSON();
+		json.remove("type");
+		json.remove("sprites");
+		json.remove("action");
+		json.remove("size");
+		json.remove("buddyType");
+		json.remove("HP");
+		json.remove("ATK");
+		json.remove("DEF");
+		json.remove("Money");
+		json.remove("EXP");
+		return json;
+	}
+	public JSONObject parseTypeJSON(){
+		JSONObject json = toJSON();
+		json.remove("name");
+		json.remove("position");
+		json.remove("floor");
+		json.remove("buddy");
+		return json;
+	}
+	public JSONObject toJSON(){
+		return new JSONObject(this);
 	}
 	public void loadType(JSONObject json){
 		setType(json.getString("type"));
 		HashMap<UnitStatus, Animation> sprite = new HashMap<UnitStatus, Animation>();
 		JSONObject oSprite = json.getJSONObject("sprites");
 		for(Object o : oSprite.keySet()){
-			sprite.put(UnitStatus.load((String)o), Animation.make(oSprite.getJSONArray((String)o)));
+			sprite.put(UnitStatus.load((String)o), Animation.make(oSprite.getJSONObject((String)o)));
 		}
 		setSprites(sprite);
 		HashMap<Condition, String> action = new HashMap<Condition, String>();
@@ -60,6 +84,10 @@ public class Creature extends Unit{
 		setDEF(json.getInt("DEF"));
 		setMoney(json.getInt("Money"));
 		setEXP(json.getInt("EXP"));
+	}	
+	public Creature copy(){
+		//TODO
+		return null;
 	}
 	public int getHP() {
 		return HP;

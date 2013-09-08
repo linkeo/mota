@@ -9,10 +9,11 @@ import java.awt.dnd.DropTargetDropEvent;
 import java.awt.dnd.DropTargetEvent;
 import java.awt.dnd.DropTargetListener;
 import java.io.IOException;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
+import javax.swing.ImageIcon;
 import com.nju.se.team.mota.data.ImageLoader;
+import com.nju.se.team.mota.editor.FrameHolder;
+import com.nju.se.team.mota.editor.uielem.FrameGridElem;
 
 public class ResDropTargetListener implements DropTargetListener {
 
@@ -23,9 +24,11 @@ public class ResDropTargetListener implements DropTargetListener {
 			if( t.isDataFlavorSupported( DataFlavor.stringFlavor ) ) {
 				s = (String) t.getTransferData( DataFlavor.stringFlavor );
 				DropTarget dt = (DropTarget)e.getSource();
-				JLabel d = ( JLabel )dt.getComponent();
+				FrameGridElem d = ( FrameGridElem )dt.getComponent();
 				d.setIcon(new ImageIcon(ImageLoader.get(s)));
-				d.setName(s);
+				d.setKey(s);
+				FrameHolder fh = (FrameHolder) d.getParent();
+				fh.refresh();
 			}
 		} catch( IOException ioe ) {
 			ioe.printStackTrace();

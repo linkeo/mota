@@ -4,7 +4,9 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -36,7 +38,7 @@ public class ActionEditDialog extends JDialog implements ActionListener{
 		setContentPane(cp);
 		condition = new JLabel("触发条件:");
 		action = new JLabel("行为脚本:");
-		inputCondition = new JComboBox<>(Condition.values());
+		inputCondition = new JComboBox<Condition>();
 		inputAction = new JTextField();
 		submit = new JButton("提交");
 		cp.add(condition);
@@ -53,21 +55,16 @@ public class ActionEditDialog extends JDialog implements ActionListener{
 	}
 	public ActionEditDialog(ActionElem elem) {
 		this();
+		if(elem==null) return;
 		inputAction.setText(elem.getAction());
 		inputCondition.setSelectedItem(elem.getCondition());
 	}
-	public static ActionElem editAction(Component comp){
-		ActionEditDialog ss = new ActionEditDialog();
-		ss.setModal(true);
-		ss.addSubmitActionListener(ss);
-		ss.setLocationRelativeTo(comp);
-		ss.show();
-		ActionElem result = ss.getResult();
-		ss.dispose();
-		return result;
+	public static ActionElem editAction(Component comp, Vector<Condition> candidates){
+		return editAction(comp, null, candidates);
 	}
-	public static ActionElem editAction(Component comp, ActionElem elem){
+	public static ActionElem editAction(Component comp, ActionElem elem, Vector<Condition> candidates){
 		ActionEditDialog ss = new ActionEditDialog(elem);
+		ss.inputCondition.setModel(new DefaultComboBoxModel<Condition>(candidates));
 		ss.setModal(true);
 		ss.addSubmitActionListener(ss);
 		ss.setLocationRelativeTo(comp);
@@ -77,6 +74,8 @@ public class ActionEditDialog extends JDialog implements ActionListener{
 		return result;
 	}
 	private ActionElem getResult() {
+		if(inputCondition.getSelectedItem()==null||inputAction.getText()==null||inputAction.getText().matches("\\W*"))
+			return null;
 		return new ActionElem((Condition)inputCondition.getSelectedItem(), inputAction.getText());
 	}
 	public void addSubmitActionListener(ActionListener al){

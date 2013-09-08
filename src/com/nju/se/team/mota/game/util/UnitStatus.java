@@ -20,10 +20,8 @@ public enum UnitStatus {
 		default : return null;
 		}
 	}
-	public String getStr() {
+	@Override
+	public String toString() {
 		return str;
-	}
-	public void setStr(String str) {
-		this.str = str;
 	}
 }

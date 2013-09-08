@@ -40,14 +40,6 @@ public class ImageLoader {
 			load();
 		return instance.imageMap.get(key);
 	}
-	public static BufferedImage[] get(String[] keys){
-		if(instance==null)
-			load();
-		BufferedImage[] images = new BufferedImage[keys.length];
-		for(int i=0;i<keys.length;++i)
-			images[i]=get(keys[i]);
-		return images;
-	}
 	public static Set<String> getKeySet(){
 		if(instance==null)
 			load();
