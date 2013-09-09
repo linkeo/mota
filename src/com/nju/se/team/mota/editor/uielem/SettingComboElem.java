@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 
 import com.nju.se.team.mota.util.ElemPanel;
 
-public class SettingComboElem<T> extends ElemPanel implements SettingElem{
+public class SettingComboElem<T> extends ElemPanel{
 
 	/**
 	 * 
@@ -40,9 +40,9 @@ public class SettingComboElem<T> extends ElemPanel implements SettingElem{
 		this.label.setBounds(0, 0, 90, 20);
 		this.combo.setBounds(90, 0, 190, 20);
 	}
-	@Override
-	public String getResult() {
-		return "\""+label.getText()+"\""+":"+combo.getSelectedItem().toString();
+	@SuppressWarnings("unchecked")
+	public T getValue() {
+		return (T) combo.getSelectedItem();
 	}
 	public void setValue(T value) {
 		combo.setSelectedItem(value);

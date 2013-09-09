@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 import com.nju.se.team.mota.game.util.Condition;
 import com.nju.se.team.mota.util.ElemPanel;
 
-public class ActionElem extends ElemPanel implements SettingElem{
+public class ActionElem extends ElemPanel{
 
 	/**
 	 * 
@@ -24,10 +24,6 @@ public class ActionElem extends ElemPanel implements SettingElem{
 		this.add(this.value);
 		this.label.setBounds(0, 0, 90, 20);
 		this.value.setBounds(90, 0, 190, 20);
-	}
-	@Override
-	public String getResult() {
-		return "\""+label.getText()+"\""+":\""+value.getText()+"\"";
 	}
 	public Condition getCondition(){
 		return this.condition;

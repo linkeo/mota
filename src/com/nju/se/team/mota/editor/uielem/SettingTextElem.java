@@ -5,7 +5,7 @@ import javax.swing.JTextField;
 
 import com.nju.se.team.mota.util.ElemPanel;
 
-public class SettingTextElem extends ElemPanel implements SettingElem{
+public class SettingTextElem extends ElemPanel{
 
 	/**
 	 * 
@@ -24,9 +24,8 @@ public class SettingTextElem extends ElemPanel implements SettingElem{
 		this.label.setBounds(0, 0, 90, 20);
 		this.value.setBounds(90, 0, 190, 20);
 	}
-	@Override
-	public String getResult() {
-		return "\""+label.getText()+"\""+":"+"\""+value.getText()+"\"";
+	public String getValue() {
+		return value.getText();
 	}
 	public void setValue(String str){
 		value.setText(str);

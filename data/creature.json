@@ -1,14 +1,20 @@
-[
-	{
-		type:"Slime",
-		"action":{"closeto":"open","crash":"open"},
-		"sprites":{"normal":{"images":[[["enemy03_0x0"]],[["enemy03_1x0"]]]}},
-		size:[1,1],
-		buddyType:"none",
-		HP:200,
-		ATK:10,
-		DEF:10,
-		Money:20,
-		EXP:30,
-	}
-]
+[{
+    "DEF": 1,
+    "buddyType": "none",
+    "sprites": {"normal": {"images": [
+        [["enemy02_0x0"]],
+        [["enemy02_0x1"]],
+        [["enemy02_0x2"]],
+        [["enemy02_0x3"]]
+    ]}},
+    "money": 1,
+    "action": {"crash": "fight"},
+    "EXP": 1,
+    "HP": 10,
+    "type": "bat_small",
+    "ATK": 1,
+    "size": [
+        1,
+        1
+    ]
+}]

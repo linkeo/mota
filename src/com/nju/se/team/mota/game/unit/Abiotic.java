@@ -22,13 +22,13 @@ public class Abiotic extends Unit{
 	}
 	public static Abiotic defaultAbiotic(){
 		Abiotic a = new Abiotic();
-		a.setName("new");
+		a.setType("new");
 		a.setSize(new int[]{1,1});
 		a.setBuddyType("none");
 		return a;
 	}
 	public void load(JSONObject json){
-		loadType(new JSONObject(DataLoader.getAbioticDefine(json.getString("type"))));
+		loadType(DataLoader.getAbioticDefine(json.getString("type")));
 		setName(json.getString("name"));
 		setPosition(new int[]{json.getJSONArray("position").getInt(0),json.getJSONArray("position").getInt(1)});
 		setFloor(json.getInt("floor"));

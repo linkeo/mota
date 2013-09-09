@@ -7,7 +7,7 @@ import javax.swing.event.ChangeListener;
 
 import com.nju.se.team.mota.util.ElemPanel;
 
-public class SettingPointItem extends ElemPanel implements SettingElem{
+public class SettingPointItem extends ElemPanel{
 
 	/**
 	 * 
@@ -31,10 +31,6 @@ public class SettingPointItem extends ElemPanel implements SettingElem{
 		this.label.setBounds(0, 0, 90, 20);
 		this.spinx.setBounds(90, 0, 90, 20);
 		this.spiny.setBounds(190, 0, 90, 20);
-	}
-	@Override
-	public String getResult() {
-		return "\""+label.getText()+"\""+":["+(int)spinx.getValue()+","+(int)spiny.getValue()+"]";
 	}
 	public int getXValue(){
 		return (int)spinx.getValue();

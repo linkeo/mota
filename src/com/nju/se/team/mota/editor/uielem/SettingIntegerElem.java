@@ -6,7 +6,7 @@ import javax.swing.JTextField;
 import com.nju.se.team.mota.util.ElemPanel;
 import com.nju.se.team.mota.util.MyDocuments;
 
-public class SettingIntegerElem extends ElemPanel implements SettingElem{
+public class SettingIntegerElem extends ElemPanel{
 
 	/**
 	 * 
@@ -25,9 +25,9 @@ public class SettingIntegerElem extends ElemPanel implements SettingElem{
 		this.label.setBounds(0, 0, 90, 20);
 		this.value.setBounds(90, 0, 190, 20);
 	}
-	@Override
-	public String getResult() {
-		return "\""+label.getText()+"\""+":"+"\""+value.getText()+"\"";
+	public int getValue() {
+		if(value.getText()==null||value.getText().isEmpty())return 0;
+		return Integer.parseInt(value.getText());
 	}
 	public void setValue(int value) {
 		this.value.setText(Integer.toString(value));

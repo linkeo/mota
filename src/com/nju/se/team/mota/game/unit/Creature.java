@@ -22,6 +22,7 @@ public class Creature extends Unit{
 		DEF = 1;
 		Money = 0;
 		EXP = 0;
+		setBuddy("none");
 	}
 	
 	public static Creature make(JSONObject json){
@@ -29,9 +30,17 @@ public class Creature extends Unit{
 		instance.load(json);
 		return instance;
 	}
+
+	public static Creature defaultCreature() {
+		Creature c = new Creature();
+		c.setType("new");
+		c.setSize(new int[]{1,1});
+		c.setBuddyType("none");
+		return c;
+	}
 	
 	public void load(JSONObject json){
-		loadType(new JSONObject(DataLoader.getAbioticDefine(json.getString("type"))));
+		loadType(DataLoader.getAbioticDefine(json.getString("type")));
 		setName(json.getString("name"));
 		setPosition(new int[]{json.getJSONArray("position").getInt(0),json.getJSONArray("position").getInt(1)});
 		setFloor(json.getInt("floor"));
@@ -48,7 +57,7 @@ public class Creature extends Unit{
 		json.remove("HP");
 		json.remove("ATK");
 		json.remove("DEF");
-		json.remove("Money");
+		json.remove("money");
 		json.remove("EXP");
 		return json;
 	}
@@ -82,7 +91,7 @@ public class Creature extends Unit{
 		setHP(json.getInt("HP"));
 		setATK(json.getInt("ATK"));
 		setDEF(json.getInt("DEF"));
-		setMoney(json.getInt("Money"));
+		setMoney(json.getInt("money"));
 		setEXP(json.getInt("EXP"));
 	}	
 	public Creature copy(){

@@ -1,19 +1,410 @@
 [
-	{
-		"canGoThrough":false,
-		"buddyType":"stair_down",
-		"action":{"crash":"stairup"},
-		"sprites":{"normal":{"images":[[["stair_0x1"]]]}},
-		"type":"stair_up",
-		"size":[1,1]
-	},
-	{
-		"canGoThrough":false,
-		"buddyType":"stair_up",
-		"action":{"crash":"stairdown"},
-		"sprites":{"normal":{"images":[[["stair_0x0"]]]}},
-		"type":"stair_down",
-		"size":[1,1]
-	}
-	
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item3_0x4"]]]}},
+        "action": {"crash": "get(sword5)"},
+        "type": "sword_5",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_0x2"]]]}},
+        "action": {"crash": "atkup(6)"},
+        "type": "gem_green",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item3_0x3"]]]}},
+        "action": {"crash": "get(sword4)"},
+        "type": "sword_4",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item3_0x2"]]]}},
+        "action": {"crash": "get(sword3)"},
+        "type": "sword_3",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item3_0x1"]]]}},
+        "action": {"crash": "get(sword2)"},
+        "type": "sword_2",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item1_0x1"]]]}},
+        "action": {"dead": "get(blueKey)"},
+        "type": "key_blue",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "stair_down",
+        "sprites": {"normal": {"images": [[["stair_0x1"]]]}},
+        "action": {"crash": "upstair"},
+        "type": "stair_up",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": false,
+        "buddyType": "none",
+        "action": {},
+        "sprites": {
+            "open": {"images": [
+                [["door_1x2"]],
+                [["door_2x2"]],
+                [["door_3x2"]]
+            ]},
+            "normal": {"images": [[["door_0x2"]]]}
+        },
+        "type": "door_red",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": false,
+        "buddyType": "none",
+        "action": {},
+        "sprites": {
+            "open": {"images": [
+                [["door_1x0"]],
+                [["door_2x0"]],
+                [["door_3x0"]]
+            ]},
+            "normal": {"images": [[["door_0x0"]]]}
+        },
+        "type": "door_yellow",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_0x3"]]]}},
+        "action": {"crash": "defup(6)"},
+        "type": "gem_yellow",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item3_0x0"]]]}},
+        "action": {"crash": "get(sword1)"},
+        "type": "sword_1",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_1x1"]]]}},
+        "action": {"crash": "hpup(250)"},
+        "type": "potion_blue",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item3_1x0"]]]}},
+        "action": {"crash": "get(shield1)"},
+        "type": "shield_1",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item1_0x0"]]]}},
+        "action": {"crash": "get(yellowKey)"},
+        "type": "key_yellow",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item3_1x1"]]]}},
+        "action": {"crash": "get(shield2)"},
+        "type": "shield_2",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_2x1"]]]}},
+        "action": {},
+        "type": "grail_red",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_1x3"]]]}},
+        "action": {"crash": "hpup(800)"},
+        "type": "potion_yellow",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item1_0x2"]]]}},
+        "action": {"crash": "get(redKey)"},
+        "type": "key_red",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "stair_up",
+        "sprites": {"normal": {"images": [[["stair_0x0"]]]}},
+        "action": {"crash": "downstair"},
+        "type": "stair_down",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": false,
+        "buddyType": "none",
+        "action": {},
+        "sprites": {
+            "open": {"images": [
+                [["door_1x1"]],
+                [["door_2x1"]],
+                [["door_3x1"]]
+            ]},
+            "normal": {"images": [[["door_0x1"]]]}
+        },
+        "type": "door_blue",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": false,
+        "buddyType": "none",
+        "sprites": {
+            "open": {"images": [
+                [["door2_1x0"]],
+                [["door2_2x0"]],
+                [["door2_3x0"]]
+            ]},
+            "normal": {"images": [[["door2_0x0"]]]}
+        },
+        "action": {},
+        "type": "wall_stone",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_0x0"]]]}},
+        "action": {"crash": "atkup(3)"},
+        "type": "gem_red",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_2x0"]]]}},
+        "action": {},
+        "type": "grail_green",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": false,
+        "buddyType": "none",
+        "action": {},
+        "sprites": {
+            "open": {"images": [
+                [["door2_1x1"]],
+                [["door2_2x1"]],
+                [["door2_3x1"]]
+            ]},
+            "normal": {"images": [[["door2_0x1"]]]}
+        },
+        "type": "wall_wood",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": false,
+        "buddyType": "none",
+        "action": {},
+        "sprites": {
+            "open": {"images": [
+                [["door2_1x3"]],
+                [["door2_2x3"]],
+                [["door2_3x3"]]
+            ]},
+            "normal": {"images": [[["door2_0x3"]]]}
+        },
+        "type": "fence",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": false,
+        "buddyType": "none",
+        "sprites": {
+            "open": {"images": [
+                [["door2_1x2"]],
+                [["door2_2x2"]],
+                [["door2_3x2"]]
+            ]},
+            "normal": {"images": [[["door2_0x2"]]]}
+        },
+        "action": {},
+        "type": "wall_steel",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_0x1"]]]}},
+        "action": {"crash": "defup(3)"},
+        "type": "gem_blue",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": false,
+        "buddyType": "none",
+        "action": {},
+        "sprites": {
+            "open": {"images": [
+                [["door_1x3"]],
+                [["door_2x3"]],
+                [["door_3x3"]]
+            ]},
+            "normal": {"images": [[["door_0x3"]]]}
+        },
+        "type": "door_special",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_2x2"]]]}},
+        "action": {},
+        "type": "grail_yellow",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_1x0"]]]}},
+        "action": {"crash": "hpup(100)"},
+        "type": "potion_red",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_2x3"]]]}},
+        "action": {},
+        "type": "grail_blue",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_1x2"]]]}},
+        "action": {"crash": "hpup(500)"},
+        "type": "potion_green",
+        "size": [
+            1,
+            1
+        ]
+    }
 ]

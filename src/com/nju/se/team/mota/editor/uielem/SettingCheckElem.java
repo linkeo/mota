@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import com.nju.se.team.mota.util.ElemPanel;
 
 
-public class SettingCheckElem extends ElemPanel implements SettingElem{
+public class SettingCheckElem extends ElemPanel{
 
 	/**
 	 * 
@@ -27,9 +27,8 @@ public class SettingCheckElem extends ElemPanel implements SettingElem{
 		this.label.setBounds(0, 0, 90, 20);
 		this.value.setBounds(90, 0, 190, 20);
 	}
-	@Override
-	public String getResult() {
-		return "\""+label.getText()+"\""+":"+(value.isSelected()?"true":"false");
+	public boolean getValue() {
+		return value.isSelected();
 	}
 	public void setValue(boolean value) {
 		this.value.setSelected(value);

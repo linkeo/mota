@@ -19,7 +19,6 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -32,7 +31,6 @@ import com.nju.se.team.mota.editor.uielem.FrameElem;
 import com.nju.se.team.mota.editor.uielem.ResElem;
 import com.nju.se.team.mota.editor.uielem.SettingCheckElem;
 import com.nju.se.team.mota.editor.uielem.SettingComboElem;
-import com.nju.se.team.mota.editor.uielem.SettingElem;
 import com.nju.se.team.mota.editor.uielem.SettingIntegerElem;
 import com.nju.se.team.mota.editor.uielem.SettingPointItem;
 import com.nju.se.team.mota.editor.uielem.SettingTextElem;
@@ -46,7 +44,6 @@ import com.nju.se.team.mota.game.util.UnitStatus;
 import com.nju.se.team.mota.util.ElemPanel;
 import com.nju.se.team.mota.util.ListPanel;
 import com.nju.se.team.mota.util.Warning;
-import com.sun.java.swing.SwingUtilities3;
 
 public class TypeDefinePanel extends JPanel implements FrameEditListener{
 
@@ -65,7 +62,7 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 			JButton typeReloadButton;
 			JButton typeDeleteButton;
 			JButton typeSaveButton;
-			SettingTextElem setname;
+			SettingTextElem settype;
 			SettingCheckElem setcangt;
 			SettingPointItem setsize;
 			SettingComboElem<String> setbt;
@@ -91,10 +88,6 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		FrameHolder frameHolder;
 		ListPanel resListPanel;
 		
-		
-	ArrayList<SettingElem> settingElems = new ArrayList<SettingElem>();
-	
-	
 	Abiotic currAbiotic;
 	Creature currCreature;
 		
@@ -103,9 +96,9 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		leftPanel = new JPanel(null);
 			left_topPanel = new JPanel(null);
 				typeLabel = new JLabel("类型组:");
-				typeComboBox = new JComboBox<TypeEnum>(TypeEnum.values());
+				typeComboBox = new JComboBox<TypeEnum>();
 				subTypeLabel = new JLabel("类型:");
-				subTypeComboBox = new JComboBox<String>(new String[]{"Wall","StairUp"});
+				subTypeComboBox = new JComboBox<String>();
 			typeEditPanel = new ListPanel("属性设置");
 					JPanel lcph = new JPanel();
 					lcph.setLayout(new BoxLayout(lcph, BoxLayout.X_AXIS));
@@ -171,28 +164,16 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		Collections.sort(keys);
 		for(String s : keys)
 			resListPanel.add(new ResElem(s));
-		
+		loadTypes();
 		addListeners();
 		frameHolder.addFrameEditListener(this);
 		typeSelected((TypeEnum) typeComboBox.getSelectedItem());
 	}
-	public void addType(){
-		TypeEnum type = (TypeEnum) typeComboBox.getSelectedItem();
-		setname.setValue("new");
-		setsize.setValue(1,1);
-		setbt.setValue("none");
-		if(type == TypeEnum.ABIOTIC)
-			setcangt.setValue(false);
-		if(type == TypeEnum.CREATURE){
-			setHP.setValue(10);
-			setATK.setValue(10);
-			setDEF.setValue(10);
-			setMoney.setValue(10);
-			setEXP.setValue(10);
-		}
+	public void loadTypes(){
+		typeComboBox.setModel(new DefaultComboBoxModel<TypeEnum>(TypeEnum.values()));
 	}
 	public void loadAbiotic(Abiotic a){
-		setname.setValue(a.getType());
+		settype.setValue(a.getType());
 		setsize.setValue(a.getSize()[0],a.getSize()[1]);
 		setbt.setValue(a.getBuddyType());
 		setcangt.setValue(a.isCanGoThrough());
@@ -211,7 +192,7 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		currAbiotic = a;
 	}
 	public void loadCreature(Creature c){
-		setname.setValue(c.getType());
+		settype.setValue(c.getType());
 		setsize.setValue(c.getSize()[0],c.getSize()[1]);
 		setbt.setValue(c.getBuddyType());
 		setHP.setValue(c.getHP());
@@ -252,16 +233,22 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 	public void typeSelected(TypeEnum type){
 		Vector<String> typeVector = new Vector<String>();
 		typeEditPanel.removeAll();
-		typeEditPanel.add(setname = new SettingTextElem("类型名:", "new"));
+		typeEditPanel.add(settype = new SettingTextElem("类型名:", "new"));
 		typeEditPanel.add(setsize = new SettingPointItem("尺寸:", 1, 1, 1, 5, 1, 5));
 		if(type == TypeEnum.ABIOTIC){
-			typeEditPanel.add(setbt = new SettingComboElem<String>("配对类型:", "none", DataLoader.getAbioticTypes()));
+			ArrayList<String> btSet = new ArrayList<String>(DataLoader.getAbioticTypes());
+			btSet.add("none");
+			Collections.sort(btSet);
+			typeEditPanel.add(setbt = new SettingComboElem<String>("配对类型:", "none", btSet));
 			typeEditPanel.add(setcangt =  new SettingCheckElem("可穿透:", false));
 			for(String s : DataLoader.getAbioticTypes())
 				typeVector.add(s);
 		}
 		if(type == TypeEnum.CREATURE){
-			typeEditPanel.add(setbt = new SettingComboElem<String>("配对类型:", "none", DataLoader.getCreatureTypes()));
+			ArrayList<String> btSet = new ArrayList<String>(DataLoader.getCreatureTypes());
+			btSet.add("none");
+			Collections.sort(btSet);
+			typeEditPanel.add(setbt = new SettingComboElem<String>("配对类型:", "none", btSet));
 			typeEditPanel.add(setHP = new SettingIntegerElem("血量:", 10, 1, 99999999));
 			typeEditPanel.add(setATK = new SettingIntegerElem("攻击力:", 10, 1, 99999999));
 			typeEditPanel.add(setDEF = new SettingIntegerElem("防御力:", 10, 1, 99999999));
@@ -282,6 +269,7 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 				frameHolder.setGridSize(setsize.getXValue(), setsize.getYValue());
 			}
 		});
+		Collections.sort(typeVector);
 		subTypeComboBox.setModel(new DefaultComboBoxModel<String>(typeVector));
 		subTypeSelected((String) subTypeComboBox.getSelectedItem());
 	}
@@ -293,13 +281,13 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		if(st == null) return;
 		TypeEnum type = (TypeEnum) typeComboBox.getSelectedItem();
 		if(type == TypeEnum.ABIOTIC){
-			JSONObject json = new JSONObject(DataLoader.getAbioticDefine(st));
+			JSONObject json = DataLoader.getAbioticDefine(st);
 			Abiotic abi = new Abiotic();
 			abi.loadType(json);
 			loadAbiotic(abi);
 		}
 		if(type == TypeEnum.CREATURE){
-			JSONObject json = new JSONObject(DataLoader.getCreatureDefine(st));
+			JSONObject json = DataLoader.getCreatureDefine(st);
 			Creature cre = new Creature();
 			cre.loadType(json);
 			loadCreature(cre);
@@ -310,18 +298,100 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TypeEnum type = (TypeEnum) typeComboBox.getSelectedItem();
+				if((e.getModifiers()&ActionEvent.SHIFT_MASK)!=0){
+					int option = JOptionPane.showConfirmDialog(null, "是否将目前为止的设置保存到文件?", "确认保存?", JOptionPane.OK_CANCEL_OPTION);
+					if(option==JOptionPane.OK_OPTION){
+						DataLoader.saveAbiotics();
+						DataLoader.saveCreatures();
+					}
+				}
 				if(type == TypeEnum.ABIOTIC){
+					String typename = settype.getValue();
+					String buddytype = setbt.getValue();
+					boolean canGT = setcangt.getValue();
+					if(typename==null||typename.isEmpty()||buddytype==null||buddytype.isEmpty()){
+						Warning.alarm("编辑不完整", "请检查填写项目是否合理.", null );
+						return;
+					}
+					boolean fullfilled = true;
+					for(Animation a : currAbiotic.getSprites().values())
+						for(String[][] sss : a.getImages())
+							for(String[] ss : sss)
+								for(String s : ss)
+									if(s==null)
+										fullfilled=false;
+					if(!fullfilled){
+						Warning.alarm("图片填充不完整", "请检查所有状态的所有帧的图片", null );
+						return;
+					}
+					if((e.getModifiers()& ActionEvent.CTRL_MASK)==0)
+						DataLoader.removeAbioticType(currAbiotic);
+					currAbiotic.setType(typename);
+					currAbiotic.setBuddyType(buddytype);
+					currAbiotic.setCanGoThrough(canGT);
 					if((e.getModifiers()& ActionEvent.CTRL_MASK)!=0)
 						Warning.alarmWithoutButton("JSON", currAbiotic.parseTypeJSON().toString(), null );
 					else{
+						DataLoader.putAbioticType(currAbiotic);
+						typeSelected((TypeEnum) typeComboBox.getSelectedItem());
+						subTypeSelected(typename);
 					}
 				}
 				if(type == TypeEnum.CREATURE){
-					if((e.getModifiers()& ActionEvent.CTRL_MASK)!=0)
+					String typename = settype.getValue();
+					String buddytype = setbt.getValue();
+					int
+						hp = setHP.getValue(),
+						atk = setATK.getValue(),
+						def = setDEF.getValue(),
+						money = setMoney.getValue(),
+						exp = setEXP.getValue();
+					if(typename==null||typename.isEmpty()||buddytype==null||buddytype.isEmpty()
+							||hp<0||atk<0||def<0||money<0||exp<0){
+						Warning.alarm("编辑不完整", "请检查填写项目是否合理.", null );
+						return;
+					}
+					boolean fullfilled = true;
+					for(Animation a : currCreature.getSprites().values())
+						for(String[][] sss : a.getImages())
+							for(String[] ss : sss)
+								for(String s : ss)
+									if(s==null)
+										fullfilled=false;
+					if(!fullfilled){
+						Warning.alarm("图片填充不完整", "请检查所有状态的所有帧的图片", null );
+						return;
+					}
+					if((e.getModifiers()& ActionEvent.CTRL_MASK)==0)
+						DataLoader.removeCreatureType(currCreature);
+					currCreature.setType(typename);
+					currCreature.setBuddyType(buddytype);
+					currCreature.setHP(hp);
+					currCreature.setATK(atk);
+					currCreature.setDEF(def);
+					currCreature.setMoney(money);
+					currCreature.setEXP(exp);					
+					if((e.getModifiers()& ActionEvent.CTRL_MASK)!=0) 
 						Warning.alarmWithoutButton("JSON", currCreature.parseTypeJSON().toString(), null );
 					else{
-						
+						DataLoader.putCreatureType(currCreature);
+						typeSelected((TypeEnum) typeComboBox.getSelectedItem());
+						subTypeSelected(typename);
 					}
+				}
+			}
+		});
+		typeDeleteButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				TypeEnum type = (TypeEnum) typeComboBox.getSelectedItem();
+				if(type == TypeEnum.ABIOTIC){
+					DataLoader.removeAbioticType(currAbiotic);
+					typeSelected((TypeEnum) typeComboBox.getSelectedItem());
+				}
+				if(type == TypeEnum.CREATURE){
+					DataLoader.removeCreatureType(currCreature);
+					typeSelected((TypeEnum) typeComboBox.getSelectedItem());
 				}
 			}
 		});
@@ -444,7 +514,9 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				addType();
+				TypeEnum type = (TypeEnum) typeComboBox.getSelectedItem();
+				if(type == TypeEnum.ABIOTIC) loadAbiotic(Abiotic.defaultAbiotic());
+				if(type == TypeEnum.CREATURE)	 loadCreature(Creature.defaultCreature());
 			}
 		});
 		
