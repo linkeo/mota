@@ -266,6 +266,9 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 				if(type == TypeEnum.ABIOTIC){
 					currAbiotic.setSize(new int[]{setsize.getXValue(), setsize.getYValue()});
 				}
+				if(type == TypeEnum.CREATURE){
+					currCreature.setSize(new int[]{setsize.getXValue(), setsize.getYValue()});
+				}
 				frameHolder.setGridSize(setsize.getXValue(), setsize.getYValue());
 			}
 		});

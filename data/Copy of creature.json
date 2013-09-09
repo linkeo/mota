@@ -1,14 +1,166 @@
 [
-	{
-		type:"Slime",
-		"action":{"closeto":"open","crash":"open"},
-		"sprites":{"normal":{"images":[[["enemy03_0x0"]],[["enemy03_1x0"]]]}},
-		size:[1,1],
-		buddyType:"none",
-		HP:200,
-		ATK:10,
-		DEF:10,
-		Money:20,
-		EXP:30,
-	}
+    {
+        "DEF": 5,
+        "buddyType": "none",
+        "EXP": 5,
+        "action": {"crash": "fight"},
+        "money": 5,
+        "sprites": {"normal": {"images": [
+            [["enemy02_0x0"]],
+            [["enemy02_0x1"]],
+            [["enemy02_0x2"]],
+            [["enemy02_0x3"]]
+        ]}},
+        "HP": 50,
+        "ATK": 5,
+        "type": "bat_small",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "DEF": 1200,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [
+            [
+                [
+                    "enemy01_0x0",
+                    "enemy01_1x0",
+                    "enemy01_2x0"
+                ],
+                [
+                    "enemy01_0x1",
+                    "enemy01_1x1",
+                    "enemy01_2x1"
+                ],
+                [
+                    "enemy01_0x2",
+                    "enemy01_1x2",
+                    "enemy01_2x2"
+                ]
+            ],
+            [
+                [
+                    "enemy01_0x3",
+                    "enemy01_1x3",
+                    "enemy01_2x3"
+                ],
+                [
+                    "enemy01_0x4",
+                    "enemy01_1x4",
+                    "enemy01_2x4"
+                ],
+                [
+                    "enemy01_0x5",
+                    "enemy01_1x5",
+                    "enemy01_2x5"
+                ]
+            ],
+            [
+                [
+                    "enemy01_0x6",
+                    "enemy01_1x6",
+                    "enemy01_2x6"
+                ],
+                [
+                    "enemy01_0x7",
+                    "enemy01_1x7",
+                    "enemy01_2x7"
+                ],
+                [
+                    "enemy01_0x8",
+                    "enemy01_1x8",
+                    "enemy01_2x8"
+                ]
+            ],
+            [
+                [
+                    "enemy01_0x9",
+                    "enemy01_1x9",
+                    "enemy01_2x9"
+                ],
+                [
+                    "enemy01_0x10",
+                    "enemy01_1x10",
+                    "enemy01_2x10"
+                ],
+                [
+                    "enemy01_0x11",
+                    "enemy01_1x11",
+                    "enemy01_2x11"
+                ]
+            ]
+        ]}},
+        "money": 5000,
+        "action": {"crash": "fight"},
+        "EXP": 5400,
+        "HP": 10000,
+        "type": "dragon_red",
+        "ATK": 1500,
+        "size": [
+            3,
+            3
+        ]
+    },
+    {
+        "DEF": 20,
+        "buddyType": "none",
+        "EXP": 20,
+        "action": {"crash": "fight"},
+        "money": 20,
+        "sprites": {"normal": {"images": [
+            [["enemy02_2x0"]],
+            [["enemy02_2x1"]],
+            [["enemy02_2x2"]],
+            [["enemy02_2x3"]]
+        ]}},
+        "HP": 200,
+        "ATK": 20,
+        "type": "bat_red",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "DEF": 5,
+        "buddyType": "none",
+        "EXP": 15,
+        "action": {"crash": "fight"},
+        "money": 10,
+        "sprites": {"normal": {"images": [
+            [["enemy09_0x0"]],
+            [["enemy09_0x1"]],
+            [["enemy09_0x2"]],
+            [["enemy09_0x3"]]
+        ]}},
+        "HP": 20,
+        "ATK": 20,
+        "type": "slime_smallgreen",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "DEF": 10,
+        "buddyType": "none",
+        "EXP": 10,
+        "action": {"crash": "fight"},
+        "money": 10,
+        "sprites": {"normal": {"images": [
+            [["enemy02_1x0"]],
+            [["enemy02_1x1"]],
+            [["enemy02_1x2"]],
+            [["enemy02_1x3"]]
+        ]}},
+        "HP": 100,
+        "ATK": 10,
+        "type": "bat_big",
+        "size": [
+            1,
+            1
+        ]
+    }
 ]
