@@ -17,7 +17,9 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -43,6 +45,8 @@ import com.nju.se.team.mota.game.util.TypeEnum;
 import com.nju.se.team.mota.game.util.UnitStatus;
 import com.nju.se.team.mota.util.ElemPanel;
 import com.nju.se.team.mota.util.ListPanel;
+import com.nju.se.team.mota.util.Warning;
+import com.sun.java.swing.SwingUtilities3;
 
 public class TypeDefinePanel extends JPanel implements FrameEditListener{
 
@@ -74,7 +78,6 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 			JButton actionAddButton;
 			JButton actionEditButton;
 			JButton actionDeleteButton;
-			JButton actionSaveButton;
 			
 			
 	JPanel rightPanel;
@@ -119,12 +122,11 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 					JPanel lbph = new JPanel();
 					lbph.setLayout(new BoxLayout(lbph, BoxLayout.X_AXIS));
 					lbph.add(actionAddButton = new JButton("新建"));
-					lbph.add(actionEditButton = new JButton("编辑"));
 					lbph.add(Box.createGlue());
 					lbph.add(new JLabel("脚本列表"));
 					lbph.add(Box.createGlue());
+					lbph.add(actionEditButton = new JButton("编辑"));
 					lbph.add(actionDeleteButton = new JButton("删除"));
-					lbph.add(actionSaveButton = new JButton("保存"));
 			actionListPanel.setColumnHeaderView(lbph);
 					
 			
@@ -202,6 +204,10 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		statusListPanel.removeAll();
 		for(UnitStatus s : a.getSprites().keySet())
 			statusListPanel.add(new StatusElem(s));
+
+		frameListPanel.removeAll();
+		frameHolder.clear();
+		
 		currAbiotic = a;
 	}
 	public void loadCreature(Creature c){
@@ -221,6 +227,9 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		statusListPanel.removeAll();
 		for(UnitStatus s : c.getSprites().keySet())
 			statusListPanel.add(new StatusElem(s));
+		
+		frameListPanel.removeAll();
+		frameHolder.clear();
 		currCreature = c;
 	}
 	
@@ -245,13 +254,14 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		typeEditPanel.removeAll();
 		typeEditPanel.add(setname = new SettingTextElem("类型名:", "new"));
 		typeEditPanel.add(setsize = new SettingPointItem("尺寸:", 1, 1, 1, 5, 1, 5));
-		typeEditPanel.add(setbt = new SettingComboElem<String>("配对类型:", "none", new String[]{"none","Wall","StairUp"}));
 		if(type == TypeEnum.ABIOTIC){
+			typeEditPanel.add(setbt = new SettingComboElem<String>("配对类型:", "none", DataLoader.getAbioticTypes()));
 			typeEditPanel.add(setcangt =  new SettingCheckElem("可穿透:", false));
 			for(String s : DataLoader.getAbioticTypes())
 				typeVector.add(s);
 		}
 		if(type == TypeEnum.CREATURE){
+			typeEditPanel.add(setbt = new SettingComboElem<String>("配对类型:", "none", DataLoader.getCreatureTypes()));
 			typeEditPanel.add(setHP = new SettingIntegerElem("血量:", 10, 1, 99999999));
 			typeEditPanel.add(setATK = new SettingIntegerElem("攻击力:", 10, 1, 99999999));
 			typeEditPanel.add(setDEF = new SettingIntegerElem("防御力:", 10, 1, 99999999));
@@ -295,8 +305,26 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 			loadCreature(cre);
 		}
 	}
-	
 	public void addListeners(){
+		typeSaveButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				TypeEnum type = (TypeEnum) typeComboBox.getSelectedItem();
+				if(type == TypeEnum.ABIOTIC){
+					if((e.getModifiers()& ActionEvent.CTRL_MASK)!=0)
+						Warning.alarmWithoutButton("JSON", currAbiotic.parseTypeJSON().toString(), null );
+					else{
+					}
+				}
+				if(type == TypeEnum.CREATURE){
+					if((e.getModifiers()& ActionEvent.CTRL_MASK)!=0)
+						Warning.alarmWithoutButton("JSON", currCreature.parseTypeJSON().toString(), null );
+					else{
+						
+					}
+				}
+			}
+		});
 		statusListPanel.setMultiSelectable(false);
 		statusListPanel.addElemMouseListener(new MouseAdapter() {
 			
@@ -338,7 +366,8 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				StatusElem se = ((StatusElem)statusListPanel.getSelectedElem());
-				if(se==null)return;
+				if(se==null) return;
+				if(frameListPanel.getElems().size()<=1) return;
 				frameListPanel.remove(frameListPanel.getElems().get(frameListPanel.getElems().size()-1));
 				frameListChanged();
 			}
@@ -354,10 +383,17 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 					return;
 				statusListPanel.add(elem);
 				HashMap<UnitStatus, Animation> sprites = null;
+				int[] size = null;
 				TypeEnum type = (TypeEnum) typeComboBox.getSelectedItem();
-				if(type == TypeEnum.ABIOTIC) sprites = currAbiotic.getSprites();
-				if(type == TypeEnum.CREATURE) sprites = currCreature.getSprites();
-				sprites.put(elem.getValue(), new Animation());
+				if(type == TypeEnum.ABIOTIC){
+					sprites = currAbiotic.getSprites();
+					size = currAbiotic.getSize();
+				}
+				if(type == TypeEnum.CREATURE){
+					sprites = currCreature.getSprites();
+					size = currCreature.getSize();
+				}
+				sprites.put(elem.getValue(), new Animation(1,size[0],size[1]));
 			}
 		});
 		
@@ -424,6 +460,7 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 				if(elem==null)
 					return;
 				actionListPanel.add(elem);
+				saveActions();
 			}
 		});
 		
@@ -433,6 +470,7 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 			public void actionPerformed(ActionEvent e) {
 				for(ElemPanel elem : actionListPanel.getSelectedElems())
 					actionListPanel.remove(elem);
+				saveActions();
 			}
 		});
 		
@@ -451,8 +489,20 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 					return;
 				actionListPanel.remove(selectedElem);
 				actionListPanel.add(elem);
+				saveActions();
 			}
 		});
+		
+	}
+	public void saveActions(){
+		HashMap<Condition,String> actions = new HashMap<Condition,String>();
+		for(ElemPanel e : actionListPanel.getElems()){
+			ActionElem a = (ActionElem) e;
+			actions.put(a.getCondition(), a.getAction());
+			TypeEnum type = (TypeEnum) typeComboBox.getSelectedItem();
+			if(type == TypeEnum.ABIOTIC) currAbiotic.setAction(actions);
+			if(type == TypeEnum.CREATURE)	 currCreature.setAction(actions);
+		}
 		
 	}
 	

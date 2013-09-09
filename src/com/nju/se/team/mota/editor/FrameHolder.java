@@ -41,14 +41,20 @@ public class FrameHolder extends JPanel {
 		setGridSize(row, col);
 	}
 	public void load(String[][] imagekey){
+		clear();
 		int x = imagekey.length;
 		int y = 0;
 		if(x>0)y=imagekey[0].length;
 		for(int i=0;i<x;++i)
 			for(int j=0;j<y;++j){
 				String str = imagekey[i][j];
-				if(str==null) content[i][j].setIcon(null);
-				else content[i][j].setIcon(new ImageIcon(ImageLoader.get(str)));
+				if(str==null){
+					content[i][j].setIcon(null);
+					content[i][j].setKey(null);					
+				}else{
+					content[i][j].setIcon(new ImageIcon(ImageLoader.get(str)));
+					content[i][j].setKey(str);				
+				}
 			}
 	}
 	public String[][] getImageKey(){

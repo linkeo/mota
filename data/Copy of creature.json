@@ -1,0 +1,14 @@
+[
+	{
+		type:"Slime",
+		"action":{"closeto":"open","crash":"open"},
+		"sprites":{"normal":{"images":[[["enemy03_0x0"]],[["enemy03_1x0"]]]}},
+		size:[1,1],
+		buddyType:"none",
+		HP:200,
+		ATK:10,
+		DEF:10,
+		Money:20,
+		EXP:30,
+	}
+]

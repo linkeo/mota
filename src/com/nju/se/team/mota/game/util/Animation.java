@@ -19,6 +19,9 @@ public class Animation {
 	public Animation() {
 		images = new String[0][0][0];
 	}
+	public Animation(int frameCnt, int x, int y) {
+		images = new String[frameCnt][x][y];
+	}
 	public void update(){
 		currentFrame = (currentFrame+1)%imageCnt;
 	}

@@ -1,0 +1,11 @@
+[
+	{
+		"canGoThrough":true,
+		"buddyType":"none",
+		"action":{"closeto":"open","crash":"open"},
+		"sprites":{"normal":{"images":[[["stair_0x0"]]]}},
+		"type":"floor",
+		"size":[1,1]
+	}
+	
+]

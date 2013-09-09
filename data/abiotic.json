@@ -1,10 +1,18 @@
 [
 	{
-		"canGoThrough":true,
-		"buddyType":"none",
-		"action":{"closeto":"open","crash":"open"},
+		"canGoThrough":false,
+		"buddyType":"stair_down",
+		"action":{"crash":"stairup"},
+		"sprites":{"normal":{"images":[[["stair_0x1"]]]}},
+		"type":"stair_up",
+		"size":[1,1]
+	},
+	{
+		"canGoThrough":false,
+		"buddyType":"stair_up",
+		"action":{"crash":"stairdown"},
 		"sprites":{"normal":{"images":[[["stair_0x0"]]]}},
-		"type":"floor",
+		"type":"stair_down",
 		"size":[1,1]
 	}
 	
