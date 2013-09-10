@@ -34,7 +34,6 @@ public class Creature extends Unit{
 	public static Creature defaultCreature() {
 		Creature c = new Creature();
 		c.setType("new");
-		c.setSize(new int[]{1,1});
 		c.setBuddyType("none");
 		return c;
 	}
@@ -42,7 +41,7 @@ public class Creature extends Unit{
 	public void load(JSONObject json){
 		loadType(DataLoader.getAbioticDefine(json.getString("type")));
 		setName(json.getString("name"));
-		setPosition(new int[]{json.getJSONArray("position").getInt(0),json.getJSONArray("position").getInt(1)});
+		setPosition(json.getJSONArray("position").getInt(0),json.getJSONArray("position").getInt(1));
 		setFloor(json.getInt("floor"));
 		setBuddy(json.optString("buddy"));
 
@@ -86,7 +85,7 @@ public class Creature extends Unit{
 			action.put(Condition.load((String)a), oAction.getString((String)a));
 		}
 		setAction(action);
-		setSize(new int[]{json.getJSONArray("size").getInt(0),json.getJSONArray("size").getInt(1)});
+		setSize(json.getJSONArray("size").getInt(0),json.getJSONArray("size").getInt(1));
 		setBuddyType(json.optString("buddyType"));
 		setHP(json.getInt("HP"));
 		setATK(json.getInt("ATK"));
@@ -127,5 +126,16 @@ public class Creature extends Unit{
 	}
 	public void setEXP(int eXP) {
 		EXP = eXP;
+	}
+	public static Creature make(String type, int x, int y, int z) {
+		Creature c = new Creature();
+
+		c.loadType(DataLoader.getCreatureDefine(type));
+		c.setName(type);
+		c.setPosition(x, y);
+		c.setFloor(z);
+		c.setBuddy("none");
+		
+		return c;
 	}
 }

@@ -23,14 +23,13 @@ public class Abiotic extends Unit{
 	public static Abiotic defaultAbiotic(){
 		Abiotic a = new Abiotic();
 		a.setType("new");
-		a.setSize(new int[]{1,1});
 		a.setBuddyType("none");
 		return a;
 	}
 	public void load(JSONObject json){
 		loadType(DataLoader.getAbioticDefine(json.getString("type")));
 		setName(json.getString("name"));
-		setPosition(new int[]{json.getJSONArray("position").getInt(0),json.getJSONArray("position").getInt(1)});
+		setPosition(json.getJSONArray("position").getInt(0),json.getJSONArray("position").getInt(1));
 		setFloor(json.getInt("floor"));
 		setBuddy(json.optString("buddy"));
 	}
@@ -70,7 +69,7 @@ public class Abiotic extends Unit{
 			action.put(Condition.load((String)a), oAction.getString((String)a));
 		}
 		setAction(action);
-		setSize(new int[]{json.getJSONArray("size").getInt(0),json.getJSONArray("size").getInt(1)});
+		setSize(json.getJSONArray("size").getInt(0),json.getJSONArray("size").getInt(1));
 		setBuddyType(json.optString("buddyType"));
 	}
 	@SuppressWarnings("unchecked")
@@ -93,5 +92,16 @@ public class Abiotic extends Unit{
 	}
 	public void setCanGoThrough(boolean canGoThrough) {
 		this.canGoThrough = canGoThrough;
+	}
+	public static Abiotic make(String type, int x, int y, int z) {
+		Abiotic a = new Abiotic();
+
+		a.loadType(DataLoader.getAbioticDefine(type));
+		a.setName(type);
+		a.setPosition(x, y);
+		a.setFloor(z);
+		a.setBuddy("none");
+		
+		return a;
 	}
 }

@@ -1,5 +1,6 @@
 package com.nju.se.team.mota.game.unit;
 
+import java.awt.Rectangle;
 import java.util.HashMap;
 
 import com.nju.se.team.mota.game.util.Animation;
@@ -79,5 +80,15 @@ public class Unit {
 	public void setBuddyType(String buddyType) {
 		this.buddyType = buddyType;
 	}
-	
+	public Rectangle getRect(){
+		return new Rectangle(position[0], position[1], size[0], size[1]);
+	}
+	public void setPosition(int x, int y) {
+		position[0] = x;
+		position[1] = y;
+	}
+	public void setSize(int w, int h) {
+		size[0] = w;
+		size[1] = h;
+	}
 }

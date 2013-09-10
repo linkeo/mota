@@ -13,8 +13,8 @@ public class ResDragGestureListener implements DragGestureListener {
 	public void dragGestureRecognized(DragGestureEvent dge) {
 		ResElem e = (ResElem) dge.getComponent();
 		String s = e.getReskey();
-			StringSelection dragAndDropTransferable = new StringSelection(s);
-			dge.startDrag( DragSource.DefaultCopyDrop, dragAndDropTransferable, new CopyDragSourceListener() );
+			StringSelection dragAndDropTransferable = new StringSelection(s);//准备数据
+			dge.startDrag( DragSource.DefaultCopyDrop, dragAndDropTransferable, new CopyDragSourceListener() );//开始拖拽过程
 	}
 
 }

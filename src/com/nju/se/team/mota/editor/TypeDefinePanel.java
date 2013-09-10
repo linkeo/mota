@@ -264,10 +264,10 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 			public void stateChanged(ChangeEvent arg0) {
 				TypeEnum type = (TypeEnum) typeComboBox.getSelectedItem();
 				if(type == TypeEnum.ABIOTIC){
-					currAbiotic.setSize(new int[]{setsize.getXValue(), setsize.getYValue()});
+					currAbiotic.setSize(setsize.getXValue(), setsize.getYValue());
 				}
 				if(type == TypeEnum.CREATURE){
-					currCreature.setSize(new int[]{setsize.getXValue(), setsize.getYValue()});
+					currCreature.setSize(setsize.getXValue(), setsize.getYValue());
 				}
 				frameHolder.setGridSize(setsize.getXValue(), setsize.getYValue());
 			}
