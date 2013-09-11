@@ -10,7 +10,9 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.nju.se.team.mota.game.Level;
 import com.nju.se.team.mota.game.unit.Abiotic;
+import com.nju.se.team.mota.game.unit.Creature;
 import com.nju.se.team.mota.game.unit.Unit;
 
 public class MapPanel extends JPanel implements MapDropListener{
@@ -23,8 +25,10 @@ public class MapPanel extends JPanel implements MapDropListener{
 	int floor;
 	MapElem[][] blocks;
 	Set<Unit> units = new HashSet<Unit>();
-	public MapPanel(int row, int col, int floor) {
+	MapItemListener mapItemListener;
+	public MapPanel(int row, int col, int floor, MapItemListener mil) {
 		super(null);
+		mapItemListener = mil;
 		this.row = row;
 		this.col = col;
 		this.floor = floor;
@@ -36,8 +40,15 @@ public class MapPanel extends JPanel implements MapDropListener{
 				blocks[i][j].setBounds(i*32, j*32, 32, 32);
 				add(blocks[i][j]);
 				blocks[i][j].addMapDropListener(this);
+				blocks[i][j].setMapItemListener(mapItemListener);
 			}
-		clear(0,0,col,row);
+		init();
+	}
+	public int getFloor() {
+		return floor;
+	}
+	public void setFloor(int floor) {
+		this.floor = floor;
 	}
 	private void setMySize(int gridw, int gridh) {
 		this.setSize(gridw*32, gridh*32);
@@ -74,6 +85,7 @@ public class MapPanel extends JPanel implements MapDropListener{
 				blocks[i][j].setBounds(i*32, j*32, 32, 32);
 				add(blocks[i][j]);
 				blocks[i][j].addMapDropListener(this);
+				blocks[i][j].setMapItemListener(mapItemListener);
 			}
 		this.blocks = blocks;
 		this.row = row;
@@ -83,16 +95,28 @@ public class MapPanel extends JPanel implements MapDropListener{
 			if(!rect.contains(u.getRect()))
 				units.remove(u);
 	}
+	public void init(){
+		for(int i=0;i<col;++i)
+			for(int j=0;j<row;++j)
+				init(i,j);
+	}
 	public void init(int x, int y){
 		setUnitBackground(Abiotic.make("floor", x, y, floor), x, y);
 	}
-	public void clear(Rectangle r){
+	public void removeAllUnit(){
+		for(Unit u : new HashSet<Unit>(units))
+			removeUnit(u);
+	}
+	private void clear_area(Rectangle r){
 		this.clear(r.x, r.y, r.width, r.height);
 	}
-	public void clear(int x, int y, int w, int h){
+	private void clear(int x, int y, int w, int h){
 		for(int i=x;i<x+w;++i)
 			for(int j=y;j<y+h;++j)
-				init(i,j);
+				clear(i,j);
+	}
+	public void clear(int x, int y){
+		setUnit(null, x, y);
 	}
 	public void addUnit(Unit u, int x, int y){
 		if(checkUnit(u, x, y)){
@@ -102,7 +126,7 @@ public class MapPanel extends JPanel implements MapDropListener{
 	}
 	public void removeUnit(Unit u){
 		units.remove(u);
-		clear(u.getRect());
+		clear_area(u.getRect());
 	}
 	
 	public boolean checkUnit(Unit u, int x, int y){
@@ -143,5 +167,13 @@ public class MapPanel extends JPanel implements MapDropListener{
 	JPanel rowHeader = new JPanel(null);
 	public Component getRowHeader() {
 		return rowHeader;
+	}
+	public void loadLevel(Level l) {
+		setFloor(l.getLevel());
+		setGridSize(l.getSize()[0], l.getSize()[1]);
+		for(Abiotic a : l.getAbiotics())
+			addUnit(a, a.getPosition()[0], a.getPosition()[1]);
+		for(Creature c : l.getCreatures())
+			addUnit(c, c.getPosition()[0], c.getPosition()[1]);
 	}
 }

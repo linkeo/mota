@@ -2,6 +2,9 @@ package com.nju.se.team.mota.editor;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -10,19 +13,23 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 
 import org.json.JSONObject;
 
 import com.nju.se.team.mota.data.DataLoader;
 import com.nju.se.team.mota.editor.uielem.SettingComboElem;
 import com.nju.se.team.mota.editor.uielem.SettingPointItem;
+import com.nju.se.team.mota.editor.uielem.SettingTextElem;
 import com.nju.se.team.mota.editor.uielem.UnitElem;
+import com.nju.se.team.mota.game.Level;
 import com.nju.se.team.mota.game.unit.Abiotic;
 import com.nju.se.team.mota.game.unit.Creature;
+import com.nju.se.team.mota.game.unit.Unit;
 import com.nju.se.team.mota.game.util.TypeEnum;
 import com.nju.se.team.mota.util.ListPanel;
 
-public class LevelEditPanel extends JPanel{
+public class LevelEditPanel extends JPanel implements MapItemListener{
 
 	/**
 	 * 
@@ -32,7 +39,7 @@ public class LevelEditPanel extends JPanel{
 	MapPanel map;
 	JScrollPane mapview;
 	ListPanel levelInfoPanel;
-		SettingComboElem<Integer> setLevel;
+		SettingTextElem setLevel;
 		SettingPointItem setsize;
 		JButton levelAddButton;
 		JButton levelDeleteButton;
@@ -41,15 +48,19 @@ public class LevelEditPanel extends JPanel{
 	ListPanel unitListPanel;
 		JComboBox<TypeEnum> unitTypeSelect;
 	ListPanel unitInfoPanel;
+		SettingTextElem unitName;
+		JButton unitDeleteButton;
+		JButton unitSaveButton;
+		
+	ArrayList<Integer> floors = new ArrayList<Integer>();
+		
 	public LevelEditPanel(){
 		super(null);
 		mapview = new JScrollPane();
 		levelInfoPanel = new ListPanel();
-			setLevel = new SettingComboElem<Integer>("楼层", 1, DataLoader.getLevelFloors());
-			setsize = new SettingPointItem("楼层尺寸", 18, 18, 1, 64, 1, 64);
 			JPanel liph = new JPanel();
 			liph.setLayout(new BoxLayout(liph, BoxLayout.X_AXIS));
-			liph.add(levelAddButton = new JButton("添加"));
+			liph.add(levelAddButton = new JButton("选择"));
 			liph.add(levelReloadButton = new JButton("还原"));
 			liph.add(Box.createGlue());
 			liph.add(new JLabel("楼层属性"));
@@ -65,22 +76,52 @@ public class LevelEditPanel extends JPanel{
 			ulph.add(Box.createGlue());
 			ulph.add(unitTypeSelect = new JComboBox<TypeEnum>(TypeEnum.values()));
 		unitListPanel.setColumnHeaderView(ulph);
-		unitInfoPanel = new ListPanel("单元属性");
+		unitInfoPanel = new ListPanel();
+			JPanel uiph = new JPanel();
+			uiph.setLayout(new BoxLayout(uiph, BoxLayout.X_AXIS));
+			
+			uiph.add(unitDeleteButton = new JButton("删除"));
+			uiph.add(Box.createGlue());
+			uiph.add(new JLabel("单元属性"));
+			uiph.add(Box.createGlue());
+			uiph.add(unitSaveButton = new JButton("保存"));
+		unitInfoPanel.setColumnHeaderView(uiph);
 		
 		add(mapview);
 		add(levelInfoPanel);
-			levelInfoPanel.add(setLevel);
-			levelInfoPanel.add(setsize);
 		add(unitListPanel);
 		add(unitInfoPanel); 
+			
 		
 		
-		mapview.setViewportView(map = new MapPanel(18, 18, 100));
+		mapview.setViewportView(map = new MapPanel(18, 18, 100, this));
 		mapview.setColumnHeaderView(map.getColumnHeader());
 		mapview.setRowHeaderView(map.getRowHeader());
 		
 		calcLayout();
 		addListener();
+		loadLevels();
+		loadLevel(1);
+	}
+	public void loadLevels(){
+		ArrayList<Integer> floors = new ArrayList<Integer>(DataLoader.getLevelFloors());
+		Collections.sort(floors);
+		this.floors.retainAll(floors);
+	}
+	public void loadLevel(int i){
+		JSONObject json = DataLoader.getLevelDefine(i);
+		loadLevel(Level.make(json));
+	}
+	public void loadNewLevel(){
+		
+	}
+	public void loadLevel(Level l){
+		levelInfoPanel.removeAll();
+		setLevel = new SettingTextElem("楼层", Integer.toString(l.getLevel()));
+		setsize = new SettingPointItem("楼层尺寸", l.getSize()[0], l.getSize()[1], 1, 64, 1, 64);
+		levelInfoPanel.add(setLevel);
+		levelInfoPanel.add(setsize);
+		map.loadLevel(l);
 	}
 	public void addListener(){
 		unitTypeSelect(TypeEnum.ABIOTIC);
@@ -118,6 +159,18 @@ public class LevelEditPanel extends JPanel{
 		levelInfoPanel.setBounds(640, 0, 320, 100);
 		unitListPanel.setBounds(640, 100, 320, 320);
 		unitInfoPanel.setBounds(640, 420, 320, 220);
+	}
+	private void loadItem(Unit u){
+		unitInfoPanel.removeAll();
+		unitInfoPanel.add(unitName = new SettingTextElem("单元名:", u.getName()));
+	}
+	@Override
+	public void mapItemSelected(Unit u) {
+		loadItem(u);
+	}
+	@Override
+	public void mapItemsUpdated(Collection<Unit> units) {
+		// TODO Auto-generated method stub
 		
 	}
 }

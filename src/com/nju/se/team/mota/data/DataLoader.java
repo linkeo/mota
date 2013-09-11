@@ -20,7 +20,7 @@ public class DataLoader {
 	private HashMap<Integer,JSONObject> levelMap = new HashMap<Integer,JSONObject>();
 	private HashMap<String,JSONObject> creatureMap = new HashMap<String,JSONObject>();
 	private HashMap<String,JSONObject> abioticMap = new HashMap<String,JSONObject>();
-	public DataLoader() {
+	private DataLoader() {
 	}
 	private static DataLoader instance;
 	public static void load(){

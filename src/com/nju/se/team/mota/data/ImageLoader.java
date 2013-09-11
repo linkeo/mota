@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 
 public class ImageLoader {
 	private HashMap<String,BufferedImage> imageMap = new HashMap<String,BufferedImage>();
-	public ImageLoader() {
+	private ImageLoader() {
 	}
 	private static ImageLoader instance;
 	public static void load(){

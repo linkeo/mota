@@ -10,7 +10,8 @@ public class ResLoader {
 	private HashMap<String,File> datamap = new HashMap<String,File>();
 	private HashMap<String,File> imagemap = new HashMap<String,File>();
 	private static ResLoader instance;
-	
+	private ResLoader() {
+	}
 	public static void load(){
 		if(instance==null)
 			instance = new ResLoader();

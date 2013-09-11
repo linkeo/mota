@@ -5,15 +5,17 @@
 		abiotics:[
 			{
 				name:"Stair1_1",
-				type:"Stair",
+				type:"stair_up",
 				buddy:"Stair2_1",
-				position:[2,1]
+				position:[2,1],
+				floor:1
 			},
 			{
 				name:"wall00001",
-				type:"wall",
+				type:"wall_wood",
 				buddy:null,
-				position:[2,2]
+				position:[2,2],
+				floor:1
 			}
 		],
 		creatures:[
@@ -25,15 +27,17 @@
 		abiotics:[
 			{
 				name:"Stair2_1",
-				type:"Stair",
+				type:"stair_down",
 				buddy:"Stair1_1",
-				position:[2,1]
+				position:[2,1],
+				floor:2
 			},
 			{
 				name:"wall00002",
-				type:"wall",
+				type:"wall_wood",
 				buddy:null,
-				position:[2,2]
+				position:[2,2],
+				floor:2
 			}
 		],
 		creatures:[

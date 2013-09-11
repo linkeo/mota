@@ -8,6 +8,7 @@ import org.json.JSONObject;
 
 import com.nju.se.team.mota.game.unit.Abiotic;
 import com.nju.se.team.mota.game.unit.Creature;
+import com.nju.se.team.mota.game.unit.Unit;
 
 public class Level {
 	private int level;
@@ -32,6 +33,7 @@ public class Level {
 			size[i]=sizej.getInt(i);
 		setSize(size);
 		JSONArray as = json.getJSONArray("abiotics");
+		System.out.println(as.toString(4));
 		for(int i=0;i<as.length();++i)
 			abiotics.add(Abiotic.make(as.getJSONObject(i)));
 		JSONArray cs = json.getJSONArray("creatures");
@@ -53,13 +55,21 @@ public class Level {
 	public Set<Abiotic> getAbiotics() {
 		return abiotics;
 	}
-	public void setAbiotics(Set<Abiotic> abiotics) {
-		this.abiotics = abiotics;
+	public void addUnit(Abiotic a){
+		abiotics.add(a);
+	}
+	public void removeUnit(Abiotic a){
+		abiotics.remove(a);
 	}
 	public Set<Creature> getCreatures() {
 		return creatures;
 	}
-	public void setCreatures(Set<Creature> creatures) {
-		this.creatures = creatures;
+	public void addUnit(Creature c){
+		creatures.add(c);
 	}
+	public void removeUnit(Creature c){
+		creatures.remove(c);
+	}
+	public void addUnit(Unit u){}
+	public void removeUnit(Unit u){}
 }

@@ -12,6 +12,8 @@ public class SaveLoader {
 	private HashSet<File> saveFiles = new HashSet<File>();
 	private HashSet<Save> saves = new HashSet<Save>();
 	private static SaveLoader instance;
+	private SaveLoader() {
+	}
 	public static void load(){
 		if(instance==null)instance = new SaveLoader();
 		File dir = new File("save/");

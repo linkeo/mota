@@ -1,4 +1,6 @@
 package com.nju.se.team.mota.editor;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -13,7 +15,7 @@ import com.nju.se.team.mota.game.util.TypeEnum;
 import com.nju.se.team.mota.game.util.UnitStatus;
 
 
-public class MapElem extends JPanel {
+public class MapElem extends JPanel implements MouseListener{
 
 	/**
 	 * 
@@ -40,14 +42,19 @@ public class MapElem extends JPanel {
 		front.setSize(32, 32);
 		front.setPreferredSize(getSize());
 		DndHandler.addUnitDropTarget(this);
+		this.addMouseListener(this);
 	}
 	public void setUnit(Unit u, int x, int y){
 		unit = u;
-		if(u instanceof Abiotic)
-			type = TypeEnum.ABIOTIC;
-		if(u instanceof Creature)
-			type = TypeEnum.CREATURE;
-		front.setIcon(new ImageIcon(u.getSprites().get(UnitStatus.NORMAL).currImage()[x][y]));
+		if(u==null){
+			front.setIcon(null);
+		}else{
+			if(u instanceof Abiotic)
+				type = TypeEnum.ABIOTIC;
+			if(u instanceof Creature)
+				type = TypeEnum.CREATURE;
+			front.setIcon(new ImageIcon(u.getSprites().get(UnitStatus.NORMAL).currImage()[x][y]));
+		}
 	}
 	public void setUnitBackground(Unit u, int x, int y) {
 		unit = u;
@@ -73,5 +80,34 @@ public class MapElem extends JPanel {
 		MapDropEvent e = new MapDropEvent(u, x, y);
 		for(MapDropListener l : mapDropListeners)
 			l.drop(e);
+	}
+	MapItemListener mil;
+	public void setMapItemListener(MapItemListener mapItemListener) {
+		mil = mapItemListener;
+	}
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		if(mil!=null)
+			mil.mapItemSelected(getUnit());
+	}
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }
