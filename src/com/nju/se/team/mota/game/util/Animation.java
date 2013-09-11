@@ -63,7 +63,7 @@ public class Animation {
 			for(int j=0;j<y;++j){
 				JSONArray subsubj = subj.getJSONArray(j);
 				for(int k=0;k<z;++k){
-					images[i][j][k] = subsubj.getString(j);
+					images[i][j][k] = subsubj.getString(k);
 				}
 			}
 		}

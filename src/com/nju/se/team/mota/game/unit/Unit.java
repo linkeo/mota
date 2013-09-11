@@ -91,4 +91,17 @@ public class Unit {
 		size[0] = w;
 		size[1] = h;
 	}
+	public Unit clone(){
+		Unit u = new Unit();
+		u.setName(getName());
+		u.setType(getType());
+		u.setSprites(new HashMap<UnitStatus, Animation>(getSprites()));
+		u.setAction(new HashMap<Condition, String>(getAction()));
+		u.setPosition(getPosition().clone());
+		u.setSize(getSize().clone());
+		u.setFloor(getFloor());
+		u.setBuddy(getBuddy());
+		u.setBuddyType(getBuddyType());
+		return u;
+	}
 }

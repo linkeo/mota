@@ -9,6 +9,7 @@ import org.json.JSONObject;
 
 import com.nju.se.team.mota.editor.uielem.SettingPointItem;
 import com.nju.se.team.mota.game.unit.Abiotic;
+import com.nju.se.team.mota.game.unit.Unit;
 import com.nju.se.team.mota.game.util.Animation;
 import com.nju.se.team.mota.game.util.Condition;
 import com.nju.se.team.mota.game.util.UnitStatus;
@@ -26,7 +27,9 @@ public class TempUsage {
 		Abiotic a = Abiotic.make(new JSONObject("{\"position\":[1,1],\"canGoThrough\":true,\"floor\":0,\"name\":\"Hello\",\"buddyType\":\"none\",\"action\":{\"closeto\":\"open\",\"crash\":\"open\"},\"sprites\":{\"normal\":{\"images\":[[\"STR\"]]}},\"type\":\"floor\",\"size\":[1,1]}"));
 
 		System.out.println(new JSONObject(a));
-		System.out.println(new JSONObject(a.copy()));
+		System.out.println(new JSONObject(a.clone()));
+		Unit u =a;
+		System.out.println(new JSONObject(u.clone()));
 	}
 }
 

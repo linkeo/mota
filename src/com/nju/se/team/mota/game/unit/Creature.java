@@ -93,9 +93,23 @@ public class Creature extends Unit{
 		setMoney(json.getInt("money"));
 		setEXP(json.getInt("EXP"));
 	}	
-	public Creature copy(){
-		//TODO
-		return null;
+	public Creature clone(){
+		Creature c = new Creature();
+		c.setName(getName());
+		c.setPosition(getPosition().clone());
+		c.setFloor(getFloor());
+		c.setBuddy(getBuddy());
+		c.setType(getType());
+		c.setSprites(new HashMap<UnitStatus, Animation> (getSprites()));
+		c.setAction(new HashMap<Condition, String>( getAction()));
+		c.setSize(getSize().clone());
+		c.setBuddyType(getBuddyType());
+		c.setHP(getHP());
+		c.setATK(getATK());
+		c.setDEF(getDEF());
+		c.setMoney(getMoney());
+		c.setEXP(getEXP());
+		return c;
 	}
 	public int getHP() {
 		return HP;

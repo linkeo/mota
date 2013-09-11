@@ -72,17 +72,16 @@ public class Abiotic extends Unit{
 		setSize(json.getJSONArray("size").getInt(0),json.getJSONArray("size").getInt(1));
 		setBuddyType(json.optString("buddyType"));
 	}
-	@SuppressWarnings("unchecked")
-	public Abiotic copy(){
+	public Abiotic clone(){
 		Abiotic a = new Abiotic();
 		a.setName(getName());
 		a.setPosition(getPosition().clone());
 		a.setFloor(getFloor());
 		a.setBuddy(getBuddy());
 		a.setType(getType());
-		a.setSprites((HashMap<UnitStatus, Animation>) getSprites().clone());
+		a.setSprites(new HashMap<UnitStatus, Animation> (getSprites()));
 		a.setCanGoThrough(isCanGoThrough());
-		a.setAction((HashMap<Condition, String>) getAction().clone());
+		a.setAction(new HashMap<Condition, String>( getAction()));
 		a.setSize(getSize().clone());
 		a.setBuddyType(getBuddyType());
 		return a;
