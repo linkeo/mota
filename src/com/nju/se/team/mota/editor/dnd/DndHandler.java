@@ -6,8 +6,6 @@ import java.awt.dnd.DropTarget;
 
 import javax.swing.JLabel;
 
-import com.nju.se.team.mota.editor.MapDropEvent;
-import com.nju.se.team.mota.editor.MapDropListener;
 import com.nju.se.team.mota.editor.MapElem;
 import com.nju.se.team.mota.editor.uielem.ResElem;
 import com.nju.se.team.mota.editor.uielem.UnitElem;
