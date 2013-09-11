@@ -15,6 +15,11 @@ import com.nju.se.team.mota.data.ImageLoader;
 import com.nju.se.team.mota.editor.FrameHolder;
 import com.nju.se.team.mota.editor.uielem.FrameGridElem;
 
+/**
+ * 资源列表元素Drop监听器, 包含数据处理过程
+ * @author Linkeo
+ *
+ */
 public class ResDropTargetListener implements DropTargetListener {
 
 	public void drop( DropTargetDropEvent e ) {

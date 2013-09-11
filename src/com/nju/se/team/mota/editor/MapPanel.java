@@ -10,6 +10,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.nju.se.team.mota.editor.uielem.MapElem;
 import com.nju.se.team.mota.game.Level;
 import com.nju.se.team.mota.game.unit.Abiotic;
 import com.nju.se.team.mota.game.unit.Creature;

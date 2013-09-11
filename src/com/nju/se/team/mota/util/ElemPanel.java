@@ -6,7 +6,6 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JLayeredPane;
 
-import com.nju.se.team.mota.editor.Colors;
 
 
 public class ElemPanel extends JLayeredPane{

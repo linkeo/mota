@@ -6,10 +6,15 @@ import java.awt.dnd.DropTarget;
 
 import javax.swing.JLabel;
 
-import com.nju.se.team.mota.editor.MapElem;
+import com.nju.se.team.mota.editor.uielem.MapElem;
 import com.nju.se.team.mota.editor.uielem.ResElem;
 import com.nju.se.team.mota.editor.uielem.UnitElem;
 
+/**
+ * DragAndDrop功能模块的对外显示部分, 包括向组件绑定Drag/Drop监听器的方法
+ * @author Linkeo
+ *
+ */
 public class DndHandler {
 	public static void addResDragSource(ResElem elem){
 		DragSource dragSource = DragSource.getDefaultDragSource();

@@ -3,6 +3,9 @@ package com.nju.se.team.mota.editor;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import com.nju.se.team.mota.util.Colors;
+import com.nju.se.team.mota.util.Fonts;
+
 public class EditorMain {
 	public static void main(String[] args) {
 		setLookandFeel();

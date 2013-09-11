@@ -1,4 +1,4 @@
-package com.nju.se.team.mota.editor;
+package com.nju.se.team.mota.util;
 
 import java.awt.Color;
 

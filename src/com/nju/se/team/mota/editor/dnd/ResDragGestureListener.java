@@ -7,6 +7,11 @@ import java.awt.dnd.DragSource;
 
 import com.nju.se.team.mota.editor.uielem.ResElem;
 
+/**
+ * 资源列表元素Drag监听器, 包含数据准备过程
+ * @author Linkeo
+ *
+ */
 public class ResDragGestureListener implements DragGestureListener {
 
 	@Override

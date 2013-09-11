@@ -6,7 +6,11 @@ import java.awt.dnd.DragSource;
 
 import com.nju.se.team.mota.editor.uielem.UnitElem;
 import com.nju.se.team.mota.game.unit.Unit;
-
+/**
+ * 游戏单元(Unit)Drag监听器, 包含数据准备过程
+ * @author Linkeo
+ *
+ */
 public class UnitDragGestureListener implements DragGestureListener{
 
 	@Override

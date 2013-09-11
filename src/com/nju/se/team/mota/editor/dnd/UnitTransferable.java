@@ -7,6 +7,11 @@ import java.io.IOException;
 
 import com.nju.se.team.mota.game.unit.Unit;
 
+/**
+ * Unit对象的拖拽数据搬运对象, 相当于货车
+ * @author Linkeo
+ *
+ */
 public class UnitTransferable implements Transferable{
 
 	private Unit unit;

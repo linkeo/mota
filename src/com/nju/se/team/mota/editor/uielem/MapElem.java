@@ -1,4 +1,4 @@
-package com.nju.se.team.mota.editor;
+package com.nju.se.team.mota.editor.uielem;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -7,6 +7,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.nju.se.team.mota.editor.MapDropEvent;
+import com.nju.se.team.mota.editor.MapDropListener;
+import com.nju.se.team.mota.editor.MapItemListener;
 import com.nju.se.team.mota.editor.dnd.DndHandler;
 import com.nju.se.team.mota.game.unit.Abiotic;
 import com.nju.se.team.mota.game.unit.Creature;

@@ -2,7 +2,6 @@ package com.nju.se.team.mota.game.unit;
 
 import java.util.ArrayList;
 
-import com.nju.se.team.mota.game.util.Tool;
 
 public class Player {
 	private int redkey, yellowkey, bluekey;

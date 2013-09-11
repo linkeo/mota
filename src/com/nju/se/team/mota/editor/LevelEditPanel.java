@@ -13,12 +13,9 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-
 import org.json.JSONObject;
 
 import com.nju.se.team.mota.data.DataLoader;
-import com.nju.se.team.mota.editor.uielem.SettingComboElem;
 import com.nju.se.team.mota.editor.uielem.SettingPointItem;
 import com.nju.se.team.mota.editor.uielem.SettingTextElem;
 import com.nju.se.team.mota.editor.uielem.UnitElem;

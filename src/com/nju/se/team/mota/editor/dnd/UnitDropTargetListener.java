@@ -9,9 +9,14 @@ import java.awt.dnd.DropTargetEvent;
 import java.awt.dnd.DropTargetListener;
 import java.io.IOException;
 
-import com.nju.se.team.mota.editor.MapElem;
+import com.nju.se.team.mota.editor.uielem.MapElem;
 import com.nju.se.team.mota.game.unit.Unit;
 
+/**
+ * 游戏单元(Unit)Drop监听器, 包含数据处理过程
+ * @author Linkeo
+ *
+ */
 public class UnitDropTargetListener implements DropTargetListener {
 
 	public void drop( DropTargetDropEvent e ) {
