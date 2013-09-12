@@ -76,6 +76,7 @@ public class StatusComboDialog extends JDialog implements ActionListener{
 	 * @param candidates ¿ÉÑ¡×´Ì¬
 	 * @return
 	 */
+	@SuppressWarnings("deprecation")
 	public static StatusElem chooseStatus(Component comp, StatusElem elem, Vector<UnitStatus> candidates){
 		StatusComboDialog ss = new StatusComboDialog(elem);
 		ss.inputStatus.setModel(new DefaultComboBoxModel<UnitStatus>(candidates));

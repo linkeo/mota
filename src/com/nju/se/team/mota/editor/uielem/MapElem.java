@@ -1,7 +1,10 @@
 package com.nju.se.team.mota.editor.uielem;
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
+import java.awt.event.MouseMotionListener;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -24,10 +27,10 @@ import com.nju.se.team.mota.game.util.UnitStatus;
  * 
  *
  */
-public class MapElem extends JPanel implements MouseListener{
+public class MapElem extends JPanel implements MouseListener, MouseMotionListener{
 
 	private static final long serialVersionUID = 1L;
-	private ArrayList<MapDropListener> mapDropListeners = new ArrayList<MapDropListener>();
+	private Set<MapDropListener> mapDropListeners = new HashSet<MapDropListener>();
 	Unit unit;
 	TypeEnum type;
 	int x,  y;
@@ -54,13 +57,17 @@ public class MapElem extends JPanel implements MouseListener{
 		front.setSize(32, 32);
 		front.setPreferredSize(getSize());
 		DndHandler.addUnitDropTarget(this);
+		DndHandler.addMapUnitDropTarget(this);
+		DndHandler.addMapUnitDragSource(this);
 		this.addMouseListener(this);
 	}
+	public int getRow(){return y;}
+	public int getCol(){return x;}
 	/**
-	 * 设置单元对应的对象
-	 * @param u 新的Unit对象
-	 * @param x	地图单元对应的Unit对象的1x1子对象的横坐标
-	 * @param y	地图单元对应的Unit对象的1x1子对象的纵坐标
+	 * 
+	 * @param u
+	 * @param x 当前区域在单位贴图中的x轴位置
+	 * @param y 当前区域在单位贴图中的y轴位置
 	 */
 	public void setUnit(Unit u, int x, int y){
 		unit = u;
@@ -81,12 +88,13 @@ public class MapElem extends JPanel implements MouseListener{
 	 * @param y 地图单元对应的Unit背景对象的1x1子对象的纵坐标
 	 */
 	public void setUnitBackground(Unit u, int x, int y) {
-		unit = u;
 		if(u instanceof Abiotic)
 			type = TypeEnum.ABIOTIC;
 		if(u instanceof Creature)
 			type = TypeEnum.CREATURE;
-		back.setIcon(new ImageIcon(u.getSprites().get(UnitStatus.NORMAL).currImage()[x][y]));
+//		back.setIcon(new ImageIcon(u.getSprites().get(UnitStatus.NORMAL).currImage()[x][y]));
+		back.setBackground(Color.GRAY);
+		back.setOpaque(true);
 	}
 	/**
 	 * 获取地图单元对应的Unit对象
@@ -120,10 +128,15 @@ public class MapElem extends JPanel implements MouseListener{
 	 * 拖拽处理
 	 * @param u Unit对象
 	 */
-	public void dropped(Unit u){
+	public void dropCopy(Unit u){
 		MapDropEvent e = new MapDropEvent(u, x, y);
 		for(MapDropListener l : mapDropListeners)
-			l.drop(e);
+			l.dropCopy(e);
+	}
+	public void dropMove(Unit u) {
+		MapDropEvent e = new MapDropEvent(u, x, y);
+		for(MapDropListener l : mapDropListeners)
+			l.dropMove(e);
 	}
 	MapItemListener mil;
 	/**
@@ -140,8 +153,7 @@ public class MapElem extends JPanel implements MouseListener{
 	}
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+		highlight();
 	}
 	@Override
 	public void mouseExited(MouseEvent arg0) {
@@ -157,5 +169,18 @@ public class MapElem extends JPanel implements MouseListener{
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public void mouseDragged(MouseEvent arg0) {
+		highlight();
+	}
+	@Override
+	public void mouseMoved(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void highlight(){
+		if(mil!=null)
+			mil.mapItemHighlighted(this);
 	}
 }

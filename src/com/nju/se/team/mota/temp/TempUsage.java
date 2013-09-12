@@ -2,17 +2,10 @@ package com.nju.se.team.mota.temp;
 
 import java.io.FileNotFoundException;
 
-import javax.swing.JFrame;
-
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.nju.se.team.mota.editor.uielem.SettingPointItem;
 import com.nju.se.team.mota.game.unit.Abiotic;
 import com.nju.se.team.mota.game.unit.Unit;
-import com.nju.se.team.mota.game.util.Animation;
-import com.nju.se.team.mota.game.util.Condition;
-import com.nju.se.team.mota.game.util.UnitStatus;
 
 
 public class TempUsage {

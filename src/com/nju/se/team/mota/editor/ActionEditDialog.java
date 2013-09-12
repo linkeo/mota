@@ -86,6 +86,7 @@ public class ActionEditDialog extends JDialog implements ActionListener{
 	 * @param candidates 剩余的可选触发条件
 	 * @return
 	 */
+	@SuppressWarnings("deprecation")
 	public static ActionElem editAction(Component comp, ActionElem elem, Vector<Condition> candidates){
 		ActionEditDialog ss = new ActionEditDialog(elem);
 		ss.inputCondition.setModel(new DefaultComboBoxModel<Condition>(candidates));
