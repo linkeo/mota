@@ -5,7 +5,12 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import com.nju.se.team.mota.util.Colors;
 import com.nju.se.team.mota.util.Fonts;
-
+/**
+ * 主程序入口
+ * @author linkeo
+ * @author lzw
+ *
+ */
 public class EditorMain {
 	public static void main(String[] args) {
 		setLookandFeel();

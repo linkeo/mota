@@ -17,12 +17,15 @@ import com.nju.se.team.mota.game.unit.Unit;
 import com.nju.se.team.mota.game.util.TypeEnum;
 import com.nju.se.team.mota.game.util.UnitStatus;
 
-
+/**
+ * 地图的UI单元
+ * @author linkeo
+ * @author lzw
+ * 
+ *
+ */
 public class MapElem extends JPanel implements MouseListener{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private ArrayList<MapDropListener> mapDropListeners = new ArrayList<MapDropListener>();
 	Unit unit;
@@ -30,6 +33,12 @@ public class MapElem extends JPanel implements MouseListener{
 	int x,  y;
 	int floor;
 	private JLabel back, front;
+	/**
+	 * 构造函数
+	 * @param x 单元横坐标
+	 * @param y 单元纵坐标
+	 * @param floor 单元所处楼层
+	 */
 	public MapElem(int x, int y, int floor){
 		super(null);
 		this.x = x;
@@ -47,6 +56,12 @@ public class MapElem extends JPanel implements MouseListener{
 		DndHandler.addUnitDropTarget(this);
 		this.addMouseListener(this);
 	}
+	/**
+	 * 设置单元对应的对象
+	 * @param u 新的Unit对象
+	 * @param x	地图单元对应的Unit对象的1x1子对象的横坐标
+	 * @param y	地图单元对应的Unit对象的1x1子对象的纵坐标
+	 */
 	public void setUnit(Unit u, int x, int y){
 		unit = u;
 		if(u==null){
@@ -59,6 +74,12 @@ public class MapElem extends JPanel implements MouseListener{
 			front.setIcon(new ImageIcon(u.getSprites().get(UnitStatus.NORMAL).currImage()[x][y]));
 		}
 	}
+	/**
+	 * 设置单元对应的背景对象
+	 * @param u 新的背景Unit对象
+	 * @param x 地图单元对应的Unit背景对象的1x1子对象的横坐标
+	 * @param y 地图单元对应的Unit背景对象的1x1子对象的纵坐标
+	 */
 	public void setUnitBackground(Unit u, int x, int y) {
 		unit = u;
 		if(u instanceof Abiotic)
@@ -67,24 +88,48 @@ public class MapElem extends JPanel implements MouseListener{
 			type = TypeEnum.CREATURE;
 		back.setIcon(new ImageIcon(u.getSprites().get(UnitStatus.NORMAL).currImage()[x][y]));
 	}
+	/**
+	 * 获取地图单元对应的Unit对象
+	 * @return Unit对象
+	 */
 	public Unit getUnit(){
 		return unit;
 	}
+	/**
+	 * 获取该Unit对象的具体类型
+	 * @return Unit子类型
+	 */
 	public TypeEnum getType(){
 		return type;
 	}
-	public void addMapDropListener(MapDropListener l){
-		mapDropListeners.add(l);
+	/**
+	 * 添加拖拽Listener
+	 * @param mapDroplistener
+	 */
+	public void addMapDropListener(MapDropListener mapDroplistener){
+		mapDropListeners.add(mapDroplistener);
 	}
-	public void removeMapDropListener(MapDropListener l){
-		mapDropListeners.remove(l);
+	/**
+	 * 删除拖拽Listener
+	 * @param mapDroplistener
+	 */
+	public void removeMapDropListener(MapDropListener mapDroplistener){
+		mapDropListeners.remove(mapDroplistener);
 	}
+	/**
+	 * 拖拽处理
+	 * @param u Unit对象
+	 */
 	public void dropped(Unit u){
 		MapDropEvent e = new MapDropEvent(u, x, y);
 		for(MapDropListener l : mapDropListeners)
 			l.drop(e);
 	}
 	MapItemListener mil;
+	/**
+	 * 设置点击读取该Unit对象的Listener
+	 * @param mapItemListener
+	 */
 	public void setMapItemListener(MapItemListener mapItemListener) {
 		mil = mapItemListener;
 	}

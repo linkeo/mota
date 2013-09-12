@@ -15,18 +15,27 @@ import com.nju.se.team.mota.game.Level;
 import com.nju.se.team.mota.game.unit.Abiotic;
 import com.nju.se.team.mota.game.unit.Creature;
 import com.nju.se.team.mota.game.unit.Unit;
-
+/**
+ * 地图容器
+ * @author linkeo
+ * @author lzw
+ *
+ */
 public class MapPanel extends JPanel implements MapDropListener{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	int row,col;
 	int floor;
 	MapElem[][] blocks;
 	Set<Unit> units = new HashSet<Unit>();
 	MapItemListener mapItemListener;
+	/**
+	 * 构造函数
+	 * @param row 地图大小_行数
+	 * @param col 地图大小_列数
+	 * @param floor 楼层
+	 * @param mil 地图单元信息监听器
+	 */
 	public MapPanel(int row, int col, int floor, MapItemListener mil) {
 		super(null);
 		mapItemListener = mil;
@@ -45,9 +54,17 @@ public class MapPanel extends JPanel implements MapDropListener{
 			}
 		init();
 	}
+	/**
+	 * 获取楼层
+	 * @return floor(int)
+	 */
 	public int getFloor() {
 		return floor;
 	}
+	/**
+	 * 设置楼层
+	 * @param floor(int)
+	 */
 	public void setFloor(int floor) {
 		this.floor = floor;
 	}
@@ -96,40 +113,84 @@ public class MapPanel extends JPanel implements MapDropListener{
 			if(!rect.contains(u.getRect()))
 				units.remove(u);
 	}
+	/**
+	 * 初始化所有地图单元
+	 */
 	public void init(){
 		for(int i=0;i<col;++i)
 			for(int j=0;j<row;++j)
 				init(i,j);
 	}
+	/**
+	 * 初始化地图单元
+	 * @param x 单元横坐标
+	 * @param y 单元纵坐标
+	 */
 	public void init(int x, int y){
 		setUnitBackground(Abiotic.make("floor", x, y, floor), x, y);
 	}
+	/**
+	 * 移除所有Unit对象
+	 */
 	public void removeAllUnit(){
 		for(Unit u : new HashSet<Unit>(units))
 			removeUnit(u);
 	}
-	private void clear_area(Rectangle r){
-		this.clear(r.x, r.y, r.width, r.height);
+	/**
+	 * 清空区域内所有对象
+	 * @param rectangle
+	 */
+	private void clear_area(Rectangle rectangle){
+		this.clear(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
 	}
+	/**
+	 * 清空区域内所有对象
+	 * @param x 起始横坐标
+	 * @param y 起始纵坐标
+	 * @param w 区域宽度
+	 * @param h	区域高度
+	 */
 	private void clear(int x, int y, int w, int h){
 		for(int i=x;i<x+w;++i)
 			for(int j=y;j<y+h;++j)
 				clear(i,j);
 	}
+	/**
+	 * 清空一个单元的对象
+	 * @param x 单元横坐标
+	 * @param y 单元纵坐标
+	 */
 	public void clear(int x, int y){
 		setUnit(null, x, y);
 	}
+	/**
+	 * 添加Unit对象<br>
+	 * Unit起始位置为(x,y)
+	 * @param u Unit对象
+	 * @param x 起始横左边
+	 * @param y 起始纵坐标
+	 */
 	public void addUnit(Unit u, int x, int y){
 		if(checkUnit(u, x, y)){
 			setUnit(u, x, y);
 			units.add(u);
 		}
 	}
-	public void removeUnit(Unit u){
-		units.remove(u);
-		clear_area(u.getRect());
+	/**
+	 * 移除Unit对象
+	 * @param 
+	 */
+	public void removeUnit(Unit unit){
+		units.remove(unit);
+		clear_area(unit.getRect());
 	}
-	
+	/**
+	 * 检测是否可在单元添加Unit对象
+	 * @param u Unit
+	 * @param x 单元横坐标
+	 * @param y 单元纵坐标
+	 * @return
+	 */
 	public boolean checkUnit(Unit u, int x, int y){
 		int w = u.getSize()[0];
 		int h = u.getSize()[1];
@@ -140,6 +201,13 @@ public class MapPanel extends JPanel implements MapDropListener{
 				return false;
 		return true;
 	}
+	/**
+	 * 设置Unit对象<br>
+	 * 从起始x和y开始按Unit尺寸填充地图单元
+	 * @param u Unit对象
+	 * @param x 起始横左边
+	 * @param y	起始纵坐标
+	 */
 	public void setUnit(Unit u, int x, int y){
 		u.setPosition(x, y);
 		int w = u.getSize()[0];
@@ -148,6 +216,12 @@ public class MapPanel extends JPanel implements MapDropListener{
 			for(int j=y;j<y+h;++j)
 				blocks[i][j].setUnit(u, i-x, j-y);
 	}
+	/**
+	 * 设置Unit对象区域的背景
+	 * @param u Unit对象
+	 * @param x 起始横坐标
+	 * @param y 起始纵坐标
+	 */
 	private void setUnitBackground(Unit u, int x, int y) {
 		u.setPosition(x, y);
 		int w = u.getSize()[0];
@@ -156,25 +230,40 @@ public class MapPanel extends JPanel implements MapDropListener{
 			for(int j=y;j<y+h;++j)
 				blocks[i][j].setUnitBackground(u, i-x, j-y);
 	}
+	/**
+	 * 处理拖拽
+	 */
 	@Override
 	public void drop(MapDropEvent e) {
 		Unit unit = e.getSource();
 		addUnit(unit, e.getX(), e.getY());
 	}
 	JPanel columnHeader = new JPanel(null);
+	/**
+	 * 获取列数标识
+	 * @return columnHeader
+	 */
 	public Component getColumnHeader() {
 		return columnHeader;
 	}
 	JPanel rowHeader = new JPanel(null);
+	/**
+	 * 获取行数标识
+	 * @return rowHeader
+	 */
 	public Component getRowHeader() {
 		return rowHeader;
 	}
-	public void loadLevel(Level l) {
-		setFloor(l.getLevel());
-		setGridSize(l.getSize()[0], l.getSize()[1]);
-		for(Abiotic a : l.getAbiotics())
+	/**
+	 * 加载楼层
+	 * @param level
+	 */
+	public void loadLevel(Level level) {
+		setFloor(level.getLevel());
+		setGridSize(level.getSize()[0], level.getSize()[1]);
+		for(Abiotic a : level.getAbiotics())
 			addUnit(a, a.getPosition()[0], a.getPosition()[1]);
-		for(Creature c : l.getCreatures())
+		for(Creature c : level.getCreatures())
 			addUnit(c, c.getPosition()[0], c.getPosition()[1]);
 	}
 }

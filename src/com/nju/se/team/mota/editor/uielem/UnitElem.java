@@ -14,17 +14,22 @@ import com.nju.se.team.mota.game.util.TypeEnum;
 import com.nju.se.team.mota.game.util.UnitStatus;
 import com.nju.se.team.mota.util.ElemPanel;
 import com.nju.se.team.mota.util.ImageHandler;
-
+/**
+ * Unit对象列表的UI单元
+ * @author soft
+ *
+ */
 public class UnitElem extends ElemPanel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Unit unit;
 	private JLabel imageLabel;
 	private JLabel typeNameLabel;
 	private JLabel sizeLabel;
+	/**
+	 * 构造函数
+	 * @param u Unit对象
+	 */
 	public UnitElem(Unit u) {
 		super(false);
 		this.unit = u;
@@ -51,12 +56,24 @@ public class UnitElem extends ElemPanel {
 		sizeLabel.setBounds(32, 16, 103, 16);
 		DndHandler.addUnitDragSource(this);
 	}
+	/**
+	 * 获取Unit对象
+	 * @return Unit
+	 */
 	public Unit getUnit() {
 		return unit;
 	}
+	/**
+	 * 获取Unit对象的具体类型
+	 * @return (String)Type
+	 */
 	public String getUnitType(){
 		return unit.getType();
 	}
+	/**
+	 * 获取Unit对象的子类型
+	 * @return 
+	 */
 	public TypeEnum getTypeEnum(){
 		if(unit instanceof Abiotic) return TypeEnum.ABIOTIC;
 		if(unit instanceof Creature) return TypeEnum.CREATURE;
