@@ -4,6 +4,9 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -102,16 +105,10 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 		add(unitListPanel);
 		add(unitInfoPanel); 
 			
-		
-		
-		mapview.setViewportView(map = new MapPanel(18, 18, 100, this));
-		mapview.setColumnHeaderView(map.getColumnHeader());
-		mapview.setRowHeaderView(map.getRowHeader());
-		
-		calcLayout();
-		addListener();
 		loadLevels();
 		loadLevel(1);
+		calcLayout();
+		addListener();
 	}
 	/**
 	 * 加载所有楼层数
@@ -126,12 +123,16 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 	 */
 	public void loadLevel(int i){
 		Level l = LevelLoader.getLevel(i);
+		if(map==null){
+			mapview.setViewportView(map = new MapPanel(l, this));
+			mapview.setColumnHeaderView(map.getColumnHeader());
+			mapview.setRowHeaderView(map.getRowHeader());
+		}
 		levelInfoPanel.removeAll();
 		setLevel = new SettingTextElem("楼层", Integer.toString(l.getLevel()));
 		setsize = new SettingPointItem("楼层尺寸", l.getSize()[0], l.getSize()[1], 1, 64, 1, 64);
 		levelInfoPanel.add(setLevel);
 		levelInfoPanel.add(setsize);
-		map.loadLevel(l);
 	}
 	public void loadNewLevel(){
 		
@@ -188,9 +189,17 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 		unitInfoPanel.removeAll();
 		if(u!=null){
 			unitInfoPanel.add(unitName = new SettingTextElem("单元名:", u.getName()));
-			ArrayList<String> options = new ArrayList<String>();
-			for(Unit bu: LevelLoader.getUnits(u.getBuddyType()))
-				options.add(bu.getName());
+			Set<String> optionset = new HashSet<String>();
+			for(Unit existingU: LevelLoader.getUnits(u.getBuddyType()))
+				optionset.add(existingU.getName());
+			for(Unit tu: map.getCurrLevel().getAbiotics())
+				if(tu.getType().equals(u.getBuddyType()))
+					optionset.add(tu.getName());
+			for(Unit tu: map.getCurrLevel().getCreatures())
+				if(tu.getType().equals(u.getBuddyType()))
+					optionset.add(tu.getName());
+			ArrayList<String> options = new ArrayList<>(optionset);
+			Collections.sort(options);
 			unitInfoPanel.add(unitBuddy = new SettingComboElem<String>("配对对象:", u.getBuddy(), options));
 		}
 	}

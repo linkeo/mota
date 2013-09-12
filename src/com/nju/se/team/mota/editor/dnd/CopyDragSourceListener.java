@@ -51,6 +51,5 @@ public class CopyDragSourceListener implements DragSourceListener {
 		} else {
 			context.setCursor( DragSource.DefaultCopyNoDrop );
 		}
-		System.out.println(context.getCursor().getName());
 	}
 }

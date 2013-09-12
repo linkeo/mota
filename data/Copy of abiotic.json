@@ -1,10 +1,17 @@
 [
     {
-        "canGoThrough": true,
+        "canGoThrough": false,
         "buddyType": "none",
-        "action": {"crash": "get(woodspade)"},
-        "sprites": {"normal": {"images": [[["item1_2x1"]]]}},
-        "type": "spade_wood",
+        "sprites": {
+            "open": {"images": [
+                [["door2_1x3"]],
+                [["door2_2x3"]],
+                [["door2_3x3"]]
+            ]},
+            "normal": {"images": [[["door2_0x3"]]]}
+        },
+        "action": {},
+        "type": "铁栅栏",
         "size": [
             1,
             1
@@ -13,53 +20,9 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "atkup(6)"},
-        "sprites": {"normal": {"images": [[["item2_0x2"]]]}},
-        "type": "gem_green",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "get(sword5)"},
-        "sprites": {"normal": {"images": [[["item3_0x4"]]]}},
-        "type": "sword_5",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "get(sword4)"},
-        "sprites": {"normal": {"images": [[["item3_0x3"]]]}},
-        "type": "sword_4",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "get(sword3)"},
-        "sprites": {"normal": {"images": [[["item3_0x2"]]]}},
-        "type": "sword_3",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "get(sword2)"},
         "sprites": {"normal": {"images": [[["item3_0x1"]]]}},
-        "type": "sword_2",
+        "action": {"crash": "get(sword2)"},
+        "type": "初级宝剑",
         "size": [
             1,
             1
@@ -68,9 +31,9 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"dead": "get(blueKey)"},
-        "sprites": {"normal": {"images": [[["item1_0x1"]]]}},
-        "type": "key_blue",
+        "sprites": {"normal": {"images": [[["item1_2x2"]]]}},
+        "action": {"dead": "get(shoe)"},
+        "type": "疾风鞋",
         "size": [
             1,
             1
@@ -78,10 +41,109 @@
     },
     {
         "canGoThrough": true,
-        "buddyType": "stair_down",
-        "action": {"crash": "upstair"},
-        "sprites": {"normal": {"images": [[["stair_0x1"]]]}},
-        "type": "stair_up",
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item3_0x0"]]]}},
+        "action": {"crash": "get(sword1)"},
+        "type": "新兵宝剑",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_1x2"]]]}},
+        "action": {"crash": "hpup(500)"},
+        "type": "绿药水",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "portal",
+        "sprites": {"normal": {"images": [[["item1_1x2"]]]}},
+        "action": {"crash": "portal"},
+        "type": "传送阵",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item1_1x1"]]]}},
+        "action": {"crash": "moneyup(100)"},
+        "type": "金币",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_1x3"]]]}},
+        "action": {"crash": "hpup(800)"},
+        "type": "黄药水",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_0x0"]]]}},
+        "action": {"crash": "atkup(3)"},
+        "type": "红宝石",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_2x3"]]]}},
+        "action": {},
+        "type": "蓝圣水",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_1x0"]]]}},
+        "action": {"crash": "hpup(100)"},
+        "type": "红药水",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item1_0x2"]]]}},
+        "action": {"crash": "get(redKey)"},
+        "type": "红钥匙",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_0x1"]]]}},
+        "action": {"crash": "defup(3)"},
+        "type": "蓝宝石",
         "size": [
             1,
             1
@@ -99,25 +161,7 @@
             "normal": {"images": [[["door_0x2"]]]}
         },
         "action": {},
-        "type": "door_red",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": false,
-        "buddyType": "none",
-        "sprites": {
-            "open": {"images": [
-                [["door_1x0"]],
-                [["door_2x0"]],
-                [["door_3x0"]]
-            ]},
-            "normal": {"images": [[["door_0x0"]]]}
-        },
-        "action": {},
-        "type": "door_yellow",
+        "type": "红门",
         "size": [
             1,
             1
@@ -126,9 +170,9 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "defup(6)"},
-        "sprites": {"normal": {"images": [[["item2_0x3"]]]}},
-        "type": "gem_yellow",
+        "sprites": {"normal": {"images": [[["item2_0x2"]]]}},
+        "action": {"crash": "atkup(6)"},
+        "type": "绿宝石",
         "size": [
             1,
             1
@@ -137,9 +181,9 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(sword1)"},
-        "sprites": {"normal": {"images": [[["item3_0x0"]]]}},
-        "type": "sword_1",
+        "sprites": {"normal": {"images": [[["item1_1x0"]]]}},
+        "action": {"crash": "get(book)"},
+        "type": "怪物百科大全",
         "size": [
             1,
             1
@@ -148,9 +192,9 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "moneyup(100)"},
-        "sprites": {"normal": {"images": [[["item1_1x1"]]]}},
-        "type": "money",
+        "sprites": {"normal": {"images": [[["item3_0x2"]]]}},
+        "action": {"crash": "get(sword3)"},
+        "type": "中级宝剑",
         "size": [
             1,
             1
@@ -159,210 +203,9 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "hpup(250)"},
-        "sprites": {"normal": {"images": [[["item2_1x1"]]]}},
-        "type": "potion_blue",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "get(shield1)"},
-        "sprites": {"normal": {"images": [[["item3_1x0"]]]}},
-        "type": "shield_1",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "get(yellowKey)"},
         "sprites": {"normal": {"images": [[["item1_0x0"]]]}},
-        "type": "key_yellow",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "get(shield2)"},
-        "sprites": {"normal": {"images": [[["item3_1x1"]]]}},
-        "type": "shield_2",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"dead": "get(shoe)"},
-        "sprites": {"normal": {"images": [[["item1_2x2"]]]}},
-        "type": "shoe",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "get(shield3)"},
-        "sprites": {"normal": {"images": [[["item3_1x2"]]]}},
-        "type": "shield_3",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "get(shield4)"},
-        "sprites": {"normal": {"images": [[["item3_1x3"]]]}},
-        "type": "shield_4",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {},
-        "sprites": {"normal": {"images": [[["item2_2x1"]]]}},
-        "type": "grail_red",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "get(shield5)"},
-        "sprites": {"normal": {"images": [[["item3_1x4"]]]}},
-        "type": "shield_5",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "hpup(800)"},
-        "sprites": {"normal": {"images": [[["item2_1x3"]]]}},
-        "type": "potion_yellow",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "get(redKey)"},
-        "sprites": {"normal": {"images": [[["item1_0x2"]]]}},
-        "type": "key_red",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "stair_up",
-        "action": {"crash": "downstair"},
-        "sprites": {"normal": {"images": [[["stair_0x0"]]]}},
-        "type": "stair_down",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "portal",
-        "action": {"crash": "portal"},
-        "sprites": {"normal": {"images": [[["item1_1x2"]]]}},
-        "type": "portal",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "get(stonespade)"},
-        "sprites": {"normal": {"images": [[["item1_2x0"]]]}},
-        "type": "spade_stone",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": false,
-        "buddyType": "none",
-        "action": {},
-        "sprites": {
-            "open": {"images": [
-                [["door2_1x0"]],
-                [["door2_2x0"]],
-                [["door2_3x0"]]
-            ]},
-            "normal": {"images": [[["door2_0x0"]]]}
-        },
-        "type": "wall_stone",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": false,
-        "buddyType": "none",
-        "sprites": {
-            "open": {"images": [
-                [["door_1x1"]],
-                [["door_2x1"]],
-                [["door_3x1"]]
-            ]},
-            "normal": {"images": [[["door_0x1"]]]}
-        },
-        "action": {},
-        "type": "door_blue",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "atkup(3)"},
-        "sprites": {"normal": {"images": [[["item2_0x0"]]]}},
-        "type": "gem_red",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {},
-        "sprites": {"normal": {"images": [[["item2_2x0"]]]}},
-        "type": "grail_green",
+        "action": {"crash": "get(yellowKey)"},
+        "type": "黄钥匙",
         "size": [
             1,
             1
@@ -380,7 +223,18 @@
             "normal": {"images": [[["door2_0x1"]]]}
         },
         "action": {},
-        "type": "wall_wood",
+        "type": "土墙",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item3_1x4"]]]}},
+        "action": {"crash": "get(shield5)"},
+        "type": "传说中的盾牌",
         "size": [
             1,
             1
@@ -391,14 +245,14 @@
         "buddyType": "none",
         "sprites": {
             "open": {"images": [
-                [["door2_1x3"]],
-                [["door2_2x3"]],
-                [["door2_3x3"]]
+                [["door_1x1"]],
+                [["door_2x1"]],
+                [["door_3x1"]]
             ]},
-            "normal": {"images": [[["door2_0x3"]]]}
+            "normal": {"images": [[["door_0x1"]]]}
         },
         "action": {},
-        "type": "fence",
+        "type": "蓝门",
         "size": [
             1,
             1
@@ -407,9 +261,31 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item3_1x3"]]]}},
+        "action": {"crash": "get(shield4)"},
+        "type": "高级盾牌",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "楼梯(上)",
+        "sprites": {"normal": {"images": [[["stair_0x0"]]]}},
+        "action": {"crash": "downstair"},
+        "type": "楼梯(下)",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_2x1"]]]}},
         "action": {},
-        "sprites": {"normal": {"images": [[["door2_0x2"]]]}},
-        "type": "floor",
+        "type": "红圣水",
         "size": [
             1,
             1
@@ -418,9 +294,111 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "defup(3)"},
-        "sprites": {"normal": {"images": [[["item2_0x1"]]]}},
-        "type": "gem_blue",
+        "sprites": {"normal": {"images": [[["item1_0x1"]]]}},
+        "action": {"dead": "get(blueKey)"},
+        "type": "蓝钥匙",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["door2_0x2"]]]}},
+        "action": {},
+        "type": "地面",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_1x1"]]]}},
+        "action": {"crash": "hpup(250)"},
+        "type": "蓝药水",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item3_0x4"]]]}},
+        "action": {"crash": "get(sword5)"},
+        "type": "传说中的宝剑",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item1_2x0"]]]}},
+        "action": {"crash": "get(stonespade)"},
+        "type": "合金钢镐",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": false,
+        "buddyType": "none",
+        "sprites": {
+            "open": {"images": [
+                [["door2_1x0"]],
+                [["door2_2x0"]],
+                [["door2_3x0"]]
+            ]},
+            "normal": {"images": [[["door2_0x0"]]]}
+        },
+        "action": {},
+        "type": "石墙",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item1_2x1"]]]}},
+        "action": {"crash": "get(woodspade)"},
+        "type": "铁镐",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_2x0"]]]}},
+        "action": {},
+        "type": "绿圣水",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": false,
+        "buddyType": "none",
+        "sprites": {
+            "open": {"images": [
+                [["door_1x0"]],
+                [["door_2x0"]],
+                [["door_3x0"]]
+            ]},
+            "normal": {"images": [[["door_0x0"]]]}
+        },
+        "action": {},
+        "type": "黄门",
         "size": [
             1,
             1
@@ -438,7 +416,7 @@
             "normal": {"images": [[["door_0x3"]]]}
         },
         "action": {},
-        "type": "door_special",
+        "type": "特殊门",
         "size": [
             1,
             1
@@ -447,9 +425,9 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(book)"},
-        "sprites": {"normal": {"images": [[["item1_1x0"]]]}},
-        "type": "book_monsters",
+        "sprites": {"normal": {"images": [[["item2_0x3"]]]}},
+        "action": {"crash": "defup(6)"},
+        "type": "黄宝石",
         "size": [
             1,
             1
@@ -458,20 +436,20 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {},
+        "sprites": {"normal": {"images": [[["item3_0x3"]]]}},
+        "action": {"crash": "get(sword4)"},
+        "type": "高级宝剑",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
         "sprites": {"normal": {"images": [[["item2_2x2"]]]}},
-        "type": "grail_yellow",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
         "action": {},
-        "sprites": {"normal": {"images": [[["item2_2x3"]]]}},
-        "type": "grail_blue",
+        "type": "黄圣水",
         "size": [
             1,
             1
@@ -480,9 +458,9 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "hpup(100)"},
-        "sprites": {"normal": {"images": [[["item2_1x0"]]]}},
-        "type": "potion_red",
+        "sprites": {"normal": {"images": [[["item3_1x1"]]]}},
+        "action": {"crash": "get(shield2)"},
+        "type": "初级盾牌",
         "size": [
             1,
             1
@@ -491,9 +469,31 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "hpup(500)"},
-        "sprites": {"normal": {"images": [[["item2_1x2"]]]}},
-        "type": "potion_green",
+        "sprites": {"normal": {"images": [[["item3_1x2"]]]}},
+        "action": {"crash": "get(shield3)"},
+        "type": "中级盾牌",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "楼梯(下)",
+        "sprites": {"normal": {"images": [[["stair_0x1"]]]}},
+        "action": {"crash": "upstair"},
+        "type": "楼梯(上)",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item3_1x0"]]]}},
+        "action": {"crash": "get(shield1)"},
+        "type": "新兵盾牌",
         "size": [
             1,
             1

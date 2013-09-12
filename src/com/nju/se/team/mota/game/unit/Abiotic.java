@@ -152,7 +152,6 @@ public class Abiotic extends Unit{
 	 */
 	public static Abiotic make(String type, int x, int y, int z) {
 		Abiotic a = new Abiotic();
-
 		a.loadType(DataLoader.getAbioticDefine(type));
 		a.setName(type);
 		a.setPosition(x, y);

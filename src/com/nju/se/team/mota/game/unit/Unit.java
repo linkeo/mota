@@ -164,7 +164,7 @@ public class Unit implements Comparable<Unit>{
 	 * ÆðÊ¼×ø±ê,³ß´ç
 	 * @return Rectangle
 	 */
-	public Rectangle getRect(){
+	public Rectangle rectangle(){
 		return new Rectangle(position[0], position[1], size[0], size[1]);
 	}
 	/**

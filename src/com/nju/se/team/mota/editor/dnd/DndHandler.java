@@ -18,11 +18,11 @@ import com.nju.se.team.mota.editor.uielem.UnitElem;
 public class DndHandler {
 	public static void addResDragSource(ResElem elem){
 		DragSource dragSource = DragSource.getDefaultDragSource();
-		dragSource.createDefaultDragGestureRecognizer(elem, DnDConstants.ACTION_COPY_OR_MOVE, new ResDragGestureListener());
+		dragSource.createDefaultDragGestureRecognizer(elem, DnDConstants.ACTION_COPY, new ResDragGestureListener());
 	}
 	public static void addUnitDragSource(UnitElem elem){
 		DragSource dragSource = DragSource.getDefaultDragSource();
-		dragSource.createDefaultDragGestureRecognizer(elem, DnDConstants.ACTION_COPY_OR_MOVE, new UnitDragGestureListener());
+		dragSource.createDefaultDragGestureRecognizer(elem, DnDConstants.ACTION_COPY, new UnitDragGestureListener());
 	}
 	public static void addMapUnitDragSource(MapElem elem){
 		DragSource dragSource = DragSource.getDefaultDragSource();

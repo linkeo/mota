@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Random;
+import java.util.Set;
 
 import com.nju.se.team.mota.game.Level;
 import com.nju.se.team.mota.game.unit.Abiotic;
@@ -47,7 +50,7 @@ public class LevelLoader {
 	
 	public static Level getLevel(int floor){
 		if(instance==null) load();
-		return instance.levels.get(floor);
+		return instance.levels.get(floor).clone();
 	}
 	public static ArrayList<Integer> floors() {
 		if(instance==null) load();
@@ -116,5 +119,38 @@ public class LevelLoader {
 		result.addAll(getCreatures(type));
 		return result;
 	}
+
+	public static Collection<Unit> searchUnits(String regex){
+		ArrayList<Unit> all = new ArrayList<Unit>();
+		all.addAll(getAllAbiotics());
+		all.addAll(getAllCreatures());
+		Set<Unit> r = new HashSet<Unit>();
+		for(Unit u : all)
+			if(u.getName().matches(regex))
+				r.add(u);
+		return r;
+	}
 	
+	public static String randomName(String keyword, Level temp){
+		String regex = keyword+"_\\d+";
+		Random r = new Random(System.currentTimeMillis());
+		String result = null;
+		boolean conflicts = false;
+		do{
+			result = keyword+'_'+(r.nextInt(900000)+100000);
+			for(Unit existingU : searchUnits(regex)){
+				if(existingU.getName().equals(result))
+					conflicts = true;
+			}
+			if(!conflicts){
+				Set<Unit> tempus = new HashSet<>();
+				tempus.addAll(temp.getAbiotics());
+				tempus.addAll(temp.getCreatures());
+				for(Unit tempU : tempus)
+					if(tempU.getName().equals(result))
+						conflicts = true;
+			}
+		}while(conflicts);
+		return result;
+	}
 }

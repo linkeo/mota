@@ -27,11 +27,6 @@ public class UnitDropTargetListener implements DropTargetListener {
 				DropTarget dt = (DropTarget)e.getSource();
 				MapElem d = ( MapElem )dt.getComponent();//获取拖拽目的组件
 				d.dropCopy(u);
-//				if((e.getDropAction()&DnDConstants.ACTION_MOVE)!=0){
-//					System.out.println("T_MOVE");
-//				}else if((e.getDropAction()&DnDConstants.ACTION_COPY)!=0){
-//					System.out.println("T_COPY");
-//				}
 				e.dropComplete(true);
 				return;
 			}

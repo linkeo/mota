@@ -13,6 +13,7 @@ public class MapUnitDragGestureListener implements DragGestureListener{
 	public void dragGestureRecognized(DragGestureEvent dge) {
 		MapElem e = (MapElem) dge.getComponent();
 		Unit u = e.getUnit();
+		if(u==null) return;
 		UnitTransferable unit = new UnitTransferable(u);
 		dge.startDrag( DragSource.DefaultCopyDrop, unit, new CopyDragSourceListener() );//开始拖拽过程
 	}

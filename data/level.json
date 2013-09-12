@@ -4,15 +4,15 @@
 		size:[16,16],
 		abiotics:[
 			{
-				name:"Stair1_1",
-				type:"stair_up",
+				name:"楼梯(上)_168720",
+				type:"楼梯(上)",
 				buddy:"Stair2_1",
 				position:[2,1],
 				floor:1
 			},
 			{
-				name:"wall00001",
-				type:"wall_wood",
+				name:"土墙_658762",
+				type:"土墙",
 				buddy:null,
 				position:[2,2],
 				floor:1
@@ -26,15 +26,15 @@
 		size:[16,16],
 		abiotics:[
 			{
-				name:"Stair2_1",
-				type:"stair_down",
+				name:"楼梯(下)_561892",
+				type:"楼梯(下)",
 				buddy:"Stair1_1",
 				position:[2,1],
 				floor:2
 			},
 			{
-				name:"wall00002",
-				type:"wall_wood",
+				name:"石墙_292319",
+				type:"石墙",
 				buddy:null,
 				position:[2,2],
 				floor:2

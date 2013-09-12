@@ -1,19 +1,79 @@
 [
     {
+        "DEF": 20,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [
+            [["enemy02_2x0"]],
+            [["enemy02_2x1"]],
+            [["enemy02_2x2"]],
+            [["enemy02_2x3"]]
+        ]}},
+        "money": 20,
+        "action": {"crash": "fight"},
+        "EXP": 20,
+        "HP": 200,
+        "type": "»ðòùòð",
+        "ATK": 20,
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "DEF": 10,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [
+            [["enemy02_1x0"]],
+            [["enemy02_1x1"]],
+            [["enemy02_1x2"]],
+            [["enemy02_1x3"]]
+        ]}},
+        "money": 10,
+        "action": {"crash": "fight"},
+        "EXP": 10,
+        "HP": 100,
+        "type": "´óòùòð",
+        "ATK": 10,
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
         "DEF": 5,
         "buddyType": "none",
-        "EXP": 5,
+        "sprites": {"normal": {"images": [
+            [["enemy09_0x0"]],
+            [["enemy09_0x1"]],
+            [["enemy09_0x2"]],
+            [["enemy09_0x3"]]
+        ]}},
+        "money": 10,
         "action": {"crash": "fight"},
-        "money": 5,
+        "EXP": 15,
+        "HP": 20,
+        "type": "Ð¡Ê·À³Ä·",
+        "ATK": 20,
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "DEF": 5,
+        "buddyType": "none",
         "sprites": {"normal": {"images": [
             [["enemy02_0x0"]],
             [["enemy02_0x1"]],
             [["enemy02_0x2"]],
             [["enemy02_0x3"]]
         ]}},
+        "money": 5,
+        "action": {"crash": "fight"},
+        "EXP": 5,
         "HP": 50,
+        "type": "Ð¡òùòð",
         "ATK": 5,
-        "type": "bat_small",
         "size": [
             1,
             1
@@ -96,71 +156,11 @@
         "action": {"crash": "fight"},
         "EXP": 5400,
         "HP": 10000,
-        "type": "dragon_red",
+        "type": "ºìÁú",
         "ATK": 1500,
         "size": [
             3,
             3
-        ]
-    },
-    {
-        "DEF": 20,
-        "buddyType": "none",
-        "EXP": 20,
-        "action": {"crash": "fight"},
-        "money": 20,
-        "sprites": {"normal": {"images": [
-            [["enemy02_2x0"]],
-            [["enemy02_2x1"]],
-            [["enemy02_2x2"]],
-            [["enemy02_2x3"]]
-        ]}},
-        "HP": 200,
-        "ATK": 20,
-        "type": "bat_red",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "DEF": 5,
-        "buddyType": "none",
-        "EXP": 15,
-        "action": {"crash": "fight"},
-        "money": 10,
-        "sprites": {"normal": {"images": [
-            [["enemy09_0x0"]],
-            [["enemy09_0x1"]],
-            [["enemy09_0x2"]],
-            [["enemy09_0x3"]]
-        ]}},
-        "HP": 20,
-        "ATK": 20,
-        "type": "slime_smallgreen",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "DEF": 10,
-        "buddyType": "none",
-        "EXP": 10,
-        "action": {"crash": "fight"},
-        "money": 10,
-        "sprites": {"normal": {"images": [
-            [["enemy02_1x0"]],
-            [["enemy02_1x1"]],
-            [["enemy02_1x2"]],
-            [["enemy02_1x3"]]
-        ]}},
-        "HP": 100,
-        "ATK": 10,
-        "type": "bat_big",
-        "size": [
-            1,
-            1
         ]
     }
 ]

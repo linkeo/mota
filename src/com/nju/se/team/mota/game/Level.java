@@ -29,6 +29,14 @@ public class Level {
 		abiotics = new HashSet<Abiotic>();
 		creatures = new HashSet<Creature>();
 	}
+	public Level clone(){
+		Level l = new Level();
+		l.setLevel(getLevel());
+		l.setSize(getSize().clone());
+		l.setAbiotics(new HashSet<Abiotic>(getAbiotics()));
+		l.setCreatures(new HashSet<Creature>(getCreatures()));
+		return l;
+	}
 	/**
 	 * 创造一个楼层对象
 	 * @param json
@@ -91,6 +99,12 @@ public class Level {
 	 */
 	public Set<Abiotic> getAbiotics() {
 		return abiotics;
+	}
+	public void setAbiotics(Set<Abiotic> abiotics) {
+		this.abiotics = abiotics;
+	}
+	public void setCreatures(Set<Creature> creatures) {
+		this.creatures = creatures;
 	}
 	
 	public void addUnit(Abiotic a){

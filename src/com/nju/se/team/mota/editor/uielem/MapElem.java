@@ -34,15 +34,14 @@ public class MapElem extends JPanel implements MouseListener, MouseMotionListene
 	Unit unit;
 	TypeEnum type;
 	int x,  y;
-	int floor;
+//	int floor;
 	private JLabel back, front;
 	/**
 	 * 构造方法
 	 * @param x 单元横坐标
 	 * @param y 单元纵坐标
-	 * @param floor 单元所处楼层
 	 */
-	public MapElem(int x, int y, int floor){
+	public MapElem(int x, int y){
 		super(null);
 		this.x = x;
 		this.y = y;
@@ -56,7 +55,7 @@ public class MapElem extends JPanel implements MouseListener, MouseMotionListene
 		back.setPreferredSize(getSize());
 		front.setSize(32, 32);
 		front.setPreferredSize(getSize());
-		DndHandler.addUnitDropTarget(this);
+//		DndHandler.addUnitDropTarget(this);
 		DndHandler.addMapUnitDropTarget(this);
 		DndHandler.addMapUnitDragSource(this);
 		this.addMouseListener(this);
