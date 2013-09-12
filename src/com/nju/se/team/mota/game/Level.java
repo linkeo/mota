@@ -9,22 +9,40 @@ import org.json.JSONObject;
 import com.nju.se.team.mota.game.unit.Abiotic;
 import com.nju.se.team.mota.game.unit.Creature;
 import com.nju.se.team.mota.game.unit.Unit;
-
+/**
+ * 楼层
+ * @author linkeo
+ * @author lzw
+ *
+ */
 public class Level {
 	private int level;
 	private int size[];
 	private Set<Abiotic> abiotics;
-	private Set<Creature> creatures; 
+	private Set<Creature> creatures;
+	/**
+	 * 构造函数<br>
+	 * default:19x19
+	 */
 	public Level() {//default
 		size=new int[]{19,19};
 		abiotics = new HashSet<Abiotic>();
 		creatures = new HashSet<Creature>();
 	}
+	/**
+	 * 创造一个楼层对象
+	 * @param json
+	 * @return Level
+	 */
 	public static Level make(JSONObject json){
 		Level l = new Level();
 		l.load(json);
 		return l;
 	}
+	/**
+	 * 从json加载数据
+	 * @param json
+	 */
 	public void load(JSONObject json){
 		setLevel(json.getInt("level"));
 		JSONArray sizej = json.getJSONArray("size");
@@ -39,21 +57,42 @@ public class Level {
 		for(int i=0;i<cs.length();++i)
 			creatures.add(Creature.make(cs.getJSONObject(i)));
 	}
+	/**
+	 * 获取楼层
+	 * @return level(int)
+	 */
 	public int getLevel() {
 		return level;
 	}
+	/**
+	 * 设置楼层
+	 * @param level
+	 */
 	public void setLevel(int level) {
 		this.level = level;
 	}
+	/**
+	 * 获取楼层尺寸
+	 * @return size(int[])
+	 */
 	public int[] getSize() {
 		return size;
 	}
+	/**
+	 * 设置楼层尺寸
+	 * @param size(int[])
+	 */
 	public void setSize(int[] size) {
 		this.size = size;
 	}
+	/**
+	 * 获取所有非生物对象
+	 * @return abiotics(Set)
+	 */
 	public Set<Abiotic> getAbiotics() {
 		return abiotics;
 	}
+	
 	public void addUnit(Abiotic a){
 		abiotics.add(a);
 	}

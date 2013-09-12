@@ -17,15 +17,15 @@ import java.awt.dnd.DragSourceListener;
 public class CopyDragSourceListener implements DragSourceListener {
 
 	public void dragDropEnd( DragSourceDropEvent e ) {
-		if( e.getDropSuccess() ) {
-			int dropAction = e.getDropAction();
+//		if( e.getDropSuccess() ) {
+//			int dropAction = e.getDropAction();
 
 //			if((e.getDropAction()&DnDConstants.ACTION_MOVE)!=0){
 //				System.out.println("S_MOVE");
 //			}else if((e.getDropAction()&DnDConstants.ACTION_COPY)!=0){
 //				System.out.println("S_COPY");
 //			}
-		}
+//		}
 	}
 	/**
 	 * 控制拖拽过程光标显示

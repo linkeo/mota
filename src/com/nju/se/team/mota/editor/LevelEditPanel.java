@@ -4,7 +4,6 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -29,7 +28,12 @@ import com.nju.se.team.mota.game.unit.Creature;
 import com.nju.se.team.mota.game.unit.Unit;
 import com.nju.se.team.mota.game.util.TypeEnum;
 import com.nju.se.team.mota.util.ListPanel;
-
+/**
+ * 地图编辑面板
+ * @author linkeo
+ * @author lzw
+ *
+ */
 public class LevelEditPanel extends JPanel implements MapItemListener{
 
 	/**
@@ -56,6 +60,10 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 		
 	ArrayList<Integer> floors = new ArrayList<Integer>();
 		
+	/**
+	 * 构造方法<br>
+	 * 初始化组件
+	 */
 	public LevelEditPanel(){
 		super(null);
 		mapview = new JScrollPane();
@@ -105,10 +113,17 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 		loadLevels();
 		loadLevel(1);
 	}
+	/**
+	 * 加载所有楼层数
+	 */
 	public void loadLevels(){
 		ArrayList<Integer> floors = LevelLoader.floors();
 		this.floors.retainAll(floors);
 	}
+	/**
+	 * 加载一个楼层的数据
+	 * @param i 楼层数
+	 */
 	public void loadLevel(int i){
 		Level l = LevelLoader.getLevel(i);
 		levelInfoPanel.removeAll();
@@ -133,6 +148,10 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 			}
 		});
 	}
+	/**
+	 * 获取选择Unit子类型的所有对象
+	 * @param selectedItem 选择的Unit子类型
+	 */
 	private void unitTypeSelect(TypeEnum selectedItem) {
 		unitListPanel.removeAll();
 		if(selectedItem == TypeEnum.ABIOTIC){
@@ -152,12 +171,19 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 			}
 		}
 	}
+	/**
+	 * 硬布局
+	 */
 	private void calcLayout(){
 		mapview.setBounds(0, 0, 640, 640);
 		levelInfoPanel.setBounds(640, 0, 320, 100);
 		unitListPanel.setBounds(640, 100, 320, 320);
 		unitInfoPanel.setBounds(640, 420, 320, 220);
 	}
+	/**
+	 * 显示地图上Unit信息
+	 * @param u
+	 */
 	private void loadItem(Unit u){
 		unitInfoPanel.removeAll();
 		if(u!=null){

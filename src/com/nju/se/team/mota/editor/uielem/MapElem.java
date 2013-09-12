@@ -20,12 +20,15 @@ import com.nju.se.team.mota.game.unit.Unit;
 import com.nju.se.team.mota.game.util.TypeEnum;
 import com.nju.se.team.mota.game.util.UnitStatus;
 
-
+/**
+ * 地图的UI单元
+ * @author linkeo
+ * @author lzw
+ * 
+ *
+ */
 public class MapElem extends JPanel implements MouseListener, MouseMotionListener{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Set<MapDropListener> mapDropListeners = new HashSet<MapDropListener>();
 	Unit unit;
@@ -33,6 +36,12 @@ public class MapElem extends JPanel implements MouseListener, MouseMotionListene
 	int x,  y;
 	int floor;
 	private JLabel back, front;
+	/**
+	 * 构造方法
+	 * @param x 单元横坐标
+	 * @param y 单元纵坐标
+	 * @param floor 单元所处楼层
+	 */
 	public MapElem(int x, int y, int floor){
 		super(null);
 		this.x = x;
@@ -72,6 +81,12 @@ public class MapElem extends JPanel implements MouseListener, MouseMotionListene
 			front.setIcon(new ImageIcon(u.getSprites().get(UnitStatus.NORMAL).currImage()[x][y]));
 		}
 	}
+	/**
+	 * 设置单元对应的背景对象
+	 * @param u 新的背景Unit对象
+	 * @param x 地图单元对应的Unit背景对象的1x1子对象的横坐标
+	 * @param y 地图单元对应的Unit背景对象的1x1子对象的纵坐标
+	 */
 	public void setUnitBackground(Unit u, int x, int y) {
 		if(u instanceof Abiotic)
 			type = TypeEnum.ABIOTIC;
@@ -81,18 +96,38 @@ public class MapElem extends JPanel implements MouseListener, MouseMotionListene
 		back.setBackground(Color.GRAY);
 		back.setOpaque(true);
 	}
+	/**
+	 * 获取地图单元对应的Unit对象
+	 * @return Unit对象
+	 */
 	public Unit getUnit(){
 		return unit;
 	}
+	/**
+	 * 获取该Unit对象的具体类型
+	 * @return Unit子类型
+	 */
 	public TypeEnum getType(){
 		return type;
 	}
-	public void addMapDropListener(MapDropListener l){
-		mapDropListeners.add(l);
+	/**
+	 * 添加拖拽Listener
+	 * @param mapDroplistener
+	 */
+	public void addMapDropListener(MapDropListener mapDroplistener){
+		mapDropListeners.add(mapDroplistener);
 	}
-	public void removeMapDropListener(MapDropListener l){
-		mapDropListeners.remove(l);
+	/**
+	 * 删除拖拽Listener
+	 * @param mapDroplistener
+	 */
+	public void removeMapDropListener(MapDropListener mapDroplistener){
+		mapDropListeners.remove(mapDroplistener);
 	}
+	/**
+	 * 拖拽处理
+	 * @param u Unit对象
+	 */
 	public void dropCopy(Unit u){
 		MapDropEvent e = new MapDropEvent(u, x, y);
 		for(MapDropListener l : mapDropListeners)
@@ -104,6 +139,10 @@ public class MapElem extends JPanel implements MouseListener, MouseMotionListene
 			l.dropMove(e);
 	}
 	MapItemListener mil;
+	/**
+	 * 设置点击读取该Unit对象的Listener
+	 * @param mapItemListener
+	 */
 	public void setMapItemListener(MapItemListener mapItemListener) {
 		mil = mapItemListener;
 	}

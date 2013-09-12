@@ -13,7 +13,11 @@ import javax.swing.JPanel;
 import com.nju.se.team.mota.data.ImageLoader;
 import com.nju.se.team.mota.editor.dnd.DndHandler;
 import com.nju.se.team.mota.editor.uielem.FrameGridElem;
-
+/**
+ * 帧图片容器
+ * @author soft
+ *
+ */
 public class FrameHolder extends JPanel {
 
 	/**
@@ -23,6 +27,10 @@ public class FrameHolder extends JPanel {
 	FrameGridElem content[][];
 	int col, row;
 	private static final int BLOCK_SIZE = 34;
+	/**
+	 * 构造方法<br>
+	 * 最大为5x5,默认为1x1
+	 */
 	public FrameHolder() {
 		setLayout(null);
 		content = new FrameGridElem[5][5];
@@ -40,6 +48,10 @@ public class FrameHolder extends JPanel {
 			}
 		setGridSize(row, col);
 	}
+	/**
+	 * 加载图片
+	 * @param imagekey 图片标识(String[][])
+	 */
 	public void load(String[][] imagekey){
 		clear();
 		int x = imagekey.length;
@@ -57,6 +69,10 @@ public class FrameHolder extends JPanel {
 				}
 			}
 	}
+	/**
+	 * 获取当前图片
+	 * @return imagekey 图片标识(String[][])
+	 */
 	public String[][] getImageKey(){
 		String[][] imagekey = new String[row][col];
 		for(int i=0;i<row;++i)
@@ -64,6 +80,11 @@ public class FrameHolder extends JPanel {
 				imagekey[i][j] = content[i][j].getKey();
 		return imagekey;
 	}
+	/**
+	 * 设置显示大小
+	 * @param row 行数
+	 * @param col 列数
+	 */
 	public void setGridSize(int row, int col){
 		this.row = row;
 		this.col = col;
@@ -75,7 +96,9 @@ public class FrameHolder extends JPanel {
 				content[i][j].setVisible(true);
 		adjustLayout();
 	}
-	
+	/**
+	 * 调整显示位置
+	 */
 	// (size.width-row*BLOCK_SIZE)/2
 	public void adjustLayout(){
 		Dimension size = getSize();
@@ -91,16 +114,31 @@ public class FrameHolder extends JPanel {
 	
 	
 	private ArrayList<FrameEditListener> frameEditListerners = new ArrayList<FrameEditListener>();
-	
-	public boolean addFrameEditListener(FrameEditListener l){
-		return frameEditListerners.add(l);
+	/**
+	 * 添加帧图片变化监听器
+	 * @param frameEditListener
+	 * @return
+	 */
+	public boolean addFrameEditListener(FrameEditListener frameEditListener){
+		return frameEditListerners.add(frameEditListener);
 	}
-	public boolean removeFrameEditListener(FrameEditListener l){
-		return frameEditListerners.remove(l);
+	/**
+	 * 移除帧图片变化监听器
+	 * @param frameEditListener
+	 * @return
+	 */
+	public boolean removeFrameEditListener(FrameEditListener frameEditListener){
+		return frameEditListerners.remove(frameEditListener);
 	}
+	/**
+	 * 刷新图片
+	 */
 	public void refresh() {
 		for(FrameEditListener l : frameEditListerners) l.frameChanged();
 	}
+	/**
+	 * 清空图片
+	 */
 	public void clear() {
 		for(int i=0;i<row;++i)
 			for(int j=0;j<col;++j)

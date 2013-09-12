@@ -8,18 +8,22 @@ import javax.swing.JLabel;
 import com.nju.se.team.mota.data.ImageLoader;
 import com.nju.se.team.mota.editor.dnd.DndHandler;
 import com.nju.se.team.mota.util.ElemPanel;
-
+/**
+ * 图片素材库UI单元
+ * @author linkeo
+ * @author lzw
+ *
+ */
 public class ResElem  extends ElemPanel {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 1L;	
 	JLabel value;
 	BufferedImage res;
 	String reskey;
-	
+	/**
+	 * 构造方法
+	 * @param reskey 图片对应的标识key
+	 */
 	public ResElem(String reskey) {
 		super(false);
 		this.res = ImageLoader.get(reskey);
@@ -35,7 +39,10 @@ public class ResElem  extends ElemPanel {
 		this.value.setSize(this.value.getPreferredSize());
 		DndHandler.addResDragSource(this);
 	}
-	
+	/**
+	 * 获取图片标识key
+	 * @return reskey 
+	 */
 	public String getReskey(){
 		return reskey;
 	}
