@@ -33,7 +33,6 @@ public class Level {
 			size[i]=sizej.getInt(i);
 		setSize(size);
 		JSONArray as = json.getJSONArray("abiotics");
-		System.out.println(as.toString(4));
 		for(int i=0;i<as.length();++i)
 			abiotics.add(Abiotic.make(as.getJSONObject(i)));
 		JSONArray cs = json.getJSONArray("creatures");

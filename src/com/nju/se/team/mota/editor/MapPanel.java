@@ -2,7 +2,10 @@ package com.nju.se.team.mota.editor;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +19,7 @@ import com.nju.se.team.mota.game.unit.Abiotic;
 import com.nju.se.team.mota.game.unit.Creature;
 import com.nju.se.team.mota.game.unit.Unit;
 
-public class MapPanel extends JPanel implements MapDropListener{
+public class MapPanel extends JPanel implements MapDropListener, MouseMotionListener{
 
 	/**
 	 * 
@@ -44,6 +47,7 @@ public class MapPanel extends JPanel implements MapDropListener{
 				blocks[i][j].setMapItemListener(mapItemListener);
 			}
 		init();
+		addMouseMotionListener(this);
 	}
 	public int getFloor() {
 		return floor;
@@ -59,7 +63,8 @@ public class MapPanel extends JPanel implements MapDropListener{
 			JLabel l = new JLabel(Integer.toString(i),JLabel.CENTER);
 			l.setBounds(i*32, 0, 32, 32);
 			l.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-			columnHeader.add(l);
+			l.setBackground(Color.YELLOW);
+			columnHeader.add(l,i);
 		}
 		columnHeader.setSize(getSize().width, 32);
 		columnHeader.setPreferredSize(columnHeader.getSize());
@@ -68,7 +73,8 @@ public class MapPanel extends JPanel implements MapDropListener{
 			JLabel l = new JLabel(Integer.toString(i),JLabel.CENTER);
 			l.setBounds(0, i*32, 32, 32);
 			l.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-			rowHeader.add(l);
+			l.setBackground(Color.YELLOW);
+			rowHeader.add(l,i);
 		}
 		rowHeader.setSize(32, getSize().height);
 		rowHeader.setPreferredSize(rowHeader.getSize());
@@ -125,6 +131,10 @@ public class MapPanel extends JPanel implements MapDropListener{
 			units.add(u);
 		}
 	}
+	private void moveUnit(Unit u, int x, int y) {
+			clear_area(u.getRect());
+			setUnit(u, x, y);
+	}
 	public void removeUnit(Unit u){
 		units.remove(u);
 		clear_area(u.getRect());
@@ -133,20 +143,33 @@ public class MapPanel extends JPanel implements MapDropListener{
 	public boolean checkUnit(Unit u, int x, int y){
 		int w = u.getSize()[0];
 		int h = u.getSize()[1];
-		if(x<0||y<0) return false;
-		if(x+w>=col||y+h>=row) return false;
+		if(x<0||y<0){
+			System.out.println(u.getName()+"("+x+","+y+")"+" out of area");
+			return false;
+		}
+		if(x+w>=col||y+h>=row){
+			System.out.println(u.getName()+"("+x+","+y+")"+" out of area");
+			return false;
+		}
+		Rectangle r = new Rectangle(x, y, w, h);
 		for(Unit unit : units)
-			if(unit.getRect().intersects(u.getRect()))
+			if(unit.getRect().intersects(r)){
+				System.out.println(unit.getName()+" intersects "+u.getName());
 				return false;
+			}
 		return true;
 	}
 	public void setUnit(Unit u, int x, int y){
-		u.setPosition(x, y);
-		int w = u.getSize()[0];
-		int h = u.getSize()[1];
-		for(int i=x;i<x+w;++i)
-			for(int j=y;j<y+h;++j)
-				blocks[i][j].setUnit(u, i-x, j-y);
+		if(u!=null){
+			u.setPosition(x, y);
+			int w = u.getSize()[0];
+			int h = u.getSize()[1];
+			for(int i=x;i<x+w;++i)
+				for(int j=y;j<y+h;++j)
+					blocks[i][j].setUnit(u, i-x, j-y);
+		}else
+			blocks[x][y].setUnit(u, 0, 0);
+		
 	}
 	private void setUnitBackground(Unit u, int x, int y) {
 		u.setPosition(x, y);
@@ -157,9 +180,14 @@ public class MapPanel extends JPanel implements MapDropListener{
 				blocks[i][j].setUnitBackground(u, i-x, j-y);
 	}
 	@Override
-	public void drop(MapDropEvent e) {
+	public void dropCopy(MapDropEvent e) {
 		Unit unit = e.getSource();
-		addUnit(unit, e.getX(), e.getY());
+		addUnit(unit.clone(), e.getX(), e.getY());
+	}
+	@Override
+	public void dropMove(MapDropEvent e) {
+		Unit unit = e.getSource();
+		moveUnit(unit, e.getX(), e.getY());
 	}
 	JPanel columnHeader = new JPanel(null);
 	public Component getColumnHeader() {
@@ -177,4 +205,36 @@ public class MapPanel extends JPanel implements MapDropListener{
 		for(Creature c : l.getCreatures())
 			addUnit(c, c.getPosition()[0], c.getPosition()[1]);
 	}
+	@Override
+	public void mouseDragged(MouseEvent e) {
+	}
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		Point pos = e.getPoint();
+		if(!(pos.x/32<col&&pos.y/32<row))
+				unlighlight();
+	}
+	private void unlighlight() {
+		for(Component c : columnHeader.getComponents())
+			((JLabel)c).setOpaque(false);
+		for(Component c : rowHeader.getComponents())
+			((JLabel)c).setOpaque(false);
+		rowHeader.repaint();
+		columnHeader.repaint();
+	}
+	public void highlight(MapElem mapElem) {
+		for(Component c : columnHeader.getComponents())
+			((JLabel)c).setOpaque(false);
+		if(mapElem.getCol()<col){
+			((JLabel)columnHeader.getComponent(mapElem.getCol())).setOpaque(true);
+		}
+		for(Component c : rowHeader.getComponents())
+			((JLabel)c).setOpaque(false);
+		if(mapElem.getRow()<row){
+			((JLabel)rowHeader.getComponent(mapElem.getRow())).setOpaque(true);
+		}
+		rowHeader.repaint();
+		columnHeader.repaint();
+	}
+	
 }

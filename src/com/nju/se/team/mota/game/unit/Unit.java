@@ -7,7 +7,7 @@ import com.nju.se.team.mota.game.util.Animation;
 import com.nju.se.team.mota.game.util.Condition;
 import com.nju.se.team.mota.game.util.UnitStatus;
 
-public class Unit {
+public class Unit implements Comparable<Unit>{
 	private String name;
 	private String type;
 	private HashMap<UnitStatus, Animation> sprites;
@@ -103,5 +103,9 @@ public class Unit {
 		u.setBuddy(getBuddy());
 		u.setBuddyType(getBuddyType());
 		return u;
+	}
+	@Override
+	public int compareTo(Unit o) {
+		return getName().compareToIgnoreCase(o.getName());
 	}
 }

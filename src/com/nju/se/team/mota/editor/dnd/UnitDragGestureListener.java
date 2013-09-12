@@ -17,7 +17,6 @@ public class UnitDragGestureListener implements DragGestureListener{
 	public void dragGestureRecognized(DragGestureEvent dge) {
 		UnitElem e = (UnitElem) dge.getComponent();
 		Unit u = e.getUnit().clone();
-			
 		UnitTransferable unit = new UnitTransferable(u);
 		dge.startDrag( DragSource.DefaultCopyDrop, unit, new CopyDragSourceListener() );//开始拖拽过程
 	}

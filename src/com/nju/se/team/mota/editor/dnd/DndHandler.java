@@ -24,11 +24,18 @@ public class DndHandler {
 		DragSource dragSource = DragSource.getDefaultDragSource();
 		dragSource.createDefaultDragGestureRecognizer(elem, DnDConstants.ACTION_COPY_OR_MOVE, new UnitDragGestureListener());
 	}
+	public static void addMapUnitDragSource(MapElem elem){
+		DragSource dragSource = DragSource.getDefaultDragSource();
+		dragSource.createDefaultDragGestureRecognizer(elem, DnDConstants.ACTION_COPY_OR_MOVE, new MapUnitDragGestureListener());
+	}
 	public static void addResDropTarget(JLabel label){
 		new DropTarget( label, new ResDropTargetListener() );
 	}
 	public static void addUnitDropTarget(MapElem elem){
 		new DropTarget( elem, new UnitDropTargetListener() );
+	}
+	public static void addMapUnitDropTarget(MapElem elem){
+		new DropTarget( elem, new MapUnitDropTargetListener() );
 	}
 	
 }

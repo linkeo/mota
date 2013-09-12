@@ -13,9 +13,13 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
 import org.json.JSONObject;
 
 import com.nju.se.team.mota.data.DataLoader;
+import com.nju.se.team.mota.data.LevelLoader;
+import com.nju.se.team.mota.editor.uielem.MapElem;
+import com.nju.se.team.mota.editor.uielem.SettingComboElem;
 import com.nju.se.team.mota.editor.uielem.SettingPointItem;
 import com.nju.se.team.mota.editor.uielem.SettingTextElem;
 import com.nju.se.team.mota.editor.uielem.UnitElem;
@@ -46,6 +50,7 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 		JComboBox<TypeEnum> unitTypeSelect;
 	ListPanel unitInfoPanel;
 		SettingTextElem unitName;
+		SettingComboElem<String> unitBuddy;
 		JButton unitDeleteButton;
 		JButton unitSaveButton;
 		
@@ -101,24 +106,20 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 		loadLevel(1);
 	}
 	public void loadLevels(){
-		ArrayList<Integer> floors = new ArrayList<Integer>(DataLoader.getLevelFloors());
-		Collections.sort(floors);
+		ArrayList<Integer> floors = LevelLoader.floors();
 		this.floors.retainAll(floors);
 	}
 	public void loadLevel(int i){
-		JSONObject json = DataLoader.getLevelDefine(i);
-		loadLevel(Level.make(json));
-	}
-	public void loadNewLevel(){
-		
-	}
-	public void loadLevel(Level l){
+		Level l = LevelLoader.getLevel(i);
 		levelInfoPanel.removeAll();
 		setLevel = new SettingTextElem("楼层", Integer.toString(l.getLevel()));
 		setsize = new SettingPointItem("楼层尺寸", l.getSize()[0], l.getSize()[1], 1, 64, 1, 64);
 		levelInfoPanel.add(setLevel);
 		levelInfoPanel.add(setsize);
 		map.loadLevel(l);
+	}
+	public void loadNewLevel(){
+		
 	}
 	public void addListener(){
 		unitTypeSelect(TypeEnum.ABIOTIC);
@@ -159,11 +160,21 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 	}
 	private void loadItem(Unit u){
 		unitInfoPanel.removeAll();
-		unitInfoPanel.add(unitName = new SettingTextElem("单元名:", u.getName()));
+		if(u!=null){
+			unitInfoPanel.add(unitName = new SettingTextElem("单元名:", u.getName()));
+			ArrayList<String> options = new ArrayList<String>();
+			for(Unit bu: LevelLoader.getUnits(u.getBuddyType()))
+				options.add(bu.getName());
+			unitInfoPanel.add(unitBuddy = new SettingComboElem<String>("配对对象:", u.getBuddy(), options));
+		}
 	}
 	@Override
 	public void mapItemSelected(Unit u) {
 		loadItem(u);
+	}
+	@Override
+	public void mapItemHighlighted(MapElem mapElem) {
+		map.highlight(mapElem);
 	}
 	@Override
 	public void mapItemsUpdated(Collection<Unit> units) {

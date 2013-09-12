@@ -2,6 +2,7 @@ package com.nju.se.team.mota.editor.dnd;
 
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
@@ -26,16 +27,28 @@ public class UnitDropTargetListener implements DropTargetListener {
 				Unit u = (Unit) t.getTransferData(MyDataFlavors.getUnitFlavor());
 				DropTarget dt = (DropTarget)e.getSource();
 				MapElem d = ( MapElem )dt.getComponent();//获取拖拽目的组件
-				d.dropped(u);
+				d.dropCopy(u);
+//				if((e.getDropAction()&DnDConstants.ACTION_MOVE)!=0){
+//					System.out.println("T_MOVE");
+//				}else if((e.getDropAction()&DnDConstants.ACTION_COPY)!=0){
+//					System.out.println("T_COPY");
+//				}
+				e.dropComplete(true);
+				return;
 			}
 		} catch( IOException ioe ) {
 			ioe.printStackTrace();
 		} catch( UnsupportedFlavorException ufe ) {
 			ufe.printStackTrace();
 		}
+		e.dropComplete(false);
 	}
 	
-	public void dragEnter( DropTargetDragEvent e ) {}
+	public void dragEnter( DropTargetDragEvent e ) {
+		DropTarget dt = (DropTarget)e.getSource();
+		MapElem d = ( MapElem )dt.getComponent();//获取拖拽目的组件
+		d.highlight();
+	}
 	public void dragOver( DropTargetDragEvent e ) {}
 	public void dropActionChanged( DropTargetDragEvent e ) {}
 	public void dragExit( DropTargetEvent e ) {}
