@@ -13,7 +13,7 @@ public class FrameGridElem extends JLabel {
 	private static final long serialVersionUID = 1L;
 	private String key;
 	/**
-	 * 构造函数
+	 * 构造方法
 	 */
 	public FrameGridElem() {
 	}

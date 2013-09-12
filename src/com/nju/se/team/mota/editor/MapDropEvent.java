@@ -11,7 +11,7 @@ import com.nju.se.team.mota.game.unit.Unit;
 public class MapDropEvent extends EventObject {
 	int x, y;
 	/**
-	 * 构造函数
+	 * 构造方法
 	 * @param sourse 拖拽的Unit单元
 	 * @param x 拖拽的到达位置横坐标
 	 * @param y	拖拽的到达位置纵坐标

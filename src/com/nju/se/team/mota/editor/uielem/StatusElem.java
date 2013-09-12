@@ -16,7 +16,7 @@ public class StatusElem extends ElemPanel {
 	JLabel value;
 	UnitStatus us;
 	/**
-	 * 构造函数
+	 * 构造方法
 	 * @param value 状态名称
 	 */
 	public StatusElem(UnitStatus value) {

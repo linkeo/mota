@@ -1,7 +1,12 @@
 package com.nju.se.team.mota.game;
 
 import org.json.JSONObject;
-
+/**
+ * 存档
+ * @author linkeo
+ * @author lzw
+ *
+ */
 public class Save {
 	private String name;
 	private int lv;
@@ -14,14 +19,26 @@ public class Save {
 	private int floor;
 	private String savetime;
 	private Level[] levels;
+	/**
+	 * 构造函数
+	 */
 	public Save() {
 		// TODO Auto-generated constructor stub
 	}
+	/**
+	 * 创造一个存档对象
+	 * @param json
+	 * @return Level
+	 */
 	public static Save make(JSONObject json){
 		Save s = new Save();
 		s.load(json);;
 		return s;
 	}
+	/**
+	 * 从json加载数据
+	 * @param json
+	 */
 	public void load(JSONObject json){
 		setName(json.getString("name"));
 		setLv(json.getInt("lv"));

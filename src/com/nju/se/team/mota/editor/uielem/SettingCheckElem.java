@@ -18,12 +18,12 @@ public class SettingCheckElem extends ElemPanel{
 	JLabel label;
 	JCheckBox value;
 	/**
-	 * 构造函数(Default:false)
+	 * 构造方法(Default:false)
 	 * @param label 属性名称
 	 */
 	public SettingCheckElem(String label){this(label,false);}
 	/**
-	 * 构造函数
+	 * 构造方法
 	 * @param label 属性名称
 	 * @param defaultValue 默认是否选择该属性
 	 */

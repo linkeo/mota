@@ -20,7 +20,7 @@ public class SettingComboElem<T> extends ElemPanel{
 	JLabel label;
 	JComboBox<T> combo;
 	/**
-	 * 构造函数
+	 * 构造方法
 	 * @param label 选择框名称
 	 * @param selecteditem 默认的选择对象
 	 * @param items 所有可选对象T[]
@@ -38,7 +38,7 @@ public class SettingComboElem<T> extends ElemPanel{
 		this.combo.setBounds(90, 0, 190, 20);
 	}
 	/**
-	 * 构造函数
+	 * 构造方法
 	 * @param label 选择框名称
 	 * @param selecteditem 默认的选择对象
 	 * @param items 所有可选对象Collection

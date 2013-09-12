@@ -15,7 +15,7 @@ public class EditorFrame extends JFrame{
 	TypeDefinePanel tdp = new TypeDefinePanel();
 	LevelEditPanel lep = new LevelEditPanel();
 	/**
-	 * 构造函数<br>
+	 * 构造方法<br>
 	 * 添加JTabbedPane<br>
 	 * 添加所有可选编辑面板
 	 */

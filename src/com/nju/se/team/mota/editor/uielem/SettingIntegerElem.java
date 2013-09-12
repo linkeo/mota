@@ -17,7 +17,7 @@ public class SettingIntegerElem extends ElemPanel{
 	JLabel label;
 	JTextField value;
 	/**
-	 * 构造函数
+	 * 构造方法
 	 * @param label 属性名称
 	 * @param defaultValue 默认值
 	 * @param min 可输入最小值

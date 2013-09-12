@@ -1,5 +1,10 @@
 package com.nju.se.team.mota.game.util;
-
+/**
+ * Unit对象的状态
+ * @author linkeo
+ * @author lzw
+ *
+ */
 public enum UnitStatus {
 	NORMAL("normal"),
 	WALKING_UP("walking_up"),
@@ -12,6 +17,11 @@ public enum UnitStatus {
 	private UnitStatus(String str) {
 		this.str = str;
 	}
+	/**
+	 * 加载状态
+	 * @param str
+	 * @return Condition
+	 */
 	public static UnitStatus load(String str){
 		switch(str){
 		case "normal":return NORMAL;

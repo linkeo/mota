@@ -1,5 +1,10 @@
 package com.nju.se.team.mota.game.util;
-
+/**
+ * 条件
+ * @author linkeo
+ * @author lzw
+ *
+ */
 public enum Condition {
 	CRASH("crash"),
 	DEAD("dead"),
@@ -8,6 +13,11 @@ public enum Condition {
 	private Condition(String str){
 		this.str = str;
 	}
+	/**
+	 * 加载条件
+	 * @param str
+	 * @return Condition
+	 */
 	public static Condition load(String str){
 		switch(str){
 		case "crash":return CRASH;

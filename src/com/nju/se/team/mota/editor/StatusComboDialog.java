@@ -72,7 +72,7 @@ public class StatusComboDialog extends JDialog implements ActionListener{
 	 * 获取选择结果<br>
 	 * static
 	 * @param comp 位置依赖组件(panel)
-	 * @param 
+	 * @param elem 当前选择状态UI单元
 	 * @param candidates 可选状态
 	 * @return
 	 */

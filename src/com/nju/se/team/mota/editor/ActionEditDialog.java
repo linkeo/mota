@@ -31,7 +31,7 @@ public class ActionEditDialog extends JDialog implements ActionListener{
 	JTextField inputAction;
 	JButton submit;
 	/**
-	 * 构造函数<br>
+	 * 构造方法<br>
 	 * size:320x110
 	 */
 	public ActionEditDialog() {

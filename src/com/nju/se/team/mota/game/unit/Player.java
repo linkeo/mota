@@ -1,7 +1,12 @@
 package com.nju.se.team.mota.game.unit;
 
 import java.util.ArrayList;
-
+/**
+ * Íæ¼Ò
+ * @author linkeo
+ * @author lzw
+ *
+ */
 
 public class Player {
 	private int redkey, yellowkey, bluekey;

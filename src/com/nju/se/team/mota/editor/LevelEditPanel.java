@@ -25,12 +25,14 @@ import com.nju.se.team.mota.game.unit.Creature;
 import com.nju.se.team.mota.game.unit.Unit;
 import com.nju.se.team.mota.game.util.TypeEnum;
 import com.nju.se.team.mota.util.ListPanel;
-
+/**
+ * 地图编辑面板
+ * @author linkeo
+ * @author lzw
+ *
+ */
 public class LevelEditPanel extends JPanel implements MapItemListener{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	MapPanel map;
@@ -51,6 +53,10 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 		
 	ArrayList<Integer> floors = new ArrayList<Integer>();
 		
+	/**
+	 * 构造方法<br>
+	 * 初始化组件
+	 */
 	public LevelEditPanel(){
 		super(null);
 		mapview = new JScrollPane();
@@ -100,26 +106,43 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 		loadLevels();
 		loadLevel(1);
 	}
+	/**
+	 * 加载所有楼层数
+	 */
 	public void loadLevels(){
 		ArrayList<Integer> floors = new ArrayList<Integer>(DataLoader.getLevelFloors());
 		Collections.sort(floors);
 		this.floors.retainAll(floors);
 	}
+	/**
+	 * 加载一个楼层的数据
+	 * @param i 楼层数
+	 */
 	public void loadLevel(int i){
 		JSONObject json = DataLoader.getLevelDefine(i);
 		loadLevel(Level.make(json));
 	}
+	/**
+	 * 添加新楼层
+	 */
 	public void loadNewLevel(){
 		
 	}
-	public void loadLevel(Level l){
+	/**
+	 * 加载一个楼层的数据
+	 * @param level 
+	 */
+	public void loadLevel(Level level){
 		levelInfoPanel.removeAll();
-		setLevel = new SettingTextElem("楼层", Integer.toString(l.getLevel()));
-		setsize = new SettingPointItem("楼层尺寸", l.getSize()[0], l.getSize()[1], 1, 64, 1, 64);
+		setLevel = new SettingTextElem("楼层", Integer.toString(level.getLevel()));
+		setsize = new SettingPointItem("楼层尺寸", level.getSize()[0], level.getSize()[1], 1, 64, 1, 64);
 		levelInfoPanel.add(setLevel);
 		levelInfoPanel.add(setsize);
-		map.loadLevel(l);
+		map.loadLevel(level);
 	}
+	/**
+	 * 添加监听器
+	 */
 	public void addListener(){
 		unitTypeSelect(TypeEnum.ABIOTIC);
 		unitTypeSelect.addItemListener(new ItemListener() {
@@ -132,6 +155,10 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 			}
 		});
 	}
+	/**
+	 * 获取选择Unit子类型的所有对象
+	 * @param selectedItem 选择的Unit子类型
+	 */
 	private void unitTypeSelect(TypeEnum selectedItem) {
 		unitListPanel.removeAll();
 		if(selectedItem == TypeEnum.ABIOTIC){
@@ -151,15 +178,22 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 			}
 		}
 	}
+	/**
+	 * 硬布局
+	 */
 	private void calcLayout(){
 		mapview.setBounds(0, 0, 640, 640);
 		levelInfoPanel.setBounds(640, 0, 320, 100);
 		unitListPanel.setBounds(640, 100, 320, 320);
 		unitInfoPanel.setBounds(640, 420, 320, 220);
 	}
-	private void loadItem(Unit u){
+	/**
+	 * 显示地图上Unit信息
+	 * @param unit
+	 */
+	private void loadItem(Unit unit){
 		unitInfoPanel.removeAll();
-		unitInfoPanel.add(unitName = new SettingTextElem("单元名:", u.getName()));
+		unitInfoPanel.add(unitName = new SettingTextElem("单元名:", unit.getName()));
 	}
 	@Override
 	public void mapItemSelected(Unit u) {

@@ -18,7 +18,7 @@ public class SettingPointItem extends ElemPanel{
 	JLabel label;
 	JSpinner spinx, spiny;
 	/**
-	 * 构造函数
+	 * 构造方法
 	 * @param label 名称
 	 * @param currx 当前横坐标
 	 * @param curry	当前纵坐标

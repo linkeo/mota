@@ -17,7 +17,7 @@ public class ActionElem extends ElemPanel{
 	JLabel value;
 	Condition condition;
 	/**
-	 * 构造函数
+	 * 构造方法
 	 * @param condition 触发条件
 	 * @param value 具体行为
 	 */

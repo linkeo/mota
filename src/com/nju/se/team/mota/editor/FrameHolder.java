@@ -28,7 +28,7 @@ public class FrameHolder extends JPanel {
 	int col, row;
 	private static final int BLOCK_SIZE = 34;
 	/**
-	 * 构造函数<br>
+	 * 构造方法<br>
 	 * 最大为5x5,默认为1x1
 	 */
 	public FrameHolder() {

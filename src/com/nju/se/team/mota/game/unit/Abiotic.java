@@ -8,24 +8,46 @@ import com.nju.se.team.mota.data.DataLoader;
 import com.nju.se.team.mota.game.util.Animation;
 import com.nju.se.team.mota.game.util.Condition;
 import com.nju.se.team.mota.game.util.UnitStatus;
-
+/**
+ * Unit子类型之非生物
+ * @author linkeo
+ * @author lzw
+ *
+ */
 public class Abiotic extends Unit{
 	private boolean canGoThrough;
+	/**
+	 * 构造方法<br>
+	 * 默认不可通过
+	 */
 	public Abiotic() {
 		canGoThrough = false;
 		setBuddy("none");
 	}
+	/**
+	 * 从json加载数据
+	 * @param json
+	 * @return Abiotic
+	 */
 	public static Abiotic make(JSONObject json){
 		Abiotic a = new Abiotic();
 		a.load(json);
 		return a;
 	}
+	/**
+	 * 默认Abiotic
+	 * @return Abiotic
+	 */
 	public static Abiotic defaultAbiotic(){
 		Abiotic a = new Abiotic();
 		a.setType("new");
 		a.setBuddyType("none");
 		return a;
 	}
+	/**
+	 * 从json加载具体对象的数据
+	 * @param json
+	 */
 	public void load(JSONObject json){
 		loadType(DataLoader.getAbioticDefine(json.getString("type")));
 		setName(json.getString("name"));
@@ -33,6 +55,10 @@ public class Abiotic extends Unit{
 		setFloor(json.getInt("floor"));
 		setBuddy(json.optString("buddy"));
 	}
+	/**
+	 * 获取具体对象的json<br>
+	 * @return json
+	 */
 	public JSONObject parseEntityJSON(){
 		JSONObject json = toJSON();
 		json.remove("type");
@@ -43,6 +69,10 @@ public class Abiotic extends Unit{
 		json.remove("buddyType");
 		return json;
 	}
+	/**
+	 * 获取抽象类型的json
+	 * @return json
+	 */
 	public JSONObject parseTypeJSON(){
 		JSONObject json = toJSON();
 		json.remove("name");
@@ -51,9 +81,17 @@ public class Abiotic extends Unit{
 		json.remove("buddy");
 		return json;
 	}
+	/**
+	 * 转化为JSONObject对象
+	 * @return JSONObject
+	 */
 	public JSONObject toJSON(){
 		return new JSONObject(this);
 	}
+	/**
+	 * 从json加载抽象类型的数据
+	 * @param json
+	 */
 	public void loadType(JSONObject json){
 		setType(json.getString("type"));
 		HashMap<UnitStatus, Animation> sprite = new HashMap<UnitStatus, Animation>();
@@ -72,6 +110,10 @@ public class Abiotic extends Unit{
 		setSize(json.getJSONArray("size").getInt(0),json.getJSONArray("size").getInt(1));
 		setBuddyType(json.optString("buddyType"));
 	}
+	/**
+	 * 获取对象克隆
+	 * @return Abiotic
+	 */
 	public Abiotic clone(){
 		Abiotic a = new Abiotic();
 		a.setName(getName());
@@ -86,12 +128,28 @@ public class Abiotic extends Unit{
 		a.setBuddyType(getBuddyType());
 		return a;
 	}
+	/**
+	 * 获取是否可穿透
+	 * @return boolean
+	 */
 	public boolean isCanGoThrough() {
 		return canGoThrough;
 	}
+	/**
+	 * 设置时候可穿透
+	 * @param canGoThrough(boolean)
+	 */
 	public void setCanGoThrough(boolean canGoThrough) {
 		this.canGoThrough = canGoThrough;
 	}
+	/**
+	 * 创造一个具体的Abiotic对象
+	 * @param type 具体类型
+	 * @param x 横坐标
+	 * @param y 纵坐标
+	 * @param z 楼层
+	 * @return Abiotic
+	 */
 	public static Abiotic make(String type, int x, int y, int z) {
 		Abiotic a = new Abiotic();
 

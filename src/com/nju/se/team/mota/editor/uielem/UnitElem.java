@@ -27,7 +27,7 @@ public class UnitElem extends ElemPanel {
 	private JLabel typeNameLabel;
 	private JLabel sizeLabel;
 	/**
-	 * 构造函数
+	 * 构造方法
 	 * @param u Unit对象
 	 */
 	public UnitElem(Unit u) {

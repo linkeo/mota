@@ -16,7 +16,7 @@ public class FrameElem extends ElemPanel {
 	int intvalue;
 	String[][] imagekey;
 	/**
-	 * 构造函数
+	 * 构造方法
 	 * @param value 帧数
 	 * @param image	帧图片
 	 */

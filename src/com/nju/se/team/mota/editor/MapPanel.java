@@ -30,7 +30,7 @@ public class MapPanel extends JPanel implements MapDropListener{
 	Set<Unit> units = new HashSet<Unit>();
 	MapItemListener mapItemListener;
 	/**
-	 * 构造函数
+	 * 构造方法
 	 * @param row 地图大小_行数
 	 * @param col 地图大小_列数
 	 * @param floor 楼层

@@ -34,7 +34,7 @@ public class MapElem extends JPanel implements MouseListener{
 	int floor;
 	private JLabel back, front;
 	/**
-	 * 构造函数
+	 * 构造方法
 	 * @param x 单元横坐标
 	 * @param y 单元纵坐标
 	 * @param floor 单元所处楼层

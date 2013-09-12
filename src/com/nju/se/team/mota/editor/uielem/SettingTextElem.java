@@ -16,12 +16,12 @@ public class SettingTextElem extends ElemPanel{
 	JLabel label;
 	JTextField value;
 	/**
-	 * 构造函数(defaultText:空)
+	 * 构造方法(defaultText:空)
 	 * @param label 名称
 	 */
 	public SettingTextElem(String label){this(label,"");}
 	/**
-	 * 构造函数
+	 * 构造方法
 	 * @param label 名称
 	 * @param defaultValue 默认文本
 	 */

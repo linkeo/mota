@@ -21,7 +21,7 @@ public class ResElem  extends ElemPanel {
 	BufferedImage res;
 	String reskey;
 	/**
-	 * 构造函数
+	 * 构造方法
 	 * @param reskey 图片对应的标识key
 	 */
 	public ResElem(String reskey) {

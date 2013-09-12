@@ -44,12 +44,14 @@ import com.nju.se.team.mota.game.util.UnitStatus;
 import com.nju.se.team.mota.util.ElemPanel;
 import com.nju.se.team.mota.util.ListPanel;
 import com.nju.se.team.mota.util.Warning;
-
+/**
+ * Unit对象定义面板
+ * @author linkeo
+ * @author lzw
+ *
+ */
 public class TypeDefinePanel extends JPanel implements FrameEditListener{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	JPanel leftPanel;
 		JPanel left_topPanel;
@@ -91,6 +93,10 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 	Abiotic currAbiotic;
 	Creature currCreature;
 		
+	/**
+	 * 构造方法<br>
+	 * 初始化组件
+	 */
 	public TypeDefinePanel() {
 		super(null);
 		leftPanel = new JPanel(null);
@@ -169,9 +175,16 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		frameHolder.addFrameEditListener(this);
 		typeSelected((TypeEnum) typeComboBox.getSelectedItem());
 	}
+	/**
+	 * 加载Unit子类型
+	 */
 	public void loadTypes(){
 		typeComboBox.setModel(new DefaultComboBoxModel<TypeEnum>(TypeEnum.values()));
 	}
+	/**
+	 * 加载非生物
+	 * @param a(Abiotic)
+	 */
 	public void loadAbiotic(Abiotic a){
 		settype.setValue(a.getType());
 		setsize.setValue(a.getSize()[0],a.getSize()[1]);
@@ -191,6 +204,10 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		
 		currAbiotic = a;
 	}
+	/**
+	 * 加载所有生物
+	 * @param c(Creature)
+	 */
 	public void loadCreature(Creature c){
 		settype.setValue(c.getType());
 		setsize.setValue(c.getSize()[0],c.getSize()[1]);
@@ -213,8 +230,11 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		frameHolder.clear();
 		currCreature = c;
 	}
-	
-	
+	/**
+	 * 状态选择<br>
+	 * 加载该状态的帧列表
+	 * @param s(UnitStatus)
+	 */
 	private void statusSelected(UnitStatus s) {
 		HashMap<UnitStatus, Animation> map = null;
 			TypeEnum type = (TypeEnum) typeComboBox.getSelectedItem();
@@ -225,11 +245,20 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		for(int i=0;i<a.frameCount();i++)
 			frameListPanel.add(new FrameElem(i, a.getImageKeyAt(i)));
 	}
+	/**
+	 * 帧选择<br>
+	 * 加载该状态对应的帧图片
+	 * @param e(FrameElem)
+	 */
 	private void frameSelected(FrameElem e){
 		frameHolder.load(e.getImageKey());
 	}
 	
-	
+	/**
+	 * Unit子类型选择<br>
+	 * 加载生物或非生物的属性面板
+	 * @param type
+	 */
 	public void typeSelected(TypeEnum type){
 		Vector<String> typeVector = new Vector<String>();
 		typeEditPanel.removeAll();
@@ -277,25 +306,29 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		subTypeSelected((String) subTypeComboBox.getSelectedItem());
 	}
 	/**
-	 * 
-	 * @param st SubType
+	 * Unit具体类型选择<br>
+	 * 加载该类型对应的属性
+	 * @param string
 	 */
-	public void subTypeSelected(String st){
-		if(st == null) return;
+	public void subTypeSelected(String string){
+		if(string == null) return;
 		TypeEnum type = (TypeEnum) typeComboBox.getSelectedItem();
 		if(type == TypeEnum.ABIOTIC){
-			JSONObject json = DataLoader.getAbioticDefine(st);
+			JSONObject json = DataLoader.getAbioticDefine(string);
 			Abiotic abi = new Abiotic();
 			abi.loadType(json);
 			loadAbiotic(abi);
 		}
 		if(type == TypeEnum.CREATURE){
-			JSONObject json = DataLoader.getCreatureDefine(st);
+			JSONObject json = DataLoader.getCreatureDefine(string);
 			Creature cre = new Creature();
 			cre.loadType(json);
 			loadCreature(cre);
 		}
 	}
+	/**
+	 * 添加监听器
+	 */
 	public void addListeners(){
 		typeSaveButton.addActionListener(new ActionListener() {
 			@Override
@@ -569,6 +602,9 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		});
 		
 	}
+	/**
+	 * 保存行为列表
+	 */
 	public void saveActions(){
 		HashMap<Condition,String> actions = new HashMap<Condition,String>();
 		for(ElemPanel e : actionListPanel.getElems()){
@@ -580,7 +616,9 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		}
 		
 	}
-	
+	/**
+	 * 硬布局
+	 */
 	public void calcLayout(){
 		leftPanel.setBounds(0, 0, 320, 640);
 		rightPanel.setBounds(320, 0, 640 ,640);
@@ -604,6 +642,9 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 	public void statusListChanged(){
 		
 	}
+	/**
+	 * 帧列表变化
+	 */
 	public void frameListChanged() {
 		StatusElem se = ((StatusElem)statusListPanel.getSelectedElem());
 		if(se==null)return;
