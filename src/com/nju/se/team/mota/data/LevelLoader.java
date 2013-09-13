@@ -61,12 +61,15 @@ public class LevelLoader {
 	public static void putLevel(Level l){
 		if(instance==null) load();
 		instance.levels.put(l.getLevel(), l);
+		
 	}
-	public static void removeLevel(Level l){
+	public static void removeLevel(int i){
 		if(instance==null) load();
-		instance.levels.remove(l.getLevel());
+		instance.levels.remove(i);
 	}
-	
+	public static void putLevelsIntoFile(){
+		DataLoader.updateLevels(instance.levels.values());
+	}
 	//MARK: about abiotic
 	
 	public static Abiotic getAbiotic(String name){
@@ -98,6 +101,12 @@ public class LevelLoader {
 	public static Collection<Creature> getAllCreatures(){
 		if(instance==null) load();
 		return instance.creatures.values();
+	}
+	public static Collection<Unit> getAllUnits(){
+		ArrayList<Unit> result = new ArrayList<Unit>();
+		result.addAll(getAllAbiotics());
+		result.addAll(getAllCreatures());
+		return result;
 	}
 	public static Collection<Creature> getCreatures(String type){
 		if(instance==null) load();

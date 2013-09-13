@@ -80,6 +80,8 @@ public class Creature extends Unit{
 		json.remove("DEF");
 		json.remove("money");
 		json.remove("EXP");
+		if(getBuddy()==null||getBuddy().isEmpty()||getBuddy().equalsIgnoreCase("none"))
+			json.remove("buddy");
 		return json;
 	}
 	/**

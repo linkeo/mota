@@ -67,6 +67,8 @@ public class Abiotic extends Unit{
 		json.remove("action");
 		json.remove("size");
 		json.remove("buddyType");
+		if(getBuddy()==null||getBuddy().isEmpty()||getBuddy().equalsIgnoreCase("none"))
+			json.remove("buddy");
 		return json;
 	}
 	/**

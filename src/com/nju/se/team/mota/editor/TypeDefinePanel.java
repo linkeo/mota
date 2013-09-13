@@ -334,13 +334,6 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TypeEnum type = (TypeEnum) typeComboBox.getSelectedItem();
-				if((e.getModifiers()&ActionEvent.SHIFT_MASK)!=0){
-					int option = JOptionPane.showConfirmDialog(null, "是否将目前为止的设置保存到文件?", "确认保存?", JOptionPane.OK_CANCEL_OPTION);
-					if(option==JOptionPane.OK_OPTION){
-						DataLoader.saveAbiotics();
-						DataLoader.saveCreatures();
-					}
-				}
 				if(type == TypeEnum.ABIOTIC){
 					String typename = settype.getValue();
 					String buddytype = setbt.getValue();
@@ -413,6 +406,13 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 						DataLoader.putCreatureType(currCreature);
 						typeSelected((TypeEnum) typeComboBox.getSelectedItem());
 						subTypeSelected(typename);
+					}
+				}
+				if((e.getModifiers()&ActionEvent.SHIFT_MASK)!=0){
+					int option = JOptionPane.showConfirmDialog(null, "是否将目前为止的设置保存到文件?", "确认保存?", JOptionPane.OK_CANCEL_OPTION);
+					if(option==JOptionPane.OK_OPTION){
+						DataLoader.saveAbiotics();
+						DataLoader.saveCreatures();
 					}
 				}
 			}

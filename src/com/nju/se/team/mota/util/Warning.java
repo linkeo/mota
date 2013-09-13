@@ -1,6 +1,6 @@
 package com.nju.se.team.mota.util;
 
-import java.awt.Window;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -30,8 +30,7 @@ public class Warning extends JDialog{
 	private JButton bOK = new JButton();
 	//for alarming exception
 	public Warning(String title, String message,
-			StackTraceElement[] stackTraceElements, Window frame) {
-		super(frame);
+			StackTraceElement[] stackTraceElements, Component c) {
 		setTitle(title);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setResizable(false);
@@ -73,14 +72,13 @@ public class Warning extends JDialog{
 		setVisible(true);
 		setSize(getWidth() - panel.getWidth() + PANEL_WIDTH_EX, getHeight()
 				- panel.getHeight() + PANEL_HEIGHT_EX);
-		setLocationRelativeTo(frame);
+		setLocationRelativeTo(c);
 		setModalityType(ModalityType.APPLICATION_MODAL);
 		setVisible(false);
 		setVisible(true);
 	}
 	//Form common alarming
-	public Warning(String title, String msg, Window frame, boolean hasButton) {
-		super(frame);
+	public Warning(String title, String msg, Component c, boolean hasButton) {
 		setTitle(title);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setResizable(false);
@@ -123,19 +121,19 @@ public class Warning extends JDialog{
 		else
 			setSize(getWidth() - panel.getWidth() + PANEL_WIDTH_ALM, getHeight()
 					- panel.getHeight() + PANEL_HEIGHT_ALM - (PANEL_HEIGHT_ALM - 55) / 2);
-		setLocationRelativeTo(frame);
+		setLocationRelativeTo(c);
 		setModalityType(ModalityType.APPLICATION_MODAL);
 		setVisible(false);
 		setVisible(true);
 	}
-	public static Warning alarmException(Exception e, Window frame){
-		return new Warning("警告: 程序异常","["+e.getClass().getName()+"]:"+e.getMessage(),e.getStackTrace(), frame);
+	public static Warning alarmException(Exception e, Component comp){
+		return new Warning("<警告>程序异常","["+e.getClass().getName()+"]:"+e.getMessage(),e.getStackTrace(), comp);
 	}
-	public static Warning alarm(String title, String msg, Window frame){
-		return new Warning("警告: "+title,msg, frame,true);
+	public static Warning alarm(String title, String msg, Component comp){
+		return new Warning("<警告>"+title,msg, comp,true);
 	}
-	public static Warning alarmWithoutButton(String title, String msg, Window frame){
-		Warning w =new Warning(title, msg, frame, false);
+	public static Warning alarmWithoutButton(String title, String msg, Component comp){
+		Warning w =new Warning("<警告>"+title, msg, comp, false);
 		w.setSize(w.getWidth(), w.getHeight()-(PANEL_WIDTH_ALM - 20)-10);
 		w.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 		w.bOK.setVisible(false);

@@ -27,8 +27,9 @@ public class SettingIntegerElem extends ElemPanel{
 		super(false);
 		setSize(280, 20);
 		this.label = new JLabel(label);
-		this.value = new JTextField(Integer.toString(defaultValue));
+		this.value = new JTextField();
 		this.value.setDocument(MyDocuments.getIntDocument(min, max));
+		this.value.setText(Integer.toString(defaultValue));
 		this.add(this.label);
 		this.add(this.value);
 		this.label.setBounds(0, 0, 90, 20);

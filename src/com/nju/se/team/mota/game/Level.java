@@ -1,5 +1,7 @@
 package com.nju.se.team.mota.game;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,7 +27,7 @@ public class Level {
 	 * default:19x19
 	 */
 	public Level() {//default
-		size=new int[]{19,19};
+		size=new int[]{18,18};
 		abiotics = new HashSet<Abiotic>();
 		creatures = new HashSet<Creature>();
 	}
@@ -65,6 +67,18 @@ public class Level {
 		for(int i=0;i<cs.length();++i)
 			creatures.add(Creature.make(cs.getJSONObject(i)));
 	}
+	public JSONObject toJSONObject(){
+		JSONObject json = new JSONObject(this);
+		JSONArray as = new JSONArray();
+		JSONArray cs = new JSONArray();
+		for(Abiotic a : abiotics)
+			as.put(a.parseEntityJSON());
+		for(Creature c : creatures)
+			cs.put(c.parseEntityJSON());
+		json.put("abiotics", as);
+		json.put("creatures", cs);
+		return json;
+	}
 	/**
 	 * 获取楼层
 	 * @return level(int)
@@ -78,6 +92,8 @@ public class Level {
 	 */
 	public void setLevel(int level) {
 		this.level = level;
+		for(Unit u : units())
+			u.setFloor(level);
 	}
 	/**
 	 * 获取楼层尺寸
@@ -99,6 +115,12 @@ public class Level {
 	 */
 	public Set<Abiotic> getAbiotics() {
 		return abiotics;
+	}
+	public Collection<Unit> units(){
+		ArrayList<Unit> result = new ArrayList<Unit>();
+		result.addAll(getAbiotics());
+		result.addAll(getCreatures());
+		return result;
 	}
 	public void setAbiotics(Set<Abiotic> abiotics) {
 		this.abiotics = abiotics;
@@ -124,4 +146,14 @@ public class Level {
 	}
 	public void addUnit(Unit u){}
 	public void removeUnit(Unit u){}
+	public static Level newLevel(int i) {
+		Level level = new Level();
+		level.setLevel(i);
+		return level;
+	}
+	public boolean allUnitNameNotEmpty(){
+		for(Abiotic a : abiotics) if(a.getName().equals("")) return false;
+		for(Creature c : creatures) if(c.getName().equals("")) return false;
+		return true;
+	}
 }

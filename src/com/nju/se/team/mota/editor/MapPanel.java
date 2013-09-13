@@ -108,9 +108,9 @@ public class MapPanel extends JPanel implements MapDropListener, MouseMotionList
 		MapElem[][] blocks = new MapElem[col][row];
 		for(int i=0;i<col;++i)
 			for(int j=0;j<row;++j){
-				if(i>=this.col||j>=this.row)
+				if(i>=this.col||j>=this.row){
 					blocks[i][j] = new MapElem(i, j);
-				else
+				}else
 					blocks[i][j] = this.blocks[i][j];
 				blocks[i][j].setBounds(i*32, j*32, 32, 32);
 				add(blocks[i][j]);
@@ -120,10 +120,16 @@ public class MapPanel extends JPanel implements MapDropListener, MouseMotionList
 		this.blocks = blocks;
 		this.row = row;
 		this.col = col;
-		Rectangle rect = new Rectangle(0,0,col,row);
+		init();
 		for(Unit u : new HashSet<Unit>(getUnits()))
-			if(!rect.contains(u.rectangle()))
+			if(!rectangle().contains(u.rectangle()))
 				removeUnit(u);
+	}
+	Rectangle rect = new Rectangle(0,0,col,row);
+	public Rectangle rectangle(){
+		if(col!=rect.width||row!=rect.height)
+			rect = new Rectangle(0,0,col,row);
+		return rect;
 	}
 	/**
 	 * 初始化所有地图单元
@@ -132,6 +138,7 @@ public class MapPanel extends JPanel implements MapDropListener, MouseMotionList
 		for(int i=0;i<col;++i)
 			for(int j=0;j<row;++j)
 				init(i,j);
+		
 	}
 	/**
 	 * 初始化地图单元
@@ -153,7 +160,8 @@ public class MapPanel extends JPanel implements MapDropListener, MouseMotionList
 	 * @param rectangle
 	 */
 	private void clear_area(Rectangle rectangle){
-		this.clear(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+		Rectangle r = rectangle.intersection(rectangle());
+		this.clear(r.x, r.y, r.width, r.height);
 	}
 	/**
 	 * 清空区域内所有对象
@@ -192,14 +200,12 @@ public class MapPanel extends JPanel implements MapDropListener, MouseMotionList
 		if(checkUnit(u, x, y)){
 			setUnit(u, x, y);
 			currLevel.getAbiotics().add(u);
-			System.out.println(u.getName());
 		}
 	}
 	public void addUnit(Creature u, int x, int y){
 		if(checkUnit(u, x, y)){
 			setUnit(u, x, y);
 			currLevel.getCreatures().add(u);
-			System.out.println(u.getName());
 		}
 	}
 	private void moveUnit(Unit u, int x, int y) {
@@ -319,11 +325,13 @@ public class MapPanel extends JPanel implements MapDropListener, MouseMotionList
 	 */
 	public void loadLevel(Level level) {
 		currLevel = level;
+		clear(0,0,col,row);
 		setGridSize(level.getSize()[0], level.getSize()[1]);
 		for(Abiotic a : level.getAbiotics())
 			addUnit(a, a.getPosition()[0], a.getPosition()[1]);
 		for(Creature c : level.getCreatures())
 			addUnit(c, c.getPosition()[0], c.getPosition()[1]);
+		init();
 	}
 	@Override
 	public void mouseDragged(MouseEvent e) {

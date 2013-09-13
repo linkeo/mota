@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
@@ -12,6 +13,7 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.nju.se.team.mota.game.Level;
 import com.nju.se.team.mota.game.unit.Abiotic;
 import com.nju.se.team.mota.game.unit.Creature;
 
@@ -160,8 +162,20 @@ public class DataLoader {
 		String str = j.toString(4);
 		saveFileContent(ResLoader.getDataFile("creatures"), str);
 	}
-
-
+	
+	public static void saveLevels(){
+		JSONArray j = new JSONArray(instance.levelMap.values());
+		String str = j.toString(4);
+		saveFileContent(ResLoader.getDataFile("levels"), str);
+	}
+	public static void updateLevels(Collection<Level> levels){
+		
+//		instance.levelMap.clear();
+		for(Level l : levels){
+//			instance.levelMap.put(l.getLevel(), new JSONObject(l));
+			System.out.println(l.toJSONObject().toString(4));
+		}
+	}
 	/**
 	 * 在生物定义映射表中更新(添加/修改)键值对
 	 * @param c 要更新的生物对象

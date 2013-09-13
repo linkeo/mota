@@ -1,5 +1,4 @@
 package com.nju.se.team.mota.editor.uielem;
-import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -91,9 +90,9 @@ public class MapElem extends JPanel implements MouseListener, MouseMotionListene
 			type = TypeEnum.ABIOTIC;
 		if(u instanceof Creature)
 			type = TypeEnum.CREATURE;
-//		back.setIcon(new ImageIcon(u.getSprites().get(UnitStatus.NORMAL).currImage()[x][y]));
-		back.setBackground(Color.GRAY);
-		back.setOpaque(true);
+		back.setIcon(new ImageIcon(u.getSprites().get(UnitStatus.NORMAL).currImage()[x][y]));
+//		back.setBackground(Color.GRAY);
+//		back.setOpaque(true);
 	}
 	/**
 	 * 获取地图单元对应的Unit对象
