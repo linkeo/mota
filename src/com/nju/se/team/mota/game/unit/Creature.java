@@ -70,7 +70,6 @@ public class Creature extends Unit{
 	 */
 	public JSONObject parseEntityJSON(){
 		JSONObject json = toJSON();
-		json.remove("type");
 		json.remove("sprites");
 		json.remove("action");
 		json.remove("size");

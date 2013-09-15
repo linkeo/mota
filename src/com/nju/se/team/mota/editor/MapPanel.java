@@ -209,8 +209,10 @@ public class MapPanel extends JPanel implements MapDropListener, MouseMotionList
 		}
 	}
 	private void moveUnit(Unit u, int x, int y) {
-			clear_area(u.rectangle());
-			setUnit(u, x, y);
+		if(checkUnit(u, x, y)){
+			removeUnit(u);
+			addUnit(u, x, y);
+		}
 	}
 	/**
 	 * ÒÆ³ýUnit¶ÔÏó

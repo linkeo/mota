@@ -364,6 +364,7 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 						DataLoader.putAbioticType(currAbiotic);
 						typeSelected((TypeEnum) typeComboBox.getSelectedItem());
 						subTypeSelected(typename);
+						subTypeComboBox.setSelectedItem(typename);
 					}
 				}
 				if(type == TypeEnum.CREATURE){
@@ -406,6 +407,7 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 						DataLoader.putCreatureType(currCreature);
 						typeSelected((TypeEnum) typeComboBox.getSelectedItem());
 						subTypeSelected(typename);
+						subTypeComboBox.setSelectedItem(typename);
 					}
 				}
 				if((e.getModifiers()&ActionEvent.SHIFT_MASK)!=0){

@@ -227,6 +227,13 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 				loadItem(null);
 			}
 		});
+		levelReloadButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				loadLevel(map.getCurrLevel().getLevel());
+			}
+		});
 		levelDeleteButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -253,7 +260,12 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 						&&floors.contains(floor)){
 					Warning.alarm("", "Â¥²ãÒÑ´æÔÚ", LevelEditPanel.this);
 					return;
-				}if(floors.contains(map.getCurrLevel().getLevel()))
+				}
+				if((e.getModifiers()&ActionEvent.CTRL_MASK)!=0){
+					Warning.alarmWithoutButton("JSON", map.getCurrLevel().toJSONObject().toString(), LevelEditPanel.this);
+					return;
+				}
+				if(floors.contains(map.getCurrLevel().getLevel()))
 					LevelLoader.removeLevel(map.getCurrLevel().getLevel());
 				map.getCurrLevel().setLevel(floor);
 				LevelLoader.putLevel(map.getCurrLevel());

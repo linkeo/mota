@@ -32,7 +32,7 @@ public class DndHandler {
 		new DropTarget( label, new ResDropTargetListener() );
 	}
 	public static void addUnitDropTarget(MapElem elem){
-		new DropTarget( elem, new UnitDropTargetListener() );
+		new DropTarget( elem, new MapUnitDropTargetListener() );
 	}
 	public static void addMapUnitDropTarget(MapElem elem){
 		new DropTarget( elem, new MapUnitDropTargetListener() );

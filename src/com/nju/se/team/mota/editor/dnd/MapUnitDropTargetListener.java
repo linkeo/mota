@@ -22,7 +22,6 @@ public class MapUnitDropTargetListener implements DropTargetListener {
 				Unit u = (Unit) t.getTransferData(MyDataFlavors.getUnitFlavor());
 				DropTarget dt = (DropTarget)e.getSource();
 				MapElem d = ( MapElem )dt.getComponent();//获取拖拽目的组件
-
 				if((e.getDropAction()&DnDConstants.ACTION_MOVE)!=0){
 					d.dropMove(u);
 				}else if((e.getDropAction()&DnDConstants.ACTION_COPY)!=0){

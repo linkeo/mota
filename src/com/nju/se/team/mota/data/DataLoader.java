@@ -170,11 +170,11 @@ public class DataLoader {
 	}
 	public static void updateLevels(Collection<Level> levels){
 		
-//		instance.levelMap.clear();
+		instance.levelMap.clear();
 		for(Level l : levels){
-//			instance.levelMap.put(l.getLevel(), new JSONObject(l));
-			System.out.println(l.toJSONObject().toString(4));
+			instance.levelMap.put(l.getLevel(), l.toJSONObject());
 		}
+		saveLevels();
 	}
 	/**
 	 * 在生物定义映射表中更新(添加/修改)键值对

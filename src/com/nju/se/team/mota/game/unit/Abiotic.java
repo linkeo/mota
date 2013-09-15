@@ -61,7 +61,6 @@ public class Abiotic extends Unit{
 	 */
 	public JSONObject parseEntityJSON(){
 		JSONObject json = toJSON();
-		json.remove("type");
 		json.remove("sprites");
 		json.remove("canGoThrough");
 		json.remove("action");
