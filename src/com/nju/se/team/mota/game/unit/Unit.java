@@ -1,11 +1,14 @@
 package com.nju.se.team.mota.game.unit;
 
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 import java.util.HashMap;
 
 import com.nju.se.team.mota.game.util.Animation;
 import com.nju.se.team.mota.game.util.Condition;
 import com.nju.se.team.mota.game.util.UnitStatus;
+import com.nju.se.team.mota.util.ImageHandler;
 /**
  * 游戏中的对象
  * @author linkeo
@@ -205,5 +208,17 @@ public class Unit implements Comparable<Unit>{
 	@Override
 	public int compareTo(Unit o) {
 		return getName().compareToIgnoreCase(o.getName());
+	}
+	
+	public BufferedImage thumbnail(int w, int h){
+		BufferedImage bi = new BufferedImage(size[0]*32, size[1]*32, BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g = ImageHandler.getHQGraphics(bi);
+		BufferedImage[][] bis = this.getSprites().get(UnitStatus.NORMAL).currImage();
+		for(int i=0;i<size[0];++i)
+			for(int j=0;j<size[1];++j){
+				g.drawImage(bis[j][i], 32*j, 32*i, null);
+			}
+		g.dispose();
+		return ImageHandler.zoomFully(bi, w, h);
 	}
 }

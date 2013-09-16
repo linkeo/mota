@@ -201,6 +201,7 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 
 		frameListPanel.removeAll();
 		frameHolder.clear();
+		frameHolder.load(a.getSprites().get(UnitStatus.NORMAL).getImageKeyAt(0));
 		
 		currAbiotic = a;
 	}
@@ -228,6 +229,8 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		
 		frameListPanel.removeAll();
 		frameHolder.clear();
+		frameHolder.load(c.getSprites().get(UnitStatus.NORMAL).getImageKeyAt(0));
+		
 		currCreature = c;
 	}
 	/**
