@@ -6,6 +6,12 @@ script=test.js
 [image]
 logo=image\logo.png
 bg=image\loading.png
+b_new_0=image\button_new_0.png
+b_new_1=image\button_new_1.png
+b_load_0=image\button_load_0.png
+b_load_1=image\button_load_1.png
+b_quit_0=image\button_quit_0.png
+b_quit_1=image\button_quit_1.png
 [sprite]
 floor=image\sprite\floor.png
 door=image\sprite\door.png
