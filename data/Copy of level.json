@@ -6,7 +6,7 @@
 			{
 				name:"楼梯(上)_168720",
 				type:"楼梯(上)",
-				buddy:"Stair2_1",
+				buddy:"楼梯(下)_561892",
 				position:[2,1],
 				floor:1
 			},
@@ -28,7 +28,7 @@
 			{
 				name:"楼梯(下)_561892",
 				type:"楼梯(下)",
-				buddy:"Stair1_1",
+				buddy:"楼梯(上)_168720",
 				position:[2,1],
 				floor:2
 			},
