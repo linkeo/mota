@@ -37,6 +37,12 @@ public class SaveLoader {
 			instance.saves.add(save);
 		}
 	}
+	public static Save getDefaultSave(){
+		File def = ResLoader.getDataFile("save");
+		JSONObject defo = new JSONObject(getFileContent(def));
+		Save save = Save.make(defo);
+		return save;
+	}
 	/**
 	 * 获得所有存档
 	 * @return 含有所有存档对象的集合, 无内容则返回空集而不是null

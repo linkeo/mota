@@ -1,0 +1,14 @@
+{
+	name:"default",
+	lv:1,
+	hp:100,
+	atk:10,
+	def:10,
+	money:0,
+	keys:[0,0,0],
+	tools:[],
+	floor:1,
+	position:[0,0],
+	savetime:"1900-1-1",
+	levels:[]
+}

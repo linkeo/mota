@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -99,6 +101,15 @@ public class LogoPanel extends JPanel implements ActionListener{
 			setComponentZOrder(bQuit, 3);
 			setComponentZOrder(lWriter, 4);
 			setComponentZOrder(bgLabel, 5);
+			
+			bNew.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					if(!bNew.isActived())return;
+					timer.stop();
+					GameMain.frame.newGame();
+				}
+			});
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

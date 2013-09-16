@@ -11,6 +11,7 @@ public class GameFrame extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private static final int FRAME_WIDTH = 960, FRAME_HEIGHT = 640;
 	LogoPanel logoPanel;
+	GamePanel gamePanel;
 	public GameFrame() {
 		setTitle("Ä§Ëþ2013");
 		setResizable(false);
@@ -26,5 +27,13 @@ public class GameFrame extends JFrame{
 		setVisible(true);
 		setSize(FRAME_WIDTH*2-cp.getWidth(), FRAME_HEIGHT*2-cp.getHeight());
 		setLocationRelativeTo(null);
+	}
+	public void newGame() {
+		gamePanel = new GamePanel();
+		gamePanel.setLocation(0, 0);
+		JPanel cp = (JPanel) getContentPane();
+		cp.add(gamePanel);
+		cp.remove(logoPanel);
+		repaint();
 	}
 }

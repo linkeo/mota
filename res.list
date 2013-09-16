@@ -3,6 +3,7 @@ abiotics=data\abiotic.json
 creatures=data\creature.json
 levels=data\level.json
 script=test.js
+save=data\defaultsave.json
 [image]
 logo=image\logo.png
 bg=image\bg2.jpg

@@ -1,6 +1,8 @@
 package com.nju.se.team.mota.game;
 
 import org.json.JSONObject;
+
+import com.nju.se.team.mota.data.SaveLoader;
 /**
  * 存档
  * @author linkeo
@@ -24,6 +26,11 @@ public class Save {
 	 */
 	public Save() {
 		// TODO Auto-generated constructor stub
+	}
+	public static Save newSave(String name){
+		Save s = SaveLoader.getDefaultSave();
+		s.setName(name);
+		return s;
 	}
 	/**
 	 * 创造一个存档对象
