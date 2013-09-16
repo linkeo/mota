@@ -25,6 +25,11 @@ public class ResLoader {
 	 * 相关方法: getImageKeySet(), getImageFile(String key)
 	 */
 	private HashMap<String,File> imagemap = new HashMap<String,File>();
+	/**
+	 * 游戏动画素材文件的<索引键-文件对象>映射表<br>
+	 * 相关方法: getImageKeySet(), getImageFile(String key)
+	 */
+	private HashMap<String,File> spritemap = new HashMap<String,File>();
 	private static ResLoader instance;
 	private ResLoader() {
 	}
@@ -46,10 +51,14 @@ public class ResLoader {
 		List<String> datakeys = ie.optionNames("data");
 		for(String dk : datakeys)
 			instance.datamap.put(dk,new File(ie.get("data", dk)));
-		
+
 		List<String> imagekeys = ie.optionNames("image");
 		for(String ik : imagekeys)
 			instance.imagemap.put(ik,new File(ie.get("image", ik)));
+		
+		List<String> spritekeys = ie.optionNames("sprite");
+		for(String sk : spritekeys)
+			instance.spritemap.put(sk,new File(ie.get("sprite", sk)));
 	}
 	/**
 	 * 用特定的索引键获取游戏内容定义的文件对象<br>
@@ -74,6 +83,17 @@ public class ResLoader {
 		return instance.imagemap.get(key);
 	}
 	/**
+	 * 用特定的索引键获取图片素材的文件对象<br>
+	 * @param key 文件的索引键
+	 * @return 如果存在此键,则返回键对应的文件对象(不保证非空)<br>
+	 * 如果不存在此键,则返回null
+	 */
+	public static File getSpriteFile(String key){
+		if(instance==null)
+			load();
+		return instance.spritemap.get(key);
+	}
+	/**
 	 * 获取所有游戏定义文件的索引键
 	 * @return 含有所有索引键的集合(Set), 可能为空集
 	 */
@@ -90,6 +110,15 @@ public class ResLoader {
 		if(instance==null)
 			load();
 		return instance.imagemap.keySet();
+	}
+	/**
+	 * 获取所有图片素材文件的索引键
+	 * @return 含有所有索引键的集合(Set), 可能为空集
+	 */
+	public static Set<String> getSpriteKeySet(){
+		if(instance==null)
+			load();
+		return instance.spritemap.keySet();
 	}
 	
 }

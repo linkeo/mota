@@ -141,6 +141,15 @@ public class ImageHandler {
 		g.dispose();
 		return res;
 	}
+	public static BufferedImage transparent(BufferedImage img, float opacity){
+		int w = img.getWidth(), h = img.getHeight();
+		BufferedImage res = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g=getGraphics(res);
+		g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, opacity));
+		g.drawImage(img, 0, 0, null);
+		g.dispose();
+		return res;
+	}
 	private static Graphics2D getGraphics(BufferedImage bi) {
 		// TODO Auto-generated method stub
 		return getHQGraphics(bi);

@@ -35,6 +35,9 @@ public class MotaScript {
 			e.printStackTrace();
 		}
 		System.out.println("Load script successfully.");
+		MotaScriptUtil util = new MotaScriptUtil();
+		engine.put("util",util);
+		System.out.println("Load script utilities successfully.");
 	}
 	
 	/**

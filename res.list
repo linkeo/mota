@@ -4,6 +4,9 @@ creatures=data\creature.json
 levels=data\level.json
 script=test.js
 [image]
+logo=image\logo.png
+bg=image\loading.png
+[sprite]
 door=image\sprite\door.png
 door2=image\sprite\door2.png
 enemy01=image\sprite\enemy01.png
