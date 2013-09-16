@@ -214,8 +214,8 @@ public class Unit implements Comparable<Unit>{
 		BufferedImage bi = new BufferedImage(size[0]*32, size[1]*32, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g = ImageHandler.getHQGraphics(bi);
 		BufferedImage[][] bis = this.getSprites().get(UnitStatus.NORMAL).currImage();
-		for(int i=0;i<size[0];++i)
-			for(int j=0;j<size[1];++j){
+		for(int i=0;i<size[1];++i)
+			for(int j=0;j<size[0];++j){
 				g.drawImage(bis[j][i], 32*j, 32*i, null);
 			}
 		g.dispose();

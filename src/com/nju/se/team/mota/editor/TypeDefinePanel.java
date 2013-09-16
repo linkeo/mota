@@ -186,6 +186,7 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 	 * @param a(Abiotic)
 	 */
 	public void loadAbiotic(Abiotic a){
+		currAbiotic = a;
 		settype.setValue(a.getType());
 		setsize.setValue(a.getSize()[0],a.getSize()[1]);
 		setbt.setValue(a.getBuddyType());
@@ -201,16 +202,16 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 
 		frameListPanel.removeAll();
 		frameHolder.clear();
-		if(!a.getSprites().containsKey(UnitStatus.NORMAL))
+		if(a.getSprites().containsKey(UnitStatus.NORMAL))
 			frameHolder.load(a.getSprites().get(UnitStatus.NORMAL).getImageKeyAt(0));
 		
-		currAbiotic = a;
 	}
 	/**
 	 * 加载所有生物
 	 * @param c(Creature)
 	 */
 	public void loadCreature(Creature c){
+		currCreature = c;
 		settype.setValue(c.getType());
 		setsize.setValue(c.getSize()[0],c.getSize()[1]);
 		setbt.setValue(c.getBuddyType());
@@ -230,10 +231,9 @@ public class TypeDefinePanel extends JPanel implements FrameEditListener{
 		
 		frameListPanel.removeAll();
 		frameHolder.clear();
-		if(!c.getSprites().containsKey(UnitStatus.NORMAL))
+		if(c.getSprites().containsKey(UnitStatus.NORMAL))
 			frameHolder.load(c.getSprites().get(UnitStatus.NORMAL).getImageKeyAt(0));
 		
-		currCreature = c;
 	}
 	/**
 	 * 状态选择<br>
