@@ -32,10 +32,10 @@ public class ImageLoader {
 	private static void load(){
 		if(instance == null)
 			instance = new ImageLoader();
-		for(String s : ResLoader.getImageKeySet()){
+		for(String s : ResLoader.getSpriteKeySet()){
 			BufferedImage bi;
 			try {
-				bi = ImageIO.read(ResLoader.getImageFile(s));
+				bi = ImageIO.read(ResLoader.getSpriteFile(s));
 				if(bi.getWidth()%32!=0||bi.getHeight()%32!=0){
 					continue;
 				}

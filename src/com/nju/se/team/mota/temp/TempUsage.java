@@ -2,27 +2,18 @@ package com.nju.se.team.mota.temp;
 
 import java.io.FileNotFoundException;
 
-import org.json.JSONObject;
+import javax.script.ScriptException;
 
-import com.nju.se.team.mota.game.unit.Abiotic;
-import com.nju.se.team.mota.game.unit.Unit;
+import com.nju.se.team.mota.script.MotaScript;
 
 
 public class TempUsage {
-	public static void main(String[] args) throws FileNotFoundException {
-//		JFrame frame = new JFrame("test");
-//		final SettingPointItem testspi = new SettingPointItem("test", 1, 1, 1, 5, 1, 5);
-//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		frame.add(testspi);
-//		frame.pack();
-//		frame.setVisible(true);
-//		frame.setLocationRelativeTo(null);
-		Abiotic a = Abiotic.make(new JSONObject("{\"position\":[1,1],\"canGoThrough\":true,\"floor\":0,\"name\":\"Hello\",\"buddyType\":\"none\",\"action\":{\"closeto\":\"open\",\"crash\":\"open\"},\"sprites\":{\"normal\":{\"images\":[[\"STR\"]]}},\"type\":\"floor\",\"size\":[1,1]}"));
-
-		System.out.println(new JSONObject(a));
-		System.out.println(new JSONObject(a.clone()));
-		Unit u =a;
-		System.out.println(new JSONObject(u.clone()));
+	public static void main(String[] args) throws FileNotFoundException, ScriptException, NoSuchMethodException {
+		Ett player = new Ett(200, 15, 10);
+		Ett enemy = new Ett(50, 10, 5);
+		MotaScript.put("player", player);
+		MotaScript.put("enemy", enemy);
+		MotaScript.call("fight");
 	}
 }
 
