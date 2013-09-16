@@ -5,7 +5,7 @@ levels=data\level.json
 script=test.js
 [image]
 logo=image\logo.png
-bg=image\loading.png
+bg=image\bg2.jpg
 b_new_0=image\button_new_0.png
 b_new_1=image\button_new_1.png
 b_load_0=image\button_load_0.png
