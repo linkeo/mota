@@ -1,7 +1,11 @@
 package com.nju.se.team.mota.util;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.swing.ImageIcon;
 
@@ -30,7 +34,13 @@ public class MyButton extends TransparentLabel{
 		this.setMaximumSize(getSize());
 		this.setPreferredSize(getSize());
 		this.addMouseListener(new MouseAdapter() {
-			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(actived){
+					for(ActionListener l : actionListeners)
+						l.actionPerformed(new ActionEvent(e.getSource(), ActionEvent.ACTION_PERFORMED, ""));
+				}
+			}
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				if(actived)
@@ -59,5 +69,12 @@ public class MyButton extends TransparentLabel{
 					setIcon(MyButton.this.hover);
 			}
 		});
+	}
+	
+	private Set<ActionListener> actionListeners = new HashSet<ActionListener>();
+	public void addActionListener(ActionListener l) {
+		actionListeners.add(l);
+	}public void removeActionListener(ActionListener l) {
+		actionListeners.remove(l);
 	}
 }

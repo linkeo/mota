@@ -12,6 +12,7 @@ public class GameFrame extends JFrame{
 	private static final int FRAME_WIDTH = 960, FRAME_HEIGHT = 640;
 	LogoPanel logoPanel;
 	GamePanel gamePanel;
+	SavePanel savePanel;
 	public GameFrame() {
 		setTitle("Ä§Ëþ2013");
 		setResizable(false);
@@ -23,7 +24,7 @@ public class GameFrame extends JFrame{
 		logoPanel = new LogoPanel();
 		cp.add(logoPanel);
 		logoPanel.setLocation(0, 0);
-		newGame();
+		
 		setVisible(true);
 		setSize(FRAME_WIDTH*2-cp.getWidth(), FRAME_HEIGHT*2-cp.getHeight());
 		setLocationRelativeTo(null);
@@ -32,8 +33,16 @@ public class GameFrame extends JFrame{
 		gamePanel = new GamePanel();
 		gamePanel.setLocation(0, 0);
 		JPanel cp = (JPanel) getContentPane();
+		cp.removeAll();
 		cp.add(gamePanel);
-		cp.remove(logoPanel);
+		repaint();
+	}
+	public void loadGame() {
+		savePanel = new SavePanel();
+		savePanel.setLocation(0, 0);
+		JPanel cp = (JPanel) getContentPane();
+		cp.removeAll();
+		cp.add(savePanel);
 		repaint();
 	}
 }
