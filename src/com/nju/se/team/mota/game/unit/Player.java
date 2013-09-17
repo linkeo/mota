@@ -8,12 +8,22 @@ import java.util.ArrayList;
  *
  */
 
-public class Player {
+public class Player extends Creature{
 	private int redkey, yellowkey, bluekey;
 	private ArrayList<Tool> tools;
 	private int LV;
 	public Player() {
-		// TODO Auto-generated constructor stub
+		setName("player");
+		setLV(1);
+		setHP(1000);
+		setATK(10);
+		setDEF(10);
+		setMoney(0);
+		setEXP(0);
+		setYellowkey(0);
+		setBluekey(0);
+		setRedkey(0);
+		tools = new ArrayList<Tool>();
 	}
 	public int getRedkey() {
 		return redkey;

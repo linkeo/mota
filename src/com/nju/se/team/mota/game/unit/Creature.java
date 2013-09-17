@@ -57,12 +57,11 @@ public class Creature extends Unit{
 	 * @param json
 	 */
 	public void load(JSONObject json){
-		loadType(DataLoader.getAbioticDefine(json.getString("type")));
+		loadType(DataLoader.getCreatureDefine(json.getString("type")));
 		setName(json.getString("name"));
 		setPosition(json.getJSONArray("position").getInt(0),json.getJSONArray("position").getInt(1));
 		setFloor(json.getInt("floor"));
 		setBuddy(json.optString("buddy"));
-
 	}
 	/**
 	 * 获取具体对象的json<br>

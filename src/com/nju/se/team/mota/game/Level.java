@@ -66,6 +66,7 @@ public class Level {
 		JSONArray cs = json.getJSONArray("creatures");
 		for(int i=0;i<cs.length();++i)
 			creatures.add(Creature.make(cs.getJSONObject(i)));
+		
 	}
 	public JSONObject toJSONObject(){
 		JSONObject json = new JSONObject(this);

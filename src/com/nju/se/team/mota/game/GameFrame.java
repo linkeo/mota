@@ -23,7 +23,7 @@ public class GameFrame extends JFrame{
 		logoPanel = new LogoPanel();
 		cp.add(logoPanel);
 		logoPanel.setLocation(0, 0);
-		
+		newGame();
 		setVisible(true);
 		setSize(FRAME_WIDTH*2-cp.getWidth(), FRAME_HEIGHT*2-cp.getHeight());
 		setLocationRelativeTo(null);
