@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -95,19 +93,33 @@ public class LogoPanel extends JPanel implements ActionListener{
 			lWriter.setBounds(10, PANEL_HEIGHT - 25, PANEL_WIDTH - 20, 20);
 			
 			timer = new Timer(10, this);
-			setComponentZOrder(logoLabel, 0);
-			setComponentZOrder(bNew, 1);
-			setComponentZOrder(bLoad, 2);
-			setComponentZOrder(bQuit, 3);
-			setComponentZOrder(lWriter, 4);
-			setComponentZOrder(bgLabel, 5);
 			
-			bNew.addMouseListener(new MouseAdapter() {
+			int z = 0;
+			setComponentZOrder(logoLabel, z++);
+			setComponentZOrder(bNew, z++);
+			setComponentZOrder(bLoad, z++);
+			setComponentZOrder(bQuit, z++);
+			setComponentZOrder(lWriter, z++);
+			setComponentZOrder(bgLabel, z++);
+			
+			bNew.addActionListener(new ActionListener() {
+				
 				@Override
-				public void mouseClicked(MouseEvent e) {
+				public void actionPerformed(ActionEvent e) {
+					
 					if(!bNew.isActived())return;
 					timer.stop();
 					GameMain.frame.newGame();
+				}
+			});
+			bLoad.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+					if(!bNew.isActived())return;
+					timer.stop();
+					GameMain.frame.loadGame();
 				}
 			});
 		} catch (IOException e) {
@@ -196,7 +208,7 @@ public class LogoPanel extends JPanel implements ActionListener{
 			bQuit.setActived(true);
 		}	
 		
-		//效果4: 显示作者
+		//效果4: 显示作者 150~?
 		if(i>150){
 			int pos = i-150;
 			pos = Math.min(pos, writer.length());
