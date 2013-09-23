@@ -46,7 +46,8 @@ public class TransparentButton extends TransparentLabel{
 						&& TransparentButton.this.hover>=0
 						&& TransparentButton.this.hover<=1)
 					setTransparency(TransparentButton.this.hover);
-				getParent().repaint();
+//				getParent().repaint();
+				getTopLevelAncestor().repaint();
 			}
 			
 			@Override
@@ -55,7 +56,8 @@ public class TransparentButton extends TransparentLabel{
 				if(TransparentButton.this.active>=0
 						&& TransparentButton.this.active<=1)
 					setTransparency(TransparentButton.this.active);
-				getParent().repaint();
+//				getParent().repaint();
+				getTopLevelAncestor().repaint();
 			}
 			
 			@Override
@@ -64,7 +66,8 @@ public class TransparentButton extends TransparentLabel{
 				if(TransparentButton.this.normal>=0
 						&& TransparentButton.this.normal<=1)
 					setTransparency(TransparentButton.this.normal);
-				getParent().repaint();
+//				getParent().repaint();
+				getTopLevelAncestor().repaint();
 			}
 			
 			@Override
@@ -73,7 +76,8 @@ public class TransparentButton extends TransparentLabel{
 				if(TransparentButton.this.hover>=0
 						&& TransparentButton.this.hover<=1)
 					setTransparency(TransparentButton.this.hover);
-				getParent().repaint();
+//				getParent().repaint();
+				getTopLevelAncestor().repaint();
 			}
 		});
 	}

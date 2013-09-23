@@ -152,7 +152,7 @@
     {
         "canGoThrough": false,
         "buddyType": "∫Ï‘ø≥◊",
-        "action": {},
+        "action": {"crash": "open(red)"},
         "sprites": {
             "open": {"images": [
                 [["door_1x2"]],
@@ -251,7 +251,7 @@
             ]},
             "normal": {"images": [[["door_0x1"]]]}
         },
-        "action": {},
+        "action": {"crash": "open(blue)"},
         "type": "¿∂√≈",
         "size": [
             1,
@@ -397,7 +397,7 @@
             ]},
             "normal": {"images": [[["door_0x0"]]]}
         },
-        "action": {},
+        "action": {"crash": "open(yellow)"},
         "type": "ª∆√≈",
         "size": [
             1,

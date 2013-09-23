@@ -6,7 +6,7 @@
 	def:10,
 	money:0,
 	exp:0,
-	keys:[0,0,0],
+	keys:[1,1,1],
 	tools:[],
 	floor:1,
 	position:[0,0],

@@ -1,6 +1,7 @@
 package com.nju.se.team.mota.game;
 
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
@@ -8,8 +9,10 @@ import java.awt.image.BufferedImage;
 import javax.swing.JComponent;
 
 import com.nju.se.team.mota.game.unit.Abiotic;
+import com.nju.se.team.mota.game.unit.Creature;
 import com.nju.se.team.mota.game.unit.Player;
 import com.nju.se.team.mota.game.unit.Unit;
+import com.nju.se.team.mota.game.util.Condition;
 
 public class GameRuntime {
 	private static final GameRuntime inst = new GameRuntime();
@@ -44,8 +47,30 @@ public class GameRuntime {
 		}
 		g.drawImage(player.currAnimation().currImage()[0][0], oX+player.getPosition()[0]*32, oY+player.getPosition()[1]*32, c);
 	}
-	
-	
+	private static boolean checkNextStep(int x, int y){
+		return checkNextStep(new Point(x, y));
+	}
+	private static boolean checkNextStep(Point p){
+		boolean canMove = true;
+		Level currLevel = GamingLevels.getCurrentLevelObject();
+//		Player player = getCurrentPlayer();
+		for(Creature c: currLevel.getCreatures()){
+			if(c.rectangle().contains(p)){
+				if(c.getAction().get(Condition.CRASH)!=null)
+					System.out.println(c.getName()+">>"+c.getAction().get(Condition.CRASH));
+				canMove = false;
+			}
+		}
+		for(Abiotic a: currLevel.getAbiotics()){
+			if(a.rectangle().contains(p)){
+				if(a.getAction().get(Condition.CRASH)!=null)
+					System.out.println(a.getName()+">>"+a.getAction().get(Condition.CRASH));
+				if(!a.isCanGoThrough())
+					canMove = false;
+			}
+		}
+		return canMove;
+	}
 	
 	
 	
@@ -61,18 +86,31 @@ public class GameRuntime {
 	
 	public static void keyHandle(KeyEvent e) {
 		Player player = getCurrentPlayer();
+		int x = player.getPosition()[0], y = player.getPosition()[1];
 		switch(e.getKeyCode()){
 		case KeyEvent.VK_LEFT:
-			player.walkingLeft();
+			if(checkNextStep(x-1, y))
+				player.walkLeft();
+			else
+				player.turnLeft();
 			break;
 		case KeyEvent.VK_RIGHT:
-			player.walkingRight();
+			if(checkNextStep(x+1, y))
+				player.walkRight();
+			else
+				player.turnRight();
 			break;
 		case KeyEvent.VK_UP:
-			player.walkingUp();
+			if(checkNextStep(x, y-1))
+				player.walkUp();
+			else
+				player.turnUp();
 			break;
 		case KeyEvent.VK_DOWN:
-			player.walkingDown();
+			if(checkNextStep(x, y+1))
+				player.walkDown();
+			else
+				player.turnDown();
 			break;
 		}
 		GameMain.frame.repaint();
