@@ -77,4 +77,8 @@ public class ImageButton extends TransparentLabel{
 	}public void removeActionListener(ActionListener l) {
 		actionListeners.remove(l);
 	}
+	public void setNormal() {
+		if(ImageButton.this.normal!=null)
+			setIcon(ImageButton.this.normal);
+	}
 }

@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
-public class SaveListPanel extends TrasparentPanel implements MouseWheelListener{
+public class TransparentListPanel extends TrasparentPanel implements MouseWheelListener{
 
 	/**
 	 * 
@@ -17,7 +17,7 @@ public class SaveListPanel extends TrasparentPanel implements MouseWheelListener
 	
 	int arch = 0;
 	
-	public SaveListPanel() {
+	public TransparentListPanel() {
 		super(null);
 		this.addMouseWheelListener(this);
 	}

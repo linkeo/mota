@@ -119,6 +119,7 @@ public class LogoPanel extends JPanel implements ActionListener{
 					
 					if(!bNew.isActived())return;
 					timer.stop();
+					bLoad.setNormal();
 					GameMain.frame.loadGame();
 				}
 			});
@@ -222,6 +223,7 @@ public class LogoPanel extends JPanel implements ActionListener{
 	@Override
 	public void paint(Graphics g) {
 		if(!started) start();
+		if(timer.)
 		super.paint(g);
 	}
 	private void start() {

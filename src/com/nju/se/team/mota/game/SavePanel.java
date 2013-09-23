@@ -25,7 +25,7 @@ public class SavePanel extends JPanel{
 	private static final int PANEL_WIDTH = 960, PANEL_HEIGHT = 640;
 	BufferedImage bgImage, logoImage;
 	TransparentLabel bgLabel, logoLabel;
-	SaveListPanel saveListPanel;
+	TransparentListPanel saveListPanel;
 	TransparentButton back, load, delete;
 	public SavePanel() {
 		super(null);
@@ -38,7 +38,7 @@ public class SavePanel extends JPanel{
 			bgLabel = new TransparentLabel(new ImageIcon(bgImage));
 			logoLabel = new TransparentLabel(new ImageIcon(logoImage));
 			
-			saveListPanel = new SaveListPanel();
+			saveListPanel = new TransparentListPanel();
 			saveListPanel.setTransparency(0.5f);
 			
 			back = new TransparentButton("·µ»Ø", 0.5f, 0.75f, 1f);
@@ -60,9 +60,9 @@ public class SavePanel extends JPanel{
 			logoLabel.setBounds((PANEL_WIDTH-logoImage.getWidth())/2, 0,
 					logoImage.getWidth(), logoImage.getHeight());
 			saveListPanel.setBounds(320, 160, 320, 320);
-			back.setBounds(320, 500, 100, 40);
-			load.setBounds(430, 500, 100, 40);
-			delete.setBounds(540, 500, 100, 40);
+			back.setBounds(320, 490, 100, 40);
+			load.setBounds(430, 490, 100, 40);
+			delete.setBounds(540, 490, 100, 40);
 			
 			int z = 0;
 			setComponentZOrder(logoLabel, z++);
@@ -84,7 +84,12 @@ public class SavePanel extends JPanel{
 	
 	private void addListeners(){
 		back.addActionListener(new ActionListener() {
-			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				GameMain.frame.jumpToMainMenu();
+			}
+		});
+		delete.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				GameMain.frame.jumpToMainMenu();
