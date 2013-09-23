@@ -5,7 +5,9 @@ import java.awt.Graphics;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
-public class TransparentListPanel extends TrasparentPanel implements MouseWheelListener{
+import com.nju.se.team.mota.util.TransparentPanel;
+
+public class TransparentListPanel extends TransparentPanel implements MouseWheelListener{
 
 	/**
 	 * 
