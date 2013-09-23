@@ -11,4 +11,8 @@ public class GamingSave {
 	public static Save currentSave(){
 		return inst.currSave;
 	}
+	public static Save createNewSave(String player) {
+		inst.currSave = Save.newSave(player);
+		return inst.currSave;
+	}
 }

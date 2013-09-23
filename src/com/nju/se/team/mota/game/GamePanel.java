@@ -1,7 +1,6 @@
 package com.nju.se.team.mota.game;
 
 import java.awt.Color;
-import java.awt.Font;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -9,8 +8,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.nju.se.team.mota.data.ImageLoader;
-import com.nju.se.team.mota.data.LevelLoader;
 import com.nju.se.team.mota.game.unit.Player;
+import com.nju.se.team.mota.util.Fonts;
+import com.nju.se.team.mota.util.TransparentButton;
 
 public class GamePanel extends JPanel{
 	
@@ -43,7 +43,7 @@ public class GamePanel extends JPanel{
 		JLabel redKeyLabel;
 		JLabel toolsLabel;
 		ToolsPanel toolsPanel;
-		JButton menuButton;
+		TransparentButton menuButton;
 		JButton continueButton;
 		JButton saveButton;
 		JButton	backButton;
@@ -52,12 +52,12 @@ public class GamePanel extends JPanel{
 	Player player;
 	public GamePanel() {
 		super(null);
+		player = GameRuntime.getCurrentPlayer();
 		setSize(960, 640);
-		player = new Player();
-		loadLevel(1);
 		leftPanel = new JPanel(null);
+			map = new GameMapPanel();
 		rightPanel = new JPanel(null);
-			levelLabel = new JLabel("µÚ   "+map.getCurrLevel().getLevel()+"   ¹Ø", JLabel.CENTER);
+			levelLabel = new JLabel("µÚ   "+GamingLevels.getCurrentLevel()+"   ¹Ø", JLabel.CENTER);
 			playerImgLabel = new JLabel(new ImageIcon(ImageLoader.get("hero_1x0")));
 			playerLabel = new JLabel("Íæ¼Ò:"+player.getName()+" (LV:"+player.getLV()+")");
 			HPLabel = new JLabel("ÉúÃüÖµ:"+player.getHP());
@@ -73,7 +73,7 @@ public class GamePanel extends JPanel{
 			redKeyLabel = new JLabel("ºìÔ¿³×:"+player.getRedkey());
 			toolsLabel = new JLabel("ÎïÆ·À¸",JLabel.CENTER);
 			toolsPanel = new ToolsPanel(player.getTools());
-			menuButton = new JButton("²Ëµ¥");
+			menuButton = new TransparentButton("²Ëµ¥", 0.5f, 0.75f, 1f);
 			
 		leftPanel.setBounds(0, 0, 640, 640);
 			map.setBounds(0, 0, 640, 640);
@@ -118,35 +118,29 @@ public class GamePanel extends JPanel{
 			rightPanel.add(menuButton);
 		setFont();
 	}
-	public void loadLevel(int i){
-		Level l = LevelLoader.getLevel(i);
-		if(map==null){
-			map = new GameMapPanel(l,player);
-		}else
-			map.setCurrLevel(l);
-	}
 	public void setFont(){
-		levelLabel.setFont(new Font("Î¢ÈíÑÅºÚ", 1, 24));
+		levelLabel.setFont(Fonts.getYahei(24));
+		menuButton.setFont(Fonts.getYahei(24));
 		levelLabel.setForeground(Color.LIGHT_GRAY);
-		playerLabel.setFont(new Font("Î¢ÈíÑÅºÚ", 1, 18));
+		playerLabel.setFont(Fonts.getYahei(18));
 		playerLabel.setForeground(Color.LIGHT_GRAY);
-		HPLabel.setFont(new Font("Î¢ÈíÑÅºÚ", 1, 18));
+		HPLabel.setFont(Fonts.getYahei(18));
 		HPLabel.setForeground(Color.LIGHT_GRAY);
-		ATKLabel.setFont(new Font("Î¢ÈíÑÅºÚ", 1, 18));
+		ATKLabel.setFont(Fonts.getYahei(18));
 		ATKLabel.setForeground(Color.LIGHT_GRAY);
-		DEFLabel.setFont(new Font("Î¢ÈíÑÅºÚ", 1, 18));
+		DEFLabel.setFont(Fonts.getYahei(18));
 		DEFLabel.setForeground(Color.LIGHT_GRAY);
-		EXPLabel.setFont(new Font("Î¢ÈíÑÅºÚ", 1, 18));
+		EXPLabel.setFont(Fonts.getYahei(18));
 		EXPLabel.setForeground(Color.LIGHT_GRAY);
-		moneyLabel.setFont(new Font("Î¢ÈíÑÅºÚ", 1, 18));
+		moneyLabel.setFont(Fonts.getYahei(18));
 		moneyLabel.setForeground(Color.LIGHT_GRAY);
-		yellowKeyLabel.setFont(new Font("Î¢ÈíÑÅºÚ", 1, 18));
+		yellowKeyLabel.setFont(Fonts.getYahei(18));
 		yellowKeyLabel.setForeground(Color.LIGHT_GRAY);
-		blueKeyLabel.setFont(new Font("Î¢ÈíÑÅºÚ", 1, 18));
+		blueKeyLabel.setFont(Fonts.getYahei(18));
 		blueKeyLabel.setForeground(Color.LIGHT_GRAY);
-		redKeyLabel.setFont(new Font("Î¢ÈíÑÅºÚ", 1, 18));
+		redKeyLabel.setFont(Fonts.getYahei(18));
 		redKeyLabel.setForeground(Color.LIGHT_GRAY);
-		toolsLabel.setFont(new Font("Î¢ÈíÑÅºÚ", 1, 18));
+		toolsLabel.setFont(Fonts.getYahei(18));
 		toolsLabel.setForeground(Color.LIGHT_GRAY);
 	}
 }

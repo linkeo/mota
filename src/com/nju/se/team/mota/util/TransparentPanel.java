@@ -1,4 +1,4 @@
-package com.nju.se.team.mota.game;
+package com.nju.se.team.mota.util;
 
 import java.awt.AlphaComposite;
 import java.awt.Graphics;
@@ -7,7 +7,7 @@ import java.awt.LayoutManager;
 
 import javax.swing.JPanel;
 
-public class TrasparentPanel extends JPanel{
+public class TransparentPanel extends JPanel{
 
 	/**
 	 * 
@@ -15,19 +15,19 @@ public class TrasparentPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	float transparency = 1f;
 
-	public TrasparentPanel() {
+	public TransparentPanel() {
 		super();
 	}
 
-	public TrasparentPanel(boolean isDoubleBuffered) {
+	public TransparentPanel(boolean isDoubleBuffered) {
 		super(isDoubleBuffered);
 	}
 
-	public TrasparentPanel(LayoutManager layout, boolean isDoubleBuffered) {
+	public TransparentPanel(LayoutManager layout, boolean isDoubleBuffered) {
 		super(layout, isDoubleBuffered);
 	}
 
-	public TrasparentPanel(LayoutManager layout) {
+	public TransparentPanel(LayoutManager layout) {
 		super(layout);
 	}
 	

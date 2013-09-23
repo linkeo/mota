@@ -3,6 +3,7 @@ package com.nju.se.team.mota.game.unit;
 import java.util.ArrayList;
 
 import com.nju.se.team.mota.data.LevelLoader;
+import com.nju.se.team.mota.game.util.UnitStatus;
 /**
  * Íæ¼Ò
  * @author linkeo
@@ -63,22 +64,38 @@ public class Player extends Creature{
 		LV = lV;
 	}
 	public void walkingLeft(){
+		if(getCurrStatus()!=UnitStatus.WALKING_LEFT)
+			setCurrStatus(UnitStatus.WALKING_LEFT);
+		else
+			currAnimation().update();
 		if(this.getPosition()[0]>0){
 			this.getPosition()[0]--;
 		}
 	}
 	public void walkingRight(){
+		if(getCurrStatus()!=UnitStatus.WALKING_RIGHT)
+			setCurrStatus(UnitStatus.WALKING_RIGHT);
+		else
+			currAnimation().update();
 		int MAX_X = LevelLoader.getLevel(this.getFloor()).getSize()[0]-1;
 		if(this.getPosition()[0]<MAX_X){
 			this.getPosition()[0]++;
 		}
 	}
 	public void walkingUp(){
+		if(getCurrStatus()!=UnitStatus.WALKING_UP)
+			setCurrStatus(UnitStatus.WALKING_UP);
+		else
+			currAnimation().update();
 		if(this.getPosition()[1]>0){
 			this.getPosition()[1]--;
 		}
 	}
 	public void walkingDown(){
+		if(getCurrStatus()!=UnitStatus.WALKING_DOWN)
+			setCurrStatus(UnitStatus.WALKING_DOWN);
+		else
+			currAnimation().update();
 		int MAX_Y = LevelLoader.getLevel(this.getFloor()).getSize()[1]-1;
 		if(this.getPosition()[1]<MAX_Y){
 			this.getPosition()[1]++;

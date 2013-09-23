@@ -62,6 +62,9 @@ public class Creature extends Unit{
 		setPosition(json.getJSONArray("position").getInt(0),json.getJSONArray("position").getInt(1));
 		setFloor(json.getInt("floor"));
 		setBuddy(json.optString("buddy"));
+		String status = json.optString("currStatus");
+		if(!status.isEmpty())
+			setCurrStatus(UnitStatus.load(status));
 	}
 	/**
 	 * 获取具体对象的json<br>
