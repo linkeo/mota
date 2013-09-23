@@ -28,7 +28,7 @@ public class Animation {
 	public void setImages(String[][][] images) {
 		this.images = images;
 	}
-	int currentFrame, imageCnt;
+	int currentFrame;
 	/**
 	 * 构造函数(空)
 	 */
@@ -48,7 +48,7 @@ public class Animation {
 	 * 更新帧数
 	 */
 	public void update(){
-		currentFrame = (currentFrame+1)%imageCnt;
+		currentFrame = (currentFrame+1)%frameCount();
 	}
 	/**
 	 * 获取当前帧的图片

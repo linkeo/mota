@@ -109,7 +109,7 @@ public class LogoPanel extends JPanel implements ActionListener{
 					
 					if(!bNew.isActived())return;
 					timer.stop();
-					GameMain.frame.newGame();
+					GameMain.frame.newPlayer();
 				}
 			});
 			bLoad.addActionListener(new ActionListener() {
@@ -120,7 +120,7 @@ public class LogoPanel extends JPanel implements ActionListener{
 					if(!bNew.isActived())return;
 					timer.stop();
 					bLoad.setNormal();
-					GameMain.frame.loadGame();
+					GameMain.frame.selectSave();
 				}
 			});
 		} catch (IOException e) {

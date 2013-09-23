@@ -19,7 +19,7 @@ public class Unit implements Comparable<Unit>{
 	private String type;
 	private HashMap<UnitStatus, Animation> sprites;
 	private HashMap<Condition, String> action;
-	
+	private UnitStatus currStatus;
 	private int position[];
 	private int size[];
 	private int floor;
@@ -35,6 +35,10 @@ public class Unit implements Comparable<Unit>{
 		action = new HashMap<Condition, String>();
 		position = new int[]{1,1};
 		size = new int[]{1,1};
+		setCurrStatus(UnitStatus.NORMAL);
+	}
+	public Animation currAnimation(){
+		return sprites.get(currStatus);
 	}
 	/**
 	 * »ñÈ¡Ãû³Æ
@@ -214,11 +218,17 @@ public class Unit implements Comparable<Unit>{
 		BufferedImage bi = new BufferedImage(size[0]*32, size[1]*32, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g = ImageHandler.getHQGraphics(bi);
 		BufferedImage[][] bis = this.getSprites().get(UnitStatus.NORMAL).currImage();
-		for(int i=0;i<size[0];++i)
-			for(int j=0;j<size[1];++j){
+		for(int i=0;i<size[1];++i)
+			for(int j=0;j<size[0];++j){
 				g.drawImage(bis[j][i], 32*j, 32*i, null);
 			}
 		g.dispose();
 		return ImageHandler.zoomFully(bi, w, h);
+	}
+	public UnitStatus getCurrStatus() {
+		return currStatus;
+	}
+	public void setCurrStatus(UnitStatus currStatus) {
+		this.currStatus = currStatus;
 	}
 }

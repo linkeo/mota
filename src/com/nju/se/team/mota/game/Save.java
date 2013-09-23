@@ -3,6 +3,7 @@ package com.nju.se.team.mota.game;
 import org.json.JSONObject;
 
 import com.nju.se.team.mota.data.SaveLoader;
+import com.nju.se.team.mota.game.unit.Player;
 /**
  * ´æµµ
  * @author linkeo
@@ -16,11 +17,14 @@ public class Save {
 	private int atk;
 	private int def;
 	private int money;
+	private int exp;
 	private int[] keys;
 	private int[] tools;
 	private int floor;
+	private int[] position;
 	private String savetime;
 	private Level[] levels;
+	private static final int RED_KEY=0, YELLOW_KEY=1, BLUE_KEY=2;
 	/**
 	 * ¹¹Ôìº¯Êý
 	 */
@@ -53,6 +57,7 @@ public class Save {
 		setAtk(json.getInt("atk"));
 		setDef(json.getInt("def"));
 		setMoney(json.getInt("money"));
+		setExp(json.getInt("exp"));
 		setKeys(new int[]{json.getJSONArray("keys").getInt(0),json.getJSONArray("keys").getInt(1),json.getJSONArray("keys").getInt(2)});
 		int[] tools = new int[json.getJSONArray("tools").length()];
 		for(int i=0;i<json.getJSONArray("tools").length();++i){
@@ -60,12 +65,31 @@ public class Save {
 		}
 		setTools(tools);
 		setFloor(json.getInt("floor"));
+
+		setPosition(new int[]{json.getJSONArray("position").getInt(0),json.getJSONArray("position").getInt(1)});
 		setSavetime(json.getString("savetime"));
 		Level[] levels = new Level[json.getJSONArray("levels").length()];
 		for(int i=0;i<json.getJSONArray("tools").length();++i){
 			levels[i] = Level.make(json.getJSONArray("levels").getJSONObject(i));
 		}
 		setLevels(levels);
+	}
+	public Player player(){
+		Player player = new Player();
+		player.setName(getName());
+		player.setLV(getLv());
+		player.setHP(getHp());
+		player.setATK(getAtk());
+		player.setDEF(getDef());
+		player.setMoney(getMoney());
+		player.setEXP(getExp());
+		player.setRedkey(getKeys()[RED_KEY]);
+		player.setYellowkey(getKeys()[YELLOW_KEY]);
+		player.setBluekey(getKeys()[BLUE_KEY]);
+		player.setFloor(getFloor());
+//		player.setTools(getTools());
+		player.setPosition(getPosition().clone());
+		return player;
 	}
 	public String getName() {
 		return name;
@@ -132,6 +156,18 @@ public class Save {
 	}
 	public void setLevels(Level[] levels) {
 		this.levels = levels;
+	}
+	public int getExp() {
+		return exp;
+	}
+	public void setExp(int exp) {
+		this.exp = exp;
+	}
+	public int[] getPosition() {
+		return position;
+	}
+	public void setPosition(int[] position) {
+		this.position = position;
 	}
 	
 }
