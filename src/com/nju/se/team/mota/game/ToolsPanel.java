@@ -29,18 +29,7 @@ public class ToolsPanel extends JPanel {
 //		tools.add(t1);
 //		tools.add(t1);
 //		tools.add(t1);
-//		tools.add(t1);
-//		tools.add(t1);
-//		tools.add(t1);
-//		tools.add(t1);
-//		tools.add(t1);
-//		tools.add(t1);
-//		tools.add(t1);
-//		tools.add(t1);
-//		tools.add(t1);
-//		tools.add(t1);
-//		tools.add(t1);
-//		tools.add(t1);
+
 
 		setSize(new Dimension(320, 64));
 		setBackground(Color.DARK_GRAY);
