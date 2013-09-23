@@ -69,6 +69,8 @@ public class GameRuntime {
 					canMove = false;
 			}
 		}
+		if(!currLevel.rectangle().contains(p))
+			canMove = false;
 		return canMove;
 	}
 	

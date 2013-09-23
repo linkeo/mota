@@ -18,6 +18,8 @@ public class GameMapPanel extends JPanel{
 	private Level currLevel;
 	public GameMapPanel(){
 		super(null);
+		
+		GameMain.frame.removeKeyListener(GameRuntime.getKeyListener());
 		GameMain.frame.addKeyListener(GameRuntime.getKeyListener());
 		GameMain.frame.requestFocus();
 	}

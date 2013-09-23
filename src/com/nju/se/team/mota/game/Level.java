@@ -1,5 +1,6 @@
 package com.nju.se.team.mota.game;
 
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -22,12 +23,14 @@ public class Level {
 	private int size[];
 	private Set<Abiotic> abiotics;
 	private Set<Creature> creatures;
+	Rectangle rect;
 	/**
 	 * ¹¹Ôìº¯Êý<br>
 	 * default:19x19
 	 */
 	public Level() {//default
 		size=new int[]{18,18};
+		rect = new Rectangle(getSize()[0], getSize()[1]);
 		abiotics = new HashSet<Abiotic>();
 		creatures = new HashSet<Creature>();
 	}
@@ -156,5 +159,9 @@ public class Level {
 		for(Abiotic a : abiotics) if(a.getName().equals("")) return false;
 		for(Creature c : creatures) if(c.getName().equals("")) return false;
 		return true;
+	}
+	public Rectangle rectangle() {
+		rect.setSize(getSize()[0], getSize()[1]);
+		return rect;
 	}
 }
