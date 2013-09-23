@@ -1,5 +1,7 @@
 package com.nju.se.team.mota.game;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -8,9 +10,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import com.nju.se.team.mota.data.ResLoader;
-import com.nju.se.team.mota.data.SaveLoader;
 import com.nju.se.team.mota.game.uielem.SaveElem;
+import com.nju.se.team.mota.util.Fonts;
 import com.nju.se.team.mota.util.ImageHandler;
+import com.nju.se.team.mota.util.TransparentButton;
 import com.nju.se.team.mota.util.TransparentLabel;
 
 public class SavePanel extends JPanel{
@@ -23,6 +26,7 @@ public class SavePanel extends JPanel{
 	BufferedImage bgImage, logoImage;
 	TransparentLabel bgLabel, logoLabel;
 	SaveListPanel saveListPanel;
+	TransparentButton back, load, delete;
 	public SavePanel() {
 		super(null);
 		setSize(960, 640);
@@ -36,27 +40,55 @@ public class SavePanel extends JPanel{
 			
 			saveListPanel = new SaveListPanel();
 			saveListPanel.setTransparency(0.5f);
-
+			
+			back = new TransparentButton("∑µªÿ", 0.5f, 0.75f, 1f);
+			load = new TransparentButton("‘ÿ»Î", 0.5f, 0.75f, 1f);
+			delete = new TransparentButton("…æ≥˝", 0.5f, 0.75f, 1f);
+			back.setFont(Fonts.getYahei(18));
+			load.setFont(Fonts.getYahei(18));
+			delete.setFont(Fonts.getYahei(18));
+			
 			add(bgLabel);
 			add(logoLabel);
 			add(saveListPanel);
-
+			add(back);
+			add(load);
+			add(delete);
+			
+			
 			bgLabel.setBounds(0, 0, PANEL_WIDTH, PANEL_HEIGHT);
 			logoLabel.setBounds((PANEL_WIDTH-logoImage.getWidth())/2, 0,
 					logoImage.getWidth(), logoImage.getHeight());
 			saveListPanel.setBounds(320, 160, 320, 320);
-
+			back.setBounds(320, 500, 100, 40);
+			load.setBounds(430, 500, 100, 40);
+			delete.setBounds(540, 500, 100, 40);
+			
 			int z = 0;
 			setComponentZOrder(logoLabel, z++);
 			setComponentZOrder(saveListPanel, z++);
+			setComponentZOrder(back, z++);
+			setComponentZOrder(load, z++);
+			setComponentZOrder(delete, z++);
 			setComponentZOrder(bgLabel, z++);
 			
 			for(int i=0;i<10;i++){
 				saveListPanel.add(new SaveElem(Save.newSave("ÕÊº“"+i)));
 			}
 			
+			addListeners();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private void addListeners(){
+		back.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				GameMain.frame.jumpToMainMenu();
+			}
+		});
 	}
 }

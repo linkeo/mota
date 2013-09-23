@@ -1,5 +1,6 @@
 package com.nju.se.team.mota.util;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -7,16 +8,14 @@ import java.awt.event.MouseEvent;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.swing.ImageIcon;
-
-public class MyButton extends TransparentLabel{
+public class ColorButton extends TransparentLabel{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ImageIcon normal;
-	private ImageIcon hover;
-	private ImageIcon active;
+	private Color normal;
+	private Color hover;
+	private Color active;
 	private boolean actived = true;
 	public boolean isActived() {
 		return actived;
@@ -24,15 +23,13 @@ public class MyButton extends TransparentLabel{
 	public void setActived(boolean Actived) {
 		this.actived = Actived;
 	}
-	public MyButton(ImageIcon normal,ImageIcon hover,ImageIcon active){
-		super(normal);
+	public ColorButton(String text, Color normal,Color hover,Color active){
+		super(text);
+		this.setOpaque(true);
+		this.setBackground(normal);
 		this.normal = normal;
 		this.hover = hover;
 		this.active = active;
-		this.setSize(normal.getIconWidth(), normal.getIconHeight());
-		this.setMinimumSize(getSize());
-		this.setMaximumSize(getSize());
-		this.setPreferredSize(getSize());
 		this.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -44,33 +41,39 @@ public class MyButton extends TransparentLabel{
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				if(actived)
-				if(getIcon()==MyButton.this.active && MyButton.this.hover!=null)
-					setIcon(MyButton.this.hover);
+				if(getBackground().equals(ColorButton.this.active) && ColorButton.this.hover!=null)
+					setBackground(ColorButton.this.hover);
 			}
 			
 			@Override
 			public void mousePressed(MouseEvent e) {
 				if(actived)
-				if(MyButton.this.active!=null)
-					setIcon(MyButton.this.active);
+				if(ColorButton.this.active!=null)
+					setBackground(ColorButton.this.active);
 			}
 			
 			@Override
 			public void mouseExited(MouseEvent e) {
 				if(actived)
-				if(MyButton.this.normal!=null)
-					setIcon(MyButton.this.normal);
+				if(ColorButton.this.normal!=null)
+					setBackground(ColorButton.this.normal);
 			}
 			
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				if(actived)
-				if(MyButton.this.hover!=null)
-					setIcon(MyButton.this.hover);
+				if(ColorButton.this.hover!=null)
+					setBackground(ColorButton.this.hover);
 			}
 		});
 	}
-	
+	@Override
+	public void setSize(int width, int height) {
+		super.setSize(width, height);
+		this.setMinimumSize(getSize());
+		this.setMaximumSize(getSize());
+		this.setPreferredSize(getSize());
+	}
 	private Set<ActionListener> actionListeners = new HashSet<ActionListener>();
 	public void addActionListener(ActionListener l) {
 		actionListeners.add(l);

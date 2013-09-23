@@ -15,7 +15,7 @@ import javax.swing.Timer;
 
 import com.nju.se.team.mota.data.ResLoader;
 import com.nju.se.team.mota.util.ImageHandler;
-import com.nju.se.team.mota.util.MyButton;
+import com.nju.se.team.mota.util.ImageButton;
 import com.nju.se.team.mota.util.TransparentLabel;
 
 public class LogoPanel extends JPanel implements ActionListener{
@@ -32,7 +32,7 @@ public class LogoPanel extends JPanel implements ActionListener{
 	int time;
 	long startTime;
 	boolean started = false;
-	MyButton bNew, bLoad, bQuit;
+	ImageButton bNew, bLoad, bQuit;
 	BufferedImage newImage, loadImage, quitImage;
 	JLabel lWriter;
 	private static final String writer =
@@ -49,17 +49,17 @@ public class LogoPanel extends JPanel implements ActionListener{
 			bgLabel = new TransparentLabel(new ImageIcon(bgImage));
 			logoLabel = new TransparentLabel(new ImageIcon(logoImage));
 
-			bNew = new MyButton(
+			bNew = new ImageButton(
 					new ImageIcon(newImage = ImageIO.read(ResLoader.getImageFile("b_new_0"))),
 					new ImageIcon(ImageIO.read(ResLoader.getImageFile("b_new_1"))),
 					new ImageIcon(ImageIO.read(ResLoader.getImageFile("b_new_1")))
 					);
-			bLoad = new MyButton(
+			bLoad = new ImageButton(
 					new ImageIcon(loadImage = ImageIO.read(ResLoader.getImageFile("b_load_0"))),
 					new ImageIcon(ImageIO.read(ResLoader.getImageFile("b_load_1"))),
 					new ImageIcon(ImageIO.read(ResLoader.getImageFile("b_load_1")))
 					);
-			bQuit = new MyButton(
+			bQuit = new ImageButton(
 					new ImageIcon(quitImage = ImageIO.read(ResLoader.getImageFile("b_quit_0"))),
 					new ImageIcon(ImageIO.read(ResLoader.getImageFile("b_quit_1"))),
 					new ImageIcon(ImageIO.read(ResLoader.getImageFile("b_quit_1")))
