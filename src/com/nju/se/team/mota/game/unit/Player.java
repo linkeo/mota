@@ -3,7 +3,6 @@ package com.nju.se.team.mota.game.unit;
 import java.util.ArrayList;
 
 import com.nju.se.team.mota.data.LevelLoader;
-import com.nju.se.team.mota.game.Level;
 /**
  * Íæ¼Ò
  * @author linkeo

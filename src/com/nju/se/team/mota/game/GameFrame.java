@@ -45,4 +45,10 @@ public class GameFrame extends JFrame{
 		cp.add(savePanel);
 		repaint();
 	}
+	public void jumpToMainMenu() {
+		JPanel cp = (JPanel) getContentPane();
+		cp.removeAll();
+		cp.add(logoPanel);
+		repaint();
+	}
 }

@@ -30,6 +30,7 @@ public class TransparentLabel extends JLabel{
 	public TransparentLabel(String text) {
 		super(text);
 	}
+	
 	public float getTransparency() {
 		return transparency;
 	}
