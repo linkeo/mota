@@ -223,7 +223,7 @@ public class LogoPanel extends JPanel implements ActionListener{
 	@Override
 	public void paint(Graphics g) {
 		if(!started) start();
-		if(timer.)
+//		if(timer.)
 		super.paint(g);
 	}
 	private void start() {
