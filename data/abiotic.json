@@ -2,7 +2,6 @@
     {
         "canGoThrough": false,
         "buddyType": "none",
-        "action": {},
         "sprites": {
             "open": {"images": [
                 [["door2_1x3"]],
@@ -11,6 +10,7 @@
             ]},
             "normal": {"images": [[["door2_0x3"]]]}
         },
+        "action": {},
         "type": "ÌúÕ¤À¸",
         "size": [
             1,
@@ -20,8 +20,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(sword2)"},
         "sprites": {"normal": {"images": [[["item3_0x1"]]]}},
+        "action": {"crash": "get(sword2)"},
         "type": "³õ¼¶±¦½£",
         "size": [
             1,
@@ -31,8 +31,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"dead": "get(shoe)"},
         "sprites": {"normal": {"images": [[["item1_2x2"]]]}},
+        "action": {"dead": "get(shoe)"},
         "type": "¼²·çÐ¬",
         "size": [
             1,
@@ -42,8 +42,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(sword1)"},
         "sprites": {"normal": {"images": [[["item3_0x0"]]]}},
+        "action": {"crash": "get(sword1)"},
         "type": "ÐÂ±ø±¦½£",
         "size": [
             1,
@@ -52,9 +52,20 @@
     },
     {
         "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item2_1x2"]]]}},
+        "action": {"crash": "hpup(500)"},
+        "type": "ÂÌÒ©Ë®",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
         "buddyType": "portal",
-        "action": {"crash": "portal"},
         "sprites": {"normal": {"images": [[["item1_1x2"]]]}},
+        "action": {"crash": "portal"},
         "type": "´«ËÍÕó",
         "size": [
             1,
@@ -64,19 +75,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "hpup(500)"},
-        "sprites": {"normal": {"images": [[["item2_1x2"]]]}},
-        "type": "ÂÌÒ©Ë®",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "moneyup(100)"},
         "sprites": {"normal": {"images": [[["item1_1x1"]]]}},
+        "action": {"crash": "moneyup(100)"},
         "type": "½ð±Ò",
         "size": [
             1,
@@ -86,19 +86,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "atkup(3)"},
-        "sprites": {"normal": {"images": [[["item2_0x0"]]]}},
-        "type": "ºì±¦Ê¯",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "hpup(800)"},
         "sprites": {"normal": {"images": [[["item2_1x3"]]]}},
+        "action": {"crash": "hpup(800)"},
         "type": "»ÆÒ©Ë®",
         "size": [
             1,
@@ -108,8 +97,19 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {},
+        "sprites": {"normal": {"images": [[["item2_0x0"]]]}},
+        "action": {"crash": "atkup(3)"},
+        "type": "ºì±¦Ê¯",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
         "sprites": {"normal": {"images": [[["item2_2x3"]]]}},
+        "action": {},
         "type": "À¶Ê¥Ë®",
         "size": [
             1,
@@ -119,8 +119,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "hpup(100)"},
         "sprites": {"normal": {"images": [[["item2_1x0"]]]}},
+        "action": {"crash": "hpup(100)"},
         "type": "ºìÒ©Ë®",
         "size": [
             1,
@@ -130,8 +130,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(redKey)"},
         "sprites": {"normal": {"images": [[["item1_0x2"]]]}},
+        "action": {"crash": "get(redKey)"},
         "type": "ºìÔ¿³×",
         "size": [
             1,
@@ -141,8 +141,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "defup(3)"},
         "sprites": {"normal": {"images": [[["item2_0x1"]]]}},
+        "action": {"crash": "defup(3)"},
         "type": "À¶±¦Ê¯",
         "size": [
             1,
@@ -152,6 +152,7 @@
     {
         "canGoThrough": false,
         "buddyType": "ºìÔ¿³×",
+        "action": {},
         "sprites": {
             "open": {"images": [
                 [["door_1x2"]],
@@ -160,7 +161,6 @@
             ]},
             "normal": {"images": [[["door_0x2"]]]}
         },
-        "action": {},
         "type": "ºìÃÅ",
         "size": [
             1,
@@ -170,8 +170,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "atkup(6)"},
         "sprites": {"normal": {"images": [[["item2_0x2"]]]}},
+        "action": {"crash": "atkup(6)"},
         "type": "ÂÌ±¦Ê¯",
         "size": [
             1,
@@ -181,8 +181,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(book)"},
         "sprites": {"normal": {"images": [[["item1_1x0"]]]}},
+        "action": {"crash": "get(book)"},
         "type": "¹ÖÎï°Ù¿Æ´óÈ«",
         "size": [
             1,
@@ -192,8 +192,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(sword3)"},
         "sprites": {"normal": {"images": [[["item3_0x2"]]]}},
+        "action": {"crash": "get(sword3)"},
         "type": "ÖÐ¼¶±¦½£",
         "size": [
             1,
@@ -203,8 +203,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(yellowKey)"},
         "sprites": {"normal": {"images": [[["item1_0x0"]]]}},
+        "action": {"crash": "get(yellowKey)"},
         "type": "»ÆÔ¿³×",
         "size": [
             1,
@@ -214,7 +214,6 @@
     {
         "canGoThrough": false,
         "buddyType": "none",
-        "action": {},
         "sprites": {
             "open": {"images": [
                 [["door2_1x1"]],
@@ -223,6 +222,7 @@
             ]},
             "normal": {"images": [[["door2_0x1"]]]}
         },
+        "action": {},
         "type": "ÍÁÇ½",
         "size": [
             1,
@@ -232,8 +232,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(shield5)"},
         "sprites": {"normal": {"images": [[["item3_1x4"]]]}},
+        "action": {"crash": "get(shield5)"},
         "type": "´«ËµÖÐµÄ¶ÜÅÆ",
         "size": [
             1,
@@ -243,7 +243,6 @@
     {
         "canGoThrough": false,
         "buddyType": "none",
-        "action": {},
         "sprites": {
             "open": {"images": [
                 [["door_1x1"]],
@@ -252,6 +251,7 @@
             ]},
             "normal": {"images": [[["door_0x1"]]]}
         },
+        "action": {},
         "type": "À¶ÃÅ",
         "size": [
             1,
@@ -261,8 +261,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(shield4)"},
         "sprites": {"normal": {"images": [[["item3_1x3"]]]}},
+        "action": {"crash": "get(shield4)"},
         "type": "¸ß¼¶¶ÜÅÆ",
         "size": [
             1,
@@ -272,8 +272,8 @@
     {
         "canGoThrough": true,
         "buddyType": "Â¥ÌÝ(ÉÏ)",
-        "action": {"crash": "downstair"},
         "sprites": {"normal": {"images": [[["stair_0x0"]]]}},
+        "action": {"crash": "downstair"},
         "type": "Â¥ÌÝ(ÏÂ)",
         "size": [
             1,
@@ -283,30 +283,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"dead": "get(blueKey)"},
-        "sprites": {"normal": {"images": [[["item1_0x1"]]]}},
-        "type": "À¶Ô¿³×",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {},
-        "sprites": {"normal": {"images": [[["item2_2x1"]]]}},
-        "type": "ºìÊ¥Ë®",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {},
         "sprites": {"normal": {"images": [[["floor_0x0"]]]}},
+        "action": {},
         "type": "µØÃæ",
         "size": [
             1,
@@ -316,8 +294,30 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "hpup(250)"},
+        "sprites": {"normal": {"images": [[["item2_2x1"]]]}},
+        "action": {},
+        "type": "ºìÊ¥Ë®",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {"images": [[["item1_0x1"]]]}},
+        "action": {"dead": "get(blueKey)"},
+        "type": "À¶Ô¿³×",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
         "sprites": {"normal": {"images": [[["item2_1x1"]]]}},
+        "action": {"crash": "hpup(250)"},
         "type": "À¶Ò©Ë®",
         "size": [
             1,
@@ -327,8 +327,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(sword5)"},
         "sprites": {"normal": {"images": [[["item3_0x4"]]]}},
+        "action": {"crash": "get(sword5)"},
         "type": "´«ËµÖÐµÄ±¦½£",
         "size": [
             1,
@@ -338,8 +338,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(stonespade)"},
         "sprites": {"normal": {"images": [[["item1_2x0"]]]}},
+        "action": {"crash": "get(stonespade)"},
         "type": "ºÏ½ð¸Ö¸ä",
         "size": [
             1,
@@ -349,7 +349,6 @@
     {
         "canGoThrough": false,
         "buddyType": "none",
-        "action": {},
         "sprites": {
             "open": {"images": [
                 [["door2_1x0"]],
@@ -358,6 +357,7 @@
             ]},
             "normal": {"images": [[["door2_0x0"]]]}
         },
+        "action": {},
         "type": "Ê¯Ç½",
         "size": [
             1,
@@ -367,27 +367,9 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(woodspade)"},
         "sprites": {"normal": {"images": [[["item1_2x1"]]]}},
+        "action": {"crash": "get(woodspade)"},
         "type": "Ìú¸ä",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": false,
-        "buddyType": "none",
-        "action": {},
-        "sprites": {
-            "open": {"images": [
-                [["door_1x0"]],
-                [["door_2x0"]],
-                [["door_3x0"]]
-            ]},
-            "normal": {"images": [[["door_0x0"]]]}
-        },
-        "type": "»ÆÃÅ",
         "size": [
             1,
             1
@@ -396,8 +378,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {},
         "sprites": {"normal": {"images": [[["item2_2x0"]]]}},
+        "action": {},
         "type": "ÂÌÊ¥Ë®",
         "size": [
             1,
@@ -407,7 +389,24 @@
     {
         "canGoThrough": false,
         "buddyType": "none",
+        "sprites": {
+            "open": {"images": [
+                [["door_1x0"]],
+                [["door_2x0"]],
+                [["door_3x0"]]
+            ]},
+            "normal": {"images": [[["door_0x0"]]]}
+        },
         "action": {},
+        "type": "»ÆÃÅ",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": false,
+        "buddyType": "none",
         "sprites": {
             "open": {"images": [
                 [["door_1x3"]],
@@ -416,6 +415,7 @@
             ]},
             "normal": {"images": [[["door_0x3"]]]}
         },
+        "action": {},
         "type": "ÌØÊâÃÅ",
         "size": [
             1,
@@ -425,8 +425,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "defup(6)"},
         "sprites": {"normal": {"images": [[["item2_0x3"]]]}},
+        "action": {"crash": "defup(6)"},
         "type": "»Æ±¦Ê¯",
         "size": [
             1,
@@ -436,8 +436,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(sword4)"},
         "sprites": {"normal": {"images": [[["item3_0x3"]]]}},
+        "action": {"crash": "get(sword4)"},
         "type": "¸ß¼¶±¦½£",
         "size": [
             1,
@@ -447,8 +447,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {},
         "sprites": {"normal": {"images": [[["item2_2x2"]]]}},
+        "action": {},
         "type": "»ÆÊ¥Ë®",
         "size": [
             1,
@@ -458,8 +458,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(shield2)"},
         "sprites": {"normal": {"images": [[["item3_1x1"]]]}},
+        "action": {"crash": "get(shield2)"},
         "type": "³õ¼¶¶ÜÅÆ",
         "size": [
             1,
@@ -469,8 +469,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(shield3)"},
         "sprites": {"normal": {"images": [[["item3_1x2"]]]}},
+        "action": {"crash": "get(shield3)"},
         "type": "ÖÐ¼¶¶ÜÅÆ",
         "size": [
             1,
@@ -480,8 +480,8 @@
     {
         "canGoThrough": true,
         "buddyType": "Â¥ÌÝ(ÏÂ)",
-        "action": {"crash": "upstair"},
         "sprites": {"normal": {"images": [[["stair_0x1"]]]}},
+        "action": {"crash": "upstair"},
         "type": "Â¥ÌÝ(ÉÏ)",
         "size": [
             1,
@@ -491,8 +491,8 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get(shield1)"},
         "sprites": {"normal": {"images": [[["item3_1x0"]]]}},
+        "action": {"crash": "get(shield1)"},
         "type": "ÐÂ±ø¶ÜÅÆ",
         "size": [
             1,

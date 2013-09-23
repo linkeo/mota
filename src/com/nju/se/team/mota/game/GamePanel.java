@@ -7,17 +7,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import com.nju.se.team.mota.data.ImageLoader;
 import com.nju.se.team.mota.data.LevelLoader;
-import com.nju.se.team.mota.editor.MapPanel;
-import com.nju.se.team.mota.editor.uielem.SettingIntegerElem;
-import com.nju.se.team.mota.editor.uielem.SettingPointItem;
 import com.nju.se.team.mota.game.unit.Player;
-import com.nju.se.team.mota.game.unit.Tool;
 
 public class GamePanel extends JPanel{
 	
@@ -69,15 +62,15 @@ public class GamePanel extends JPanel{
 			playerLabel = new JLabel("Íæ¼Ò:"+player.getName()+" (LV:"+player.getLV()+")");
 			HPLabel = new JLabel("ÉúÃüÖµ:"+player.getHP());
 			ATKLabel = new JLabel("¹¥»÷Á¦:"+player.getATK());
-			DEFLabel = new JLabel("·ÀÓùÁ¦:"+player.getATK());
-			EXPLabel = new JLabel("¾­Ñé:"+player.getATK());
-			moneyLabel = new JLabel("½ðÇ®:"+player.getATK());
+			DEFLabel = new JLabel("·ÀÓùÁ¦:"+player.getDEF());
+			EXPLabel = new JLabel("¾­Ñé:"+player.getEXP());
+			moneyLabel = new JLabel("½ðÇ®:"+player.getMoney());
 			yellowKeyImgLabel = new JLabel(new ImageIcon(ImageLoader.get("item1_0x0")));
-			yellowKeyLabel = new JLabel("»ÆÔ¿³×:"+player.getATK());
+			yellowKeyLabel = new JLabel("»ÆÔ¿³×:"+player.getYellowkey());
 			blueKeyImgLabel = new JLabel(new ImageIcon(ImageLoader.get("item1_0x1")));
-			blueKeyLabel = new JLabel("À¶Ô¿³×:"+player.getATK());
+			blueKeyLabel = new JLabel("À¶Ô¿³×:"+player.getBluekey());
 			redKeyImgLabel = new JLabel(new ImageIcon(ImageLoader.get("item1_0x2")));
-			redKeyLabel = new JLabel("ºìÔ¿³×:"+player.getATK());
+			redKeyLabel = new JLabel("ºìÔ¿³×:"+player.getRedkey());
 			toolsLabel = new JLabel("ÎïÆ·À¸",JLabel.CENTER);
 			toolsPanel = new ToolsPanel(player.getTools());
 			menuButton = new JButton("²Ëµ¥");
@@ -128,7 +121,7 @@ public class GamePanel extends JPanel{
 	public void loadLevel(int i){
 		Level l = LevelLoader.getLevel(i);
 		if(map==null){
-			map = new GameMapPanel(l);
+			map = new GameMapPanel(l,player);
 		}else
 			map.setCurrLevel(l);
 	}

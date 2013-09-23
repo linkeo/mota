@@ -1,6 +1,9 @@
 package com.nju.se.team.mota.game.unit;
 
 import java.util.ArrayList;
+
+import com.nju.se.team.mota.data.LevelLoader;
+import com.nju.se.team.mota.game.Level;
 /**
  * Íæ¼Ò
  * @author linkeo
@@ -13,7 +16,8 @@ public class Player extends Creature{
 	private ArrayList<Tool> tools;
 	private int LV;
 	public Player() {
-		setName("player");
+		Creature player = Creature.make("Íæ¼Ò", 0, 0, 1);
+		setName(player.getName());
 		setLV(1);
 		setHP(1000);
 		setATK(10);
@@ -23,6 +27,10 @@ public class Player extends Creature{
 		setYellowkey(0);
 		setBluekey(0);
 		setRedkey(0);
+		setPosition(player.getPosition());
+		setFloor(player.getFloor());
+		setSprites(player.getSprites());
+		setAction(player.getAction());
 		tools = new ArrayList<Tool>();
 	}
 	public int getRedkey() {
@@ -54,5 +62,27 @@ public class Player extends Creature{
 	}
 	public void setLV(int lV) {
 		LV = lV;
+	}
+	public void walkingLeft(){
+		if(this.getPosition()[0]>0){
+			this.getPosition()[0]--;
+		}
+	}
+	public void walkingRight(){
+		int MAX_X = LevelLoader.getLevel(this.getFloor()).getSize()[0]-1;
+		if(this.getPosition()[0]<MAX_X){
+			this.getPosition()[0]++;
+		}
+	}
+	public void walkingUp(){
+		if(this.getPosition()[1]>0){
+			this.getPosition()[1]--;
+		}
+	}
+	public void walkingDown(){
+		int MAX_Y = LevelLoader.getLevel(this.getFloor()).getSize()[1]-1;
+		if(this.getPosition()[1]<MAX_Y){
+			this.getPosition()[1]++;
+		}
 	}
 }
