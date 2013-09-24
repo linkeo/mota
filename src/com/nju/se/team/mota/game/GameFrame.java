@@ -1,5 +1,7 @@
 package com.nju.se.team.mota.game;
 
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -27,7 +29,9 @@ public class GameFrame extends JFrame{
 		logoPanel.setLocation(0, 0);
 		
 		setVisible(true);
-		setSize(FRAME_WIDTH*2-cp.getWidth(), FRAME_HEIGHT*2-cp.getHeight());
+		Dimension d = new Dimension(this.getSize().width+FRAME_WIDTH-cp.getSize().width,
+				this.getSize().height+FRAME_HEIGHT-cp.getSize().height);
+		this.setSize(d);
 		setLocationRelativeTo(null);
 	}
 	public void newPlayer() {
@@ -61,6 +65,17 @@ public class GameFrame extends JFrame{
 		JPanel cp = (JPanel) getContentPane();
 		cp.removeAll();
 		cp.add(savePanel);
+		repaint();
+	}
+	public void startExistingGame(Save save){
+		GamingLevels.loadSave(save);
+		GameRuntime.setCurrentPlayer(save.player());
+		gamePanel = new GamePanel();
+		gamePanel.setLocation(0, 0);
+		gamePanel.map.setCurrLevel(GamingLevels.getCurrentLevel());
+		JPanel cp = (JPanel) getContentPane();
+		cp.removeAll();
+		cp.add(gamePanel);
 		repaint();
 	}
 	public void jumpToMainMenu() {

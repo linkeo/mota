@@ -1,5 +1,7 @@
 package com.nju.se.team.mota.script;
 
+import com.nju.se.team.mota.game.GameRuntime;
+
 public class MotaScriptUtil {
 	public void sleep(){
 		try {
@@ -8,5 +10,8 @@ public class MotaScriptUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	public void println(String str){
+		GameRuntime.println(str);
 	}
 }

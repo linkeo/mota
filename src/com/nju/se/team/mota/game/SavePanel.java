@@ -25,7 +25,7 @@ public class SavePanel extends JPanel{
 	private static final int PANEL_WIDTH = 960, PANEL_HEIGHT = 640;
 	BufferedImage bgImage, logoImage;
 	TransparentLabel bgLabel, logoLabel;
-	TransparentListPanel saveListPanel;
+	SaveListPanel saveListPanel;
 	TransparentButton back, load, delete;
 	public SavePanel() {
 		super(null);
@@ -38,7 +38,7 @@ public class SavePanel extends JPanel{
 			bgLabel = new TransparentLabel(new ImageIcon(bgImage));
 			logoLabel = new TransparentLabel(new ImageIcon(logoImage));
 			
-			saveListPanel = new TransparentListPanel();
+			saveListPanel = new SaveListPanel();
 			saveListPanel.setTransparency(0.5f);
 			
 			back = new TransparentButton("·µ»Ø", 0.5f, 0.75f, 1f);
@@ -89,10 +89,12 @@ public class SavePanel extends JPanel{
 				GameMain.frame.jumpToMainMenu();
 			}
 		});
-		delete.addActionListener(new ActionListener() {
+		load.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				GameMain.frame.jumpToMainMenu();
+				Save save = saveListPanel.getSelectedContent();
+				if(save != null)
+					GameMain.frame.startExistingGame(save);
 			}
 		});
 	}

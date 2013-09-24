@@ -1,10 +1,12 @@
 package com.nju.se.team.mota.game;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import javax.swing.JComponent;
 
@@ -19,7 +21,7 @@ public class GameRuntime {
 	private static final GameRuntime inst = new GameRuntime();
 	private GameRuntime(){
 	}
-	
+	private static ArrayList<String> msgs = new ArrayList<String>();
 	public static void paintMap(Graphics g, JComponent c){
 		Level currLevel = GamingLevels.getCurrentLevelObject();
 		Player player = getCurrentPlayer();
@@ -47,6 +49,33 @@ public class GameRuntime {
 					g.drawImage(currImage[i][j], oX+(unitX+i)*32, oY+(unitY+j)*32, c);
 		}
 		g.drawImage(player.currAnimation().currImage()[0][0], oX+player.getPosition()[0]*32, oY+player.getPosition()[1]*32, c);
+		paintMessages(g,c);
+	}
+	private static void paintMessages(Graphics g, JComponent c) {
+		int height = g.getFontMetrics().getHeight();
+		for(int i=0; i<16; ++i){
+			if(i<msgs.size()){
+				Color temp = g.getColor();
+				g.setColor(Color.WHITE);
+				g.drawString(msgs.get(i), 10+1, (16-i)*height+1);
+				g.drawString(msgs.get(i), 10+1, (16-i)*height);
+				g.drawString(msgs.get(i), 10+1, (16-i)*height-1);
+				g.drawString(msgs.get(i), 10-1, (16-i)*height+1);
+				g.drawString(msgs.get(i), 10-1, (16-i)*height);
+				g.drawString(msgs.get(i), 10-1, (16-i)*height-1);
+				g.drawString(msgs.get(i), 10, (16-i)*height+1);
+				g.drawString(msgs.get(i), 10, (16-i)*height-1);
+				g.setColor(Color.BLACK);
+				g.drawString(msgs.get(i), 10, (16-i)*height);
+				g.setColor(temp);
+			}
+		}
+	}
+	public static void println(String message){
+		while(msgs.size()>=16)
+			msgs.remove(msgs.size()-1);
+		msgs.add(0, message);
+		GameMain.frame.repaint();
 	}
 	private static boolean checkNextStep(int x, int y){
 		return checkNextStep(new Point(x, y));
@@ -54,11 +83,12 @@ public class GameRuntime {
 	private static boolean checkNextStep(Point p){
 		boolean canMove = true;
 		Level currLevel = GamingLevels.getCurrentLevelObject();
-//		Player player = getCurrentPlayer();
+		Player player = getCurrentPlayer();
 		for(Creature c: currLevel.getCreatures()){
 			if(c.rectangle().contains(p)){
 				if(c.getAction().get(Condition.CRASH)!=null){
-					MotaScript.put("player", p);
+					MotaScript.put("player", player);
+					MotaScript.put("enemy", c);
 					MotaScript.put("source", c);
 					MotaScript.call(c.getAction().get(Condition.CRASH));
 //					System.out.println(c.getName()+">>"+c.getAction().get(Condition.CRASH));
@@ -69,9 +99,8 @@ public class GameRuntime {
 		for(Abiotic a: currLevel.getAbiotics()){
 			if(a.rectangle().contains(p)){
 				if(a.getAction().get(Condition.CRASH)!=null){
-					MotaScript.put("player", p);
+					MotaScript.put("player", player);
 					MotaScript.put("source", a);
-					MotaScript.put("enemy", a);
 					MotaScript.call(a.getAction().get(Condition.CRASH));
 //					System.out.println(a.getName()+">>"+a.getAction().get(Condition.CRASH));
 				}

@@ -13,6 +13,7 @@ import com.nju.se.team.mota.data.ImageLoader;
 import com.nju.se.team.mota.game.unit.Player;
 import com.nju.se.team.mota.util.Fonts;
 import com.nju.se.team.mota.util.TransparentButton;
+import com.nju.se.team.mota.util.TransparentListPanel;
 import com.nju.se.team.mota.util.TransparentPanel;
 
 public class GamePanel extends JPanel{

@@ -55,7 +55,7 @@ public class Abiotic extends Unit{
 		setFloor(json.getInt("floor"));
 		setBuddy(json.optString("buddy"));
 		String status = json.optString("currStatus");
-		if(!status.isEmpty())
+		if((!status.isEmpty())&&UnitStatus.load(status)!=null)
 			setCurrStatus(UnitStatus.load(status));
 	}
 	/**
@@ -71,6 +71,7 @@ public class Abiotic extends Unit{
 		json.remove("buddyType");
 		if(getBuddy()==null||getBuddy().isEmpty()||getBuddy().equalsIgnoreCase("none"))
 			json.remove("buddy");
+		json.put("currStatus", getCurrStatus().toString());
 		return json;
 	}
 	/**
@@ -83,6 +84,7 @@ public class Abiotic extends Unit{
 		json.remove("position");
 		json.remove("floor");
 		json.remove("buddy");
+		json.remove("currStatus");
 		return json;
 	}
 	/**

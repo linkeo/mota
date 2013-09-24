@@ -1,11 +1,14 @@
 package com.nju.se.team.mota.game;
 
+import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 
+import com.nju.se.team.mota.game.uielem.SaveElem;
 import com.nju.se.team.mota.util.Selectable;
 import com.nju.se.team.mota.util.SelectableListener;
+import com.nju.se.team.mota.util.TransparentListPanel;
 
 public class SaveListPanel extends TransparentListPanel implements SelectableListener<Save>{
 
@@ -19,6 +22,19 @@ public class SaveListPanel extends TransparentListPanel implements SelectableLis
 	Selectable<Save> selectedItem = null;
 	boolean multipleSelectable = false;
 	boolean fromself = false;
+	
+	public Component add(SaveElem comp) {
+		allItems.add(comp);
+		comp.setTransparency(getTransparency());
+		comp.addSelectableListener(this);
+		return super.add(comp);
+	}
+	
+	public void remove(SaveElem comp) {
+		allItems.remove(comp);
+		comp.removeSelectableListener(this);
+		super.remove(comp);
+	}
 	
 	@Override
 	public void itemSelected(Selectable<Save> item, boolean multiple) {
@@ -66,7 +82,6 @@ public class SaveListPanel extends TransparentListPanel implements SelectableLis
 		return content;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public Collection<Selectable<Save>> getSelectedItems() {
 		return new HashSet<Selectable<Save>>(selectedItems);
