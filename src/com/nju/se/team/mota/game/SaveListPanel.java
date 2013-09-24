@@ -21,8 +21,8 @@ public class SaveListPanel extends TransparentListPanel implements SelectableLis
 	boolean fromself = false;
 	
 	@Override
-	public synchronized void itemSelected(Selectable<Save> item, boolean multiple) {
-		if(fromself) return;
+	public void itemSelected(Selectable<Save> item, boolean multiple) {
+		if(fromself) return;//avoid cycle from unselect
 		fromself = true;
 		selectedItem = item;
 		if( !(isMultipleSelectable()&&multiple) ){
@@ -36,47 +36,60 @@ public class SaveListPanel extends TransparentListPanel implements SelectableLis
 
 	@Override
 	public synchronized void itemUnselected(Selectable<Save> item, boolean multiple) {
-		if(fromself) return;
+		if(fromself) return;//avoid cycle from unselect
 		fromself = true;
 		selectedItems.remove(item);
-		
+		if( !(isMultipleSelectable()&&multiple) ){
+			for(Selectable<Save> i : selectedItems)
+				i.unselect(multiple);
+			selectedItems.clear();
+			selectedItem = null;
+		}
+		int listSize = selectedItems.size();
+		if(listSize > 0)
+			selectedItem = selectedItems.get(listSize-1);
+		else
+			selectedItem = null;
 		fromself = false;
 	}
 
 	@Override
 	public Selectable<Save> getSelectedItem() {
-		// TODO Auto-generated method stub
-		return null;
+		return selectedItem;
 	}
 
 	@Override
 	public Save getSelectedContent() {
-		// TODO Auto-generated method stub
-		return null;
+		Save content = null;
+		if(selectedItem != null)
+			content = selectedItem.content();
+		return content;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Collection<Selectable<Save>> getSelectedItems() {
-		// TODO Auto-generated method stub
-		return null;
+		return new HashSet<Selectable<Save>>(selectedItems);
 	}
 
 	@Override
 	public Collection<Save> getSelectedContents() {
-		// TODO Auto-generated method stub
-		return null;
+		HashSet<Save> contents = new HashSet<Save>();
+		for(Selectable<Save> i : selectedItems)
+			contents.add(i.content());
+		return contents;
 	}
 
 	@Override
 	public void selectAll() {
-		// TODO Auto-generated method stub
-		
+		for(Selectable<Save> i : allItems)
+			i.select(true);
 	}
 
 	@Override
 	public void unselectAll() {
-		// TODO Auto-generated method stub
-		
+		for(Selectable<Save> i : allItems)
+			i.unselect(true);
 	}
 
 	@Override

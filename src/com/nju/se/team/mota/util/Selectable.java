@@ -12,4 +12,6 @@ public interface Selectable<T> {
 	public boolean isSelectable();
 	public void setSelectable(boolean selectable);
 	
+	public void addSelectableListener(SelectableListener<T> l);
+	public void removeSelectableListener(SelectableListener<T> l);
 }

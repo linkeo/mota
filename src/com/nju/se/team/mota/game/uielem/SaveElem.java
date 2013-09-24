@@ -1,6 +1,8 @@
 package com.nju.se.team.mota.game.uielem;
 
 import java.awt.Color;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -9,6 +11,7 @@ import javax.swing.UIManager;
 import com.nju.se.team.mota.game.Save;
 import com.nju.se.team.mota.util.Fonts;
 import com.nju.se.team.mota.util.Selectable;
+import com.nju.se.team.mota.util.SelectableListener;
 
 public class SaveElem extends JPanel implements Selectable<Save>{
 
@@ -18,7 +21,12 @@ public class SaveElem extends JPanel implements Selectable<Save>{
 	private static final long serialVersionUID = 1L;
 	
 	JLabel lv, name, floor, saveTime;
-	
+	boolean selected;
+	Set<SelectableListener<Save>> selectableListeners = new HashSet<SelectableListener<Save>>();
+	private void setSelected(boolean selected) {
+		this.selected = selected;
+	}
+	boolean selectable;
 	Save save;
 	public SaveElem(Save save) {
 		super(null);
@@ -45,13 +53,17 @@ public class SaveElem extends JPanel implements Selectable<Save>{
 	}
 	@Override
 	public void select(boolean multiple) {
-		// TODO Auto-generated method stub
-		
+		setSelected(true);
+		setStyleToSelected();
+		for(SelectableListener<Save> i : selectableListeners)
+			i.itemSelected(this, multiple);
 	}
 	@Override
 	public void unselect(boolean multiple) {
-		// TODO Auto-generated method stub
-		
+		setSelected(false);
+		setStyleToNormal();
+		for(SelectableListener<Save> i : selectableListeners)
+			i.itemUnselected(this, multiple);
 	}
 	@Override
 	public Save content() {
@@ -59,17 +71,22 @@ public class SaveElem extends JPanel implements Selectable<Save>{
 	}
 	@Override
 	public boolean isSelected() {
-		// TODO Auto-generated method stub
-		return false;
+		return selected;
 	}
 	@Override
 	public boolean isSelectable() {
-		// TODO Auto-generated method stub
-		return false;
+		return (save!=null)&&selectable;
 	}
 	@Override
 	public void setSelectable(boolean selectable) {
-		// TODO Auto-generated method stub
-		
+		this.selectable = selectable;
+	}
+	@Override
+	public void addSelectableListener(SelectableListener<Save> l) {
+		selectableListeners.add(l);
+	}
+	@Override
+	public void removeSelectableListener(SelectableListener<Save> l) {
+		selectableListeners.remove(l);
 	}
 }
