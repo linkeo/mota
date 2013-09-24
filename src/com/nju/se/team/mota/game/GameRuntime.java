@@ -13,6 +13,7 @@ import com.nju.se.team.mota.game.unit.Creature;
 import com.nju.se.team.mota.game.unit.Player;
 import com.nju.se.team.mota.game.unit.Unit;
 import com.nju.se.team.mota.game.util.Condition;
+import com.nju.se.team.mota.script.MotaScript;
 
 public class GameRuntime {
 	private static final GameRuntime inst = new GameRuntime();
@@ -56,15 +57,24 @@ public class GameRuntime {
 //		Player player = getCurrentPlayer();
 		for(Creature c: currLevel.getCreatures()){
 			if(c.rectangle().contains(p)){
-				if(c.getAction().get(Condition.CRASH)!=null)
-					System.out.println(c.getName()+">>"+c.getAction().get(Condition.CRASH));
+				if(c.getAction().get(Condition.CRASH)!=null){
+					MotaScript.put("player", p);
+					MotaScript.put("source", c);
+					MotaScript.call(c.getAction().get(Condition.CRASH));
+//					System.out.println(c.getName()+">>"+c.getAction().get(Condition.CRASH));
+				}
 				canMove = false;
 			}
 		}
 		for(Abiotic a: currLevel.getAbiotics()){
 			if(a.rectangle().contains(p)){
-				if(a.getAction().get(Condition.CRASH)!=null)
-					System.out.println(a.getName()+">>"+a.getAction().get(Condition.CRASH));
+				if(a.getAction().get(Condition.CRASH)!=null){
+					MotaScript.put("player", p);
+					MotaScript.put("source", a);
+					MotaScript.put("enemy", a);
+					MotaScript.call(a.getAction().get(Condition.CRASH));
+//					System.out.println(a.getName()+">>"+a.getAction().get(Condition.CRASH));
+				}
 				if(!a.isCanGoThrough())
 					canMove = false;
 			}

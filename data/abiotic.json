@@ -21,7 +21,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item3_0x1"]]]}},
-        "action": {"crash": "get(sword2)"},
+        "action": {"crash": "get"},
         "type": "初级宝剑",
         "size": [
             1,
@@ -32,7 +32,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item1_2x2"]]]}},
-        "action": {"dead": "get(shoe)"},
+        "action": {"dead": "get"},
         "type": "疾风鞋",
         "size": [
             1,
@@ -43,7 +43,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item3_0x0"]]]}},
-        "action": {"crash": "get(sword1)"},
+        "action": {"crash": "get"},
         "type": "新兵宝剑",
         "size": [
             1,
@@ -131,7 +131,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item1_0x2"]]]}},
-        "action": {"crash": "get(redKey)"},
+        "action": {"crash": "get"},
         "type": "红钥匙",
         "size": [
             1,
@@ -142,7 +142,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item2_0x1"]]]}},
-        "action": {"crash": "defup(3)"},
+        "action": {"crash": "defup"},
         "type": "蓝宝石",
         "size": [
             1,
@@ -152,7 +152,7 @@
     {
         "canGoThrough": false,
         "buddyType": "红钥匙",
-        "action": {"crash": "open(red)"},
+        "action": {"crash": "open"},
         "sprites": {
             "open": {"images": [
                 [["door_1x2"]],
@@ -182,7 +182,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item1_1x0"]]]}},
-        "action": {"crash": "get(book)"},
+        "action": {"crash": "get"},
         "type": "怪物百科大全",
         "size": [
             1,
@@ -193,7 +193,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item3_0x2"]]]}},
-        "action": {"crash": "get(sword3)"},
+        "action": {"crash": "get"},
         "type": "中级宝剑",
         "size": [
             1,
@@ -204,7 +204,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item1_0x0"]]]}},
-        "action": {"crash": "get(yellowKey)"},
+        "action": {"crash": "get"},
         "type": "黄钥匙",
         "size": [
             1,
@@ -233,7 +233,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item3_1x4"]]]}},
-        "action": {"crash": "get(shield5)"},
+        "action": {"crash": "get"},
         "type": "传说中的盾牌",
         "size": [
             1,
@@ -251,7 +251,7 @@
             ]},
             "normal": {"images": [[["door_0x1"]]]}
         },
-        "action": {"crash": "open(blue)"},
+        "action": {"crash": "open"},
         "type": "蓝门",
         "size": [
             1,
@@ -262,7 +262,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item3_1x3"]]]}},
-        "action": {"crash": "get(shield4)"},
+        "action": {"crash": "get"},
         "type": "高级盾牌",
         "size": [
             1,
@@ -306,7 +306,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item1_0x1"]]]}},
-        "action": {"dead": "get(blueKey)"},
+        "action": {"dead": "get"},
         "type": "蓝钥匙",
         "size": [
             1,
@@ -328,7 +328,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item3_0x4"]]]}},
-        "action": {"crash": "get(sword5)"},
+        "action": {"crash": "get"},
         "type": "传说中的宝剑",
         "size": [
             1,
@@ -339,7 +339,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item1_2x0"]]]}},
-        "action": {"crash": "get(stonespade)"},
+        "action": {"crash": "get"},
         "type": "合金钢镐",
         "size": [
             1,
@@ -368,7 +368,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item1_2x1"]]]}},
-        "action": {"crash": "get(woodspade)"},
+        "action": {"crash": "get"},
         "type": "铁镐",
         "size": [
             1,
@@ -397,7 +397,7 @@
             ]},
             "normal": {"images": [[["door_0x0"]]]}
         },
-        "action": {"crash": "open(yellow)"},
+        "action": {"crash": "open"},
         "type": "黄门",
         "size": [
             1,
@@ -437,7 +437,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item3_0x3"]]]}},
-        "action": {"crash": "get(sword4)"},
+        "action": {"crash": "get"},
         "type": "高级宝剑",
         "size": [
             1,
@@ -459,7 +459,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item3_1x1"]]]}},
-        "action": {"crash": "get(shield2)"},
+        "action": {"crash": "get"},
         "type": "初级盾牌",
         "size": [
             1,
@@ -470,7 +470,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item3_1x2"]]]}},
-        "action": {"crash": "get(shield3)"},
+        "action": {"crash": "get"},
         "type": "中级盾牌",
         "size": [
             1,
@@ -492,7 +492,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "sprites": {"normal": {"images": [[["item3_1x0"]]]}},
-        "action": {"crash": "get(shield1)"},
+        "action": {"crash": "get"},
         "type": "新兵盾牌",
         "size": [
             1,

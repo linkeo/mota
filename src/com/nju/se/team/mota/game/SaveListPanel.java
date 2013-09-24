@@ -1,104 +1,94 @@
 package com.nju.se.team.mota.game;
 
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 
-import com.nju.se.team.mota.util.TransparentPanel;
+import com.nju.se.team.mota.util.Selectable;
+import com.nju.se.team.mota.util.SelectableListener;
 
-public class SaveListPanel extends TransparentPanel implements MouseWheelListener{
+public class SaveListPanel extends TransparentListPanel implements SelectableListener<Save>{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final int ROTATION_INCREMENT = 20;
-	protected int HGAP = 10;
-	protected int WGAP = 10;
 	
-	int arch = 0;
-	
-	public SaveListPanel() {
-		super(null);
-		this.addMouseWheelListener(this);
-	}
+	ArrayList<Selectable<Save>> selectedItems = new ArrayList<Selectable<Save>>();
+	HashSet<Selectable<Save>> allItems = new HashSet<Selectable<Save>>();
+	Selectable<Save> selectedItem = null;
+	boolean multipleSelectable = false;
+	boolean fromself = false;
 	
 	@Override
-	public Component add(Component comp) {
-		comp.addMouseWheelListener(this);
-		Component result = super.add(comp);
-		doLayout();
-		return result;
-	}
-	
-	@Override
-	public void remove(int index) {
-		Component comp = getComponent(index);
-		comp.removeMouseWheelListener(this);
-		super.remove(index);
-		doLayout();
-	}
-	
-	@Override
-	public void doLayout() {
-		int LIST_WIDTH = getSize().width;
-		int n = getComponentCount();
-		int currentX = WGAP;
-		int currentY = HGAP;
-		int currentBottom = HGAP;
-		for(int i=0;i<n;i++){
-			Component temp = getComponent(i);
-			if(currentX+temp.getSize().width>LIST_WIDTH){
-				currentX = WGAP;
-				currentY = currentBottom + HGAP;
-			}
-			temp.setLocation(currentX, currentY - arch);
-			currentX += temp.getSize().width + WGAP;
-			currentBottom = Math.max(currentBottom, currentY + temp.getSize().height);
+	public synchronized void itemSelected(Selectable<Save> item, boolean multiple) {
+		if(fromself) return;
+		fromself = true;
+		selectedItem = item;
+		if( !(isMultipleSelectable()&&multiple) ){
+			for(Selectable<Save> i : selectedItems)
+				i.unselect(multiple);
+			selectedItems.clear();
 		}
-	}
-	
-	@Override
-	public void mouseWheelMoved(MouseWheelEvent e) {
-		arch += e.getWheelRotation()*ROTATION_INCREMENT;
-		checkArch();
-		doLayout();
-		getParent().repaint();
-	}
-	
-	@Override
-	public void paint(Graphics g) {
-		super.paint(g);
-	}
-	
-	@Override
-	public void remove(Component comp) {
-		comp.removeMouseWheelListener(this);
-		super.remove(comp);
-	}
-	
-	private void checkArch(){
-		int max = getCurrentBottom() - getSize().height + HGAP;
-		if(arch>max) arch = max;
-		if(arch<0) arch = 0;
+		selectedItems.add(item);
+		fromself = false;
 	}
 
-	private int getCurrentBottom(){
-		int LIST_WIDTH = getSize().width;
-		int n = getComponentCount();
-		int currentX = WGAP;
-		int currentY = HGAP;
-		int currentBottom = HGAP;
-		for(int i=0;i<n;i++){
-			Component temp = getComponent(i);
-			if(currentX+temp.getSize().width>LIST_WIDTH){
-				currentX = WGAP;
-				currentY = currentBottom + HGAP;
-			}
-			currentX += temp.getSize().width + WGAP;
-			currentBottom = Math.max(currentBottom, currentY + temp.getSize().height);
-		}
-		return currentBottom;
+	@Override
+	public synchronized void itemUnselected(Selectable<Save> item, boolean multiple) {
+		if(fromself) return;
+		fromself = true;
+		selectedItems.remove(item);
+		
+		fromself = false;
 	}
+
+	@Override
+	public Selectable<Save> getSelectedItem() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Save getSelectedContent() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Collection<Selectable<Save>> getSelectedItems() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Collection<Save> getSelectedContents() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void selectAll() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void unselectAll() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean isMultipleSelectable() {
+		return multipleSelectable;
+	}
+
+	@Override
+	public void setMultipleSelectable(boolean multiple) {
+		multipleSelectable = multiple;
+	}
+	
+	
+	
 }

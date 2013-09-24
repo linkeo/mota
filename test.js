@@ -37,3 +37,7 @@ function attack(atker, atked){
 	if(dmg<0) dmg = 0;
 	atked.hp -= dmg;
 }
+
+function open(color){
+	println(color);
+}

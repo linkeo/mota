@@ -8,8 +8,9 @@ import javax.swing.UIManager;
 
 import com.nju.se.team.mota.game.Save;
 import com.nju.se.team.mota.util.Fonts;
+import com.nju.se.team.mota.util.Selectable;
 
-public class SaveElem extends JPanel{
+public class SaveElem extends JPanel implements Selectable<Save>{
 
 	/**
 	 * 
@@ -41,5 +42,34 @@ public class SaveElem extends JPanel{
 	}
 	public void setStyleToSelected(){
 		this.setBackground(Color.BLUE);
+	}
+	@Override
+	public void select(boolean multiple) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void unselect(boolean multiple) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Save content() {
+		return getSave();
+	}
+	@Override
+	public boolean isSelected() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean isSelectable() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public void setSelectable(boolean selectable) {
+		// TODO Auto-generated method stub
+		
 	}
 }
