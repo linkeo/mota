@@ -124,6 +124,7 @@ public class MapPanel extends JPanel implements MapDropListener, MouseMotionList
 		for(Unit u : new HashSet<Unit>(getUnits()))
 			if(!rectangle().contains(u.rectangle()))
 				removeUnit(u);
+		currLevel.setSize(new int[]{row,col});
 	}
 	Rectangle rect = new Rectangle(0,0,col,row);
 	public Rectangle rectangle(){

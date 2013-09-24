@@ -38,7 +38,7 @@ public class Unit implements Comparable<Unit>{
 		setCurrStatus(UnitStatus.NORMAL);
 	}
 	public Animation currAnimation(){
-		return sprites.get(currStatus);
+		return sprites.get(getCurrStatus());
 	}
 	/**
 	 * »ñÈ¡Ãû³Æ

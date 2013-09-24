@@ -3,373 +3,13 @@
         "abiotics": [
             {
                 "position": [
-                    14,
-                    7
-                ],
-                "floor": 1,
-                "name": "土墙_616277",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    4,
-                    14
-                ],
-                "floor": 1,
-                "name": "土墙_699077",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    8,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_414481",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    1,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_885365",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    4,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_706970",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    14,
-                    13
-                ],
-                "floor": 1,
-                "name": "土墙_216104",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    0,
-                    14
-                ],
-                "floor": 1,
-                "name": "土墙_533017",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    14,
-                    9
-                ],
-                "floor": 1,
-                "name": "土墙_153155",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    14,
-                    2
-                ],
-                "floor": 1,
-                "name": "土墙_984327",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    2,
-                    14
-                ],
-                "floor": 1,
-                "name": "土墙_462602",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    14,
-                    10
-                ],
-                "floor": 1,
-                "name": "土墙_748791",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    11,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_193652",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    9,
-                    14
-                ],
-                "floor": 1,
-                "name": "土墙_192257",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    6,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_552942",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    7,
-                    1
-                ],
-                "floor": 1,
-                "name": "黄门_127202",
-                "type": "黄门"
-            },
-            {
-                "position": [
-                    6,
-                    14
-                ],
-                "floor": 1,
-                "name": "土墙_946203",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    0,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_690711",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    5,
-                    14
-                ],
-                "floor": 1,
-                "name": "土墙_286220",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    13,
-                    14
-                ],
-                "floor": 1,
-                "name": "土墙_359242",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    10,
-                    14
-                ],
-                "floor": 1,
-                "name": "土墙_834678",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    2,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_501402",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    1,
-                    14
-                ],
-                "floor": 1,
-                "name": "土墙_469464",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    12,
-                    1
-                ],
-                "floor": 1,
-                "name": "蓝门_970886",
-                "type": "蓝门"
-            },
-            {
-                "position": [
-                    14,
-                    11
-                ],
-                "floor": 1,
-                "name": "土墙_329641",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    14,
-                    5
-                ],
-                "floor": 1,
-                "name": "土墙_120073",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    8,
-                    14
-                ],
-                "floor": 1,
-                "name": "土墙_143796",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    9,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_101081",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    10,
-                    1
-                ],
-                "floor": 1,
-                "name": "红门_528853",
-                "type": "红门"
-            },
-            {
-                "position": [
-                    5,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_968494",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    14,
-                    12
-                ],
-                "floor": 1,
-                "name": "土墙_671416",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    14,
-                    14
-                ],
-                "floor": 1,
-                "name": "土墙_398295",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    0,
-                    15
-                ],
-                "buddy": "楼梯(下)_561892",
-                "floor": 1,
-                "name": "楼梯(上)_663821",
-                "type": "楼梯(上)"
-            },
-            {
-                "position": [
-                    7,
-                    14
-                ],
-                "floor": 1,
-                "name": "土墙_300553",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    14,
-                    3
-                ],
-                "floor": 1,
-                "name": "土墙_556659",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    14,
-                    8
-                ],
-                "floor": 1,
-                "name": "土墙_526054",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    14,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_913868",
-                "type": "土墙"
-            },
-            {
-                "position": [
                     13,
                     1
                 ],
                 "floor": 1,
                 "name": "土墙_214933",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    12,
-                    14
-                ],
-                "floor": 1,
-                "name": "土墙_304300",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    11,
-                    14
-                ],
-                "floor": 1,
-                "name": "土墙_785881",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    3,
-                    14
-                ],
-                "floor": 1,
-                "name": "土墙_375563",
-                "type": "土墙"
-            },
-            {
-                "position": [
-                    14,
-                    4
-                ],
-                "floor": 1,
-                "name": "土墙_830126",
-                "type": "土墙"
+                "type": "土墙",
+                "currStatus": "normal"
             },
             {
                 "position": [
@@ -378,46 +18,422 @@
                 ],
                 "floor": 1,
                 "name": "土墙_165711",
-                "type": "土墙"
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    1
+                ],
+                "floor": 1,
+                "name": "土墙_552942",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_398295",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    3
+                ],
+                "floor": 1,
+                "name": "土墙_556659",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_469464",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    5
+                ],
+                "floor": 1,
+                "name": "土墙_120073",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    2,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_462602",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    4,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_699077",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    10,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_834678",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    8,
+                    1
+                ],
+                "floor": 1,
+                "name": "土墙_414481",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    2,
+                    1
+                ],
+                "floor": 1,
+                "name": "土墙_501402",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    5,
+                    1
+                ],
+                "floor": 1,
+                "name": "土墙_968494",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    15
+                ],
+                "buddy": "楼梯(下)_561892",
+                "floor": 1,
+                "name": "楼梯(上)_663821",
+                "type": "楼梯(上)",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    9,
+                    1
+                ],
+                "floor": 1,
+                "name": "土墙_101081",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_946203",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    10
+                ],
+                "floor": 1,
+                "name": "土墙_748791",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    11,
+                    1
+                ],
+                "floor": 1,
+                "name": "土墙_193652",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    13
+                ],
+                "floor": 1,
+                "name": "土墙_216104",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    10,
+                    1
+                ],
+                "floor": 1,
+                "name": "红门_528853",
+                "type": "红门",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    5,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_286220",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    1
+                ],
+                "floor": 1,
+                "name": "土墙_885365",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    8,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_143796",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    13
+                ],
+                "floor": 1,
+                "name": "土墙_533017",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    12,
+                    1
+                ],
+                "floor": 1,
+                "name": "蓝门_970886",
+                "type": "蓝门",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    4,
+                    1
+                ],
+                "floor": 1,
+                "name": "土墙_706970",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    7
+                ],
+                "floor": 1,
+                "name": "土墙_616277",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    1
+                ],
+                "floor": 1,
+                "name": "土墙_913868",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    12,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_304300",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    13,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_359242",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    9
+                ],
+                "floor": 1,
+                "name": "土墙_153155",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    8
+                ],
+                "floor": 1,
+                "name": "土墙_526054",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_984327",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    9,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_192257",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    7,
+                    1
+                ],
+                "floor": 1,
+                "name": "黄门_127202",
+                "type": "黄门",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    4
+                ],
+                "floor": 1,
+                "name": "土墙_830126",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_690711",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    12
+                ],
+                "floor": 1,
+                "name": "土墙_671416",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    11,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_785881",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    3,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_375563",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    11
+                ],
+                "floor": 1,
+                "name": "土墙_329641",
+                "type": "土墙",
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    7,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_300553",
+                "type": "土墙",
+                "currStatus": "normal"
             }
         ],
         "level": 1,
         "creatures": [
             {
                 "position": [
-                    3,
-                    7
-                ],
-                "type": "红龙",
-                "floor": 1,
-                "name": "红龙_984875"
-            },
-            {
-                "position": [
-                    7,
-                    5
-                ],
-                "type": "骷髅盔甲兵",
-                "floor": 1,
-                "name": "骷髅盔甲兵_951329"
-            },
-            {
-                "position": [
                     8,
                     5
                 ],
                 "type": "冰守卫",
+                "currStatus": "normal",
                 "floor": 1,
                 "name": "冰守卫_870513"
-            },
-            {
-                "position": [
-                    10,
-                    5
-                ],
-                "type": "蛮人",
-                "floor": 1,
-                "name": "蛮人_873766"
             },
             {
                 "position": [
@@ -425,17 +441,9 @@
                     5
                 ],
                 "type": "人形史莱姆",
+                "currStatus": "normal",
                 "floor": 1,
                 "name": "人形史莱姆_829354"
-            },
-            {
-                "position": [
-                    9,
-                    9
-                ],
-                "type": "火警卫",
-                "floor": 1,
-                "name": "火警卫_569739"
             },
             {
                 "position": [
@@ -443,13 +451,54 @@
                     9
                 ],
                 "type": "火法师",
+                "currStatus": "normal",
                 "floor": 1,
                 "name": "火法师_550034"
+            },
+            {
+                "position": [
+                    7,
+                    5
+                ],
+                "type": "骷髅盔甲兵",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "骷髅盔甲兵_951329"
+            },
+            {
+                "position": [
+                    10,
+                    5
+                ],
+                "type": "蛮人",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "蛮人_873766"
+            },
+            {
+                "position": [
+                    9,
+                    9
+                ],
+                "type": "火警卫",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "火警卫_569739"
+            },
+            {
+                "position": [
+                    3,
+                    7
+                ],
+                "type": "红龙",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "红龙_984875"
             }
         ],
         "size": [
-            16,
-            16
+            21,
+            21
         ]
     },
     {
@@ -461,7 +510,8 @@
             "buddy": "楼梯(上)_663821",
             "floor": 2,
             "name": "楼梯(下)_561892",
-            "type": "楼梯(下)"
+            "type": "楼梯(下)",
+            "currStatus": "normal"
         }],
         "level": 2,
         "creatures": [],

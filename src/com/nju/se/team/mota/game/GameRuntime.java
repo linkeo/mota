@@ -2,6 +2,7 @@ package com.nju.se.team.mota.game;
 
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
@@ -16,24 +17,55 @@ import com.nju.se.team.mota.game.util.Condition;
 
 public class GameRuntime {
 	private static final GameRuntime inst = new GameRuntime();
+	private static Rectangle view = new Rectangle(0,0,1,1);
 	private GameRuntime(){
 	}
 	
+	public static void setViewSize(int width, int height){
+		view.setSize(width, height);
+	}
+	private static void adjustMapViewArea(Rectangle player) {
+		Level currLevel = GamingLevels.getCurrentLevelObject();
+		Rectangle map = currLevel.rectangle();
+		Rectangle lightArea = new Rectangle(player.x-2, player.y-2,
+				player.width+4, player.height+4);
+		if(map.contains(lightArea))//没到边
+			if()
+	}
 	public static void paintMap(Graphics g, JComponent c){
 		Level currLevel = GamingLevels.getCurrentLevelObject();
 		Player player = getCurrentPlayer();
-		int panelW = c.getSize().width;
-		int panelH = c.getSize().height;
-		int mapW = currLevel.getSize()[0]*32;
-		int mapH = currLevel.getSize()[1]*32;
-		int oX=0, oY=0;
-		oX = (panelW-mapW)/2;
-		oY = (panelH-mapH)/2;
+//		int panelW = c.getSize().width;
+//		int panelH = c.getSize().height;
+//		int mapW = currLevel.getSize()[0]*32;
+//		int mapH = currLevel.getSize()[1]*32;
+//		int oX=0, oY=0;
+//		int pdmW = panelW - mapW;
+//		int pdmH = panelH - mapH;
+//		oX = pdmW / 2;
+//		oY = pdmH / 2;
+////		if(pdmW>=0 && pdmH>=0){
+////			oX = pdmW/2;
+////			oY = pdmH/2;
+////			pdmW = 0;
+////			pdmH = 0;
+////		}else if(pdmW<0 && pdmH>=0){
+////			oX = 0;
+////			oY = pdmH/2;
+////			pdmH = 0;
+////		}else if(pdmH<0 && pdmW>=0){
+////			oX = pdmW/2;
+////			oY = 0;
+////			pdmW = 0;
+////		}else{
+////			oX = 0;
+////			oY = 0;
+////		}
 		Abiotic floor = Abiotic.make("地面", 0, 0, currLevel.getLevel());
 		BufferedImage floorImage = floor.currAnimation().currImage()[0][0];
-		for(int i = 0; i < mapW; i+=32)
-			for(int j = 0; j < mapH; j+=32)
-				g.drawImage(floorImage, oX+i, oY+j, c);
+		for(int i = view.x; i < view.width; i++)
+			for(int j = view.y; j < view.height; j++)
+				g.drawImage(floorImage, (i-view.x)*32, (j-view.y)*32, c);
 		
 		for(Unit u : currLevel.units()){
 			int unitX = u.getPosition()[0];
@@ -115,8 +147,10 @@ public class GameRuntime {
 				player.turnDown();
 			break;
 		}
+//		adjustMapViewArea(player.rectangle());
 		GameMain.frame.repaint();
 	}
+
 	private KeyListener keyListener = new KeyListener() {
 		@Override
 		public void keyTyped(KeyEvent e) {}
