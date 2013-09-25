@@ -7,5 +7,6 @@ public class GameMain {
 	public static void main(String[] args) {
 		MotaUtils.setLookandFeel();
 		frame = new GameFrame();
+		GameRuntime.startPaintLoop();
 	}
 }

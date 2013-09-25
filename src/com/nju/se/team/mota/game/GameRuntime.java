@@ -7,6 +7,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.swing.JComponent;
 
@@ -17,11 +19,30 @@ import com.nju.se.team.mota.game.unit.Unit;
 import com.nju.se.team.mota.game.util.Condition;
 import com.nju.se.team.mota.script.MotaScript;
 
-public class GameRuntime {
-	private static final GameRuntime inst = new GameRuntime();
+public class GameRuntime implements Runnable{
+	private static final ExecutorService exec = Executors.newSingleThreadExecutor();
+	private static final ExecutorService loopexec = Executors.newSingleThreadExecutor();
+	private static boolean looping = false;
 	private GameRuntime(){
+		loopexec.execute(this);
+	}
+	public static void startPaintLoop(){
+		System.out.println("START LOOP TIMER");
+		looping = true;
+	}
+	public static void stopPaintLoop(){
+		looping = false;
+	}
+	public static void exitGame(){
+		stopPaintLoop();
+		GameMain.frame.dispose();
+		System.exit(0);
 	}
 	private static ArrayList<String> msgs = new ArrayList<String>();
+	private static ArrayList<Long> msgstime = new ArrayList<Long>();
+	public static void execute(Runnable r){
+		exec.execute(r);
+	}
 	public static void paintMap(Graphics g, JComponent c){
 		Level currLevel = GamingLevels.getCurrentLevelObject();
 		Player player = getCurrentPlayer();
@@ -52,30 +73,45 @@ public class GameRuntime {
 		paintMessages(g,c);
 	}
 	private static void paintMessages(Graphics g, JComponent c) {
-		int height = g.getFontMetrics().getHeight();
-		for(int i=0; i<16; ++i){
-			if(i<msgs.size()){
+		synchronized (inst) {
+			int height = g.getFontMetrics().getHeight();
+			for(int i=0; i<msgs.size(); ++i){
+				String msg = msgs.get(i);
 				Color temp = g.getColor();
-				g.setColor(Color.WHITE);
-				g.drawString(msgs.get(i), 10+1, (16-i)*height+1);
-				g.drawString(msgs.get(i), 10+1, (16-i)*height);
-				g.drawString(msgs.get(i), 10+1, (16-i)*height-1);
-				g.drawString(msgs.get(i), 10-1, (16-i)*height+1);
-				g.drawString(msgs.get(i), 10-1, (16-i)*height);
-				g.drawString(msgs.get(i), 10-1, (16-i)*height-1);
-				g.drawString(msgs.get(i), 10, (16-i)*height+1);
-				g.drawString(msgs.get(i), 10, (16-i)*height-1);
-				g.setColor(Color.BLACK);
-				g.drawString(msgs.get(i), 10, (16-i)*height);
+				long time = System.currentTimeMillis() - msgstime.get(i);
+				if(time<5000)
+					g.setColor(Color.WHITE);
+				else if(time<7000)
+					g.setColor(new Color(255, 255, 255, (int) ((7000-time)/2000.0*255)));
+				else
+					continue;
+				g.drawString(msg, 10+1, (16-i)*height+1);
+				g.drawString(msg, 10+1, (16-i)*height);
+				g.drawString(msg, 10+1, (16-i)*height-1);
+				g.drawString(msg, 10-1, (16-i)*height+1);
+				g.drawString(msg, 10-1, (16-i)*height);
+				g.drawString(msg, 10-1, (16-i)*height-1);
+				g.drawString(msg, 10, (16-i)*height+1);
+				g.drawString(msg, 10, (16-i)*height-1);
+				if(time<5000)
+					g.setColor(Color.BLACK);
+				else if(time<7000)
+					g.setColor(new Color(0, 0, 0, (int) ((7000-time)/2000.0*255)));
+				g.drawString(msg, 10, (16-i)*height);
 				g.setColor(temp);
 			}
 		}
 	}
 	public static void println(String message){
-		while(msgs.size()>=16)
-			msgs.remove(msgs.size()-1);
-		msgs.add(0, message);
-		GameMain.frame.repaint();
+		synchronized (inst) {
+			while(msgs.size()>=16){
+				msgstime.remove(msgs.size()-1);
+				msgs.remove(msgs.size()-1);
+			}
+			msgs.add(0, message);
+			msgstime.add(0, System.currentTimeMillis());
+			GameMain.frame.repaint();
+		}
 	}
 	private static boolean checkNextStep(int x, int y){
 		return checkNextStep(new Point(x, y));
@@ -125,36 +161,41 @@ public class GameRuntime {
 
 	private Player currentPlayer;
 	
-	public static void keyHandle(KeyEvent e) {
-		Player player = getCurrentPlayer();
-		int x = player.getPosition()[0], y = player.getPosition()[1];
-		switch(e.getKeyCode()){
-		case KeyEvent.VK_LEFT:
-			if(checkNextStep(x-1, y))
-				player.walkLeft();
-			else
-				player.turnLeft();
-			break;
-		case KeyEvent.VK_RIGHT:
-			if(checkNextStep(x+1, y))
-				player.walkRight();
-			else
-				player.turnRight();
-			break;
-		case KeyEvent.VK_UP:
-			if(checkNextStep(x, y-1))
-				player.walkUp();
-			else
-				player.turnUp();
-			break;
-		case KeyEvent.VK_DOWN:
-			if(checkNextStep(x, y+1))
-				player.walkDown();
-			else
-				player.turnDown();
-			break;
-		}
-		GameMain.frame.repaint();
+	private static boolean keyMask = false;
+	public static void keyHandle(final KeyEvent e) {
+		if(keyMask) return;
+		keyMask = true;
+		execute(new Runnable() {
+			@Override
+			public void run() {
+				Player player = getCurrentPlayer();
+				int x = player.getPosition()[0], y = player.getPosition()[1];
+				switch(e.getKeyCode()){
+				case KeyEvent.VK_LEFT:
+					player.turnLeft();
+					if(checkNextStep(x-1, y))
+						player.walkLeft();
+					break;
+				case KeyEvent.VK_RIGHT:
+					player.turnRight();
+					if(checkNextStep(x+1, y))
+						player.walkRight();
+					break;
+				case KeyEvent.VK_UP:
+					player.turnUp();
+					if(checkNextStep(x, y-1))
+						player.walkUp();
+					break;
+				case KeyEvent.VK_DOWN:
+					player.turnDown();
+					if(checkNextStep(x, y+1))
+						player.walkDown();
+					break;
+				}
+				GameMain.frame.repaint();
+				keyMask = false;
+			}
+		});
 	}
 	private KeyListener keyListener = new KeyListener() {
 		@Override
@@ -169,4 +210,18 @@ public class GameRuntime {
 	public static KeyListener getKeyListener() {
 		return inst.keyListener;
 	}
+	@Override
+	public void run() {
+		while(true){
+			try {
+				Thread.sleep(20);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}finally{
+				if(looping)
+					GameMain.frame.repaint();
+			}
+		}
+	}
+	private static final GameRuntime inst = new GameRuntime();
 }

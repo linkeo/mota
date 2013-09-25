@@ -7,11 +7,11 @@ public class MotaScriptUtil {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	public void println(String str){
+		System.out.println(str);
 		GameRuntime.println(str);
 	}
 }

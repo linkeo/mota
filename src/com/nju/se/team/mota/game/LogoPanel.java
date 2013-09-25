@@ -123,6 +123,12 @@ public class LogoPanel extends JPanel implements ActionListener{
 					GameMain.frame.selectSave();
 				}
 			});
+			bQuit.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					GameRuntime.exitGame();
+				}
+			});
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
