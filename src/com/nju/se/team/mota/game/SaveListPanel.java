@@ -1,104 +1,122 @@
 package com.nju.se.team.mota.game;
 
 import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 
-import com.nju.se.team.mota.util.TransparentPanel;
+import com.nju.se.team.mota.game.uielem.SaveElem;
+import com.nju.se.team.mota.util.Selectable;
+import com.nju.se.team.mota.util.SelectableListener;
+import com.nju.se.team.mota.util.TransparentListPanel;
 
-public class SaveListPanel extends TransparentPanel implements MouseWheelListener{
+public class SaveListPanel extends TransparentListPanel implements SelectableListener<Save>{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final int ROTATION_INCREMENT = 20;
-	protected int HGAP = 10;
-	protected int WGAP = 10;
 	
-	int arch = 0;
+	ArrayList<Selectable<Save>> selectedItems = new ArrayList<Selectable<Save>>();
+	HashSet<Selectable<Save>> allItems = new HashSet<Selectable<Save>>();
+	Selectable<Save> selectedItem = null;
+	boolean multipleSelectable = false;
+	boolean fromself = false;
 	
-	public SaveListPanel() {
-		super(null);
-		this.addMouseWheelListener(this);
+	public Component add(SaveElem comp) {
+		allItems.add(comp);
+		comp.setTransparency(getTransparency());
+		comp.addSelectableListener(this);
+		return super.add(comp);
 	}
 	
-	@Override
-	public Component add(Component comp) {
-		comp.addMouseWheelListener(this);
-		Component result = super.add(comp);
-		doLayout();
-		return result;
-	}
-	
-	@Override
-	public void remove(int index) {
-		Component comp = getComponent(index);
-		comp.removeMouseWheelListener(this);
-		super.remove(index);
-		doLayout();
-	}
-	
-	@Override
-	public void doLayout() {
-		int LIST_WIDTH = getSize().width;
-		int n = getComponentCount();
-		int currentX = WGAP;
-		int currentY = HGAP;
-		int currentBottom = HGAP;
-		for(int i=0;i<n;i++){
-			Component temp = getComponent(i);
-			if(currentX+temp.getSize().width>LIST_WIDTH){
-				currentX = WGAP;
-				currentY = currentBottom + HGAP;
-			}
-			temp.setLocation(currentX, currentY - arch);
-			currentX += temp.getSize().width + WGAP;
-			currentBottom = Math.max(currentBottom, currentY + temp.getSize().height);
-		}
-	}
-	
-	@Override
-	public void mouseWheelMoved(MouseWheelEvent e) {
-		arch += e.getWheelRotation()*ROTATION_INCREMENT;
-		checkArch();
-		doLayout();
-		getParent().repaint();
-	}
-	
-	@Override
-	public void paint(Graphics g) {
-		super.paint(g);
-	}
-	
-	@Override
-	public void remove(Component comp) {
-		comp.removeMouseWheelListener(this);
+	public void remove(SaveElem comp) {
+		allItems.remove(comp);
+		comp.removeSelectableListener(this);
 		super.remove(comp);
 	}
 	
-	private void checkArch(){
-		int max = getCurrentBottom() - getSize().height + HGAP;
-		if(arch>max) arch = max;
-		if(arch<0) arch = 0;
+	@Override
+	public void itemSelected(Selectable<Save> item, boolean multiple) {
+		if(fromself) return;//avoid cycle from unselect
+		fromself = true;
+		selectedItem = item;
+		if( !(isMultipleSelectable()&&multiple) ){
+			for(Selectable<Save> i : selectedItems)
+				i.unselect(multiple);
+			selectedItems.clear();
+		}
+		selectedItems.add(item);
+		fromself = false;
 	}
 
-	private int getCurrentBottom(){
-		int LIST_WIDTH = getSize().width;
-		int n = getComponentCount();
-		int currentX = WGAP;
-		int currentY = HGAP;
-		int currentBottom = HGAP;
-		for(int i=0;i<n;i++){
-			Component temp = getComponent(i);
-			if(currentX+temp.getSize().width>LIST_WIDTH){
-				currentX = WGAP;
-				currentY = currentBottom + HGAP;
-			}
-			currentX += temp.getSize().width + WGAP;
-			currentBottom = Math.max(currentBottom, currentY + temp.getSize().height);
+	@Override
+	public synchronized void itemUnselected(Selectable<Save> item, boolean multiple) {
+		if(fromself) return;//avoid cycle from unselect
+		fromself = true;
+		selectedItems.remove(item);
+		if( !(isMultipleSelectable()&&multiple) ){
+			for(Selectable<Save> i : selectedItems)
+				i.unselect(multiple);
+			selectedItems.clear();
+			selectedItem = null;
 		}
-		return currentBottom;
+		int listSize = selectedItems.size();
+		if(listSize > 0)
+			selectedItem = selectedItems.get(listSize-1);
+		else
+			selectedItem = null;
+		fromself = false;
 	}
+
+	@Override
+	public Selectable<Save> getSelectedItem() {
+		return selectedItem;
+	}
+
+	@Override
+	public Save getSelectedContent() {
+		Save content = null;
+		if(selectedItem != null)
+			content = selectedItem.content();
+		return content;
+	}
+
+	@Override
+	public Collection<Selectable<Save>> getSelectedItems() {
+		return new HashSet<Selectable<Save>>(selectedItems);
+	}
+
+	@Override
+	public Collection<Save> getSelectedContents() {
+		HashSet<Save> contents = new HashSet<Save>();
+		for(Selectable<Save> i : selectedItems)
+			contents.add(i.content());
+		return contents;
+	}
+
+	@Override
+	public void selectAll() {
+		for(Selectable<Save> i : allItems)
+			i.select(true);
+	}
+
+	@Override
+	public void unselectAll() {
+		for(Selectable<Save> i : allItems)
+			i.unselect(true);
+	}
+
+	@Override
+	public boolean isMultipleSelectable() {
+		return multipleSelectable;
+	}
+
+	@Override
+	public void setMultipleSelectable(boolean multiple) {
+		multipleSelectable = multiple;
+	}
+	
+	
+	
 }

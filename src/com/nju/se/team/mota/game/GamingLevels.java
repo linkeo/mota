@@ -12,6 +12,7 @@ import com.nju.se.team.mota.data.DataLoader;
 import com.nju.se.team.mota.game.unit.Abiotic;
 import com.nju.se.team.mota.game.unit.Creature;
 import com.nju.se.team.mota.game.unit.Unit;
+import com.nju.se.team.mota.script.MotaScript;
 
 public class GamingLevels {
 	private Set<Integer> visitedLevels = new HashSet<Integer>();
@@ -19,15 +20,14 @@ public class GamingLevels {
 	private Map<String, Abiotic> abiotics = new HashMap<String, Abiotic>();
 	private Map<String, Creature> creatures = new HashMap<String, Creature>();
 	private int currentLevel;
+	private static final GamingLevels instance = new GamingLevels();
 	
 	private GamingLevels() {
-		loadLevels();
 	}
-	private static final GamingLevels instance = new GamingLevels();
 
 	public void toLevel(int floor){
 		visitedLevels.add(floor);
-		currentLevel = floor;
+		setCurrentLevel(floor);
 	}
 	
 	
@@ -44,7 +44,7 @@ public class GamingLevels {
 			for(Creature c: l.getCreatures())
 				creatures.put(c.getName(), c);
 		}
-		currentLevel = 1;
+		setCurrentLevel(1);
 	}
 	private void loadSaveOnly(Save save){
 		for(Level i : save.getLevels()){
@@ -69,9 +69,12 @@ public class GamingLevels {
 	}
 	
 	//MARK: about level
-	
+	private static Level currentLevelObject;
 	public static Level getLevel(int floor){
-		return instance.levels.get(floor).clone();
+		if(currentLevelObject==null ||
+				currentLevelObject.getLevel()!=floor)
+			currentLevelObject = instance.levels.get(floor).clone();
+		return currentLevelObject;
 	}
 	public static ArrayList<Integer> floors() {
 		ArrayList<Integer> floors = new ArrayList<Integer>(instance.levels.keySet());
@@ -155,5 +158,14 @@ public class GamingLevels {
 	}
 	public static Level getCurrentLevelObject(){
 		return getLevel(getCurrentLevel());
+	}
+
+
+	/**
+	 * @param currentLevel the currentLevel to set
+	 */
+	public void setCurrentLevel(int currentLevel) {
+		this.currentLevel = currentLevel;
+		MotaScript.put("currentLevel", getCurrentLevelObject());
 	}
 }

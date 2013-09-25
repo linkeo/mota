@@ -41,7 +41,7 @@ public class TransparentLabel extends JLabel{
 	@Override
 	public void paint(Graphics g) {
 		if(transparency>=0f&&transparency<=1f)
-		((Graphics2D) g).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, transparency));
+			((Graphics2D) g).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, transparency));
 		super.paint(g);
 	}
 }

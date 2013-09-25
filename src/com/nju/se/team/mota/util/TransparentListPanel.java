@@ -1,11 +1,10 @@
-package com.nju.se.team.mota.game;
+package com.nju.se.team.mota.util;
 
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
-import com.nju.se.team.mota.util.TransparentPanel;
 
 public class TransparentListPanel extends TransparentPanel implements MouseWheelListener{
 

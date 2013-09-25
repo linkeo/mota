@@ -1,6 +1,7 @@
 package com.nju.se.team.mota.game.unit;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import com.nju.se.team.mota.game.util.UnitStatus;
 /**
@@ -11,6 +12,7 @@ import com.nju.se.team.mota.game.util.UnitStatus;
  */
 
 public class Player extends Creature{
+	private HashSet<PlayerListener> listeners;
 	private int redkey, yellowkey, bluekey;
 	private ArrayList<Tool> tools;
 	private int LV;
@@ -36,19 +38,31 @@ public class Player extends Creature{
 		return redkey;
 	}
 	public void setRedkey(int redkey) {
+		if(this.redkey == redkey) return;
 		this.redkey = redkey;
+		if(listeners != null)
+			for(PlayerListener l : listeners)
+				l.keyChanged(this);
 	}
 	public int getYellowkey() {
 		return yellowkey;
 	}
 	public void setYellowkey(int yellowkey) {
+		if(this.yellowkey == yellowkey) return;
 		this.yellowkey = yellowkey;
+		if(listeners != null)
+			for(PlayerListener l : listeners)
+				l.keyChanged(this);
 	}
 	public int getBluekey() {
 		return bluekey;
 	}
 	public void setBluekey(int bluekey) {
+		if(this.bluekey == bluekey) return;
 		this.bluekey = bluekey;
+		if(listeners != null)
+			for(PlayerListener l : listeners)
+				l.keyChanged(this);
 	}
 	public ArrayList<Tool> getTools() {
 		return tools;
@@ -60,7 +74,59 @@ public class Player extends Creature{
 		return LV;
 	}
 	public void setLV(int lV) {
+		if(LV == lV) return;
 		LV = lV;
+		if(listeners != null)
+			for(PlayerListener l : listeners)
+				l.lvChanged(this);
+	}
+	@Override
+	public void setName(String name) {
+		if(getName().equals(name)) return;
+		super.setName(name);
+		if(listeners != null)
+			for(PlayerListener l : listeners)
+				l.nameChanged(this);
+	}
+	@Override
+	public void setATK(int aTK) {
+		if(getATK()==aTK) return;
+		super.setATK(aTK);
+		if(listeners != null)
+			for(PlayerListener l : listeners)
+				l.atkChanged(this);
+	}
+	@Override
+	public void setDEF(int dEF) {
+		if(getDEF()==dEF) return;
+		super.setDEF(dEF);
+		if(listeners != null)
+			for(PlayerListener l : listeners)
+				l.defChanged(this);
+	}
+	@Override
+	public void setHP(int hP) {
+		if(getHP()==hP) return;
+		super.setHP(hP);
+		if(listeners != null)
+			for(PlayerListener l : listeners)
+				l.hpChanged(this);
+	}
+	@Override
+	public void setMoney(int money) {
+		if(getMoney()==money) return;
+		super.setMoney(money);
+		if(listeners != null)
+			for(PlayerListener l : listeners)
+				l.moneyChanged(this);
+	}
+	@Override
+	public void setEXP(int eXP) {
+		if(getEXP()==eXP) return;
+		super.setEXP(eXP);
+		if(listeners != null)
+			for(PlayerListener l : listeners)
+				l.expChanged(this);
 	}
 	public void walkLeft(){
 		turnLeft();
@@ -104,4 +170,18 @@ public class Player extends Creature{
 		else
 			currAnimation().update();
 	}
+	
+	
+	public void addListener(PlayerListener l){
+		if(listeners == null) listeners = new HashSet<PlayerListener>();
+		listeners.add(l);
+	}
+	
+	public void removeListener(PlayerListener l){
+		if(listeners == null) return;
+		listeners.remove(l);
+		if(listeners.isEmpty())
+			listeners = null;
+	}
+	
 }

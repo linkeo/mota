@@ -16,14 +16,18 @@ function fight(){
 }
 
 function check(){
-	if(player.hp>0&&enemy.hp>0){
-		println("player:"+player.hp+"\t  enemy:"+enemy.hp);
+	if(player.getHP()>0&&enemy.getHP()>0){
+		util.println(player.getName()+':'+player.getHP()+"\t  "+enemy.getName()+':'+enemy.getHP());
 		return true;
 	}else{
-		if(player.hp>0)
-			println("player wins");
-		else
-			println("player loses.");
+		if(player.getHP()>0){
+			util.println(player.getName()+"战胜了"+enemy.getName()+'.');
+			currentLevel.removeUnit(enemy);
+			gift();
+		}
+		else{
+			util.println(player.getName()+"被"+enemy.getName()+"杀死了.");
+		}
 		return false;
 	}
 }
@@ -33,7 +37,18 @@ function sleep(){
 }
 
 function attack(atker, atked){
-	var dmg = atker.atk - atked.def;
+	var dmg = atker.getATK() - atked.getDEF();
 	if(dmg<0) dmg = 0;
-	atked.hp -= dmg;
+	util.println(atker.getName()+"对"+atked.getName()+"照成"+dmg+"点伤害.");
+	atked.setHP( atked.getHP() - dmg );
+}
+
+function gift(){
+	player.setMoney(player.getMoney()+enemy.getMoney());
+	player.setEXP(player.getEXP()+enemy.getEXP());
+	util.println(player.getName()+"获得了"+enemy.getMoney()+"金币和"+enemy.getEXP()+"点经验值.");
+}
+
+function open(color){
+	println(color);
 }
