@@ -11,12 +11,13 @@ import javax.swing.JPanel;
 
 import com.nju.se.team.mota.data.ImageLoader;
 import com.nju.se.team.mota.game.unit.Player;
+import com.nju.se.team.mota.game.unit.PlayerListener;
 import com.nju.se.team.mota.util.Fonts;
 import com.nju.se.team.mota.util.TransparentButton;
 import com.nju.se.team.mota.util.TransparentListPanel;
 import com.nju.se.team.mota.util.TransparentPanel;
 
-public class GamePanel extends JPanel{
+public class GamePanel extends JPanel implements PlayerListener{
 	
 	/**
 	 * 
@@ -185,6 +186,8 @@ public class GamePanel extends JPanel{
 				GameRuntime.exitGame();
 			}
 		});
+		if(GameRuntime.getCurrentPlayer()!=null)
+			GameRuntime.getCurrentPlayer().addListener(this);
 	}
 	public void setFont(){
 		levelLabel.setFont(Fonts.getYahei(24));
@@ -210,6 +213,44 @@ public class GamePanel extends JPanel{
 		redKeyLabel.setForeground(Color.LIGHT_GRAY);
 		toolsLabel.setFont(Fonts.getYahei(18));
 		toolsLabel.setForeground(Color.LIGHT_GRAY);
+	}
+	@Override
+	public void nameChanged(Player p) {
+		playerLabel.setText("Íæ¼Ò:"+player.getName()+" (LV:"+player.getLV()+")");
+	}
+	@Override
+	public void lvChanged(Player p) {
+		playerLabel.setText("Íæ¼Ò:"+player.getName()+" (LV:"+player.getLV()+")");
+	}
+	@Override
+	public void hpChanged(Player p) {
+		HPLabel.setText("ÉúÃüÖµ:"+player.getHP());
+	}
+	@Override
+	public void atkChanged(Player p) {
+		ATKLabel.setText("¹¥»÷Á¦:"+player.getATK());
+	}
+	@Override
+	public void defChanged(Player p) {
+		DEFLabel.setText("·ÀÓùÁ¦:"+player.getDEF());
+	}
+	@Override
+	public void moneyChanged(Player p) {
+		moneyLabel.setText("½ðÇ®:"+player.getMoney());
+	}
+	@Override
+	public void expChanged(Player p) {
+		EXPLabel.setText("¾­Ñé:"+player.getEXP());
+	}
+	@Override
+	public void keyChanged(Player p) {
+		yellowKeyLabel.setText("»ÆÔ¿³×:"+player.getYellowkey());
+		blueKeyLabel.setText("À¶Ô¿³×:"+player.getBluekey());
+		redKeyLabel.setText("ºìÔ¿³×:"+player.getRedkey());
+	}
+	@Override
+	public void toolChanged(Player p) {
+		// TODO Auto-generated method stub
 	}
 	
 }

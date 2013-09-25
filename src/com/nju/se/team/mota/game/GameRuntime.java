@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -79,10 +80,10 @@ public class GameRuntime implements Runnable{
 				String msg = msgs.get(i);
 				Color temp = g.getColor();
 				long time = System.currentTimeMillis() - msgstime.get(i);
-				if(time<5000)
+				if(time<4000)
 					g.setColor(Color.WHITE);
-				else if(time<7000)
-					g.setColor(new Color(255, 255, 255, (int) ((7000-time)/2000.0*255)));
+				else if(time<8000)
+					g.setColor(new Color(255, 255, 255, (int) ((8000-time)/4000.0*255)));
 				else
 					continue;
 				g.drawString(msg, 10+1, (16-i)*height+1);
@@ -93,10 +94,10 @@ public class GameRuntime implements Runnable{
 				g.drawString(msg, 10-1, (16-i)*height-1);
 				g.drawString(msg, 10, (16-i)*height+1);
 				g.drawString(msg, 10, (16-i)*height-1);
-				if(time<5000)
+				if(time<4000)
 					g.setColor(Color.BLACK);
-				else if(time<7000)
-					g.setColor(new Color(0, 0, 0, (int) ((7000-time)/2000.0*255)));
+				else if(time<8000)
+					g.setColor(new Color(0, 0, 0, (int) ((8000-time)/4000.0*255)));
 				g.drawString(msg, 10, (16-i)*height);
 				g.setColor(temp);
 			}
@@ -120,7 +121,7 @@ public class GameRuntime implements Runnable{
 		boolean canMove = true;
 		Level currLevel = GamingLevels.getCurrentLevelObject();
 		Player player = getCurrentPlayer();
-		for(Creature c: currLevel.getCreatures()){
+		for(Creature c: new HashSet<Creature>(currLevel.getCreatures())){
 			if(c.rectangle().contains(p)){
 				if(c.getAction().get(Condition.CRASH)!=null){
 					MotaScript.put("player", player);
@@ -132,7 +133,7 @@ public class GameRuntime implements Runnable{
 				canMove = false;
 			}
 		}
-		for(Abiotic a: currLevel.getAbiotics()){
+		for(Abiotic a: new HashSet<Abiotic>(currLevel.getAbiotics())){
 			if(a.rectangle().contains(p)){
 				if(a.getAction().get(Condition.CRASH)!=null){
 					MotaScript.put("player", player);
@@ -156,7 +157,15 @@ public class GameRuntime implements Runnable{
 	}
 
 	public static void setCurrentPlayer(Player currentPlayer) {
+		if(inst.currentPlayer != null && GameMain.frame.gamePanel!=null && 
+				GameMain.frame.getContentPane().isAncestorOf(GameMain.frame.gamePanel))
+			inst.currentPlayer.removeListener(GameMain.frame.gamePanel);
+		
 		inst.currentPlayer = currentPlayer;
+		
+		if(GameMain.frame.gamePanel!=null && 
+				GameMain.frame.getContentPane().isAncestorOf(GameMain.frame.gamePanel))
+			inst.currentPlayer.addListener(GameMain.frame.gamePanel);
 	}
 
 	private Player currentPlayer;
