@@ -102,12 +102,12 @@ public class MapPanel extends JPanel implements MapDropListener, MouseMotionList
 		rowHeader.setSize(32, getSize().height);
 		rowHeader.setPreferredSize(rowHeader.getSize());
 	}
-	public void setGridSize(int row, int col){
-		this.setMySize(col, row);
+	public void setGridSize(int x, int y){
+		this.setMySize(x, y);
 		removeAll();
-		MapElem[][] blocks = new MapElem[col][row];
-		for(int i=0;i<col;++i)
-			for(int j=0;j<row;++j){
+		MapElem[][] blocks = new MapElem[x][y];
+		for(int i=0;i<x;++i)
+			for(int j=0;j<y;++j){
 				if(i>=this.col||j>=this.row){
 					blocks[i][j] = new MapElem(i, j);
 				}else
@@ -118,14 +118,15 @@ public class MapPanel extends JPanel implements MapDropListener, MouseMotionList
 				blocks[i][j].setMapItemListener(mapItemListener);
 			}
 		this.blocks = blocks;
-		this.row = row;
-		this.col = col;
+		this.row = y;
+		this.col = x;
 		init();
 		for(Unit u : new HashSet<Unit>(getUnits()))
 			if(!rectangle().contains(u.rectangle()))
 				removeUnit(u);
-		currLevel.setSize(new int[]{row,col});
+		currLevel.setSize(new int[]{x,y});
 	}
+	
 	Rectangle rect = new Rectangle(0,0,col,row);
 	public Rectangle rectangle(){
 		if(col!=rect.width||row!=rect.height)

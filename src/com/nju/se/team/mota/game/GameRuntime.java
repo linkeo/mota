@@ -29,44 +29,47 @@ public class GameRuntime {
 		Rectangle map = currLevel.rectangle();
 		Rectangle lightArea = new Rectangle(player.x-2, player.y-2,
 				player.width+4, player.height+4);
-		if(map.contains(lightArea))//没到边
-			if()
+		Rectangle intersection = map.intersection(lightArea);
+		if(view.contains(intersection))
+			return;//没到边
+		else{
+			if(intersection.x<view.x && intersection.y>=view.y)
+				view.setLocation(view.x - 1, view.y);
+			else if(intersection.x>=view.x && intersection.y<view.y)
+				view.setLocation(view.x, view.y - 1);
+			else if(intersection.x+intersection.width>view.x+view.width && intersection.y>=view.y)
+				view.setLocation(view.x + 1, view.y);
+			else if(intersection.x>=view.x && intersection.y+intersection.height>view.y+view.height)
+				view.setLocation(view.x, view.y + 1);
+		}
 	}
 	public static void paintMap(Graphics g, JComponent c){
 		Level currLevel = GamingLevels.getCurrentLevelObject();
 		Player player = getCurrentPlayer();
-//		int panelW = c.getSize().width;
-//		int panelH = c.getSize().height;
-//		int mapW = currLevel.getSize()[0]*32;
-//		int mapH = currLevel.getSize()[1]*32;
-//		int oX=0, oY=0;
-//		int pdmW = panelW - mapW;
-//		int pdmH = panelH - mapH;
-//		oX = pdmW / 2;
-//		oY = pdmH / 2;
-////		if(pdmW>=0 && pdmH>=0){
-////			oX = pdmW/2;
-////			oY = pdmH/2;
-////			pdmW = 0;
-////			pdmH = 0;
-////		}else if(pdmW<0 && pdmH>=0){
-////			oX = 0;
-////			oY = pdmH/2;
-////			pdmH = 0;
-////		}else if(pdmH<0 && pdmW>=0){
-////			oX = pdmW/2;
-////			oY = 0;
-////			pdmW = 0;
-////		}else{
-////			oX = 0;
-////			oY = 0;
-////		}
+		int panelW = c.getSize().width;
+		int panelH = c.getSize().height;
+		view.setSize(panelW/32, panelH/32);
+		int oX=0, oY=0;
+		Rectangle map = currLevel.rectangle();
+		adjustMapViewArea(player.rectangle());
 		Abiotic floor = Abiotic.make("地面", 0, 0, currLevel.getLevel());
 		BufferedImage floorImage = floor.currAnimation().currImage()[0][0];
-		for(int i = view.x; i < view.width; i++)
-			for(int j = view.y; j < view.height; j++)
-				g.drawImage(floorImage, (i-view.x)*32, (j-view.y)*32, c);
-		
+		if(map.contains(view)){
+			for(int i = 0; i < view.width; i++)
+				for(int j = 0; j < view.height; j++){
+					g.drawImage(floorImage, oX+i*32, oX+j*32, c);
+				}
+		}else{
+			Rectangle rect = map.intersection(view);
+			oX = (view.width - rect.width)/2;
+			oY = (view.height - rect.height)/2;
+			for(int i = 0; i < rect.width; i++)
+				for(int j = 0; j < rect.height; j++){
+					g.drawImage(floorImage, (oX+i)*32, (oY+j)*32, c);
+				}
+		}
+
+
 		for(Unit u : currLevel.units()){
 			int unitX = u.getPosition()[0];
 			int unitY = u.getPosition()[1];
@@ -74,10 +77,12 @@ public class GameRuntime {
 			int unitH = u.getSize()[1];
 			BufferedImage[][] currImage = u.currAnimation().currImage();
 			for(int i=0; i<unitW; ++i)
-				for(int j=0; j<unitH; ++j)
-					g.drawImage(currImage[i][j], oX+(unitX+i)*32, oY+(unitY+j)*32, c);
+				for(int j=0; j<unitH; ++j){
+					if(u.rectangle().intersects(view))
+						g.drawImage(currImage[i][j], (oX+unitX+i-view.x)*32, (oY+unitY+j-view.y)*32, c);
+				}
 		}
-		g.drawImage(player.currAnimation().currImage()[0][0], oX+player.getPosition()[0]*32, oY+player.getPosition()[1]*32, c);
+		g.drawImage(player.currAnimation().currImage()[0][0], (oX+player.getPosition()[0]-view.x)*32, (oY+player.getPosition()[1]-view.y)*32, c);
 	}
 	private static boolean checkNextStep(int x, int y){
 		return checkNextStep(new Point(x, y));
