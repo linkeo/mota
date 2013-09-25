@@ -3,7 +3,6 @@ package com.nju.se.team.mota.script;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -56,11 +55,25 @@ public class MotaScript {
 	 * @param args arguments of the function
 	 * @return
 	 */
+	@Deprecated
 	public static Object call(String function, Object... args){
 		Invocable inv = (Invocable) inst.engine;
 		try {
 			return inv.invokeFunction(function, args);
 		} catch (NoSuchMethodException | ScriptException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	/**
+	 * Executes the specified script. The default ScriptContext for the ScriptEngine is used.
+	 * @param script The script language source to be executed.
+	 * @return The value returned from the execution of the script.
+	 */
+	public static Object eval(String script){
+		try {
+			return inst.engine.eval(script);
+		} catch (ScriptException e) {
 			e.printStackTrace();
 		}
 		return null;
