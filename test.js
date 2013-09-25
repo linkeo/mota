@@ -40,7 +40,7 @@ function attack(atker, atked){
 	var dmg = atker.getATK() - atked.getDEF();
 	if(dmg<0) dmg = 0;
 	util.println(atker.getName()+"¶Ô"+atked.getName()+"ÕÕ³É"+dmg+"µãÉËº¦.");
-	atked.setHP( atked.getHP() - dmg );
+	atked.setHP( Math.max(0,atked.getHP() - dmg) );
 }
 
 function gift(){

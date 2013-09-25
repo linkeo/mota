@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 import com.nju.se.team.mota.data.SaveLoader;
 import com.nju.se.team.mota.game.unit.Player;
+import com.nju.se.team.mota.game.unit.Tool;
 /**
  * ´æµµ
  * @author linkeo
@@ -19,7 +20,7 @@ public class Save {
 	private int money;
 	private int exp;
 	private int[] keys;
-	private int[] tools;
+	private String[] tools;
 	private int floor;
 	private int[] position;
 	private String savetime;
@@ -59,9 +60,9 @@ public class Save {
 		setMoney(json.getInt("money"));
 		setExp(json.getInt("exp"));
 		setKeys(new int[]{json.getJSONArray("keys").getInt(0),json.getJSONArray("keys").getInt(1),json.getJSONArray("keys").getInt(2)});
-		int[] tools = new int[json.getJSONArray("tools").length()];
+		String[] tools = new String[json.getJSONArray("tools").length()];
 		for(int i=0;i<json.getJSONArray("tools").length();++i){
-			tools[i] = json.getJSONArray("tools").getInt(i);
+			tools[i] = json.getJSONArray("tools").getString(i);
 		}
 		setTools(tools);
 		setFloor(json.getInt("floor"));
@@ -87,7 +88,8 @@ public class Save {
 		player.setYellowkey(getKeys()[YELLOW_KEY]);
 		player.setBluekey(getKeys()[BLUE_KEY]);
 		player.setFloor(getFloor());
-//		player.setTools(getTools());
+		for(String toolkey: getTools())
+			player.getTools().add(Tool.load(toolkey));
 		player.setPosition(getPosition().clone());
 		return player;
 	}
@@ -133,10 +135,10 @@ public class Save {
 	public void setKeys(int[] keys) {
 		this.keys = keys;
 	}
-	public int[] getTools() {
+	public String[] getTools() {
 		return tools;
 	}
-	public void setTools(int[] tools) {
+	public void setTools(String[] tools) {
 		this.tools = tools;
 	}
 	public int getFloor() {

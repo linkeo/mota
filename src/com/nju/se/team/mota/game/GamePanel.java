@@ -10,8 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.nju.se.team.mota.data.ImageLoader;
+import com.nju.se.team.mota.game.uielem.ToolElem;
 import com.nju.se.team.mota.game.unit.Player;
 import com.nju.se.team.mota.game.unit.PlayerListener;
+import com.nju.se.team.mota.game.unit.Tool;
 import com.nju.se.team.mota.util.Fonts;
 import com.nju.se.team.mota.util.TransparentButton;
 import com.nju.se.team.mota.util.TransparentListPanel;
@@ -47,12 +49,13 @@ public class GamePanel extends JPanel implements PlayerListener{
 		JLabel redKeyImgLabel;
 		JLabel redKeyLabel;
 		JLabel toolsLabel;
-		ToolsPanel toolsPanel;
+		ToolListPanel toolsPanel;
 		TransparentButton menuButton;
 		TransparentPanel menuMaskPanel;
 		TransparentListPanel menuPanel;
 		TransparentButton continueButton;
 		TransparentButton saveButton;
+		TransparentButton loadButton;
 		TransparentButton backButton;
 		TransparentButton exitButton;
 		
@@ -79,12 +82,15 @@ public class GamePanel extends JPanel implements PlayerListener{
 			redKeyImgLabel = new JLabel(new ImageIcon(ImageLoader.get("item1_0x2")));
 			redKeyLabel = new JLabel("红钥匙:"+player.getRedkey());
 			toolsLabel = new JLabel("物品栏",JLabel.CENTER);
-			toolsPanel = new ToolsPanel(player.getTools());
+			toolsPanel = new ToolListPanel();
+			for(Tool tool: player.getTools())
+				toolsPanel.add(new ToolElem(tool));
 			menuButton = new TransparentButton("菜单", 0.5f, 0.75f, 1f);
 			menuMaskPanel = new TransparentPanel(null);
 			menuPanel = new TransparentListPanel();
 			continueButton = new TransparentButton("继续游戏", 0.5f, 0.75f, 1f);
-			saveButton = new TransparentButton("查看存档", 0.5f, 0.75f, 1f);
+			saveButton = new TransparentButton("保存", 0.5f, 0.75f, 1f);
+			loadButton = new TransparentButton("读取存档", 0.5f, 0.75f, 1f);
 			backButton = new TransparentButton("返回主菜单", 0.5f, 0.75f, 1f);
 			exitButton = new TransparentButton("退出游戏", 0.5f, 0.75f, 1f);
 			
@@ -108,26 +114,17 @@ public class GamePanel extends JPanel implements PlayerListener{
 			toolsLabel.setBounds(0, 400, 320, 40);
 			toolsPanel.setLocation(0, 440);
 			menuButton.setBounds(0, 520, 320, 80);
-		rightPanel.setBackground(Color.DARK_GRAY);
 		menuMaskPanel.setBounds(0, 0, 960, 640);
 		menuPanel.setBounds((960-320)/2, (640-320)/2, 320, 320);
-		menuMaskPanel.setBackground(Color.BLACK);
 		menuMaskPanel.addMouseListener(new MouseAdapter() {
 		});
 		menuMaskPanel.setTransparency(0.8f);
 		menuPanel.setTransparency(0f);
-		continueButton.setSize(300, 67);
-		saveButton.setSize(300, 67);
-		backButton.setSize(300, 67);
-		exitButton.setSize(300, 67);
-		continueButton.setBackground(Color.WHITE);
-		saveButton.setBackground(Color.WHITE);
-		backButton.setBackground(Color.WHITE);
-		exitButton.setBackground(Color.WHITE);
-		continueButton.setFont(Fonts.getYahei(24));
-		saveButton.setFont(Fonts.getYahei(24));
-		backButton.setFont(Fonts.getYahei(24));
-		exitButton.setFont(Fonts.getYahei(24));
+		continueButton.setSize(300, 52);
+		saveButton.setSize(300, 52);
+		loadButton.setSize(300, 52);
+		backButton.setSize(300, 52);
+		exitButton.setSize(300, 52);
 		
 		add(leftPanel);
 			leftPanel.add(map);
@@ -155,6 +152,7 @@ public class GamePanel extends JPanel implements PlayerListener{
 			menuMaskPanel.add(menuPanel);
 				menuPanel.add(continueButton);
 				menuPanel.add(saveButton);
+				menuPanel.add(loadButton);
 				menuPanel.add(backButton);
 				menuPanel.add(exitButton);
 		setFont();
@@ -171,6 +169,18 @@ public class GamePanel extends JPanel implements PlayerListener{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				GameMain.frame.getGlassPane().setVisible(false);
+			}
+		});
+		saveButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				//TODO
+			}
+		});
+		loadButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				//TODO
 			}
 		});
 		backButton.addActionListener(new ActionListener() {
@@ -213,6 +223,18 @@ public class GamePanel extends JPanel implements PlayerListener{
 		redKeyLabel.setForeground(Color.LIGHT_GRAY);
 		toolsLabel.setFont(Fonts.getYahei(18));
 		toolsLabel.setForeground(Color.LIGHT_GRAY);
+		continueButton.setFont(Fonts.getYahei(24));
+		saveButton.setFont(Fonts.getYahei(24));
+		loadButton.setFont(Fonts.getYahei(24));
+		backButton.setFont(Fonts.getYahei(24));
+		exitButton.setFont(Fonts.getYahei(24));
+		continueButton.setBackground(Color.WHITE);
+		saveButton.setBackground(Color.WHITE);
+		loadButton.setBackground(Color.WHITE);
+		backButton.setBackground(Color.WHITE);
+		exitButton.setBackground(Color.WHITE);
+		rightPanel.setBackground(Color.DARK_GRAY);
+		menuMaskPanel.setBackground(Color.BLACK);
 	}
 	@Override
 	public void nameChanged(Player p) {

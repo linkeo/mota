@@ -13,8 +13,8 @@ public class TransparentListPanel extends TransparentPanel implements MouseWheel
 	 */
 	private static final long serialVersionUID = 1L;
 	private static final int ROTATION_INCREMENT = 20;
-	protected int HGAP = 10;
-	protected int WGAP = 10;
+	private int HGAP = 10;
+	private int WGAP = 10;
 	
 	int arch = 0;
 	
@@ -99,5 +99,21 @@ public class TransparentListPanel extends TransparentPanel implements MouseWheel
 			currentBottom = Math.max(currentBottom, currentY + temp.getSize().height);
 		}
 		return currentBottom;
+	}
+
+	public int getHGAP() {
+		return HGAP;
+	}
+
+	public void setHGAP(int hGAP) {
+		HGAP = hGAP;
+	}
+
+	public int getWGAP() {
+		return WGAP;
+	}
+
+	public void setWGAP(int wGAP) {
+		WGAP = wGAP;
 	}
 }

@@ -12,6 +12,7 @@ public enum UnitStatus {
 	WALKING_LEFT("walking_left"),
 	WALKING_RIGHT("walking_right"),
 	OPEN("open"),
+	UNDEFINED("undefined")
 	;
 	private String str;
 	private UnitStatus(String str) {
@@ -23,15 +24,10 @@ public enum UnitStatus {
 	 * @return Condition
 	 */
 	public static UnitStatus load(String str){
-		switch(str){
-		case "normal":return NORMAL;
-		case "walking_up":return WALKING_UP;
-		case "walking_down":return WALKING_DOWN;
-		case "walking_left":return WALKING_LEFT;
-		case "walking_right":return WALKING_RIGHT;
-		case "open":return OPEN;
-		default : return null;
-		}
+		for(UnitStatus s : UnitStatus.values())
+			if(s.toString().equalsIgnoreCase(str))
+				return s;
+		return UNDEFINED;
 	}
 	@Override
 	public String toString() {

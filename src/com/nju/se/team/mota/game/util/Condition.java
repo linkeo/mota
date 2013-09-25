@@ -8,7 +8,9 @@ package com.nju.se.team.mota.game.util;
 public enum Condition {
 	CRASH("crash"),
 	DEAD("dead"),
-	CLOSETO("closeto");
+	USE("use"),
+	CLOSETO("closeto"),
+	UNDEFINED("undefined");
 	String str;
 	private Condition(String str){
 		this.str = str;
@@ -19,12 +21,10 @@ public enum Condition {
 	 * @return Condition
 	 */
 	public static Condition load(String str){
-		switch(str){
-		case "crash":return CRASH;
-		case "dead":return DEAD;
-		case "closeto":return CLOSETO;
-		default: return null;
-		}
+		for(Condition c : Condition.values())
+			if(c.toString().equalsIgnoreCase(str))
+				return c;
+		return UNDEFINED;
 	}
 	@Override
 	public String toString() {
