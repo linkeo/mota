@@ -52,3 +52,7 @@ function gift(){
 function open(color){
 	println(color);
 }
+
+function add(a,b){
+	return a+b;
+}

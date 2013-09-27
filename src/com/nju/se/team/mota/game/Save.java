@@ -1,8 +1,11 @@
 package com.nju.se.team.mota.game;
 
+import java.util.ArrayList;
+
 import org.json.JSONObject;
 
 import com.nju.se.team.mota.data.SaveLoader;
+import com.nju.se.team.mota.game.unit.Abiotic;
 import com.nju.se.team.mota.game.unit.Player;
 import com.nju.se.team.mota.game.unit.Tool;
 /**
@@ -20,7 +23,7 @@ public class Save {
 	private int money;
 	private int exp;
 	private int[] keys;
-	private String[] tools;
+	private ArrayList<Tool> tools = new ArrayList<Tool>();
 	private int floor;
 	private int[] position;
 	private String savetime;
@@ -60,11 +63,10 @@ public class Save {
 		setMoney(json.getInt("money"));
 		setExp(json.getInt("exp"));
 		setKeys(new int[]{json.getJSONArray("keys").getInt(0),json.getJSONArray("keys").getInt(1),json.getJSONArray("keys").getInt(2)});
-		String[] tools = new String[json.getJSONArray("tools").length()];
+		tools.clear();
 		for(int i=0;i<json.getJSONArray("tools").length();++i){
-			tools[i] = json.getJSONArray("tools").getString(i);
+			tools.add(Tool.parse(Abiotic.make(json.getJSONArray("tools").getJSONObject(i))));
 		}
-		setTools(tools);
 		setFloor(json.getInt("floor"));
 
 		setPosition(new int[]{json.getJSONArray("position").getInt(0),json.getJSONArray("position").getInt(1)});
@@ -88,8 +90,8 @@ public class Save {
 		player.setYellowkey(getKeys()[YELLOW_KEY]);
 		player.setBluekey(getKeys()[BLUE_KEY]);
 		player.setFloor(getFloor());
-		for(String toolkey: getTools())
-			player.getTools().add(Tool.load(toolkey));
+		for(Tool tool: getTools())
+			player.getTools().add(tool);
 		player.setPosition(getPosition().clone());
 		return player;
 	}
@@ -135,11 +137,12 @@ public class Save {
 	public void setKeys(int[] keys) {
 		this.keys = keys;
 	}
-	public String[] getTools() {
+	public ArrayList<Tool> getTools() {
 		return tools;
 	}
-	public void setTools(String[] tools) {
-		this.tools = tools;
+	public void setTools(ArrayList<Tool> tools) {
+		this.tools.clear();
+		this.tools.addAll(tools);
 	}
 	public int getFloor() {
 		return floor;

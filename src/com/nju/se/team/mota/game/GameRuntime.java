@@ -164,7 +164,7 @@ public class GameRuntime implements Runnable{
 					MotaScript.put("player", player);
 					MotaScript.put("enemy", c);
 					MotaScript.put("source", c);
-					MotaScript.call(c.getAction().get(Condition.CRASH));
+					MotaScript.eval(c.getAction().get(Condition.CRASH));
 //					System.out.println(c.getName()+">>"+c.getAction().get(Condition.CRASH));
 				}
 				canMove = false;
@@ -175,7 +175,7 @@ public class GameRuntime implements Runnable{
 				if(a.getAction().get(Condition.CRASH)!=null){
 					MotaScript.put("player", player);
 					MotaScript.put("source", a);
-					MotaScript.call(a.getAction().get(Condition.CRASH));
+					MotaScript.eval(a.getAction().get(Condition.CRASH));
 //					System.out.println(a.getName()+">>"+a.getAction().get(Condition.CRASH));
 				}
 				if(!a.isCanGoThrough())
