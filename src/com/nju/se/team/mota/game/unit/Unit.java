@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 import java.util.HashMap;
 
 import com.nju.se.team.mota.game.util.Animation;
+import com.nju.se.team.mota.game.util.AnimationListener;
 import com.nju.se.team.mota.game.util.Condition;
 import com.nju.se.team.mota.game.util.UnitStatus;
 import com.nju.se.team.mota.util.ImageHandler;
@@ -14,7 +15,7 @@ import com.nju.se.team.mota.util.ImageHandler;
  * @author linkeo
  * @author lzw
  */
-public class Unit implements Comparable<Unit>{
+public class Unit implements Comparable<Unit> , AnimationListener{
 	private String name;
 	private String type;
 	private HashMap<UnitStatus, Animation> sprites;
@@ -25,6 +26,7 @@ public class Unit implements Comparable<Unit>{
 	private int floor;
 	private String buddy;
 	private String buddyType;
+	private boolean dead = false;
 	/**
 	 * 构造方法<br>
 	 * 设置默认值
@@ -81,6 +83,8 @@ public class Unit implements Comparable<Unit>{
 	 */
 	public void setSprites(HashMap<UnitStatus, Animation> sprites) {
 		this.sprites = sprites;
+		for(Animation a : sprites.values())
+			a.addListener(this);
 	}
 	/**
 	 * 获取对象行为
@@ -230,5 +234,16 @@ public class Unit implements Comparable<Unit>{
 	}
 	public void setCurrStatus(UnitStatus currStatus) {
 		this.currStatus = currStatus;
+	}
+	@Override
+	public void animationLooped() {
+		if(currStatus==UnitStatus.DYING)
+			dead = true;
+	}
+	public void setDead(boolean dead){
+		this.dead = dead;
+	}
+	public boolean isDead(){
+		return dead;
 	}
 }

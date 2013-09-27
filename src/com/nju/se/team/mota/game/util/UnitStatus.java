@@ -11,7 +11,7 @@ public enum UnitStatus {
 	WALKING_DOWN("walking_down"),
 	WALKING_LEFT("walking_left"),
 	WALKING_RIGHT("walking_right"),
-	OPEN("open"),
+	DYING("dying"),
 	UNDEFINED("undefined")
 	;
 	private String str;

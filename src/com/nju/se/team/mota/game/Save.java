@@ -86,9 +86,9 @@ public class Save {
 		player.setDEF(getDef());
 		player.setMoney(getMoney());
 		player.setEXP(getExp());
-		player.setRedkey(getKeys()[RED_KEY]);
-		player.setYellowkey(getKeys()[YELLOW_KEY]);
-		player.setBluekey(getKeys()[BLUE_KEY]);
+		player.setRedKey(getKeys()[RED_KEY]);
+		player.setYellowKey(getKeys()[YELLOW_KEY]);
+		player.setBlueKey(getKeys()[BLUE_KEY]);
 		player.setFloor(getFloor());
 		for(Tool tool: getTools())
 			player.getTools().add(tool);

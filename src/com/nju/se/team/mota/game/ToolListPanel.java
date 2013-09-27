@@ -25,7 +25,7 @@ public class ToolListPanel extends TransparentListPanel implements SelectableLis
 	
 	public Component add(ToolElem comp) {
 		allItems.add(comp);
-		comp.setTransparency(getTransparency());
+		comp.setTransparency(1f);
 		comp.addSelectableListener(this);
 		return super.add(comp);
 	}

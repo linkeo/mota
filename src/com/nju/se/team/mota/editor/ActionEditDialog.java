@@ -90,6 +90,8 @@ public class ActionEditDialog extends JDialog implements ActionListener{
 	public static ActionElem editAction(Component comp, ActionElem elem, Vector<Condition> candidates){
 		ActionEditDialog ss = new ActionEditDialog(elem);
 		ss.inputCondition.setModel(new DefaultComboBoxModel<Condition>(candidates));
+		if(elem!=null)
+			ss.inputCondition.setSelectedItem(elem.getCondition());
 		ss.setModal(true);
 		ss.addSubmitActionListener(ss);
 		ss.setLocationRelativeTo(comp);

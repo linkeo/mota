@@ -3,12 +3,14 @@ package com.nju.se.team.mota.script;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 import com.nju.se.team.mota.data.ResLoader;
+import com.nju.se.team.mota.game.util.UnitStatus;
 
 /**
  * The script module of Mota.<br>
@@ -36,6 +38,7 @@ public class MotaScript {
 		System.out.println("Load script successfully.");
 		MotaScriptUtil util = new MotaScriptUtil();
 		engine.put("util",util);
+		engine.put("UnitStatus", UnitStatus.values()[0]);
 		System.out.println("Load script utilities successfully.");
 	}
 	

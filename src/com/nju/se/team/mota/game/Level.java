@@ -148,8 +148,18 @@ public class Level {
 	public void removeUnit(Creature c){
 		creatures.remove(c);
 	}
-	public void addUnit(Unit u){}
-	public void removeUnit(Unit u){}
+	public void addUnit(Unit u){
+		if(u instanceof Abiotic)
+			addUnit((Abiotic)u);
+		if(u instanceof Creature)
+			addUnit((Creature)u);
+	}
+	public void removeUnit(Unit u){
+		if(u instanceof Abiotic)
+			removeUnit((Abiotic)u);
+		if(u instanceof Creature)
+			removeUnit((Creature)u);
+	}
 	public static Level newLevel(int i) {
 		Level level = new Level();
 		level.setLevel(i);

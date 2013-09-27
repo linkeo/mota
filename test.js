@@ -1,8 +1,13 @@
+var surrender = false;
 function fight(){
 	/* player, enemy is global input from jvm */
 	var atker = player;
 	var atked = enemy;
 	do{
+		if(surrender==true){
+			surrender = false;
+			return;
+		}
 		attack(atker, atked);
 		var result = check();
 		if(result){
@@ -31,15 +36,28 @@ function check(){
 		return false;
 	}
 }
-
+function playerSurrender(){
+	surrender = true;
+}
 function sleep(){
 	util.sleep();
 }
-
+function get(){
+	if(source.getType().equals("»ÆÔ¿³×"))
+		player.setYellowKey(player.getYellowKey()+1);
+	else if(source.getType().equals("À¶Ô¿³×"))
+		player.setBlueKey(player.getBlueKey()+1);
+	else if(source.getType().equals("ºìÔ¿³×"))
+		player.setRedKey(player.getRedKey()+1);
+	else if(source.getType().equals("Ìú¸ä"))
+		player.addTool(source);
+	disappear();
+	
+}
 function attack(atker, atked){
 	var dmg = atker.getATK() - atked.getDEF();
 	if(dmg<0) dmg = 0;
-	util.println(atker.getName()+"¶Ô"+atked.getName()+"ÕÕ³É"+dmg+"µãÉËº¦.");
+	util.println(atker.getName()+"¶Ô"+atked.getName()+"Ôì³É"+dmg+"µãÉËº¦.");
 	atked.setHP( Math.max(0,atked.getHP() - dmg) );
 }
 
@@ -51,8 +69,47 @@ function gift(){
 
 function open(color){
 	println(color);
+	var key;
+	switch(color){
+	case "red": 
+		key = player.getRedKey();
+		if(key>0){
+			source.setCurrStatus(UnitStatus.load("dying"));
+			player.setRedKey(key-1);
+		}
+		break;
+	case "blue":
+		key = player.getBlueKey();
+		if(key>0){
+			source.setCurrStatus(UnitStatus.load("dying"));
+			player.setBlueKey(key-1);
+		}
+		break;
+	case "yellow":
+		key = player.getYellowKey();
+		if(key>0){
+			source.setCurrStatus(UnitStatus.load("dying"));
+			player.setYellowKey(key-1);
+		}
+		break;
+	}
 }
 
-function add(a,b){
-	return a+b;
+function hpup(hp){
+	player.setHP(player.getHP()+hp);
+}
+function atkup(atk){
+	player.setATK(player.getATK()+atk);
+}
+function defup(def){
+	player.setDEF(player.getDEF()+def);
+} 
+function expup(exp){
+	player.setEXP(player.getEXP()+exp);
+} 
+function moneyup(money){
+	player.setMoney(player.getMoney()+money);
+} 
+function disappear(){
+	source.setDead(true);
 }

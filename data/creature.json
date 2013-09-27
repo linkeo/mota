@@ -120,6 +120,30 @@
         ]
     },
     {
+        "DEF": 5,
+        "buddyType": "none",
+        "EXP": 5,
+        "action": {"crash": "fight()"},
+        "money": 5,
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [
+                [["enemy02_0x0"]],
+                [["enemy02_0x1"]],
+                [["enemy02_0x2"]],
+                [["enemy02_0x3"]]
+            ]
+        }},
+        "HP": 20,
+        "type": "Ð¡òùòð",
+        "ATK": 5,
+        "dead": false,
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
         "DEF": 15,
         "buddyType": "none",
         "EXP": 10,
@@ -134,26 +158,6 @@
         "HP": 100,
         "ATK": 30,
         "type": "÷¼÷Ã",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "DEF": 5,
-        "buddyType": "none",
-        "sprites": {"normal": {"images": [
-            [["enemy02_0x0"]],
-            [["enemy02_0x1"]],
-            [["enemy02_0x2"]],
-            [["enemy02_0x3"]]
-        ]}},
-        "money": 5,
-        "action": {"crash": "fight()"},
-        "EXP": 5,
-        "HP": 50,
-        "type": "Ð¡òùòð",
-        "ATK": 5,
         "size": [
             1,
             1

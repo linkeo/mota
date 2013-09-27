@@ -4,12 +4,12 @@
         "buddyType": "none",
         "action": {},
         "sprites": {
-            "open": {"images": [
+            "normal": {"images": [[["door2_0x3"]]]},
+            "dying": {"images": [
                 [["door2_1x3"]],
                 [["door2_2x3"]],
                 [["door2_3x3"]]
-            ]},
-            "normal": {"images": [[["door2_0x3"]]]}
+            ]}
         },
         "type": "ÌúÕ¤À¸",
         "size": [
@@ -20,8 +20,12 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get()"},
-        "sprites": {"normal": {"images": [[["item3_0x1"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item3_0x1"]]]
+        }},
+        "action": {"crash": "atkup(30);disappear();"},
+        "dead": false,
         "type": "³õ¼¶±¦½£",
         "size": [
             1,
@@ -31,7 +35,7 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"dead": "get()"},
+        "action": {"crash": "get()"},
         "sprites": {"normal": {"images": [[["item1_2x2"]]]}},
         "type": "¼²·çÐ¬",
         "size": [
@@ -42,9 +46,28 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get()"},
-        "sprites": {"normal": {"images": [[["item3_0x0"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item3_0x0"]]]
+        }},
+        "action": {"crash": "atkup(20);disappear();"},
+        "dead": false,
         "type": "ÐÂ±ø±¦½£",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item2_1x2"]]]
+        }},
+        "action": {"crash": "hpup(500);disappear();"},
+        "dead": false,
+        "type": "ÂÌÒ©Ë®",
         "size": [
             1,
             1
@@ -64,19 +87,12 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "hpup(500)"},
-        "sprites": {"normal": {"images": [[["item2_1x2"]]]}},
-        "type": "ÂÌÒ©Ë®",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "action": {"crash": "moneyup(100)"},
-        "sprites": {"normal": {"images": [[["item1_1x1"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item1_1x1"]]]
+        }},
+        "action": {"crash": "moneyup(100);disappear();"},
+        "dead": false,
         "type": "½ð±Ò",
         "size": [
             1,
@@ -86,9 +102,13 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "atkup(3)"},
-        "sprites": {"normal": {"images": [[["item2_0x0"]]]}},
-        "type": "ºì±¦Ê¯",
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item2_1x3"]]]
+        }},
+        "action": {"crash": "hpup(800);disappear();"},
+        "dead": false,
+        "type": "»ÆÒ©Ë®",
         "size": [
             1,
             1
@@ -97,9 +117,13 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "hpup(800)"},
-        "sprites": {"normal": {"images": [[["item2_1x3"]]]}},
-        "type": "»ÆÒ©Ë®",
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item2_0x0"]]]
+        }},
+        "action": {"crash": "atkup(3);disappear();"},
+        "dead": false,
+        "type": "ºì±¦Ê¯",
         "size": [
             1,
             1
@@ -119,8 +143,12 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "hpup(100)"},
-        "sprites": {"normal": {"images": [[["item2_1x0"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item2_1x0"]]]
+        }},
+        "action": {"crash": "hpup(100);disappear();"},
+        "dead": false,
         "type": "ºìÒ©Ë®",
         "size": [
             1,
@@ -130,8 +158,12 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item1_0x2"]]]
+        }},
         "action": {"crash": "get()"},
-        "sprites": {"normal": {"images": [[["item1_0x2"]]]}},
+        "dead": false,
         "type": "ºìÔ¿³×",
         "size": [
             1,
@@ -141,8 +173,12 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "defup()"},
-        "sprites": {"normal": {"images": [[["item2_0x1"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item2_0x1"]]]
+        }},
+        "action": {"crash": "defup(3);disappear();"},
+        "dead": false,
         "type": "À¶±¦Ê¯",
         "size": [
             1,
@@ -153,14 +189,14 @@
         "canGoThrough": false,
         "buddyType": "ºìÔ¿³×",
         "sprites": {
-            "open": {"images": [
+            "normal": {"images": [[["door_0x2"]]]},
+            "dying": {"images": [
                 [["door_1x2"]],
                 [["door_2x2"]],
                 [["door_3x2"]]
-            ]},
-            "normal": {"images": [[["door_0x2"]]]}
+            ]}
         },
-        "action": {"crash": "open()"},
+        "action": {"crash": "open(\"red\")"},
         "type": "ºìÃÅ",
         "size": [
             1,
@@ -170,8 +206,12 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "atkup(6)"},
-        "sprites": {"normal": {"images": [[["item2_0x2"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item2_0x2"]]]
+        }},
+        "action": {"crash": "atkup(6);disappear();"},
+        "dead": false,
         "type": "ÂÌ±¦Ê¯",
         "size": [
             1,
@@ -192,8 +232,12 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get()"},
-        "sprites": {"normal": {"images": [[["item3_0x2"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item3_0x2"]]]
+        }},
+        "action": {"crash": "atkup(60);disappear();"},
+        "dead": false,
         "type": "ÖÐ¼¶±¦½£",
         "size": [
             1,
@@ -212,28 +256,14 @@
         ]
     },
     {
-        "canGoThrough": false,
-        "buddyType": "none",
-        "action": {},
-        "sprites": {
-            "open": {"images": [
-                [["door2_1x1"]],
-                [["door2_2x1"]],
-                [["door2_3x1"]]
-            ]},
-            "normal": {"images": [[["door2_0x1"]]]}
-        },
-        "type": "ÍÁÇ½",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get()"},
-        "sprites": {"normal": {"images": [[["item3_1x4"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item3_1x4"]]]
+        }},
+        "action": {"crash": "defup(200);disappear();"},
+        "dead": false,
         "type": "´«ËµÖÐµÄ¶ÜÅÆ",
         "size": [
             1,
@@ -243,14 +273,32 @@
     {
         "canGoThrough": false,
         "buddyType": "none",
-        "action": {"crash": "open()"},
+        "action": {},
         "sprites": {
-            "open": {"images": [
+            "normal": {"images": [[["door2_0x1"]]]},
+            "dying": {"images": [
+                [["door2_1x1"]],
+                [["door2_2x1"]],
+                [["door2_3x1"]]
+            ]}
+        },
+        "type": "ÍÁÇ½",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": false,
+        "buddyType": "none",
+        "action": {"crash": "open(\"blue\")"},
+        "sprites": {
+            "normal": {"images": [[["door_0x1"]]]},
+            "dying": {"images": [
                 [["door_1x1"]],
                 [["door_2x1"]],
                 [["door_3x1"]]
-            ]},
-            "normal": {"images": [[["door_0x1"]]]}
+            ]}
         },
         "type": "À¶ÃÅ",
         "size": [
@@ -261,8 +309,12 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get()"},
-        "sprites": {"normal": {"images": [[["item3_1x3"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item3_1x3"]]]
+        }},
+        "action": {"crash": "defup(100);disappear();"},
+        "dead": false,
         "type": "¸ß¼¶¶ÜÅÆ",
         "size": [
             1,
@@ -283,7 +335,7 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"dead": "get()"},
+        "action": {"crash": "get()"},
         "sprites": {"normal": {"images": [[["item1_0x1"]]]}},
         "type": "À¶Ô¿³×",
         "size": [
@@ -316,8 +368,12 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "hpup(250)"},
-        "sprites": {"normal": {"images": [[["item2_1x1"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item2_1x1"]]]
+        }},
+        "action": {"crash": "hpup(250);disappear();"},
+        "dead": false,
         "type": "À¶Ò©Ë®",
         "size": [
             1,
@@ -327,8 +383,12 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get()"},
-        "sprites": {"normal": {"images": [[["item3_0x4"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item3_0x4"]]]
+        }},
+        "action": {"crash": "atkup(200);disappear();"},
+        "dead": false,
         "type": "´«ËµÖÐµÄ±¦½£",
         "size": [
             1,
@@ -351,12 +411,12 @@
         "buddyType": "none",
         "action": {},
         "sprites": {
-            "open": {"images": [
+            "normal": {"images": [[["door2_0x0"]]]},
+            "dying": {"images": [
                 [["door2_1x0"]],
                 [["door2_2x0"]],
                 [["door2_3x0"]]
-            ]},
-            "normal": {"images": [[["door2_0x0"]]]}
+            ]}
         },
         "type": "Ê¯Ç½",
         "size": [
@@ -367,30 +427,16 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "sprites": {"normal": {"images": [[["item1_2x1"]]]}},
         "action": {
             "use": "use(Ìú¸ä)",
-            "crash": "get"
+            "crash": "get()"
         },
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item1_2x1"]]]
+        }},
         "type": "Ìú¸ä",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": false,
-        "buddyType": "none",
-        "action": {"crash": "open()"},
-        "sprites": {
-            "open": {"images": [
-                [["door_1x0"]],
-                [["door_2x0"]],
-                [["door_3x0"]]
-            ]},
-            "normal": {"images": [[["door_0x0"]]]}
-        },
-        "type": "»ÆÃÅ",
+        "dead": false,
         "size": [
             1,
             1
@@ -410,14 +456,32 @@
     {
         "canGoThrough": false,
         "buddyType": "none",
+        "action": {"crash": "open(\"yellow\");"},
+        "sprites": {
+            "normal": {"images": [[["door_0x0"]]]},
+            "dying": {"images": [
+                [["door_1x0"]],
+                [["door_2x0"]],
+                [["door_3x0"]]
+            ]}
+        },
+        "type": "»ÆÃÅ",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": false,
+        "buddyType": "none",
         "action": {},
         "sprites": {
-            "open": {"images": [
+            "normal": {"images": [[["door_0x3"]]]},
+            "dying": {"images": [
                 [["door_1x3"]],
                 [["door_2x3"]],
                 [["door_3x3"]]
-            ]},
-            "normal": {"images": [[["door_0x3"]]]}
+            ]}
         },
         "type": "ÌØÊâÃÅ",
         "size": [
@@ -428,8 +492,12 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "defup(6)"},
-        "sprites": {"normal": {"images": [[["item2_0x3"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item2_0x3"]]]
+        }},
+        "action": {"crash": "defup(6);disappear();"},
+        "dead": false,
         "type": "»Æ±¦Ê¯",
         "size": [
             1,
@@ -439,8 +507,12 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get()"},
-        "sprites": {"normal": {"images": [[["item3_0x3"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item3_0x3"]]]
+        }},
+        "action": {"crash": "atkup(100);disappear();"},
+        "dead": false,
         "type": "¸ß¼¶±¦½£",
         "size": [
             1,
@@ -461,8 +533,12 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get()"},
-        "sprites": {"normal": {"images": [[["item3_1x1"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item3_1x1"]]]
+        }},
+        "action": {"crash": "defup(30);disappear();"},
+        "dead": false,
         "type": "³õ¼¶¶ÜÅÆ",
         "size": [
             1,
@@ -472,8 +548,12 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get()"},
-        "sprites": {"normal": {"images": [[["item3_1x2"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item3_1x2"]]]
+        }},
+        "action": {"crash": "defup(60);disappear();"},
+        "dead": false,
         "type": "ÖÐ¼¶¶ÜÅÆ",
         "size": [
             1,
@@ -494,8 +574,12 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get()"},
-        "sprites": {"normal": {"images": [[["item3_1x0"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item3_1x0"]]]
+        }},
+        "action": {"crash": "defup(10);disappear();"},
+        "dead": false,
         "type": "ÐÂ±ø¶ÜÅÆ",
         "size": [
             1,

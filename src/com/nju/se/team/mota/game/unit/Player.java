@@ -13,7 +13,7 @@ import com.nju.se.team.mota.game.util.UnitStatus;
 
 public class Player extends Creature{
 	private HashSet<PlayerListener> listeners;
-	private int redkey, yellowkey, bluekey;
+	private int redKey, yellowKey, blueKey;
 	private ArrayList<Tool> tools;
 	private int LV;
 	public Player() {
@@ -25,41 +25,41 @@ public class Player extends Creature{
 		setDEF(10);
 		setMoney(0);
 		setEXP(0);
-		setYellowkey(0);
-		setBluekey(0);
-		setRedkey(0);
+		setYellowKey(0);
+		setBlueKey(0);
+		setRedKey(0);
 		setPosition(player.getPosition());
 		setFloor(player.getFloor());
 		setSprites(player.getSprites());
 		setAction(player.getAction());
 		tools = new ArrayList<Tool>();
 	}
-	public int getRedkey() {
-		return redkey;
+	public int getRedKey() {
+		return redKey;
 	}
-	public void setRedkey(int redkey) {
-		if(this.redkey == redkey) return;
-		this.redkey = redkey;
+	public void setRedKey(int redKey) {
+		if(this.redKey == redKey) return;
+		this.redKey = redKey;
 		if(listeners != null)
 			for(PlayerListener l : listeners)
 				l.keyChanged(this);
 	}
-	public int getYellowkey() {
-		return yellowkey;
+	public int getYellowKey() {
+		return yellowKey;
 	}
-	public void setYellowkey(int yellowkey) {
-		if(this.yellowkey == yellowkey) return;
-		this.yellowkey = yellowkey;
+	public void setYellowKey(int yellowKey) {
+		if(this.yellowKey == yellowKey) return;
+		this.yellowKey = yellowKey;
 		if(listeners != null)
 			for(PlayerListener l : listeners)
 				l.keyChanged(this);
 	}
-	public int getBluekey() {
-		return bluekey;
+	public int getBlueKey() {
+		return blueKey;
 	}
-	public void setBluekey(int bluekey) {
-		if(this.bluekey == bluekey) return;
-		this.bluekey = bluekey;
+	public void setBlueKey(int blueKey) {
+		if(this.blueKey == blueKey) return;
+		this.blueKey = blueKey;
 		if(listeners != null)
 			for(PlayerListener l : listeners)
 				l.keyChanged(this);
@@ -69,6 +69,18 @@ public class Player extends Creature{
 	}
 	public void setTools(ArrayList<Tool> tools) {
 		this.tools = tools;
+	}
+	public void addTool(Abiotic a){
+		this.tools.add(Tool.parse(a));
+		if(listeners != null)
+			for(PlayerListener l : listeners)
+				l.toolChanged(this);
+	}
+	public void removeTool(Tool tool){
+		this.tools.remove(tool);
+		if(listeners != null)
+			for(PlayerListener l : listeners)
+				l.toolChanged(this);
 	}
 	public int getLV() {
 		return LV;
@@ -129,20 +141,16 @@ public class Player extends Creature{
 				l.expChanged(this);
 	}
 	public void walkLeft(){
-		turnLeft();
 		this.getPosition()[0]--;
 	}
 	public void walkRight(){
-		turnRight();
 		this.getPosition()[0]++;
 		
 	}
 	public void walkUp(){
-		turnUp();
 		this.getPosition()[1]--;
 	}
 	public void walkDown(){
-		turnDown();
 		this.getPosition()[1]++;
 	}
 	public void turnLeft() {
@@ -183,5 +191,4 @@ public class Player extends Creature{
 		if(listeners.isEmpty())
 			listeners = null;
 	}
-	
 }

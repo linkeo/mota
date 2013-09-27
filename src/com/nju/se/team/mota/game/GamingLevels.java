@@ -72,8 +72,11 @@ public class GamingLevels {
 	private static Level currentLevelObject;
 	public static Level getLevel(int floor){
 		if(currentLevelObject==null ||
-				currentLevelObject.getLevel()!=floor)
-			currentLevelObject = instance.levels.get(floor).clone();
+				currentLevelObject.getLevel()!=floor){
+			currentLevelObject = instance.levels.get(floor);
+			if(instance.levels.containsKey(floor))
+				currentLevelObject = currentLevelObject.clone();
+		}
 		return currentLevelObject;
 	}
 	public static ArrayList<Integer> floors() {

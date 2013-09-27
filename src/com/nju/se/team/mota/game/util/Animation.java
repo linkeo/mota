@@ -1,6 +1,7 @@
 package com.nju.se.team.mota.game.util;
 
 import java.awt.image.BufferedImage;
+import java.util.HashSet;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,6 +15,8 @@ import com.nju.se.team.mota.data.ImageLoader;
  */
 public class Animation {
 	private String[][][] images;
+	private int loopCount = 0;
+	private HashSet<AnimationListener> animationListeners = new HashSet<AnimationListener>();
 	/**
 	 * 获取动画图片
 	 * @return images(String[][][])
@@ -48,6 +51,11 @@ public class Animation {
 	 * 更新帧数
 	 */
 	public void update(){
+		if(currentFrame+1>=frameCount()){
+			setLoopCount(getLoopCount() + 1);
+			for(AnimationListener l : animationListeners)
+				l.animationLooped();
+		}
 		currentFrame = (currentFrame+1)%frameCount();
 	}
 	/**
@@ -137,5 +145,19 @@ public class Animation {
 	 */
 	public int frameCount(){
 		return images.length;
+	}
+	
+	
+	public void addListener(AnimationListener l){
+		animationListeners.add(l);
+	}
+	public void removeListener(AnimationListener l){
+		animationListeners.remove(l);
+	}
+	public int getLoopCount() {
+		return loopCount;
+	}
+	public void setLoopCount(int loopCount) {
+		this.loopCount = loopCount;
 	}
 }

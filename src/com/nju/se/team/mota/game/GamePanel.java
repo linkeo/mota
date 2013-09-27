@@ -76,11 +76,11 @@ public class GamePanel extends JPanel implements PlayerListener{
 			EXPLabel = new JLabel("¾­Ñé:"+player.getEXP());
 			moneyLabel = new JLabel("½ðÇ®:"+player.getMoney());
 			yellowKeyImgLabel = new JLabel(new ImageIcon(ImageLoader.get("item1_0x0")));
-			yellowKeyLabel = new JLabel("»ÆÔ¿³×:"+player.getYellowkey());
+			yellowKeyLabel = new JLabel("»ÆÔ¿³×:"+player.getYellowKey());
 			blueKeyImgLabel = new JLabel(new ImageIcon(ImageLoader.get("item1_0x1")));
-			blueKeyLabel = new JLabel("À¶Ô¿³×:"+player.getBluekey());
+			blueKeyLabel = new JLabel("À¶Ô¿³×:"+player.getBlueKey());
 			redKeyImgLabel = new JLabel(new ImageIcon(ImageLoader.get("item1_0x2")));
-			redKeyLabel = new JLabel("ºìÔ¿³×:"+player.getRedkey());
+			redKeyLabel = new JLabel("ºìÔ¿³×:"+player.getRedKey());
 			toolsLabel = new JLabel("ÎïÆ·À¸",JLabel.CENTER);
 			toolsPanel = new ToolListPanel();
 			for(Tool tool: player.getTools())
@@ -112,7 +112,7 @@ public class GamePanel extends JPanel implements PlayerListener{
 			redKeyImgLabel.setBounds(0, 360, 40, 40);
 			redKeyLabel.setBounds(40, 360, 280, 40);
 			toolsLabel.setBounds(0, 400, 320, 40);
-			toolsPanel.setLocation(0, 440);
+			toolsPanel.setBounds(0, 440, 320, 64);
 			menuButton.setBounds(0, 520, 320, 80);
 		menuMaskPanel.setBounds(0, 0, 960, 640);
 		menuPanel.setBounds((960-320)/2, (640-320)/2, 320, 320);
@@ -120,6 +120,7 @@ public class GamePanel extends JPanel implements PlayerListener{
 		});
 		menuMaskPanel.setTransparency(0.8f);
 		menuPanel.setTransparency(0f);
+		toolsPanel.setTransparency(0.2f);
 		continueButton.setSize(300, 52);
 		saveButton.setSize(300, 52);
 		loadButton.setSize(300, 52);
@@ -266,13 +267,16 @@ public class GamePanel extends JPanel implements PlayerListener{
 	}
 	@Override
 	public void keyChanged(Player p) {
-		yellowKeyLabel.setText("»ÆÔ¿³×:"+player.getYellowkey());
-		blueKeyLabel.setText("À¶Ô¿³×:"+player.getBluekey());
-		redKeyLabel.setText("ºìÔ¿³×:"+player.getRedkey());
+		yellowKeyLabel.setText("»ÆÔ¿³×:"+player.getYellowKey());
+		blueKeyLabel.setText("À¶Ô¿³×:"+player.getBlueKey());
+		redKeyLabel.setText("ºìÔ¿³×:"+player.getRedKey());
 	}
 	@Override
 	public void toolChanged(Player p) {
-		// TODO Auto-generated method stub
+		System.out.println("tools: "+p.getTools());
+		toolsPanel.removeAll();
+		for(Tool tool: player.getTools())
+			toolsPanel.add(new ToolElem(tool));
 	}
 	
 }

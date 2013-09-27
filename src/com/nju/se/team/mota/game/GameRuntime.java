@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
@@ -13,6 +15,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import javax.swing.JComponent;
+import javax.swing.Timer;
 
 import com.nju.se.team.mota.game.unit.Abiotic;
 import com.nju.se.team.mota.game.unit.Creature;
@@ -20,14 +23,54 @@ import com.nju.se.team.mota.game.unit.Player;
 import com.nju.se.team.mota.game.unit.Unit;
 import com.nju.se.team.mota.game.util.Condition;
 import com.nju.se.team.mota.script.MotaScript;
-
-public class GameRuntime implements Runnable{
+public class GameRuntime{
 	private static final ExecutorService exec = Executors.newSingleThreadExecutor();
 	private static final ExecutorService loopexec = Executors.newSingleThreadExecutor();
 	private static boolean looping = false;
+	private Timer gameUpdateTimer;
 	private static Rectangle view = new Rectangle(0,0,1,1);
+	private boolean fighting = false;
+	private static Runnable gameUpdate = new Runnable() {
+		@Override
+		public void run() {
+			Level currLevel = GamingLevels.getCurrentLevelObject();
+			if(currLevel == null) return;
+			HashSet<Unit> toRemove = new HashSet<Unit>();
+			for(Unit u : currLevel.units()){
+				u.currAnimation().update();
+				if(u.isDead()) toRemove.add(u);
+			}
+			for(Unit u : toRemove){
+				currLevel.removeUnit(u);
+				System.out.println("Remove "+u.getName());
+			}
+			
+		}
+	};
+	private static Runnable repaintLoop = new Runnable() {
+		@Override
+		public void run() {
+			while(true){
+				try {
+					Thread.sleep(20);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}finally{
+					if(looping)
+						GameMain.frame.repaint();
+				}
+			}
+		}
+	};
 	private GameRuntime(){
-		loopexec.execute(this);
+		gameUpdateTimer = new Timer(100, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				exec.execute(gameUpdate);
+			}
+		});
+		loopexec.execute(repaintLoop);
+		gameUpdateTimer.start();
 	}
 	public static void startPaintLoop(){
 		System.out.println("START LOOP TIMER");
@@ -161,6 +204,7 @@ public class GameRuntime implements Runnable{
 		for(Creature c: new HashSet<Creature>(currLevel.getCreatures())){
 			if(c.rectangle().contains(p)){
 				if(c.getAction().get(Condition.CRASH)!=null){
+					inst.fighting = true;
 					MotaScript.put("player", player);
 					MotaScript.put("enemy", c);
 					MotaScript.put("source", c);
@@ -245,7 +289,13 @@ public class GameRuntime implements Runnable{
 	}
 	private KeyListener keyListener = new KeyListener() {
 		@Override
-		public void keyTyped(KeyEvent e) {}
+		public void keyTyped(KeyEvent e) {
+			if(inst.fighting){
+				if(e.getKeyChar() == 'p'){
+					MotaScript.eval("playerSurrender()");
+				}
+			}
+		}
 		@Override
 		public void keyReleased(KeyEvent e) {}
 		@Override
@@ -255,19 +305,6 @@ public class GameRuntime implements Runnable{
 	};
 	public static KeyListener getKeyListener() {
 		return inst.keyListener;
-	}
-	@Override
-	public void run() {
-		while(true){
-			try {
-				Thread.sleep(20);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}finally{
-				if(looping)
-					GameMain.frame.repaint();
-			}
-		}
 	}
 	private static final GameRuntime inst = new GameRuntime();
 }
