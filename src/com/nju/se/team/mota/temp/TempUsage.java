@@ -1,60 +1,61 @@
 package com.nju.se.team.mota.temp;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
-import javax.script.ScriptException;
 
-import com.nju.se.team.mota.script.MotaScript;
+import javax.script.ScriptException;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.Timer;
+
+import com.nju.se.team.mota.game.hud.HUDAlignment;
+import com.nju.se.team.mota.game.hud.HUDDirection;
+import com.nju.se.team.mota.game.hud.HUDPanel;
+import com.nju.se.team.mota.game.hud.LeftUnitHUD;
+import com.nju.se.team.mota.game.unit.Creature;
 
 
 public class TempUsage {
 	public static void main(String[] argss) throws FileNotFoundException, ScriptException, NoSuchMethodException {
-//		String calls[] = {
-//				"function0()",
-//				"function1(arg)",
-//				"function2(arg1,arg2)",
-//				"function3( arg )",
-//				"function4( arg1, arg2 )",
-//				"function5(arg1, arg2, arg3, arg4)"
-//		};
-//		ArrayList<String> strs = new ArrayList<String>();
-//		Pattern pattern = Pattern.compile("\\w+");
-//		for(String call : calls){
-//			strs.clear();
-//			Matcher m = pattern.matcher(call);
-//			while(m.find()){
-//				strs.add(m.group());
-//			}
-//			System.out.println(strs);
-//			Object[] args = new Object[strs.size()-1];
-//			int size = strs.size();
-//			for(int i=1;i<size;++i){
-//				String arg=strs.get(i);
-//				try{
-//					int intvalue = Integer.parseInt(arg);
-//					args[i-1] = intvalue;
-//				}catch(NumberFormatException e){
-//					try{
-//						double doublevalue = Double.parseDouble(arg);
-//						args[i-1] = doublevalue;
-//					}catch(NumberFormatException e2){
-//						if(arg.equalsIgnoreCase("true"))
-//							args[i-1] = true;
-//						else if(arg.equalsIgnoreCase("false"))
-//							args[i-1] = false;
-//						else
-//							args[i-1] = arg;
-//					}
-//				}
-//			}
-//			System.out.println(strs.get(0)+args);
-//		}
-//		System.out.println(MotaScript.call("add",new Object[]{}));
-		System.out.println();
-		System.out.println(MotaScript.eval("100+100"));
-		System.out.println(MotaScript.eval("sleep()"));
-		System.out.println(MotaScript.eval("println(util)"));
-		System.out.println(MotaScript.eval("add(100,true)"));
-		System.out.println(MotaScript.eval("add(100,100)"));
+		final JFrame f = new JFrame("HUD Test");
+		final JPanel contentPane = new JPanel();
+		HUDPanel hudPane = new HUDPanel();
+		Creature p = Creature.make("Íæ¼Ò", 0, 0, 0);
+		p.setName("Ap~Íæ¾Í");
+		LeftUnitHUD player = new LeftUnitHUD(p);
 		
+		contentPane.setBounds(0, 0, 960, 640);
+		hudPane.setBounds(0, 0, 960, 640);
+		player.setDepending(HUDDirection.IN, hudPane.getRootHUD());
+		player.setAlignment(HUDAlignment.LEFT, HUDAlignment.RIGHT);
+		hudPane.addHUD(player);
+		hudPane.adjustHUD();
+		JPanel cp = (JPanel) f.getContentPane();
+		cp.setLayout(null);
+		cp.add(hudPane);
+		cp.add(contentPane);
+		int z = 0;
+		cp.setComponentZOrder(hudPane, z++);
+		cp.setComponentZOrder(contentPane, z++);
+		f.setSize(966, 664);
+		f.setVisible(true);
+		f.setLocationRelativeTo(null);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		Timer timer = new Timer(20, new ActionListener() {
+			long i=0;
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				i++;
+				int r = (int) (63+i%128);
+				int g = (int) (63+(i+128/3)%128);
+				int b = (int) (63+(i+128*2/3)%128);
+				contentPane.setBackground(new Color(r, g, b));
+				f.repaint();
+			}
+		});
+		timer.start();
 	}
 }

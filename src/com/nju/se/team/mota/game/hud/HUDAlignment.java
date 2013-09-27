@@ -1,5 +1,5 @@
 package com.nju.se.team.mota.game.hud;
 
-public enum HUDAligment {
+public enum HUDAlignment {
 	LEFT, RIGHT, TOP, BOTTOM, CENTER;
 }
