@@ -1,3 +1,5 @@
+importClass(com.nju.se.team.mota.game.GamingLevels);
+
 var surrender = false;
 function fight(){
 	/* player, enemy is global input from jvm */
@@ -50,9 +52,90 @@ function get(){
 	else if(source.getType().equals("红钥匙"))
 		player.setRedKey(player.getRedKey()+1);
 	else if(source.getType().equals("铁镐"))
-		player.addTool(source);
+		player.addTool(source, "功能:破坏面前的一堵墙\n一次性使用");
+	else if(source.getType().equals("疾风鞋"))
+		player.addTool(source, "功能:跳转至已经过的楼层\n永久性使用");
 	disappear();
 	
+}
+function use(){
+	if(source.getType().equals("炸弹")){
+		for each(var a in level.getAbiotics().toArray()){
+			if(a.getType().equals("土墙"))
+				a.setDead(true);
+		}
+		source.setDead(true);
+	}
+	else if(source.getType().equals("铁镐")){
+		var nextX;
+		var nextY;
+		var used = false;
+		if(player.getCurrStatus() == UnitStatus.load("walking_left")){
+			nextX = player.getPosition()[0] - 1;
+			nextY = player.getPosition()[1];
+		}
+		else if(player.getCurrStatus() == UnitStatus.load("walking_up")){
+ 			nextX = player.getPosition()[0];
+			nextY = player.getPosition()[1] - 1;
+		}
+		else if(player.getCurrStatus() == UnitStatus.load("walking_right")){
+			nextX = player.getPosition()[0] + 1;
+			nextY = player.getPosition()[1];
+		}
+		else if(player.getCurrStatus() == UnitStatus.load("walking_down")){
+			nextX = player.getPosition()[0];
+			nextY = player.getPosition()[1] + 1;
+		}
+		for each(var a in level.getAbiotics().toArray()){
+			if(!used && a.getType().equals("土墙") &&　a.getPosition()[0] == nextX && a.getPosition()[1] == nextY){
+				a.setDead(true);
+				used = true;
+			}
+		}
+		source.setDead(used);
+	}
+	else if(source.getType().equals("疾风鞋")){
+		var i = util.levelSelect();
+		var l = GamingLevels.getLevel(i);
+		tpLevel(l);
+	}
+}
+function upstair(){
+	var buddy = source.getBuddy();
+	tp(buddy);
+}
+function downstair(){
+	var buddy = source.getBuddy();
+	tp(buddy);
+}
+function tp(target){
+	var nextLevel;
+	for each(var a in GamingLevels.getAllAbiotics().toArray()){
+		if(a.getName().equals(target)){
+			nextLevel = a.getFloor();
+			player.setFloor(nextLevel);
+			player.setPosition(a.getPosition());
+		}
+	}
+	if(nextLevel!=null)
+	GamingLevels.toLevel(nextLevel);
+}
+function tpLevel(newlvl){
+	for each(var a in newlvl.getAbiotics().toArray()){
+		if(level.getLevel() < newlvl.getLevel()){
+			if(a.getType().equals("楼梯(下)")){
+				tp(a.getName());
+				break;
+			}
+				
+		}
+		if(level.getLevel() > newlvl.getLevel()){
+			if(a.getType().equals("楼梯(上)")){
+				tp(a.getName());
+				break;
+			}
+		}	
+	}
 }
 function attack(atker, atked){
 	var dmg = atker.getATK() - atked.getDEF();

@@ -21,13 +21,13 @@ public class GamingLevels {
 	private Map<String, Creature> creatures = new HashMap<String, Creature>();
 	private int currentLevel;
 	private static final GamingLevels instance = new GamingLevels();
-	
+	private static boolean refreshed = false;
 	private GamingLevels() {
 	}
 
-	public void toLevel(int floor){
-		visitedLevels.add(floor);
-		setCurrentLevel(floor);
+	public static void toLevel(int floor){
+		instance.visitedLevels.add(floor);
+		instance.setCurrentLevel(floor);
 	}
 	
 	
@@ -39,12 +39,14 @@ public class GamingLevels {
 		for(int i : DataLoader.getLevelFloors()){
 			Level l = Level.make(DataLoader.getLevelDefine(i));
 			levels.put(i, l);
+			System.out.println("Put new level "+i);
 			for(Abiotic a: l.getAbiotics())
 				abiotics.put(a.getName(), a);
 			for(Creature c: l.getCreatures())
 				creatures.put(c.getName(), c);
 		}
 		setCurrentLevel(1);
+		refreshed = true;
 	}
 	private void loadSaveOnly(Save save){
 		for(Level i : save.getLevels()){
@@ -72,10 +74,11 @@ public class GamingLevels {
 	private static Level currentLevelObject;
 	public static Level getLevel(int floor){
 		if(currentLevelObject==null ||
-				currentLevelObject.getLevel()!=floor){
+				currentLevelObject.getLevel()!=floor || refreshed){
 			currentLevelObject = instance.levels.get(floor);
 			if(instance.levels.containsKey(floor))
 				currentLevelObject = currentLevelObject.clone();
+			refreshed = false;
 		}
 		return currentLevelObject;
 	}
@@ -169,6 +172,15 @@ public class GamingLevels {
 	 */
 	public void setCurrentLevel(int currentLevel) {
 		this.currentLevel = currentLevel;
+		visitedLevels.add(currentLevel);
 		MotaScript.put("currentLevel", getCurrentLevelObject());
+	}
+
+	public static Set<Integer> getVisitedLevels() {
+		return instance.visitedLevels;
+	}
+
+	public static void setVisitedLevels(Set<Integer> visitedLevels) {
+		instance.visitedLevels = visitedLevels;
 	}
 }

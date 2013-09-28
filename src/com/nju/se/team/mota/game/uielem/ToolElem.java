@@ -9,7 +9,10 @@ import java.util.Set;
 
 import javax.swing.ImageIcon;
 
+import com.nju.se.team.mota.game.GameRuntime;
 import com.nju.se.team.mota.game.unit.Tool;
+import com.nju.se.team.mota.game.util.Condition;
+import com.nju.se.team.mota.script.MotaScript;
 import com.nju.se.team.mota.util.Selectable;
 import com.nju.se.team.mota.util.SelectableListener;
 import com.nju.se.team.mota.util.TransparentLabel;
@@ -39,23 +42,15 @@ public class ToolElem extends TransparentLabel implements Selectable<Tool>, Mous
 
 	public void setStyleToNormal(){
 		this.setBackground(Color.LIGHT_GRAY);
-		if(initialized)
-			this.getTopLevelAncestor().repaint();
 	}
 	public void setStyleToSelected(){
 		this.setBackground(Color.GRAY);
-		if(initialized)
-			this.getTopLevelAncestor().repaint();
 	}
 	public void setStyleToPressed(){
 		this.setBackground(Color.DARK_GRAY);
-		if(initialized)
-			this.getTopLevelAncestor().repaint();
 	}
 	public void setStyleToHoverred(){
 		setBackground(Color.WHITE);
-		if(initialized)
-			this.getTopLevelAncestor().repaint();
 	}
 	@Override
 	public void paint(Graphics g) {
@@ -102,6 +97,7 @@ public class ToolElem extends TransparentLabel implements Selectable<Tool>, Mous
 	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		GameRuntime.use(tool);
 		if(selected){
 			unselect(e.isControlDown());
 		}else{

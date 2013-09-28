@@ -70,8 +70,10 @@ public class Player extends Creature{
 	public void setTools(ArrayList<Tool> tools) {
 		this.tools = tools;
 	}
-	public void addTool(Abiotic a){
-		this.tools.add(Tool.parse(a));
+	public void addTool(Abiotic a,String hintInfo){
+		Tool tool = Tool.parse(a);
+		tool.setHintInfo(hintInfo);
+		this.tools.add(tool);
 		if(listeners != null)
 			for(PlayerListener l : listeners)
 				l.toolChanged(this);

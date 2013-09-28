@@ -4,44 +4,44 @@
             {
                 "position": [
                     6,
-                    13
+                    10
                 ],
                 "floor": 1,
-                "name": "ºìÔ¿³×_277619",
-                "type": "ºìÔ¿³×",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    11,
-                    1
-                ],
-                "floor": 1,
-                "name": "ÍÁÇ½_193652",
-                "type": "ÍÁÇ½",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    4,
-                    8
-                ],
-                "floor": 1,
-                "name": "Ìú¸ä_182108",
-                "type": "Ìú¸ä",
+                "name": "»ÆÔ¿³×_599757",
+                "type": "»ÆÔ¿³×",
                 "dead": false,
                 "currStatus": "normal"
             },
             {
                 "position": [
                     9,
-                    9
+                    7
                 ],
                 "floor": 1,
-                "name": "½ð±Ò_620044",
-                "type": "½ð±Ò",
+                "name": "»ÆÒ©Ë®_145922",
+                "type": "»ÆÒ©Ë®",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    12,
+                    10
+                ],
+                "floor": 1,
+                "name": "»ÆÔ¿³×_190650",
+                "type": "»ÆÔ¿³×",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    8,
+                    1
+                ],
+                "floor": 1,
+                "name": "ÍÁÇ½_414481",
+                "type": "ÍÁÇ½",
                 "dead": false,
                 "currStatus": "normal"
             },
@@ -59,76 +59,32 @@
             {
                 "position": [
                     7,
-                    10
-                ],
-                "floor": 1,
-                "name": "»ÆÔ¿³×_602916",
-                "type": "»ÆÔ¿³×",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    6,
-                    1
-                ],
-                "floor": 1,
-                "name": "ÍÁÇ½_552942",
-                "type": "ÍÁÇ½",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    15,
-                    1
-                ],
-                "floor": 1,
-                "name": "ÍÁÇ½_556659",
-                "type": "ÍÁÇ½",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    11,
                     9
                 ],
                 "floor": 1,
-                "name": "½ð±Ò_348362",
+                "name": "½ð±Ò_110601",
                 "type": "½ð±Ò",
                 "dead": false,
                 "currStatus": "normal"
             },
             {
                 "position": [
-                    14,
-                    1
+                    8,
+                    10
                 ],
                 "floor": 1,
-                "name": "ÍÁÇ½_913868",
-                "type": "ÍÁÇ½",
+                "name": "»ÆÔ¿³×_670666",
+                "type": "»ÆÔ¿³×",
                 "dead": false,
                 "currStatus": "normal"
             },
             {
                 "position": [
-                    3,
-                    1
-                ],
-                "floor": 1,
-                "name": "ÍÁÇ½_690711",
-                "type": "ÍÁÇ½",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    6,
+                    12,
                     9
                 ],
                 "floor": 1,
-                "name": "½ð±Ò_953821",
+                "name": "½ð±Ò_635077",
                 "type": "½ð±Ò",
                 "dead": false,
                 "currStatus": "normal"
@@ -146,100 +102,34 @@
             },
             {
                 "position": [
-                    12,
+                    11,
                     9
                 ],
                 "floor": 1,
-                "name": "½ð±Ò_635077",
+                "name": "½ð±Ò_348362",
                 "type": "½ð±Ò",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    4,
-                    1
-                ],
-                "floor": 1,
-                "name": "ÍÁÇ½_706970",
-                "type": "ÍÁÇ½",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    7,
-                    13
-                ],
-                "floor": 1,
-                "name": "ºìÔ¿³×_967370",
-                "type": "ºìÔ¿³×",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    9,
-                    10
-                ],
-                "floor": 1,
-                "name": "»ÆÔ¿³×_380306",
-                "type": "»ÆÔ¿³×",
                 "dead": false,
                 "currStatus": "normal"
             },
             {
                 "position": [
                     8,
-                    10
-                ],
-                "floor": 1,
-                "name": "»ÆÔ¿³×_670666",
-                "type": "»ÆÔ¿³×",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    7,
-                    9
-                ],
-                "floor": 1,
-                "name": "½ð±Ò_110601",
-                "type": "½ð±Ò",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    6,
-                    12
-                ],
-                "floor": 1,
-                "name": "À¶Ô¿³×_659728",
-                "type": "À¶Ô¿³×",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    9,
                     6
                 ],
                 "floor": 1,
-                "name": "»Æ±¦Ê¯_819571",
-                "type": "»Æ±¦Ê¯",
+                "name": "ÂÌ±¦Ê¯_273711",
+                "type": "ÂÌ±¦Ê¯",
                 "dead": false,
                 "currStatus": "normal"
             },
             {
                 "position": [
-                    8,
-                    12
+                    9,
+                    1
                 ],
                 "floor": 1,
-                "name": "À¶Ô¿³×_810747",
-                "type": "À¶Ô¿³×",
+                "name": "ÍÁÇ½_101081",
+                "type": "ÍÁÇ½",
                 "dead": false,
                 "currStatus": "normal"
             },
@@ -267,6 +157,138 @@
             },
             {
                 "position": [
+                    7,
+                    1
+                ],
+                "floor": 1,
+                "name": "»ÆÃÅ_127202",
+                "type": "»ÆÃÅ",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    10,
+                    10
+                ],
+                "floor": 1,
+                "name": "»ÆÔ¿³×_343799",
+                "type": "»ÆÔ¿³×",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    1
+                ],
+                "floor": 1,
+                "name": "ÍÁÇ½_885365",
+                "type": "ÍÁÇ½",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    9,
+                    10
+                ],
+                "floor": 1,
+                "name": "»ÆÔ¿³×_380306",
+                "type": "»ÆÔ¿³×",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    8,
+                    9
+                ],
+                "floor": 1,
+                "name": "½ð±Ò_774789",
+                "type": "½ð±Ò",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    3,
+                    0
+                ],
+                "floor": 1,
+                "name": "¼²·çÐ¬_298910",
+                "type": "¼²·çÐ¬",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    9
+                ],
+                "floor": 1,
+                "name": "½ð±Ò_953821",
+                "type": "½ð±Ò",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    9,
+                    9
+                ],
+                "floor": 1,
+                "name": "½ð±Ò_620044",
+                "type": "½ð±Ò",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    1
+                ],
+                "floor": 1,
+                "name": "ÍÁÇ½_552942",
+                "type": "ÍÁÇ½",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    8,
+                    12
+                ],
+                "floor": 1,
+                "name": "À¶Ô¿³×_810747",
+                "type": "À¶Ô¿³×",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    10,
+                    9
+                ],
+                "floor": 1,
+                "name": "½ð±Ò_818855",
+                "type": "½ð±Ò",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    11,
+                    1
+                ],
+                "floor": 1,
+                "name": "ÍÁÇ½_193652",
+                "type": "ÍÁÇ½",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
                     2,
                     1
                 ],
@@ -278,45 +300,45 @@
             },
             {
                 "position": [
-                    6,
-                    6
-                ],
-                "floor": 1,
-                "name": "ºì±¦Ê¯_146911",
-                "type": "ºì±¦Ê¯",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    12,
-                    10
-                ],
-                "floor": 1,
-                "name": "»ÆÔ¿³×_190650",
-                "type": "»ÆÔ¿³×",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    9,
+                    4,
                     1
                 ],
                 "floor": 1,
-                "name": "ÍÁÇ½_101081",
+                "name": "ÍÁÇ½_706970",
                 "type": "ÍÁÇ½",
                 "dead": false,
                 "currStatus": "normal"
             },
             {
                 "position": [
-                    9,
-                    12
+                    10,
+                    1
                 ],
                 "floor": 1,
-                "name": "À¶Ô¿³×_721696",
-                "type": "À¶Ô¿³×",
+                "name": "ºìÃÅ_528853",
+                "type": "ºìÃÅ",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    3
+                ],
+                "floor": 1,
+                "name": "Ìú¸ä_182108",
+                "type": "Ìú¸ä",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    3,
+                    1
+                ],
+                "floor": 1,
+                "name": "ÍÁÇ½_690711",
+                "type": "ÍÁÇ½",
                 "dead": false,
                 "currStatus": "normal"
             },
@@ -327,6 +349,50 @@
                 ],
                 "floor": 1,
                 "name": "ÍÁÇ½_968494",
+                "type": "ÍÁÇ½",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    9,
+                    6
+                ],
+                "floor": 1,
+                "name": "»Æ±¦Ê¯_819571",
+                "type": "»Æ±¦Ê¯",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    12
+                ],
+                "floor": 1,
+                "name": "À¶Ô¿³×_659728",
+                "type": "À¶Ô¿³×",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    7,
+                    7
+                ],
+                "floor": 1,
+                "name": "À¶Ò©Ë®_669112",
+                "type": "À¶Ò©Ë®",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    15,
+                    1
+                ],
+                "floor": 1,
+                "name": "ÍÁÇ½_556659",
                 "type": "ÍÁÇ½",
                 "dead": false,
                 "currStatus": "normal"
@@ -344,144 +410,23 @@
             },
             {
                 "position": [
-                    7,
-                    1
-                ],
-                "floor": 1,
-                "name": "»ÆÃÅ_127202",
-                "type": "»ÆÃÅ",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    1,
-                    1
-                ],
-                "floor": 1,
-                "name": "ÍÁÇ½_885365",
-                "type": "ÍÁÇ½",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    8,
-                    9
-                ],
-                "floor": 1,
-                "name": "½ð±Ò_774789",
-                "type": "½ð±Ò",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    16,
-                    1
-                ],
-                "floor": 1,
-                "name": "ÍÁÇ½_830126",
-                "type": "ÍÁÇ½",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    10,
-                    10
-                ],
-                "floor": 1,
-                "name": "»ÆÔ¿³×_343799",
-                "type": "»ÆÔ¿³×",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    8,
-                    6
-                ],
-                "floor": 1,
-                "name": "ÂÌ±¦Ê¯_273711",
-                "type": "ÂÌ±¦Ê¯",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    8,
-                    1
-                ],
-                "floor": 1,
-                "name": "ÍÁÇ½_414481",
-                "type": "ÍÁÇ½",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
                     6,
-                    7
+                    13
                 ],
                 "floor": 1,
-                "name": "ºìÒ©Ë®_287670",
-                "type": "ºìÒ©Ë®",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    11,
-                    10
-                ],
-                "floor": 1,
-                "name": "»ÆÔ¿³×_521951",
-                "type": "»ÆÔ¿³×",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    7,
-                    7
-                ],
-                "floor": 1,
-                "name": "À¶Ò©Ë®_669112",
-                "type": "À¶Ò©Ë®",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    6,
-                    10
-                ],
-                "floor": 1,
-                "name": "»ÆÔ¿³×_599757",
-                "type": "»ÆÔ¿³×",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    10,
-                    9
-                ],
-                "floor": 1,
-                "name": "½ð±Ò_818855",
-                "type": "½ð±Ò",
+                "name": "ºìÔ¿³×_277619",
+                "type": "ºìÔ¿³×",
                 "dead": false,
                 "currStatus": "normal"
             },
             {
                 "position": [
                     9,
-                    7
+                    12
                 ],
                 "floor": 1,
-                "name": "»ÆÒ©Ë®_145922",
-                "type": "»ÆÒ©Ë®",
+                "name": "À¶Ô¿³×_721696",
+                "type": "À¶Ô¿³×",
                 "dead": false,
                 "currStatus": "normal"
             },
@@ -499,12 +444,78 @@
             },
             {
                 "position": [
-                    10,
+                    7,
+                    10
+                ],
+                "floor": 1,
+                "name": "»ÆÔ¿³×_602916",
+                "type": "»ÆÔ¿³×",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
                     1
                 ],
                 "floor": 1,
-                "name": "ºìÃÅ_528853",
-                "type": "ºìÃÅ",
+                "name": "ÍÁÇ½_830126",
+                "type": "ÍÁÇ½",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    11,
+                    10
+                ],
+                "floor": 1,
+                "name": "»ÆÔ¿³×_521951",
+                "type": "»ÆÔ¿³×",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    1
+                ],
+                "floor": 1,
+                "name": "ÍÁÇ½_913868",
+                "type": "ÍÁÇ½",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    6
+                ],
+                "floor": 1,
+                "name": "ºì±¦Ê¯_146911",
+                "type": "ºì±¦Ê¯",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    7
+                ],
+                "floor": 1,
+                "name": "ºìÒ©Ë®_287670",
+                "type": "ºìÒ©Ë®",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    7,
+                    13
+                ],
+                "floor": 1,
+                "name": "ºìÔ¿³×_967370",
+                "type": "ºìÔ¿³×",
                 "dead": false,
                 "currStatus": "normal"
             },
@@ -524,28 +535,6 @@
         "creatures": [
             {
                 "position": [
-                    11,
-                    4
-                ],
-                "type": "»ð¾¯ÎÀ",
-                "currStatus": "normal",
-                "floor": 1,
-                "name": "»ð¾¯ÎÀ_569739",
-                "dead": false
-            },
-            {
-                "position": [
-                    6,
-                    3
-                ],
-                "type": "Ð¡òùòð",
-                "currStatus": "normal",
-                "floor": 1,
-                "name": "Ð¡òùòð_850783",
-                "dead": false
-            },
-            {
-                "position": [
                     9,
                     4
                 ],
@@ -557,35 +546,13 @@
             },
             {
                 "position": [
-                    9,
+                    7,
                     3
                 ],
                 "type": "Ð¡òùòð",
                 "currStatus": "normal",
                 "floor": 1,
-                "name": "Ð¡òùòð_568349",
-                "dead": false
-            },
-            {
-                "position": [
-                    10,
-                    3
-                ],
-                "type": "Ð¡òùòð",
-                "currStatus": "normal",
-                "floor": 1,
-                "name": "Ð¡òùòð_126947",
-                "dead": false
-            },
-            {
-                "position": [
-                    8,
-                    4
-                ],
-                "type": "±ùÊØÎÀ",
-                "currStatus": "normal",
-                "floor": 1,
-                "name": "±ùÊØÎÀ_870513",
+                "name": "Ð¡òùòð_286898",
                 "dead": false
             },
             {
@@ -612,6 +579,61 @@
             },
             {
                 "position": [
+                    6,
+                    4
+                ],
+                "type": "»ð·¨Ê¦",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "»ð·¨Ê¦_550034",
+                "dead": false
+            },
+            {
+                "position": [
+                    9,
+                    3
+                ],
+                "type": "Ð¡òùòð",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "Ð¡òùòð_568349",
+                "dead": false
+            },
+            {
+                "position": [
+                    6,
+                    3
+                ],
+                "type": "Ð¡òùòð",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "Ð¡òùòð_850783",
+                "dead": false
+            },
+            {
+                "position": [
+                    8,
+                    4
+                ],
+                "type": "±ùÊØÎÀ",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "±ùÊØÎÀ_870513",
+                "dead": false
+            },
+            {
+                "position": [
+                    10,
+                    3
+                ],
+                "type": "Ð¡òùòð",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "Ð¡òùòð_126947",
+                "dead": false
+            },
+            {
+                "position": [
                     7,
                     4
                 ],
@@ -634,24 +656,13 @@
             },
             {
                 "position": [
-                    6,
+                    11,
                     4
                 ],
-                "type": "»ð·¨Ê¦",
+                "type": "»ð¾¯ÎÀ",
                 "currStatus": "normal",
                 "floor": 1,
-                "name": "»ð·¨Ê¦_550034",
-                "dead": false
-            },
-            {
-                "position": [
-                    7,
-                    3
-                ],
-                "type": "Ð¡òùòð",
-                "currStatus": "normal",
-                "floor": 1,
-                "name": "Ð¡òùòð_286898",
+                "name": "»ð¾¯ÎÀ_569739",
                 "dead": false
             }
         ],

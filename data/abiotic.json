@@ -35,8 +35,15 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get()"},
-        "sprites": {"normal": {"images": [[["item1_2x2"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item1_2x2"]]]
+        }},
+        "action": {
+            "use": "use()",
+            "crash": "get()"
+        },
+        "dead": false,
         "type": "疾风鞋",
         "size": [
             1,
@@ -74,11 +81,15 @@
         ]
     },
     {
-        "canGoThrough": true,
-        "buddyType": "portal",
+        "canGoThrough": false,
+        "buddyType": "none",
         "action": {"crash": "portal()"},
-        "sprites": {"normal": {"images": [[["item1_1x2"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item1_1x2"]]]
+        }},
         "type": "传送阵",
+        "dead": false,
         "size": [
             1,
             1
@@ -208,11 +219,14 @@
         "buddyType": "none",
         "sprites": {"normal": {
             "loopCount": 0,
-            "images": [[["item2_0x2"]]]
+            "images": [[["item1_1x0"]]]
         }},
-        "action": {"crash": "atkup(6);disappear();"},
+        "action": {
+            "use": "use()",
+            "crash": "get()"
+        },
         "dead": false,
-        "type": "绿宝石",
+        "type": "怪物百科大全",
         "size": [
             1,
             1
@@ -221,9 +235,13 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
-        "action": {"crash": "get()"},
-        "sprites": {"normal": {"images": [[["item1_1x0"]]]}},
-        "type": "怪物百科大全",
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item2_0x2"]]]
+        }},
+        "action": {"crash": "atkup(6);disappear();"},
+        "dead": false,
+        "type": "绿宝石",
         "size": [
             1,
             1
@@ -322,11 +340,15 @@
         ]
     },
     {
-        "canGoThrough": true,
+        "canGoThrough": false,
         "buddyType": "楼梯(上)",
         "action": {"crash": "downstair()"},
-        "sprites": {"normal": {"images": [[["stair_0x0"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["stair_0x0"]]]
+        }},
         "type": "楼梯(下)",
+        "dead": false,
         "size": [
             1,
             1
@@ -428,7 +450,7 @@
         "canGoThrough": true,
         "buddyType": "none",
         "action": {
-            "use": "use(铁镐)",
+            "use": "use铁镐()",
             "crash": "get()"
         },
         "sprites": {"normal": {
@@ -561,11 +583,15 @@
         ]
     },
     {
-        "canGoThrough": true,
+        "canGoThrough": false,
         "buddyType": "楼梯(下)",
         "action": {"crash": "upstair()"},
-        "sprites": {"normal": {"images": [[["stair_0x1"]]]}},
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["stair_0x1"]]]
+        }},
         "type": "楼梯(上)",
+        "dead": false,
         "size": [
             1,
             1

@@ -112,7 +112,7 @@ public class Unit implements Comparable<Unit> , AnimationListener{
 	 * @param position(int[])
 	 */
 	public void setPosition(int[] position) {
-		this.position = position;
+		this.position = position.clone();
 	}
 	/**
 	 * 获取尺寸
@@ -126,7 +126,7 @@ public class Unit implements Comparable<Unit> , AnimationListener{
 	 * @param size(int[])
 	 */
 	public void setSize(int[] size) {
-		this.size = size;
+		this.size = size.clone();
 	}
 	/**
 	 * 获取楼层

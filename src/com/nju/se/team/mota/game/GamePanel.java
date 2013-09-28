@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -16,6 +17,7 @@ import com.nju.se.team.mota.game.unit.PlayerListener;
 import com.nju.se.team.mota.game.unit.Tool;
 import com.nju.se.team.mota.util.Fonts;
 import com.nju.se.team.mota.util.TransparentButton;
+import com.nju.se.team.mota.util.TransparentLabel;
 import com.nju.se.team.mota.util.TransparentListPanel;
 import com.nju.se.team.mota.util.TransparentPanel;
 
@@ -50,6 +52,8 @@ public class GamePanel extends JPanel implements PlayerListener{
 		JLabel redKeyLabel;
 		JLabel toolsLabel;
 		ToolListPanel toolsPanel;
+		TransparentPanel toolHintPanel;
+		TransparentLabel toolHintInfo;
 		TransparentButton menuButton;
 		TransparentPanel menuMaskPanel;
 		TransparentListPanel menuPanel;
@@ -83,8 +87,32 @@ public class GamePanel extends JPanel implements PlayerListener{
 			redKeyLabel = new JLabel("ºìÔ¿³×:"+player.getRedKey());
 			toolsLabel = new JLabel("ÎïÆ·À¸",JLabel.CENTER);
 			toolsPanel = new ToolListPanel();
-			for(Tool tool: player.getTools())
-				toolsPanel.add(new ToolElem(tool));
+			toolHintPanel = new TransparentPanel();
+			toolHintInfo = new TransparentLabel();
+			for(final Tool tool: player.getTools())
+					toolsPanel.add(new ToolElem(tool){
+						/**
+						 * 
+						 */
+						private static final long serialVersionUID = 1L;
+						@Override
+						public void mouseClicked(MouseEvent e) {
+							// TODO Auto-generated method stub
+							super.mouseClicked(e);
+							toolHintPanel.setVisible(false);
+						}
+						@Override
+						public void mouseEntered(MouseEvent e) {
+							super.mouseEntered(e);
+							toolHintInfo.setText(tool.getHintInfo());
+							toolHintPanel.setVisible(true);
+						}
+						@Override
+						public void mouseExited(MouseEvent e) {
+							super.mouseExited(e);
+							toolHintPanel.setVisible(false);
+						}
+					});
 			menuButton = new TransparentButton("²Ëµ¥", 0.5f, 0.75f, 1f);
 			menuMaskPanel = new TransparentPanel(null);
 			menuPanel = new TransparentListPanel();
@@ -97,27 +125,47 @@ public class GamePanel extends JPanel implements PlayerListener{
 		leftPanel.setBounds(0, 0, 640, 640);
 			map.setBounds(0, 0, 640, 640);
 		rightPanel.setBounds(640, 0, 320, 640);
+//			levelLabel.setBounds(0, 0, 320, 40);
+//			playerImgLabel.setBounds(0, 40, 40, 40);
+//			playerLabel.setBounds(40, 40, 280, 40);
+//			HPLabel.setBounds(0, 80, 320, 40);
+//			ATKLabel.setBounds(0, 120, 320, 40);
+//			DEFLabel.setBounds(0, 160, 320, 40);
+//			EXPLabel.setBounds(0, 200, 320, 40);
+//			moneyLabel.setBounds(0, 240, 320, 40);
+//			yellowKeyImgLabel.setBounds(0, 280, 40, 40);
+//			yellowKeyLabel.setBounds(40, 280, 280, 40);
+//			blueKeyImgLabel.setBounds(0, 320, 40, 40);
+//			blueKeyLabel.setBounds(40, 320, 280, 40);
+//			redKeyImgLabel.setBounds(0, 360, 40, 40);
+//			redKeyLabel.setBounds(40, 360, 280, 40);
+//			toolsLabel.setBounds(0, 400, 320, 40);
+//			toolsPanel.setBounds(0, 440, 320, 64);
+//			toolHintPanel.setBounds(0, 520, 320, 80);
+//			toolHintPanel.setVisible(false);
+//			menuButton.setBounds(0, 520, 320, 80);
 			levelLabel.setBounds(0, 0, 320, 40);
-			playerImgLabel.setBounds(0, 40, 40, 40);
-			playerLabel.setBounds(40, 40, 280, 40);
-			HPLabel.setBounds(0, 80, 320, 40);
-			ATKLabel.setBounds(0, 120, 320, 40);
-			DEFLabel.setBounds(0, 160, 320, 40);
-			EXPLabel.setBounds(0, 200, 320, 40);
-			moneyLabel.setBounds(0, 240, 320, 40);
-			yellowKeyImgLabel.setBounds(0, 280, 40, 40);
-			yellowKeyLabel.setBounds(40, 280, 280, 40);
-			blueKeyImgLabel.setBounds(0, 320, 40, 40);
-			blueKeyLabel.setBounds(40, 320, 280, 40);
-			redKeyImgLabel.setBounds(0, 360, 40, 40);
-			redKeyLabel.setBounds(40, 360, 280, 40);
-			toolsLabel.setBounds(0, 400, 320, 40);
-			toolsPanel.setBounds(0, 440, 320, 64);
-			menuButton.setBounds(0, 520, 320, 80);
+			playerImgLabel.setBounds(0, 40, 40, 36);
+			playerLabel.setBounds(40, 40, 280, 36);
+			HPLabel.setBounds(0, 76, 320, 36);
+			ATKLabel.setBounds(0, 112, 320, 36);
+			DEFLabel.setBounds(0, 148, 320, 36);
+			EXPLabel.setBounds(0, 184, 320, 36);
+			moneyLabel.setBounds(0, 220, 320, 36);
+			yellowKeyImgLabel.setBounds(0, 256, 40, 36);
+			yellowKeyLabel.setBounds(40, 256, 280, 36);
+			blueKeyImgLabel.setBounds(0, 292, 40, 40);
+			blueKeyLabel.setBounds(40, 292, 280, 40);
+			redKeyImgLabel.setBounds(0, 328, 40, 40);
+			redKeyLabel.setBounds(40, 328, 280, 40);
+			toolsLabel.setBounds(0, 364, 320, 40);
+			toolsPanel.setBounds(0, 400, 320, 64);
+			toolHintPanel.setBounds(0, 464, 320, 64);
+			toolHintPanel.setVisible(false);
+			menuButton.setBounds(0, 546, 320, 80);
 		menuMaskPanel.setBounds(0, 0, 960, 640);
 		menuPanel.setBounds((960-320)/2, (640-320)/2, 320, 320);
-		menuMaskPanel.addMouseListener(new MouseAdapter() {
-		});
+		menuMaskPanel.addMouseListener(new MouseAdapter() {});
 		menuMaskPanel.setTransparency(0.8f);
 		menuPanel.setTransparency(0f);
 		toolsPanel.setTransparency(0.2f);
@@ -146,6 +194,8 @@ public class GamePanel extends JPanel implements PlayerListener{
 			rightPanel.add(redKeyLabel);
 			rightPanel.add(toolsLabel);
 			rightPanel.add(toolsPanel);
+			rightPanel.add(toolHintPanel);
+				toolHintPanel.add(toolHintInfo);
 			rightPanel.add(menuButton);
 		JPanel glasspane = (JPanel) GameMain.frame.getGlassPane();
 		glasspane.setLayout(null);
@@ -275,8 +325,29 @@ public class GamePanel extends JPanel implements PlayerListener{
 	public void toolChanged(Player p) {
 		System.out.println("tools: "+p.getTools());
 		toolsPanel.removeAll();
-		for(Tool tool: player.getTools())
-			toolsPanel.add(new ToolElem(tool));
+		for(final Tool tool: player.getTools())
+			toolsPanel.add(new ToolElem(tool){
+				/**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					super.mouseClicked(e);
+					toolHintPanel.setVisible(false);
+				}
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					super.mouseEntered(e);
+					toolHintInfo.setText(tool.getHintInfo());
+					toolHintPanel.setVisible(true);
+				}
+				@Override
+				public void mouseExited(MouseEvent e) {
+					super.mouseExited(e);
+					toolHintPanel.setVisible(false);
+				}
+			});
 	}
 	
 }

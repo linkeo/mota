@@ -20,6 +20,7 @@ import javax.swing.Timer;
 import com.nju.se.team.mota.game.unit.Abiotic;
 import com.nju.se.team.mota.game.unit.Creature;
 import com.nju.se.team.mota.game.unit.Player;
+import com.nju.se.team.mota.game.unit.Tool;
 import com.nju.se.team.mota.game.unit.Unit;
 import com.nju.se.team.mota.game.util.Condition;
 import com.nju.se.team.mota.script.MotaScript;
@@ -29,6 +30,7 @@ public class GameRuntime{
 	private static boolean looping = false;
 	private Timer gameUpdateTimer;
 	private static Rectangle view = new Rectangle(0,0,1,1);
+	private Player currentPlayer;
 	private boolean fighting = false;
 	private static Runnable gameUpdate = new Runnable() {
 		@Override
@@ -219,6 +221,7 @@ public class GameRuntime{
 				if(a.getAction().get(Condition.CRASH)!=null){
 					MotaScript.put("player", player);
 					MotaScript.put("source", a);
+					MotaScript.put("level", currLevel);
 					MotaScript.eval(a.getAction().get(Condition.CRASH));
 //					System.out.println(a.getName()+">>"+a.getAction().get(Condition.CRASH));
 				}
@@ -248,8 +251,6 @@ public class GameRuntime{
 				GameMain.frame.getContentPane().isAncestorOf(GameMain.frame.gamePanel))
 			inst.currentPlayer.addListener(GameMain.frame.gamePanel);
 	}
-
-	private Player currentPlayer;
 	
 	private static boolean keyMask = false;
 	public static void keyHandle(final KeyEvent e) {
@@ -307,4 +308,14 @@ public class GameRuntime{
 		return inst.keyListener;
 	}
 	private static final GameRuntime inst = new GameRuntime();
+	public static void use(Tool tool) {
+		Level currLevel = GamingLevels.getCurrentLevelObject();
+		Player player = getCurrentPlayer();
+		MotaScript.put("player", player);
+		MotaScript.put("source", tool);
+		MotaScript.put("level", currLevel);
+		MotaScript.eval(tool.getAction().get(Condition.USE));
+		if(tool.isDead())
+			player.removeTool(tool);
+	}
 }

@@ -10,6 +10,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 import com.nju.se.team.mota.data.ResLoader;
+import com.nju.se.team.mota.game.GamingLevels;
 import com.nju.se.team.mota.game.util.UnitStatus;
 
 /**
