@@ -10,11 +10,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import com.nju.se.team.mota.game.hud.ExperienceHUD;
 import com.nju.se.team.mota.game.hud.HUDAlignment;
 import com.nju.se.team.mota.game.hud.HUDDirection;
 import com.nju.se.team.mota.game.hud.HUDPanel;
 import com.nju.se.team.mota.game.hud.LeftUnitHUD;
+import com.nju.se.team.mota.game.hud.RightUnitHUD;
 import com.nju.se.team.mota.game.unit.Creature;
+import com.nju.se.team.mota.game.unit.Player;
 
 
 public class TempUsage {
@@ -22,15 +25,24 @@ public class TempUsage {
 		final JFrame f = new JFrame("HUD Test");
 		final JPanel contentPane = new JPanel();
 		HUDPanel hudPane = new HUDPanel();
-		Creature p = Creature.make("Íæ¼Ò", 0, 0, 0);
-		p.setName("Ap~Íæ¾Í");
+		final Player p = new Player();
+		Creature e = Creature.make("ºìÁú", 0, 0, 0);
+		p.setName("¥Û¥·¤¾¥é¤Þ¤·¤í");
 		LeftUnitHUD player = new LeftUnitHUD(p);
+		RightUnitHUD enemy = new RightUnitHUD(e);
+		ExperienceHUD exp = new ExperienceHUD(p);
 		
 		contentPane.setBounds(0, 0, 960, 640);
 		hudPane.setBounds(0, 0, 960, 640);
 		player.setDepending(HUDDirection.IN, hudPane.getRootHUD());
-		player.setAlignment(HUDAlignment.LEFT, HUDAlignment.RIGHT);
+		player.setAlignment(HUDAlignment.LEFT, HUDAlignment.TOP);
+		enemy.setDepending(HUDDirection.IN, hudPane.getRootHUD());
+		enemy.setAlignment(HUDAlignment.RIGHT, HUDAlignment.TOP);
+		exp.setDepending(HUDDirection.IN, hudPane.getRootHUD());
+		exp.setAlignment(HUDAlignment.CENTER, HUDAlignment.BOTTOM);
 		hudPane.addHUD(player);
+		hudPane.addHUD(enemy);
+		hudPane.addHUD(exp);
 		hudPane.adjustHUD();
 		JPanel cp = (JPanel) f.getContentPane();
 		cp.setLayout(null);
@@ -39,8 +51,9 @@ public class TempUsage {
 		int z = 0;
 		cp.setComponentZOrder(hudPane, z++);
 		cp.setComponentZOrder(contentPane, z++);
-		f.setSize(966, 664);
+		f.setSize(960, 640);
 		f.setVisible(true);
+		f.setSize(960*2-cp.getWidth(), 640*2-cp.getHeight());
 		f.setLocationRelativeTo(null);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -49,10 +62,11 @@ public class TempUsage {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				i++;
-				int r = (int) (63+i%128);
-				int g = (int) (63+(i+128/3)%128);
-				int b = (int) (63+(i+128*2/3)%128);
+				int r = (int) (0+i%256);
+				int g = (int) (0+(i+256/3)%256);
+				int b = (int) (0+(i+256*2/3)%256);
 				contentPane.setBackground(new Color(r, g, b));
+				p.setEXP(p.getEXP()+1);
 				f.repaint();
 			}
 		});

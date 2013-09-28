@@ -53,6 +53,21 @@ function open(color){
 	println(color);
 }
 
-function add(a,b){
-	return a+b;
+function getEXP(level){
+	var expi;
+	var expsum=0.0;
+	var produp = Math.pow(10, 1/10);
+	for(var i=0;i<=level;++i){
+		if(i==0) expi = 0;
+		else if(i==1) expi = 10;
+		else 
+			expi*= produp;
+		expsum+=expi;
+	}
+	return expsum;
+}
+function levelup(level){
+	player.setHP(player.getHP()+100);
+	player.setATK(player.getATK()+5);
+	player.setDEF(player.getDEF()+5);
 }

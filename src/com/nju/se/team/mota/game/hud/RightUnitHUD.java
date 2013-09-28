@@ -12,10 +12,10 @@ import com.nju.se.team.mota.game.unit.Creature;
 import com.nju.se.team.mota.util.Fonts;
 import com.nju.se.team.mota.util.ImageHandler;
 
-public class LeftUnitHUD extends HUD {
+public class RightUnitHUD extends HUD {
 	private Rectangle rect = new Rectangle();
 	private Creature unit;
-	public LeftUnitHUD(Creature unit) {
+	public RightUnitHUD(Creature unit) {
 		setHUDSize(160, 64);
 		this.unit = unit;
 	}
@@ -45,7 +45,7 @@ public class LeftUnitHUD extends HUD {
 		Color bg = new Color(255,255,255,127);
 		Color fg = new Color(63,63,63,255);
 		//block 1
-		int bx = rect.x;
+		int bx = rect.x+112;
 		int by = rect.y;
 		int bw = 48;
 		int bh = 48;
@@ -65,16 +65,18 @@ public class LeftUnitHUD extends HUD {
 		gg.fillRect(bx, by, bw, bh);
 		gg.setColor(fg);
 //		gg.drawRect(bx, by, bw, bh);
-		String msg = unit.getName();
-		gg.drawString(msg, bx+2, by+y_con);
+		String msg = unit.getType();
+			gg.drawString(msg,
+				bx-2+bw-SwingUtilities.computeStringWidth(fm, String.valueOf(msg)),
+				by+y_con);
 
 		//block 3
-		bx = rect.x+48; by = rect.y;
+		bx = rect.x; by = rect.y;
 		bw = 112; bh = 16;
 		gg.setColor(bg);
 		gg.fillRect(bx, by, bw, bh);
 		gg.setColor(fg);
-//		gg.drawRect(bx, by, bw, bh);
+//			gg.drawRect(bx, by, bw, bh);
 		msg = "HP";
 			gg.drawString(msg, bx+2, by+y_con);
 		msg = String.valueOf(unit.getHP());
@@ -83,12 +85,12 @@ public class LeftUnitHUD extends HUD {
 				by+y_con);
 		
 		//block 4
-		bx = rect.x+48; by = rect.y+16;
+		bx = rect.x; by = rect.y+16;
 		bw = 112; bh = 16;
 		gg.setColor(bg);
 		gg.fillRect(bx, by, bw, bh);
 		gg.setColor(fg);
-//		gg.drawRect(bx, by, bw, bh);
+//			gg.drawRect(bx, by, bw, bh);
 		msg = "ATK";
 		gg.drawString(msg, bx+2, by+y_con);
 		msg = String.valueOf(unit.getATK());
@@ -97,12 +99,12 @@ public class LeftUnitHUD extends HUD {
 				by+y_con);
 			
 		//block 5
-		bx = rect.x+48; by = rect.y+32;
+		bx = rect.x; by = rect.y+32;
 		bw = 112; bh = 16;
 		gg.setColor(bg);
 		gg.fillRect(bx, by, bw, bh);
 		gg.setColor(fg);
-//		gg.drawRect(bx, by, bw, bh);
+//			gg.drawRect(bx, by, bw, bh);
 		msg = "DEF";
 		gg.drawString(msg, bx+2, by+y_con);
 		msg = String.valueOf(unit.getDEF());

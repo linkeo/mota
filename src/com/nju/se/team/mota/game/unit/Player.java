@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 import com.nju.se.team.mota.game.util.UnitStatus;
+import com.nju.se.team.mota.script.MotaScript;
 /**
  * Íæ¼Ò
  * @author linkeo
@@ -127,6 +128,15 @@ public class Player extends Creature{
 		if(listeners != null)
 			for(PlayerListener l : listeners)
 				l.expChanged(this);
+		while(eXP>=getEXP(getLV())){
+			levelup();
+			System.out.println("LVUP:"+getLV());
+		}
+	}
+	private void levelup() {
+		setLV(getLV()+1);
+		MotaScript.put("player", this);
+		MotaScript.eval("levelup("+getLV()+")");
 	}
 	public void walkLeft(){
 		turnLeft();
@@ -182,6 +192,10 @@ public class Player extends Creature{
 		listeners.remove(l);
 		if(listeners.isEmpty())
 			listeners = null;
+	}
+	public static int getEXP(int i) {
+		Object result = MotaScript.eval("getEXP("+i+");");
+		return (int)(double) result;
 	}
 	
 }
