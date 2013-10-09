@@ -36,6 +36,7 @@ public class ExperienceHUD extends HUD{
 		return new Rectangle(rect);
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public void paint(Graphics g) {
 		Graphics2D gg = (Graphics2D) g;
@@ -63,7 +64,6 @@ public class ExperienceHUD extends HUD{
 		int lvEXP = Player.getEXP(unit.getLV())-Player.getEXP(unit.getLV()-1);
 		bw = Math.min(500, (int) (500.0*currEXP/
 				lvEXP));
-		System.out.println(currEXP+"/"+lvEXP+" ("+bw+"/"+500+")");
 		bh = 20;
 		gg.setColor(fg);
 		gg.fillRect(bx, by, bw, bh);

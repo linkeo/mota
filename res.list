@@ -13,6 +13,7 @@ b_load_0=image\button_load_0.png
 b_load_1=image\button_load_1.png
 b_quit_0=image\button_quit_0.png
 b_quit_1=image\button_quit_1.png
+ge_money=image\ge_money.png
 [sprite]
 floor=image\sprite\floor.png
 door=image\sprite\door.png

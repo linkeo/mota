@@ -14,7 +14,9 @@ import com.nju.se.team.mota.game.hud.ExperienceHUD;
 import com.nju.se.team.mota.game.hud.HUDAlignment;
 import com.nju.se.team.mota.game.hud.HUDDirection;
 import com.nju.se.team.mota.game.hud.HUDPanel;
+import com.nju.se.team.mota.game.hud.KeysHUD;
 import com.nju.se.team.mota.game.hud.LeftUnitHUD;
+import com.nju.se.team.mota.game.hud.MoneyHUD;
 import com.nju.se.team.mota.game.hud.RightUnitHUD;
 import com.nju.se.team.mota.game.unit.Creature;
 import com.nju.se.team.mota.game.unit.Player;
@@ -27,22 +29,37 @@ public class TempUsage {
 		HUDPanel hudPane = new HUDPanel();
 		final Player p = new Player();
 		Creature e = Creature.make("碕霜", 0, 0, 0);
-		p.setName("ホシぞラましろ");
+		p.setName("ホシゾラましろ");
 		LeftUnitHUD player = new LeftUnitHUD(p);
 		RightUnitHUD enemy = new RightUnitHUD(e);
 		ExperienceHUD exp = new ExperienceHUD(p);
+		MoneyHUD money = new MoneyHUD(p);
+		KeysHUD keys = new KeysHUD(p);
 		
 		contentPane.setBounds(0, 0, 960, 640);
 		hudPane.setBounds(0, 0, 960, 640);
+		
 		player.setDepending(HUDDirection.IN, hudPane.getRootHUD());
 		player.setAlignment(HUDAlignment.LEFT, HUDAlignment.TOP);
+		
 		enemy.setDepending(HUDDirection.IN, hudPane.getRootHUD());
 		enemy.setAlignment(HUDAlignment.RIGHT, HUDAlignment.TOP);
+		
 		exp.setDepending(HUDDirection.IN, hudPane.getRootHUD());
 		exp.setAlignment(HUDAlignment.CENTER, HUDAlignment.BOTTOM);
+		
+		keys.setDepending(HUDDirection.SOUTH, player);
+		keys.setHorizontalHUDAlignment(HUDAlignment.LEFT);
+		
+		money.setDepending(HUDDirection.SOUTH, keys);
+		money.setHorizontalHUDAlignment(HUDAlignment.LEFT);
+		
 		hudPane.addHUD(player);
 		hudPane.addHUD(enemy);
 		hudPane.addHUD(exp);
+		hudPane.addHUD(money);
+		hudPane.addHUD(keys);
+		
 		hudPane.adjustHUD();
 		JPanel cp = (JPanel) f.getContentPane();
 		cp.setLayout(null);
@@ -66,7 +83,7 @@ public class TempUsage {
 				int g = (int) (0+(i+256/3)%256);
 				int b = (int) (0+(i+256*2/3)%256);
 				contentPane.setBackground(new Color(r, g, b));
-				p.setEXP(p.getEXP()+1);
+				p.setEXP(p.getEXP()+p.getLV());
 				f.repaint();
 			}
 		});
