@@ -5,33 +5,34 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashSet;
 
-import javax.swing.JComponent;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-public class ListComponent<T> extends JComponent implements Selectable<T>,MouseListener{
+public abstract class ListComponent<T> extends JPanel implements Selectable<T>,MouseListener{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private T content;
 	private boolean selected = false;
 	private boolean selectable = true;
 	private HashSet<SelectableListener<T>> selectedListeners =
 			new HashSet<SelectableListener<T>>();
 	private Color normalColor, selectedColor;
 	public ListComponent() {
+		super(null);
 		normalColor = getBackground();
+		if(normalColor==null)
+			normalColor = Color.LIGHT_GRAY;
 		selectedColor = normalColor.darker();
-	}
-	public void setContent(T content){
-		this.content = content;
+		this.addMouseListener(this);
 	}
 
 	@Override
 	public void select(boolean multiple) {
 		selected = true;
 		setBackground(selectedColor);
+		System.out.println("select "+content());
 		for(SelectableListener<T> l : selectedListeners)
 			l.itemSelected(this, multiple);
 	}
@@ -46,9 +47,12 @@ public class ListComponent<T> extends JComponent implements Selectable<T>,MouseL
 
 	@Override
 	public T content() {
-		return content;
+		return getContent();
 	}
 
+	public abstract void setContent(T content);
+	public abstract T getContent();
+	
 	@Override
 	public boolean isSelected() {
 		return selected;
@@ -56,7 +60,7 @@ public class ListComponent<T> extends JComponent implements Selectable<T>,MouseL
 
 	@Override
 	public boolean isSelectable() {
-		return selectable&&(content!=null);
+		return selectable&&(getContent()!=null);
 	}
 
 	@Override

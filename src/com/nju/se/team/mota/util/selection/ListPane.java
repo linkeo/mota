@@ -1,6 +1,8 @@
 package com.nju.se.team.mota.util.selection;
 
 import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -10,12 +12,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
-public class ListPane<T extends Component> extends JScrollPane implements SelectableList<T>{
+public class ListPane<T> extends JScrollPane implements SelectableList<T>{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	protected HashSet<ListComponent<T>> comps = 
+			new HashSet<ListComponent<T>>();
 	protected HashSet<Selectable<T>> items = 
 			new HashSet<Selectable<T>>();
 	protected HashSet<SelectionListener<T>> selectionListeners = 
@@ -27,6 +31,7 @@ public class ListPane<T extends Component> extends JScrollPane implements Select
 	protected JLabel head;
 	protected int horizontalGap = 10, verticalGap = 10;
 	private boolean multiSelectable = true;
+	private boolean toAdjust = true;
 
 	public ListPane(){
 		this(null);
@@ -49,11 +54,31 @@ public class ListPane<T extends Component> extends JScrollPane implements Select
 			this.setColumnHeaderView(head);
 		}
 	}
+	public void add(ListComponent<T> comp) {
+		addSelectableItem(comp);
+		view.add(comp);
+		comps.add(comp);
+		requireAdjustment();
+	}
+	public void remove(ListComponent<T> comp) {
+		removeSelectableItem(comp);
+		view.remove(comp);
+		comps.remove(comp);
+		requireAdjustment();
+	}
+	public void clear() {
+		for(ListComponent<T> c : comps)
+			remove(c);
+		for(Component c : view.getComponents())
+			remove(c);
+	}
 	@Override
 	public void itemSelected(Selectable<T> item, boolean multiple) {
 		selectedItem = item;
 		if(! (multiSelectable&&multiple) )
-			selectedItems.clear();
+			for(Selectable<T> i : items)
+				if(i!=item&&i.isSelected())
+					i.unselect(true);
 		if(! selectedItems.contains(item))
 			selectedItems.remove(item);
 		selectedItems.add(item);
@@ -63,7 +88,9 @@ public class ListPane<T extends Component> extends JScrollPane implements Select
 	public void itemUnselected(Selectable<T> item, boolean multiple) {
 		selectedItems.remove(item);
 		if(! (multiSelectable&&multiple) ){
-			selectedItems.clear();
+			for(Selectable<T> i : items)
+				if(i!=item&&i.isSelected()&&multiSelectable)
+					i.unselect(true);
 			selectedItem = null;
 		}else{
 			if(selectedItems.isEmpty())
@@ -145,6 +172,82 @@ public class ListPane<T extends Component> extends JScrollPane implements Select
 			itemsCopy.addAll(items);
 		}
 		return itemsCopy;
+	}
+	@Override
+	public void paint(Graphics g){
+		doLayout();
+		super.paint(g);
+	}
+	private void requireAdjustment() {
+		toAdjust = true;
+	}
+	private void requireAccepted() {
+		toAdjust = false;
+	}
+	private boolean isAdjustmentRequired() {
+		return toAdjust;
+	}
+	public int getHorizontalGap() {
+		return horizontalGap;
+	}
+	public void setHorizontalGap(int horizontalGap) {
+		if(this.horizontalGap != horizontalGap)
+			requireAdjustment();
+		this.horizontalGap = horizontalGap;
+	}
+	public int getVerticalGap() {
+		return verticalGap;
+	}
+	public void setVerticalGap(int verticalGap) {
+		if(this.verticalGap != verticalGap)
+			requireAdjustment();
+		this.verticalGap = verticalGap;
+	}
+	@Override
+	public void validate() {
+		requireAdjustment();
+		super.validate();
+	}
+	@Override
+	public void doLayout() {
+		super.doLayout();
+		if(!isAdjustmentRequired())
+			return;
+		requireAccepted();
+		adjustLayout();
+	}
+	private void adjustLayout() {
+		int LIST_WIDTH = getViewport().getSize().width;
+		if(!(LIST_WIDTH>0))
+			requireAdjustment();
+		Component[] comps = view.getComponents();
+		int n = comps.length;
+		int currentX = horizontalGap;
+		int currentY = verticalGap;
+		int currentBottom = verticalGap;
+		for(int i=0;i<n;i++){
+			Component temp = comps[i];
+			if(currentX+temp.getSize().width>LIST_WIDTH){
+				currentX = horizontalGap;
+				currentY = currentBottom + verticalGap;
+			}
+			temp.setLocation(currentX, currentY);
+			currentX += temp.getSize().width + horizontalGap;
+			currentBottom = Math.max(currentBottom, currentY + temp.getSize().height);
+		}
+		view.setSize(LIST_WIDTH, currentBottom+verticalGap);
+		view.setPreferredSize(view.getSize());
+	}
+	@Override
+	public void setSize(Dimension size) {
+		requireAdjustment();
+		super.setSize(size);
+	}
+	@Override
+	public void setSize(int width, int height) {
+		view.setSize(width-16, height-1);
+		requireAdjustment();
+		super.setSize(width, height);
 	}
 	
 }

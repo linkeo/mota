@@ -3,9 +3,9 @@ package com.nju.se.team.mota.editor.uielem;
 import javax.swing.JLabel;
 
 import com.nju.se.team.mota.temp.Dialogue;
-import com.nju.se.team.mota.util.ElemPanel;
+import com.nju.se.team.mota.util.selection.ListComponent;
 
-public class DialogueElem extends ElemPanel{
+public class DialogueElem extends ListComponent<Dialogue>{
 	
 	/**
 	 * 
@@ -17,7 +17,6 @@ public class DialogueElem extends ElemPanel{
 	JLabel sentence3;
 	Dialogue dialogue;
 	public DialogueElem(Dialogue dialogue) {
-		super(true);
 		this.dialogue = dialogue;
 		index = new JLabel();
 		index.setHorizontalAlignment(JLabel.CENTER);
@@ -41,6 +40,16 @@ public class DialogueElem extends ElemPanel{
 			add(sentence1);
 			sentence1.setBounds(50, 0, 230, 25);
 		}
+	}
+	@Override
+	@Deprecated
+	public void setContent(Dialogue content) {
+		this.dialogue = content;
+	}
+	@Override
+	@Deprecated
+	public Dialogue getContent() {
+		return dialogue;
 	}
 
 }

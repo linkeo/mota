@@ -6,6 +6,7 @@ import com.nju.se.team.mota.data.DataLoader;
 import com.nju.se.team.mota.editor.uielem.DialogueElem;
 import com.nju.se.team.mota.temp.Dialogue;
 import com.nju.se.team.mota.util.ListPanel;
+import com.nju.se.team.mota.util.selection.ListPane;
 
 public class DialogueEditPanel extends JPanel {
 
@@ -14,25 +15,26 @@ public class DialogueEditPanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	ListPanel dialogueListPanel;
+	ListPane<Dialogue> dialogueListPanel;
 	ListPanel sentenceListPanel;
 //	SentenceEditPanel
 	
 	public DialogueEditPanel() {
 		super(null);
 		
-		dialogueListPanel = new ListPanel("对话列表");
+		dialogueListPanel = new ListPane<Dialogue>("对话列表");
+		dialogueListPanel.setMultipleSelectable(false);
 		sentenceListPanel = new ListPanel("语句列表");
 		
 		add(dialogueListPanel);
 		add(sentenceListPanel);
 		
-		loadDialogues();
 		calcLayout();
+		loadDialogues();
 	}
 
 	private void loadDialogues() {
-		dialogueListPanel.removeAll();
+		dialogueListPanel.clear();
 		for(int i : DataLoader.getDialogueIndexs()){
 			Dialogue dialogue = Dialogue.make(DataLoader.getDialogueDefine(i));
 			dialogueListPanel.add(new DialogueElem(dialogue));
