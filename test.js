@@ -29,7 +29,7 @@ function check(){
 	}else{
 		if(player.getHP()>0){
 			util.println(player.getName()+"у╫й╓ак"+enemy.getName()+'.');
-			currentLevel.removeUnit(enemy);
+			enemy.setDead(true);
 			gift();
 		}
 		else{
