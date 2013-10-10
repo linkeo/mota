@@ -8,11 +8,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.swing.JLabel;
+
 import com.nju.se.team.mota.game.Save;
 import com.nju.se.team.mota.util.Fonts;
-import com.nju.se.team.mota.util.Selectable;
-import com.nju.se.team.mota.util.SelectableListener;
 import com.nju.se.team.mota.util.TransparentPanel;
+import com.nju.se.team.mota.util.selection.Selectable;
+import com.nju.se.team.mota.util.selection.SelectableListener;
 
 public class SaveElem extends TransparentPanel implements Selectable<Save>, MouseListener{
 

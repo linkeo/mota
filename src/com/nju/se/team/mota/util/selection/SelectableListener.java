@@ -1,4 +1,4 @@
-package com.nju.se.team.mota.util;
+package com.nju.se.team.mota.util.selection;
 
 import java.util.Collection;
 
@@ -57,6 +57,8 @@ public interface SelectableListener<T>{
 	
 	/**
 	 * <b>Get list of selected items</b><br>
+	 * <br>
+	 * <b>WARNING: Don't modify the collection!</b>
 	 * @return
 	 */
 	public Collection<Selectable<T>> getSelectedItems();
@@ -69,12 +71,12 @@ public interface SelectableListener<T>{
 	
 	/**
 	 * <b>select all selectable items of this list</b><br>
-	 * Call select(mutiple:true) of all items in implementation list.
+	 * Call select(mutiple=true) of all items in implementation list.
 	 */
 	public void selectAll();
 	/**
 	 * <b>unselect all selectable items of this list</b><br>
-	 * Call unselect(mutiple:true) of all items in implementation list.
+	 * Call unselect(mutiple=true) of all items in implementation list.
 	 */
 	public void unselectAll();
 	

@@ -1,4 +1,4 @@
-package com.nju.se.team.mota.util;
+package com.nju.se.team.mota.util.selection;
 
 public interface Selectable<T> {
 	/**

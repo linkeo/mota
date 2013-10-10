@@ -6,9 +6,9 @@ import java.util.Collection;
 import java.util.HashSet;
 
 import com.nju.se.team.mota.game.uielem.SaveElem;
-import com.nju.se.team.mota.util.Selectable;
-import com.nju.se.team.mota.util.SelectableListener;
 import com.nju.se.team.mota.util.TransparentListPanel;
+import com.nju.se.team.mota.util.selection.Selectable;
+import com.nju.se.team.mota.util.selection.SelectableListener;
 
 public class SaveListPanel extends TransparentListPanel implements SelectableListener<Save>{
 

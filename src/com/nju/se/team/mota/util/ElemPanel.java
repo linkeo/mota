@@ -4,11 +4,15 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
 
 
-
-public class ElemPanel extends JLayeredPane{
+/**
+ * 在一般的JPanel的基础上添加了鼠标事件变色, 选中功能
+ * @author Linkeo
+ *
+ */
+public class ElemPanel extends JPanel{
 	/**
 	 * 
 	 */
