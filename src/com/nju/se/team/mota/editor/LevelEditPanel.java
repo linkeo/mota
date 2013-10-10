@@ -314,7 +314,7 @@ public class LevelEditPanel extends JPanel implements MapItemListener{
 		}
 	}
 	/**
-	 * 硬布局
+	 * 调整布局
 	 */
 	private void calcLayout(){
 		mapview.setBounds(0, 0, 640, 640);

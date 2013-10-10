@@ -2,6 +2,7 @@
 abiotics=data\abiotic.json
 creatures=data\creature.json
 levels=data\level.json
+dialogues=data\dialogue.json
 script=test.js
 save=data\defaultsave.json
 [image]

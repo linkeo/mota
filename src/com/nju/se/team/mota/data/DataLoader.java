@@ -41,6 +41,12 @@ public class DataLoader {
 	 * 所有静物(非生物)的<种类名-JSON对象>的映射表
 	 */
 	private HashMap<String,JSONObject> abioticMap = new HashMap<String,JSONObject>();
+	
+	/**
+	 * TODO
+	 */
+	private HashMap<Integer,JSONObject> dialogueMap = new HashMap<Integer,JSONObject>();
+	
 	private DataLoader() {
 	}
 	private static DataLoader instance;
@@ -61,6 +67,10 @@ public class DataLoader {
 		JSONArray ls = new JSONArray(getFileContent(ResLoader.getDataFile("levels")));
 		for(int i=0;i<ls.length();++i){
 			instance.levelMap.put(ls.getJSONObject(i).getInt("level"), ls.getJSONObject(i));
+		}
+		JSONArray ds = new JSONArray(getFileContent(ResLoader.getDataFile("dialogues")));
+		for(int i=0;i<ds.length();++i){
+			instance.dialogueMap.put(ds.getJSONObject(i).getInt("id"), ds.getJSONObject(i));
 		}
 	}
 	/**
@@ -120,6 +130,14 @@ public class DataLoader {
 		return instance.levelMap.keySet();
 	}
 	/**
+	 * TODO
+	 * @return
+	 */
+	public static Set<Integer> getDialogueIndexs(){
+		if(instance==null)load();
+		return instance.dialogueMap.keySet();
+	}
+	/**
 	 * 以类型名获得生物类型的JSON定义
 	 * @param type 生物类型名
 	 * @return 生物类型定义的JSON对象, 不存在则返回null
@@ -145,6 +163,15 @@ public class DataLoader {
 	public static JSONObject getLevelDefine(int floor){
 		if(instance==null)load();
 		return instance.levelMap.get(floor);
+	}
+	/**
+	 * TODO
+	 * @param index
+	 * @return
+	 */
+	public static JSONObject getDialogueDefine(int index){
+		if(instance==null)load();
+		return instance.dialogueMap.get(index);
 	}
 	
 	/**

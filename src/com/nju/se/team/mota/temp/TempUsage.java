@@ -4,21 +4,14 @@ import java.io.FileNotFoundException;
 
 import javax.script.ScriptException;
 
+import com.nju.se.team.mota.data.DataLoader;
+
 
 public class TempUsage {
 	public static void main(String[] argss) throws FileNotFoundException, ScriptException, NoSuchMethodException {
-		for(int i=0;i<5;++i){
-			Dialogue d = new Dialogue();
-			d.addAll(new Sentence[]{
-				new Sentence("Jack", "Hey, Bill!"+randomPostfix()),
-				new Sentence("Bill", "Hi, Jack!"+randomPostfix()),
-				new Sentence("Jack", "Nothing, just call for fun."+randomPostfix())
-			});
-			d.setStart((int) (Math.random()*d.countSentence()+Dialogue.MINIMUM_ID));
+		for(int i : DataLoader.getDialogueIndexs()){
+			Dialogue d = Dialogue.make(DataLoader.getDialogueDefine(i));
 			System.out.println(d);
-			System.out.println(Dialogue.make(d.toJSONObject()));
-			
-			System.out.println();
 		}
 	}
 	public static String randomPostfix(){

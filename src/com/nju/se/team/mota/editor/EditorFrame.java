@@ -14,6 +14,7 @@ public class EditorFrame extends JFrame{
 	JTabbedPane tab = new JTabbedPane();
 	TypeDefinePanel tdp = new TypeDefinePanel();
 	LevelEditPanel lep = new LevelEditPanel();
+	DialogueEditPanel dep = new DialogueEditPanel();
 	/**
 	 * 构造方法<br>
 	 * 添加JTabbedPane<br>
@@ -24,6 +25,7 @@ public class EditorFrame extends JFrame{
 		add(tab);
 		tab.add(tdp, "类型定义");
 		tab.add(lep,"地图编辑");
+		tab.add(dep,"对话编辑");
 		pack();
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);

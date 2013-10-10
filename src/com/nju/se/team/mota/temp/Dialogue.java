@@ -37,7 +37,7 @@ public class Dialogue {
 		if(sentences.isEmpty())
 			setStart(sentence.getId());
 		boolean result = sentences.add(sentence);
-		Collections.sort(this.sentences);
+		sort();
 		return result;
 	}
 	public void addAll(Sentence[] sentences){
@@ -56,10 +56,13 @@ public class Dialogue {
 		for(Sentence s : sentences)
 			remove(s);
 	}
+	public void sort(){
+		Collections.sort(this.sentences);
+	}
 	
 	public boolean remove(Sentence sentence){
 		boolean result = sentences.remove(sentence);
-		Collections.sort(this.sentences);
+		sort();
 		return result;
 	}
 
@@ -71,7 +74,6 @@ public class Dialogue {
 	
 	public void load(JSONObject json){
 		setId(json.getInt("id"));
-		setStart(json.getInt("start"));
 		JSONArray sentencesInJSON = json.getJSONArray("sentences");
 		HashSet<Sentence> sentences = new HashSet<Sentence>();
 		for(int i=0;i<sentencesInJSON.length();++i)
@@ -81,6 +83,7 @@ public class Dialogue {
 				)
 			);
 		setSentences(sentences);
+		setStart(json.getInt("start"));
 	}
 	public JSONObject toJSONObject(){
 		JSONObject json = new JSONObject(this);
@@ -120,7 +123,7 @@ public class Dialogue {
 		}
 		return str;
 	}
-	public double countSentence() {
+	public int countSentence() {
 		return sentences.size();
 	}
 }

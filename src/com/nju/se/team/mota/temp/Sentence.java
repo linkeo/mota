@@ -11,10 +11,6 @@ public class Sentence implements Comparable<Sentence>{
 	 */
 	private int id = Dialogue.FREE_ID;
 	/**
-	 * 语句的阐述者
-	 */
-	private String talker;
-	/**
 	 * 语句的内容, 即显示部分
 	 */
 	private String content;
@@ -40,8 +36,7 @@ public class Sentence implements Comparable<Sentence>{
 		if(dialogue!=null)
 			dialogue.add(this);
 	}
-	public Sentence(String talker, String content){
-		setTalker(talker);
+	public Sentence(String content){
 		setContent(content);
 	}
 	
@@ -65,7 +60,6 @@ public class Sentence implements Comparable<Sentence>{
 	
 	public void load(JSONObject json){
 		setId(json.getInt("id"));
-		setTalker(json.getString("talker"));
 		setContent(json.getString("content"));
 		setOptional(json.getBoolean("optional"));
 		if(optional){
@@ -133,12 +127,6 @@ public class Sentence implements Comparable<Sentence>{
 	}
 	@Override
 	public String toString() {
-		return "["+id+']'+talker+'>'+content.replace('\n', '>');
-	}
-	public String getTalker() {
-		return talker;
-	}
-	public void setTalker(String talker) {
-		this.talker = talker;
+		return "["+id+']'+'>'+content.replace('\n', '>');
 	}
 }
