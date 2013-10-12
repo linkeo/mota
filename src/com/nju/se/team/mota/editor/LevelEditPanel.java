@@ -27,10 +27,6 @@ import org.json.JSONObject;
 import com.nju.se.team.mota.data.DataLoader;
 import com.nju.se.team.mota.data.LevelLoader;
 import com.nju.se.team.mota.editor.uielem.MapElem;
-import com.nju.se.team.mota.editor.uielem.SettingComboElem;
-import com.nju.se.team.mota.editor.uielem.SettingIntegerElem;
-import com.nju.se.team.mota.editor.uielem.SettingPointItem;
-import com.nju.se.team.mota.editor.uielem.SettingTextElem;
 import com.nju.se.team.mota.editor.uielem.UnitElem;
 import com.nju.se.team.mota.game.Level;
 import com.nju.se.team.mota.game.unit.Abiotic;
@@ -39,6 +35,10 @@ import com.nju.se.team.mota.game.unit.Unit;
 import com.nju.se.team.mota.game.util.TypeEnum;
 import com.nju.se.team.mota.util.ListPanel;
 import com.nju.se.team.mota.util.Warning;
+import com.nju.se.team.mota.util.ui.setting.SettingComboElem;
+import com.nju.se.team.mota.util.ui.setting.SettingIntegerElem;
+import com.nju.se.team.mota.util.ui.setting.SettingPointItem;
+import com.nju.se.team.mota.util.ui.setting.SettingTextElem;
 /**
  * µØÍ¼±à¼­Ãæ°å
  * @author linkeo

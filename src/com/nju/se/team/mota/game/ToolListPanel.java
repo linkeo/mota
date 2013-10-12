@@ -83,7 +83,7 @@ public class ToolListPanel extends TransparentListPanel implements SelectableLis
 	public Tool getSelectedContent() {
 		Tool content = null;
 		if(selectedItem != null)
-			content = selectedItem.content();
+			content = selectedItem.getContent();
 		return content;
 	}
 
@@ -96,7 +96,7 @@ public class ToolListPanel extends TransparentListPanel implements SelectableLis
 	public Collection<Tool> getSelectedContents() {
 		HashSet<Tool> contents = new HashSet<Tool>();
 		for(Selectable<Tool> i : selectedItems)
-			contents.add(i.content());
+			contents.add(i.getContent());
 		return contents;
 	}
 

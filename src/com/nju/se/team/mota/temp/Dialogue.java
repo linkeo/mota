@@ -102,6 +102,7 @@ public class Dialogue {
 		MAX_ID = Math.max(MAX_ID, id);
 	}
 	public ArrayList<Sentence> getSentences() {
+		sort();
 		return sentences;
 	}
 	public void setSentences(Collection<Sentence> sentences) {

@@ -25,7 +25,7 @@ public class SaveElem extends TransparentPanel implements Selectable<Save>, Mous
 	JLabel lv, name, floor, saveTime;
 	boolean selected;
 	Set<SelectableListener<Save>> selectableListeners = new HashSet<SelectableListener<Save>>();
-	private void setSelected(boolean selected) {
+	public void setSelected(boolean selected) {
 		this.selected = selected;
 	}
 	boolean selectable;
@@ -106,7 +106,7 @@ public class SaveElem extends TransparentPanel implements Selectable<Save>, Mous
 			i.itemUnselected(this, multiple);
 	}
 	@Override
-	public Save content() {
+	public Save getContent() {
 		return getSave();
 	}
 	@Override

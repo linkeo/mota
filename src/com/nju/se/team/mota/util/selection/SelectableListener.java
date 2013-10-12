@@ -14,7 +14,8 @@ public interface SelectableListener<T>{
 	 * &nbsp&nbsp&nbsp&nbsp
 	 * If so, add this item to list of selected items,<br>
 	 * &nbsp&nbsp&nbsp&nbsp
-	 * else, clear the list and add this item.
+	 * else, clear the list and add this item.<br>
+	 * last, tell all listener that a item is selected.
 	 * 
 	 *
 	 * @param item Item selected.
@@ -31,7 +32,8 @@ public interface SelectableListener<T>{
 	 * &nbsp&nbsp&nbsp&nbsp
 	 * If <b>not</b> so, clear the list and mark selected item as <b>null</b>,<br>
 	 * &nbsp&nbsp&nbsp&nbsp
-	 * else, mark selected item as the last item of list, if list is empty it marks <b>null</b>.
+	 * else, mark selected item as the last item of list, if list is empty it marks <b>null</b>.<br>
+	 * last, tell all listener that a item is unselected.
 	 *
 	 * @param item Item unselected.
 	 * @param multiple Is this action a multiple selection

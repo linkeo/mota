@@ -29,11 +29,6 @@ import com.nju.se.team.mota.data.ImageLoader;
 import com.nju.se.team.mota.editor.uielem.ActionElem;
 import com.nju.se.team.mota.editor.uielem.FrameElem;
 import com.nju.se.team.mota.editor.uielem.ResElem;
-import com.nju.se.team.mota.editor.uielem.SettingCheckElem;
-import com.nju.se.team.mota.editor.uielem.SettingComboElem;
-import com.nju.se.team.mota.editor.uielem.SettingIntegerElem;
-import com.nju.se.team.mota.editor.uielem.SettingPointItem;
-import com.nju.se.team.mota.editor.uielem.SettingTextElem;
 import com.nju.se.team.mota.editor.uielem.StatusElem;
 import com.nju.se.team.mota.game.unit.Abiotic;
 import com.nju.se.team.mota.game.unit.Creature;
@@ -44,6 +39,11 @@ import com.nju.se.team.mota.game.util.UnitStatus;
 import com.nju.se.team.mota.util.ElemPanel;
 import com.nju.se.team.mota.util.ListPanel;
 import com.nju.se.team.mota.util.Warning;
+import com.nju.se.team.mota.util.ui.setting.SettingCheckElem;
+import com.nju.se.team.mota.util.ui.setting.SettingComboElem;
+import com.nju.se.team.mota.util.ui.setting.SettingIntegerElem;
+import com.nju.se.team.mota.util.ui.setting.SettingPointItem;
+import com.nju.se.team.mota.util.ui.setting.SettingTextElem;
 /**
  * Unit对象定义面板
  * @author linkeo

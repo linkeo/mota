@@ -78,7 +78,7 @@ public class SaveListPanel extends TransparentListPanel implements SelectableLis
 	public Save getSelectedContent() {
 		Save content = null;
 		if(selectedItem != null)
-			content = selectedItem.content();
+			content = selectedItem.getContent();
 		return content;
 	}
 
@@ -91,7 +91,7 @@ public class SaveListPanel extends TransparentListPanel implements SelectableLis
 	public Collection<Save> getSelectedContents() {
 		HashSet<Save> contents = new HashSet<Save>();
 		for(Selectable<Save> i : selectedItems)
-			contents.add(i.content());
+			contents.add(i.getContent());
 		return contents;
 	}
 

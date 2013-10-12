@@ -19,6 +19,7 @@ public abstract class ListComponent<T> extends JPanel implements Selectable<T>,M
 	private HashSet<SelectableListener<T>> selectedListeners =
 			new HashSet<SelectableListener<T>>();
 	private Color normalColor, selectedColor;
+	private T content;
 	public ListComponent() {
 		super(null);
 		normalColor = getBackground();
@@ -30,32 +31,44 @@ public abstract class ListComponent<T> extends JPanel implements Selectable<T>,M
 
 	@Override
 	public void select(boolean multiple) {
-		selected = true;
-		setBackground(selectedColor);
-		System.out.println("select "+content());
+		setSelected(true);
 		for(SelectableListener<T> l : selectedListeners)
 			l.itemSelected(this, multiple);
 	}
 
 	@Override
 	public void unselect(boolean multiple) {
-		selected = false;
-		setBackground(normalColor);
+		setSelected(false);
 		for(SelectableListener<T> l : selectedListeners)
 			l.itemUnselected(this, multiple);
 	}
 
 	@Override
-	public T content() {
-		return getContent();
+	public T getContent() {
+		return content;
 	}
 
-	public abstract void setContent(T content);
-	public abstract T getContent();
+	public void setContent(T content){
+		this.content = content;
+	}
 	
 	@Override
 	public boolean isSelected() {
 		return selected;
+	}
+	@Override
+	public void setSelected(boolean selected) {
+		this.selected = selected;
+		if(selected)
+			setStyleToSelected();
+		else
+			setStyleToNormal();
+	}
+	public void setStyleToNormal(){
+		setBackground(normalColor);
+	}
+	public void setStyleToSelected(){
+		setBackground(selectedColor);
 	}
 
 	@Override

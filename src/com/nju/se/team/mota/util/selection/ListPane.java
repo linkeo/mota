@@ -68,29 +68,36 @@ public class ListPane<T> extends JScrollPane implements SelectableList<T>{
 	}
 	public void clear() {
 		for(ListComponent<T> c : comps)
-			remove(c);
-		for(Component c : view.getComponents())
-			remove(c);
+			removeSelectableItem(c);
+		comps.clear();
+		view.removeAll();
+		requireAdjustment();
 	}
+	
 	@Override
 	public void itemSelected(Selectable<T> item, boolean multiple) {
 		selectedItem = item;
-		if(! (multiSelectable&&multiple) )
-			for(Selectable<T> i : items)
-				if(i!=item&&i.isSelected())
-					i.unselect(true);
+		if(! (multiSelectable&&multiple) ){
+			for(Selectable<T> i : selectedItems)
+				if(i!=item)
+					i.setSelected(false);
+			selectedItems.clear();
+		}
 		if(! selectedItems.contains(item))
 			selectedItems.remove(item);
 		selectedItems.add(item);
+		for(SelectionListener<T> l : selectionListeners)
+			l.itemSelected(item, multiple, this);
 	}
 
 	@Override
 	public void itemUnselected(Selectable<T> item, boolean multiple) {
 		selectedItems.remove(item);
 		if(! (multiSelectable&&multiple) ){
-			for(Selectable<T> i : items)
-				if(i!=item&&i.isSelected()&&multiSelectable)
-					i.unselect(true);
+			for(Selectable<T> i : selectedItems)
+				if(i!=item)
+					i.setSelected(false);
+			selectedItems.clear();
 			selectedItem = null;
 		}else{
 			if(selectedItems.isEmpty())
@@ -98,6 +105,8 @@ public class ListPane<T> extends JScrollPane implements SelectableList<T>{
 			else
 				selectedItem = selectedItems.get(selectedItems.size()-1);
 		}
+		for(SelectionListener<T> l : selectionListeners)
+			l.itemUnselected(item, multiple, this);
 	}
 
 	@Override
@@ -107,7 +116,7 @@ public class ListPane<T> extends JScrollPane implements SelectableList<T>{
 
 	@Override
 	public T getSelectedContent() {
-		return selectedItem.content();
+		return selectedItem.getContent();
 	}
 
 	ArrayList<Selectable<T>> selectedItemsCopy = new ArrayList<Selectable<T>>();
@@ -128,7 +137,7 @@ public class ListPane<T> extends JScrollPane implements SelectableList<T>{
 			selectedItemsCopy.addAll(selectedItems);
 			selectedContents.clear();
 			for(Selectable<T> item : selectedItems)
-				selectedContents.add(item.content());
+				selectedContents.add(item.getContent());
 		}
 		return selectedContents;
 	}
@@ -248,6 +257,14 @@ public class ListPane<T> extends JScrollPane implements SelectableList<T>{
 		view.setSize(width-16, height-1);
 		requireAdjustment();
 		super.setSize(width, height);
+	}
+	@Override
+	public void addSelectionListener(SelectionListener<T> listener) {
+		selectionListeners.add(listener);
+	}
+	@Override
+	public void removeSelectionListener(SelectionListener<T> listener) {
+		selectionListeners.remove(listener);
 	}
 	
 }

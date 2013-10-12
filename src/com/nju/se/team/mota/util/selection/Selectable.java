@@ -26,7 +26,7 @@ public interface Selectable<T> {
 	 * <b>Get the content of selected item.</b>
 	 * @return
 	 */
-	public T content();
+	public T getContent();
 	
 	/**
 	 * <b>Tell whether the item is selected.</b>
@@ -48,6 +48,11 @@ public interface Selectable<T> {
 	 * @param selectable
 	 */
 	public void setSelectable(boolean selectable);
+	/**
+	 * Set selection status
+	 * @param selected
+	 */
+	public void setSelected(boolean selected);
 	
 	public void addSelectableListener(SelectableListener<T> l);
 	public void removeSelectableListener(SelectableListener<T> l);

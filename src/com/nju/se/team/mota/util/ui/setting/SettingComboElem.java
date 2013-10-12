@@ -1,4 +1,4 @@
-package com.nju.se.team.mota.editor.uielem;
+package com.nju.se.team.mota.util.ui.setting;
 
 import java.util.Collection;
 import java.util.Vector;

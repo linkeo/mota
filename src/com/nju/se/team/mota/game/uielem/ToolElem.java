@@ -11,8 +11,6 @@ import javax.swing.ImageIcon;
 
 import com.nju.se.team.mota.game.GameRuntime;
 import com.nju.se.team.mota.game.unit.Tool;
-import com.nju.se.team.mota.game.util.Condition;
-import com.nju.se.team.mota.script.MotaScript;
 import com.nju.se.team.mota.util.TransparentLabel;
 import com.nju.se.team.mota.util.selection.Selectable;
 import com.nju.se.team.mota.util.selection.SelectableListener;
@@ -26,9 +24,7 @@ public class ToolElem extends TransparentLabel implements Selectable<Tool>, Mous
 
 	boolean selected;
 	Set<SelectableListener<Tool>> selectableListeners = new HashSet<SelectableListener<Tool>>();
-	private void setSelected(boolean selected) {
-		this.selected = selected;
-	}
+
 	boolean selectable;
 	boolean initialized = false;
 	private Tool tool;
@@ -72,7 +68,7 @@ public class ToolElem extends TransparentLabel implements Selectable<Tool>, Mous
 			i.itemUnselected(this, multiple);
 	}
 	@Override
-	public Tool content() {
+	public Tool getContent() {
 		return getTool();
 	}
 	@Override
@@ -133,6 +129,11 @@ public class ToolElem extends TransparentLabel implements Selectable<Tool>, Mous
 
 	public void setTool(Tool tool) {
 		this.tool = tool;
+	}
+
+	@Override
+	public void setSelected(boolean selected) {
+		this.selected = selected;
 	}
 
 }

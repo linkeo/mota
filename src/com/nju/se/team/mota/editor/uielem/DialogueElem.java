@@ -15,9 +15,8 @@ public class DialogueElem extends ListComponent<Dialogue>{
 	JLabel sentence1;
 	JLabel sentence2;
 	JLabel sentence3;
-	Dialogue dialogue;
 	public DialogueElem(Dialogue dialogue) {
-		this.dialogue = dialogue;
+		setContent(dialogue);
 		index = new JLabel();
 		index.setHorizontalAlignment(JLabel.CENTER);
 		int size = Math.min(dialogue.countSentence(), 3);
@@ -40,16 +39,6 @@ public class DialogueElem extends ListComponent<Dialogue>{
 			add(sentence1);
 			sentence1.setBounds(50, 0, 230, 25);
 		}
-	}
-	@Override
-	@Deprecated
-	public void setContent(Dialogue content) {
-		this.dialogue = content;
-	}
-	@Override
-	@Deprecated
-	public Dialogue getContent() {
-		return dialogue;
 	}
 
 }
