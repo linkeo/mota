@@ -122,9 +122,9 @@
     {
         "DEF": 5,
         "buddyType": "none",
-        "EXP": 5,
+        "EXP": 8,
         "action": {"crash": "fight()"},
-        "money": 5,
+        "money": 8,
         "sprites": {"normal": {
             "loopCount": 0,
             "images": [
@@ -134,9 +134,9 @@
                 [["enemy02_0x3"]]
             ]
         }},
-        "HP": 20,
+        "HP": 50,
         "type": "小蝙蝠",
-        "ATK": 5,
+        "ATK": 20,
         "dead": false,
         "size": [
             1,
@@ -144,20 +144,24 @@
         ]
     },
     {
-        "DEF": 15,
+        "DEF": 10,
         "buddyType": "none",
         "EXP": 10,
         "action": {"crash": "fight()"},
         "money": 10,
-        "sprites": {"normal": {"images": [
-            [["enemy03_0x0"]],
-            [["enemy03_0x1"]],
-            [["enemy03_0x2"]],
-            [["enemy03_0x3"]]
-        ]}},
-        "HP": 100,
-        "ATK": 30,
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [
+                [["enemy03_0x0"]],
+                [["enemy03_0x1"]],
+                [["enemy03_0x2"]],
+                [["enemy03_0x3"]]
+            ]
+        }},
+        "HP": 60,
         "type": "骷髅",
+        "ATK": 25,
+        "dead": false,
         "size": [
             1,
             1
@@ -1167,20 +1171,24 @@
         ]
     },
     {
-        "DEF": 20,
+        "DEF": 2,
         "buddyType": "none",
-        "sprites": {"normal": {"images": [
-            [["enemy09_1x0"]],
-            [["enemy09_1x1"]],
-            [["enemy09_1x2"]],
-            [["enemy09_1x3"]]
-        ]}},
-        "money": 30,
+        "EXP": 6,
         "action": {"crash": "fight()"},
-        "EXP": 30,
-        "HP": 60,
+        "money": 6,
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [
+                [["enemy09_1x0"]],
+                [["enemy09_1x1"]],
+                [["enemy09_1x2"]],
+                [["enemy09_1x3"]]
+            ]
+        }},
+        "HP": 40,
         "type": "火史莱姆",
-        "ATK": 30,
+        "ATK": 18,
+        "dead": false,
         "size": [
             1,
             1
@@ -1441,26 +1449,6 @@
         ]
     },
     {
-        "DEF": 5,
-        "buddyType": "none",
-        "sprites": {"normal": {"images": [
-            [["enemy09_0x0"]],
-            [["enemy09_0x1"]],
-            [["enemy09_0x2"]],
-            [["enemy09_0x3"]]
-        ]}},
-        "money": 10,
-        "action": {"crash": "fight()"},
-        "EXP": 15,
-        "HP": 20,
-        "type": "小史莱姆",
-        "ATK": 20,
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
         "DEF": 400,
         "buddyType": "none",
         "EXP": 300,
@@ -1475,6 +1463,30 @@
         "HP": 600,
         "ATK": 200,
         "type": "石头人",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "DEF": 5,
+        "buddyType": "none",
+        "EXP": 6,
+        "action": {"crash": "fight()"},
+        "money": 6,
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [
+                [["enemy09_0x0"]],
+                [["enemy09_0x1"]],
+                [["enemy09_0x2"]],
+                [["enemy09_0x3"]]
+            ]
+        }},
+        "HP": 40,
+        "type": "小史莱姆",
+        "ATK": 15,
+        "dead": false,
         "size": [
             1,
             1

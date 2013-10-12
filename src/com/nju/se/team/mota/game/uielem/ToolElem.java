@@ -11,8 +11,6 @@ import javax.swing.ImageIcon;
 
 import com.nju.se.team.mota.game.GameRuntime;
 import com.nju.se.team.mota.game.unit.Tool;
-import com.nju.se.team.mota.game.util.Condition;
-import com.nju.se.team.mota.script.MotaScript;
 import com.nju.se.team.mota.util.Selectable;
 import com.nju.se.team.mota.util.SelectableListener;
 import com.nju.se.team.mota.util.TransparentLabel;

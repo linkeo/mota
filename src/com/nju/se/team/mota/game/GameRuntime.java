@@ -44,7 +44,7 @@ public class GameRuntime{
 			}
 			for(Unit u : toRemove){
 				currLevel.removeUnit(u);
-				System.out.println("Remove "+u.getName());
+				GamingLevels.removeUnit(u);
 			}
 			
 		}
@@ -75,7 +75,6 @@ public class GameRuntime{
 		gameUpdateTimer.start();
 	}
 	public static void startPaintLoop(){
-		System.out.println("START LOOP TIMER");
 		looping = true;
 	}
 	public static void stopPaintLoop(){
@@ -211,7 +210,6 @@ public class GameRuntime{
 					MotaScript.put("enemy", c);
 					MotaScript.put("source", c);
 					MotaScript.eval(c.getAction().get(Condition.CRASH));
-//					System.out.println(c.getName()+">>"+c.getAction().get(Condition.CRASH));
 				}
 				canMove = false;
 			}
@@ -223,7 +221,6 @@ public class GameRuntime{
 					MotaScript.put("source", a);
 					MotaScript.put("level", currLevel);
 					MotaScript.eval(a.getAction().get(Condition.CRASH));
-//					System.out.println(a.getName()+">>"+a.getAction().get(Condition.CRASH));
 				}
 				if(!a.isCanGoThrough())
 					canMove = false;

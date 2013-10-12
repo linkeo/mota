@@ -97,7 +97,6 @@ public class GamePanel extends JPanel implements PlayerListener{
 						private static final long serialVersionUID = 1L;
 						@Override
 						public void mouseClicked(MouseEvent e) {
-							// TODO Auto-generated method stub
 							super.mouseClicked(e);
 							toolHintPanel.setVisible(false);
 						}
@@ -323,7 +322,6 @@ public class GamePanel extends JPanel implements PlayerListener{
 	}
 	@Override
 	public void toolChanged(Player p) {
-		System.out.println("tools: "+p.getTools());
 		toolsPanel.removeAll();
 		for(final Tool tool: player.getTools())
 			toolsPanel.add(new ToolElem(tool){

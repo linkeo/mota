@@ -239,11 +239,9 @@ public class MapPanel extends JPanel implements MapDropListener, MouseMotionList
 		int w = u.getSize()[0];
 		int h = u.getSize()[1];
 		if(x<0||y<0){
-			System.out.println("out of bound");
 			return false;
 		}
 		if(x+w>col||y+h>row){
-				System.out.println("out of bound");
 			return false;
 		}
 		Rectangle r = new Rectangle(x, y, w, h);

@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import com.nju.se.team.mota.data.ResLoader;
+import com.nju.se.team.mota.data.SaveLoader;
 import com.nju.se.team.mota.game.uielem.SaveElem;
 import com.nju.se.team.mota.util.Fonts;
 import com.nju.se.team.mota.util.ImageHandler;
@@ -72,16 +73,18 @@ public class SavePanel extends JPanel{
 			setComponentZOrder(delete, z++);
 			setComponentZOrder(bgLabel, z++);
 			
-			for(int i=0;i<10;i++){
-				saveListPanel.add(new SaveElem(Save.newSave("Íæ¼Ò"+i)));
-			}
-			
+			loadSaves();
 			addListeners();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
+	private void loadSaves() {
+		for(Save s : SaveLoader.getAllSaves())
+			saveListPanel.add(new SaveElem(s));
+	}
+
 	private void addListeners(){
 		back.addActionListener(new ActionListener() {
 			@Override

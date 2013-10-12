@@ -5,20 +5,27 @@ function fight(){
 	/* player, enemy is global input from jvm */
 	var atker = player;
 	var atked = enemy;
-	do{
-		if(surrender==true){
-			surrender = false;
-			return;
-		}
-		attack(atker, atked);
-		var result = check();
-		if(result){
-			sleep();
-			var temp = atker;
-			atker = atked;
-			atked = temp;
-		}
-	}while(result);
+	if(player.getATK()<=enemy.getDEF())
+		return false;
+	else if((player.getATK() - enemy.getDEF()) * player.getHP() <= 
+		(enemy.getATK() - player.getDEF()) * enemy.getHP() )
+		return false;
+	else{
+		do{
+			if(surrender==true){
+				surrender = false;
+				return;
+			}
+			attack(atker, atked);
+			var result = check();
+			if(result){
+				sleep();
+				var temp = atker;
+				atker = atked;
+				atked = temp;
+			}
+		}while(result);
+	}
 	
 }
 
@@ -177,7 +184,8 @@ function open(color){
 		break;
 	}
 }
-
+function talk(){
+}
 function hpup(hp){
 	player.setHP(player.getHP()+hp);
 }

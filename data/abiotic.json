@@ -115,11 +115,11 @@
         "buddyType": "none",
         "sprites": {"normal": {
             "loopCount": 0,
-            "images": [[["item2_1x3"]]]
+            "images": [[["item2_0x0"]]]
         }},
-        "action": {"crash": "hpup(800);disappear();"},
+        "action": {"crash": "atkup(3);disappear();"},
         "dead": false,
-        "type": "»ÆÒ©Ë®",
+        "type": "ºì±¦Ê¯",
         "size": [
             1,
             1
@@ -130,11 +130,11 @@
         "buddyType": "none",
         "sprites": {"normal": {
             "loopCount": 0,
-            "images": [[["item2_0x0"]]]
+            "images": [[["item2_1x3"]]]
         }},
-        "action": {"crash": "atkup(3);disappear();"},
+        "action": {"crash": "hpup(800);disappear();"},
         "dead": false,
-        "type": "ºì±¦Ê¯",
+        "type": "»ÆÒ©Ë®",
         "size": [
             1,
             1
@@ -154,28 +154,13 @@
     {
         "canGoThrough": true,
         "buddyType": "none",
+        "action": {"crash": "hpup(100);disappear();"},
         "sprites": {"normal": {
             "loopCount": 0,
             "images": [[["item2_1x0"]]]
         }},
-        "action": {"crash": "hpup(100);disappear();"},
-        "dead": false,
         "type": "ºìÒ©Ë®",
-        "size": [
-            1,
-            1
-        ]
-    },
-    {
-        "canGoThrough": true,
-        "buddyType": "none",
-        "sprites": {"normal": {
-            "loopCount": 0,
-            "images": [[["item1_0x2"]]]
-        }},
-        "action": {"crash": "get()"},
         "dead": false,
-        "type": "ºìÔ¿³×",
         "size": [
             1,
             1
@@ -191,6 +176,21 @@
         "action": {"crash": "defup(3);disappear();"},
         "dead": false,
         "type": "À¶±¦Ê¯",
+        "size": [
+            1,
+            1
+        ]
+    },
+    {
+        "canGoThrough": true,
+        "buddyType": "none",
+        "sprites": {"normal": {
+            "loopCount": 0,
+            "images": [[["item1_0x2"]]]
+        }},
+        "action": {"crash": "get()"},
+        "dead": false,
+        "type": "ºìÔ¿³×",
         "size": [
             1,
             1

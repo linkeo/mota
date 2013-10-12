@@ -28,7 +28,6 @@ public class LevelJumpDialog extends JDialog implements ActionListener{
 		setContentPane(panel);
 		floors = GamingLevels.getVisitedLevels();
 		for(int i : floors){
-			System.out.println(i);
 			LevelSelectElem lse = new LevelSelectElem(i);
 			lse.addActionListener(this);
 			panel.add(lse);

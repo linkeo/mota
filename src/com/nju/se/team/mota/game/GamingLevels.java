@@ -21,7 +21,6 @@ public class GamingLevels {
 	private Map<String, Creature> creatures = new HashMap<String, Creature>();
 	private int currentLevel;
 	private static final GamingLevels instance = new GamingLevels();
-	private static boolean refreshed = false;
 	private GamingLevels() {
 	}
 
@@ -39,14 +38,12 @@ public class GamingLevels {
 		for(int i : DataLoader.getLevelFloors()){
 			Level l = Level.make(DataLoader.getLevelDefine(i));
 			levels.put(i, l);
-			System.out.println("Put new level "+i);
 			for(Abiotic a: l.getAbiotics())
 				abiotics.put(a.getName(), a);
 			for(Creature c: l.getCreatures())
 				creatures.put(c.getName(), c);
 		}
 		setCurrentLevel(1);
-		refreshed = true;
 	}
 	private void loadSaveOnly(Save save){
 		for(Level i : save.getLevels()){
@@ -71,16 +68,8 @@ public class GamingLevels {
 	}
 	
 	//MARK: about level
-	private static Level currentLevelObject;
 	public static Level getLevel(int floor){
-		if(currentLevelObject==null ||
-				currentLevelObject.getLevel()!=floor || refreshed){
-			currentLevelObject = instance.levels.get(floor);
-			if(instance.levels.containsKey(floor))
-				currentLevelObject = currentLevelObject.clone();
-			refreshed = false;
-		}
-		return currentLevelObject;
+		return instance.levels.get(floor);
 	}
 	public static ArrayList<Integer> floors() {
 		ArrayList<Integer> floors = new ArrayList<Integer>(instance.levels.keySet());
@@ -182,5 +171,10 @@ public class GamingLevels {
 
 	public static void setVisitedLevels(Set<Integer> visitedLevels) {
 		instance.visitedLevels = visitedLevels;
+	}
+
+	public static void removeUnit(Unit u) {
+		instance.abiotics.remove(u);
+		instance.creatures.remove(u);
 	}
 }

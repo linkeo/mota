@@ -3,297 +3,22 @@
         "abiotics": [
             {
                 "position": [
-                    6,
-                    10
+                    4,
+                    15
                 ],
                 "floor": 1,
-                "name": "黄钥匙_599757",
-                "type": "黄钥匙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    9,
-                    7
-                ],
-                "floor": 1,
-                "name": "黄药水_145922",
-                "type": "黄药水",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    12,
-                    10
-                ],
-                "floor": 1,
-                "name": "黄钥匙_190650",
-                "type": "黄钥匙",
+                "name": "红药水_393419",
+                "type": "红药水",
                 "dead": false,
                 "currStatus": "normal"
             },
             {
                 "position": [
                     8,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_414481",
-                "type": "土墙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    7,
-                    6
-                ],
-                "floor": 1,
-                "name": "蓝宝石_536045",
-                "type": "蓝宝石",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    7,
-                    9
-                ],
-                "floor": 1,
-                "name": "金币_110601",
-                "type": "金币",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    8,
-                    10
-                ],
-                "floor": 1,
-                "name": "黄钥匙_670666",
-                "type": "黄钥匙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    12,
-                    9
-                ],
-                "floor": 1,
-                "name": "金币_635077",
-                "type": "金币",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    8,
-                    7
-                ],
-                "floor": 1,
-                "name": "绿药水_783528",
-                "type": "绿药水",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    11,
-                    9
-                ],
-                "floor": 1,
-                "name": "金币_348362",
-                "type": "金币",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    8,
-                    6
-                ],
-                "floor": 1,
-                "name": "绿宝石_273711",
-                "type": "绿宝石",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    9,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_101081",
-                "type": "土墙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    7,
-                    12
-                ],
-                "floor": 1,
-                "name": "蓝钥匙_426705",
-                "type": "蓝钥匙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    13,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_214933",
-                "type": "土墙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    7,
-                    1
-                ],
-                "floor": 1,
-                "name": "黄门_127202",
-                "type": "黄门",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    10,
-                    10
-                ],
-                "floor": 1,
-                "name": "黄钥匙_343799",
-                "type": "黄钥匙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    1,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_885365",
-                "type": "土墙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    9,
-                    10
-                ],
-                "floor": 1,
-                "name": "黄钥匙_380306",
-                "type": "黄钥匙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    8,
-                    9
-                ],
-                "floor": 1,
-                "name": "金币_774789",
-                "type": "金币",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    3,
                     0
                 ],
                 "floor": 1,
-                "name": "疾风鞋_298910",
-                "type": "疾风鞋",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    6,
-                    9
-                ],
-                "floor": 1,
-                "name": "金币_953821",
-                "type": "金币",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    9,
-                    9
-                ],
-                "floor": 1,
-                "name": "金币_620044",
-                "type": "金币",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    6,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_552942",
-                "type": "土墙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    8,
-                    12
-                ],
-                "floor": 1,
-                "name": "蓝钥匙_810747",
-                "type": "蓝钥匙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    10,
-                    9
-                ],
-                "floor": 1,
-                "name": "金币_818855",
-                "type": "金币",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    11,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_193652",
-                "type": "土墙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    2,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_501402",
+                "name": "土墙_773277",
                 "type": "土墙",
                 "dead": false,
                 "currStatus": "normal"
@@ -301,132 +26,22 @@
             {
                 "position": [
                     4,
-                    1
+                    10
                 ],
                 "floor": 1,
-                "name": "土墙_706970",
+                "name": "土墙_814258",
                 "type": "土墙",
                 "dead": false,
                 "currStatus": "normal"
             },
             {
                 "position": [
-                    10,
-                    1
-                ],
-                "floor": 1,
-                "name": "红门_528853",
-                "type": "红门",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    0,
-                    3
-                ],
-                "floor": 1,
-                "name": "铁镐_182108",
-                "type": "铁镐",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    3,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_690711",
-                "type": "土墙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    5,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_968494",
-                "type": "土墙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    9,
-                    6
-                ],
-                "floor": 1,
-                "name": "黄宝石_819571",
-                "type": "黄宝石",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    6,
+                    11,
                     12
                 ],
                 "floor": 1,
-                "name": "蓝钥匙_659728",
-                "type": "蓝钥匙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    7,
-                    7
-                ],
-                "floor": 1,
-                "name": "蓝药水_669112",
-                "type": "蓝药水",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    15,
-                    1
-                ],
-                "floor": 1,
-                "name": "土墙_556659",
+                "name": "土墙_154666",
                 "type": "土墙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    12,
-                    1
-                ],
-                "floor": 1,
-                "name": "蓝门_970886",
-                "type": "蓝门",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    6,
-                    13
-                ],
-                "floor": 1,
-                "name": "红钥匙_277619",
-                "type": "红钥匙",
-                "dead": false,
-                "currStatus": "normal"
-            },
-            {
-                "position": [
-                    9,
-                    12
-                ],
-                "floor": 1,
-                "name": "蓝钥匙_721696",
-                "type": "蓝钥匙",
                 "dead": false,
                 "currStatus": "normal"
             },
@@ -435,10 +50,42 @@
                     1,
                     15
                 ],
-                "buddy": "楼梯(下)_561892",
                 "floor": 1,
-                "name": "楼梯(上)_663821",
-                "type": "楼梯(上)",
+                "name": "红宝石_419608",
+                "type": "红宝石",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    9,
+                    0
+                ],
+                "floor": 1,
+                "name": "土墙_424250",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_744141",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    10,
+                    13
+                ],
+                "floor": 1,
+                "name": "土墙_698717",
+                "type": "土墙",
                 "dead": false,
                 "currStatus": "normal"
             },
@@ -448,8 +95,448 @@
                     10
                 ],
                 "floor": 1,
-                "name": "黄钥匙_602916",
+                "name": "土墙_682063",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    9
+                ],
+                "floor": 1,
+                "name": "土墙_521799",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    11
+                ],
+                "floor": 1,
+                "name": "土墙_168498",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    10
+                ],
+                "floor": 1,
+                "name": "土墙_234868",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
+                    4
+                ],
+                "floor": 1,
+                "name": "土墙_882068",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    10,
+                    5
+                ],
+                "floor": 1,
+                "name": "土墙_227968",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_701128",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    4,
+                    9
+                ],
+                "floor": 1,
+                "name": "红药水_999575",
+                "type": "红药水",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
+                    10
+                ],
+                "floor": 1,
+                "name": "土墙_283767",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    15
+                ],
+                "floor": 1,
+                "name": "土墙_573211",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    5,
+                    11
+                ],
+                "floor": 1,
+                "name": "蓝宝石_604289",
+                "type": "蓝宝石",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    0
+                ],
+                "floor": 1,
+                "name": "土墙_225439",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    2,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_858283",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    12,
+                    7
+                ],
+                "floor": 1,
+                "name": "土墙_636168",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
+                    12
+                ],
+                "floor": 1,
+                "name": "土墙_277227",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    13,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_980715",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    13,
+                    3
+                ],
+                "floor": 1,
+                "name": "黄钥匙_926166",
                 "type": "黄钥匙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    8,
+                    7
+                ],
+                "floor": 1,
+                "name": "土墙_968857",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    4,
+                    5
+                ],
+                "floor": 1,
+                "name": "土墙_882901",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    12,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_632637",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_152250",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    12,
+                    5
+                ],
+                "floor": 1,
+                "name": "土墙_714503",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    15,
+                    15
+                ],
+                "floor": 1,
+                "name": "黄钥匙_495327",
+                "type": "黄钥匙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    12,
+                    15
+                ],
+                "floor": 1,
+                "name": "红药水_712890",
+                "type": "红药水",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    2,
+                    14
+                ],
+                "floor": 1,
+                "name": "红宝石_231753",
+                "type": "红宝石",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
+                    11
+                ],
+                "floor": 1,
+                "name": "土墙_395316",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    9,
+                    5
+                ],
+                "floor": 1,
+                "name": "土墙_237168",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_157243",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    8
+                ],
+                "floor": 1,
+                "name": "红药水_604648",
+                "type": "红药水",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    5
+                ],
+                "floor": 1,
+                "name": "土墙_574041",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    4
+                ],
+                "floor": 1,
+                "name": "土墙_259769",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    8,
+                    8
+                ],
+                "floor": 1,
+                "name": "土墙_933403",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    4,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_883310",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    2,
+                    8
+                ],
+                "floor": 1,
+                "name": "红宝石_158225",
+                "type": "红宝石",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    7,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_100736",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    0
+                ],
+                "floor": 1,
+                "name": "土墙_965755",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    14
+                ],
+                "floor": 1,
+                "name": "蓝宝石_448191",
+                "type": "蓝宝石",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    11,
+                    10
+                ],
+                "floor": 1,
+                "name": "土墙_538894",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
+                    6
+                ],
+                "floor": 1,
+                "name": "土墙_197702",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_782266",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    14
+                ],
+                "floor": 1,
+                "name": "红药水_936314",
+                "type": "红药水",
                 "dead": false,
                 "currStatus": "normal"
             },
@@ -459,7 +546,304 @@
                     1
                 ],
                 "floor": 1,
-                "name": "土墙_830126",
+                "name": "土墙_298212",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    8,
+                    10
+                ],
+                "floor": 1,
+                "name": "土墙_820109",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    10,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_405590",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    7,
+                    6
+                ],
+                "floor": 1,
+                "name": "黄钥匙_240706",
+                "type": "黄钥匙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    5,
+                    9
+                ],
+                "floor": 1,
+                "name": "黄钥匙_907835",
+                "type": "黄钥匙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    8
+                ],
+                "floor": 1,
+                "name": "土墙_607106",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    10,
+                    0
+                ],
+                "floor": 1,
+                "name": "土墙_680602",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    15
+                ],
+                "floor": 1,
+                "name": "红药水_746402",
+                "type": "红药水",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    7
+                ],
+                "floor": 1,
+                "name": "土墙_934920",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    10,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_801187",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_839485",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    5,
+                    0
+                ],
+                "floor": 1,
+                "name": "土墙_722399",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    7
+                ],
+                "floor": 1,
+                "name": "土墙_645104",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    12,
+                    10
+                ],
+                "floor": 1,
+                "name": "土墙_636148",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    4,
+                    4
+                ],
+                "floor": 1,
+                "name": "红药水_677711",
+                "type": "红药水",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    12
+                ],
+                "floor": 1,
+                "name": "土墙_884912",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    15,
+                    14
+                ],
+                "floor": 1,
+                "name": "红药水_238477",
+                "type": "红药水",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    3,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_495182",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    10,
+                    7
+                ],
+                "floor": 1,
+                "name": "土墙_123438",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    2,
+                    12
+                ],
+                "floor": 1,
+                "name": "土墙_848868",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    3,
+                    5
+                ],
+                "floor": 1,
+                "name": "黄门_831558",
+                "type": "黄门",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    10,
+                    12
+                ],
+                "floor": 1,
+                "name": "土墙_370454",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    11
+                ],
+                "floor": 1,
+                "name": "红宝石_793945",
+                "type": "红宝石",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    2,
+                    5
+                ],
+                "floor": 1,
+                "name": "土墙_857685",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    9,
+                    7
+                ],
+                "floor": 1,
+                "name": "土墙_455445",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    2,
+                    10
+                ],
+                "floor": 1,
+                "name": "土墙_260023",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    4,
+                    11
+                ],
+                "floor": 1,
+                "name": "蓝宝石_139202",
+                "type": "蓝宝石",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    9,
+                    10
+                ],
+                "floor": 1,
+                "name": "土墙_436853",
                 "type": "土墙",
                 "dead": false,
                 "currStatus": "normal"
@@ -467,21 +851,32 @@
             {
                 "position": [
                     11,
-                    10
+                    14
                 ],
                 "floor": 1,
-                "name": "黄钥匙_521951",
-                "type": "黄钥匙",
+                "name": "红药水_445756",
+                "type": "红药水",
                 "dead": false,
                 "currStatus": "normal"
             },
             {
                 "position": [
-                    14,
-                    1
+                    5,
+                    7
                 ],
                 "floor": 1,
-                "name": "土墙_913868",
+                "name": "土墙_915527",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    13
+                ],
+                "floor": 1,
+                "name": "土墙_785419",
                 "type": "土墙",
                 "dead": false,
                 "currStatus": "normal"
@@ -489,10 +884,736 @@
             {
                 "position": [
                     6,
-                    6
+                    10
                 ],
                 "floor": 1,
-                "name": "红宝石_146911",
+                "name": "土墙_703923",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    11,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_184224",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    13,
+                    0
+                ],
+                "floor": 1,
+                "name": "土墙_761403",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    3,
+                    15
+                ],
+                "floor": 1,
+                "name": "疾风鞋_830997",
+                "type": "疾风鞋",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    5
+                ],
+                "floor": 1,
+                "name": "土墙_556692",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    3
+                ],
+                "floor": 1,
+                "name": "土墙_883929",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    8,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_460875",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    13,
+                    7
+                ],
+                "floor": 1,
+                "name": "土墙_272572",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    8,
+                    9
+                ],
+                "floor": 1,
+                "name": "土墙_548387",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    7,
+                    12
+                ],
+                "floor": 1,
+                "name": "土墙_636529",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    12,
+                    8
+                ],
+                "floor": 1,
+                "name": "红药水_243460",
+                "type": "红药水",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    3,
+                    7
+                ],
+                "floor": 1,
+                "name": "黄门_888128",
+                "type": "黄门",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    5,
+                    14
+                ],
+                "floor": 1,
+                "name": "红药水_653637",
+                "type": "红药水",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    3
+                ],
+                "floor": 1,
+                "name": "黄钥匙_933055",
+                "type": "黄钥匙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    12
+                ],
+                "floor": 1,
+                "name": "土墙_661407",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    11,
+                    15
+                ],
+                "floor": 1,
+                "name": "黄钥匙_391050",
+                "type": "黄钥匙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
+                    3
+                ],
+                "floor": 1,
+                "name": "土墙_297920",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    4,
+                    14
+                ],
+                "floor": 1,
+                "name": "蓝宝石_432403",
+                "type": "蓝宝石",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    9
+                ],
+                "floor": 1,
+                "name": "土墙_433190",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    15,
+                    0
+                ],
+                "floor": 1,
+                "name": "土墙_185160",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    5,
+                    12
+                ],
+                "floor": 1,
+                "name": "土墙_485005",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    10,
+                    8
+                ],
+                "floor": 1,
+                "name": "红药水_193170",
+                "type": "红药水",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    4,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_989271",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
+                    0
+                ],
+                "floor": 1,
+                "name": "土墙_859146",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    8,
+                    12
+                ],
+                "floor": 1,
+                "name": "黄门_913330",
+                "type": "黄门",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    2,
+                    7
+                ],
+                "floor": 1,
+                "name": "土墙_580700",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    3
+                ],
+                "floor": 1,
+                "name": "土墙_705498",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    7,
+                    0
+                ],
+                "floor": 1,
+                "name": "土墙_731411",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    3,
+                    0
+                ],
+                "floor": 1,
+                "name": "土墙_889582",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    5
+                ],
+                "floor": 1,
+                "name": "土墙_664154",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    11,
+                    3
+                ],
+                "floor": 1,
+                "name": "红宝石_701510",
+                "type": "红宝石",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    9,
+                    9
+                ],
+                "floor": 1,
+                "name": "黄钥匙_126112",
+                "type": "黄钥匙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    13,
+                    10
+                ],
+                "floor": 1,
+                "name": "土墙_790932",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_497972",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    9,
+                    3
+                ],
+                "floor": 1,
+                "name": "黄钥匙_478225",
+                "type": "黄钥匙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    11,
+                    7
+                ],
+                "floor": 1,
+                "name": "黄门_665225",
+                "type": "黄门",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    10
+                ],
+                "floor": 1,
+                "name": "土墙_783070",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    11,
+                    9
+                ],
+                "floor": 1,
+                "name": "蓝宝石_104559",
+                "type": "蓝宝石",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    1
+                ],
+                "floor": 1,
+                "name": "土墙_817961",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    11
+                ],
+                "floor": 1,
+                "name": "土墙_145449",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    12,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_439500",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    5,
+                    3
+                ],
+                "floor": 1,
+                "name": "黄钥匙_916752",
+                "type": "黄钥匙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    7,
+                    14
+                ],
+                "floor": 1,
+                "name": "黄钥匙_257566",
+                "type": "黄钥匙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    2,
+                    4
+                ],
+                "floor": 1,
+                "name": "红药水_788207",
+                "type": "红药水",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    7,
+                    11
+                ],
+                "floor": 1,
+                "name": "黄钥匙_502277",
+                "type": "黄钥匙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    9,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_158327",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    11,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_772508",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    5
+                ],
+                "floor": 1,
+                "name": "土墙_646448",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
+                    9
+                ],
+                "floor": 1,
+                "name": "土墙_193544",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    10,
+                    10
+                ],
+                "floor": 1,
+                "name": "土墙_958751",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    7,
+                    2
+                ],
+                "floor": 1,
+                "name": "黄门_412510",
+                "type": "黄门",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    3
+                ],
+                "floor": 1,
+                "name": "土墙_240981",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    8,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_700342",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    2,
+                    0
+                ],
+                "floor": 1,
+                "name": "土墙_158964",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    4,
+                    0
+                ],
+                "floor": 1,
+                "name": "土墙_956813",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    2,
+                    9
+                ],
+                "floor": 1,
+                "name": "红药水_721808",
+                "type": "红药水",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    13,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_891410",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    4,
+                    8
+                ],
+                "floor": 1,
+                "name": "蓝宝石_260998",
+                "type": "蓝宝石",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    15,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_386893",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
+                    8
+                ],
+                "floor": 1,
+                "name": "土墙_514755",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_946581",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_174945",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    4,
+                    7
+                ],
+                "floor": 1,
+                "name": "土墙_736401",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    2,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_590474",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    15,
+                    12
+                ],
+                "floor": 1,
+                "name": "土墙_907142",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    15
+                ],
+                "floor": 1,
+                "name": "土墙_773797",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    3,
+                    3
+                ],
+                "floor": 1,
+                "name": "红宝石_524726",
                 "type": "红宝石",
                 "dead": false,
                 "currStatus": "normal"
@@ -503,30 +1624,613 @@
                     7
                 ],
                 "floor": 1,
-                "name": "红药水_287670",
+                "name": "土墙_781487",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
+                    13
+                ],
+                "floor": 1,
+                "name": "土墙_360599",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    4
+                ],
+                "floor": 1,
+                "name": "土墙_555335",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    10,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_971144",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    9
+                ],
+                "floor": 1,
+                "name": "黄钥匙_220136",
+                "type": "黄钥匙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    12,
+                    0
+                ],
+                "floor": 1,
+                "name": "土墙_746128",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    12
+                ],
+                "floor": 1,
+                "name": "土墙_355046",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    5,
+                    5
+                ],
+                "floor": 1,
+                "name": "土墙_843453",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    9
+                ],
+                "floor": 1,
+                "name": "土墙_103139",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    3,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_238728",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    13
+                ],
+                "floor": 1,
+                "name": "土墙_713188",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    4,
+                    12
+                ],
+                "floor": 1,
+                "name": "土墙_757592",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    9,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_489893",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    5,
+                    15
+                ],
+                "floor": 1,
+                "name": "蓝宝石_806675",
+                "type": "蓝宝石",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    11,
+                    5
+                ],
+                "floor": 1,
+                "name": "黄门_439775",
+                "type": "黄门",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    12
+                ],
+                "floor": 1,
+                "name": "土墙_264312",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    4
+                ],
+                "floor": 1,
+                "name": "土墙_400273",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    8,
+                    5
+                ],
+                "floor": 1,
+                "name": "土墙_168271",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    6
+                ],
+                "floor": 1,
+                "name": "黄门_842874",
+                "type": "黄门",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    1
+                ],
+                "floor": 1,
+                "name": "楼梯(上)_324402",
+                "type": "楼梯(上)",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    9,
+                    12
+                ],
+                "floor": 1,
+                "name": "土墙_313698",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    8
+                ],
+                "floor": 1,
+                "name": "土墙_975842",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    5,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_759065",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    6
+                ],
+                "floor": 1,
+                "name": "土墙_447143",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    8
+                ],
+                "floor": 1,
+                "name": "土墙_219972",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
+                    15
+                ],
+                "floor": 1,
+                "name": "土墙_904077",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_471193",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    10,
+                    15
+                ],
+                "floor": 1,
+                "name": "土墙_236152",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    13,
+                    9
+                ],
+                "floor": 1,
+                "name": "黄钥匙_935716",
+                "type": "黄钥匙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    8,
+                    4
+                ],
+                "floor": 1,
+                "name": "土墙_531521",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    14,
+                    7
+                ],
+                "floor": 1,
+                "name": "土墙_468300",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
+                    5
+                ],
+                "floor": 1,
+                "name": "土墙_354968",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    10
+                ],
+                "floor": 1,
+                "name": "土墙_357468",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_369279",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    3,
+                    10
+                ],
+                "floor": 1,
+                "name": "黄门_826547",
+                "type": "黄门",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    0
+                ],
+                "floor": 1,
+                "name": "土墙_702032",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    11,
+                    0
+                ],
+                "floor": 1,
+                "name": "土墙_537959",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    13,
+                    12
+                ],
+                "floor": 1,
+                "name": "黄门_786843",
+                "type": "黄门",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    6,
+                    0
+                ],
+                "floor": 1,
+                "name": "土墙_265303",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    1,
+                    13
+                ],
+                "floor": 1,
+                "name": "红宝石_690089",
+                "type": "红宝石",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    13,
+                    5
+                ],
+                "floor": 1,
+                "name": "土墙_103151",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
+                    7
+                ],
+                "floor": 1,
+                "name": "土墙_754112",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    5,
+                    2
+                ],
+                "floor": 1,
+                "name": "土墙_813674",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    5,
+                    8
+                ],
+                "floor": 1,
+                "name": "红药水_548129",
                 "type": "红药水",
                 "dead": false,
                 "currStatus": "normal"
             },
             {
                 "position": [
-                    7,
-                    13
+                    10,
+                    4
                 ],
                 "floor": 1,
-                "name": "红钥匙_967370",
-                "type": "红钥匙",
+                "name": "红药水_411120",
+                "type": "红药水",
                 "dead": false,
                 "currStatus": "normal"
             },
             {
                 "position": [
-                    17,
-                    1
+                    12,
+                    12
                 ],
                 "floor": 1,
-                "name": "土墙_120073",
+                "name": "土墙_921197",
                 "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    8,
+                    3
+                ],
+                "floor": 1,
+                "name": "土墙_580664",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    3,
+                    12
+                ],
+                "floor": 1,
+                "name": "黄门_475993",
+                "type": "黄门",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    12,
+                    4
+                ],
+                "floor": 1,
+                "name": "红药水_754097",
+                "type": "红药水",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    0,
+                    14
+                ],
+                "floor": 1,
+                "name": "土墙_983671",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    12,
+                    14
+                ],
+                "floor": 1,
+                "name": "红宝石_303882",
+                "type": "红宝石",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    5,
+                    10
+                ],
+                "floor": 1,
+                "name": "土墙_552686",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    2,
+                    11
+                ],
+                "floor": 1,
+                "name": "红宝石_294456",
+                "type": "红宝石",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    16,
+                    16
+                ],
+                "floor": 1,
+                "name": "土墙_900651",
+                "type": "土墙",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    2,
+                    15
+                ],
+                "floor": 1,
+                "name": "红药水_524707",
+                "type": "红药水",
+                "dead": false,
+                "currStatus": "normal"
+            },
+            {
+                "position": [
+                    5,
+                    13
+                ],
+                "floor": 1,
+                "name": "蓝宝石_708296",
+                "type": "蓝宝石",
                 "dead": false,
                 "currStatus": "normal"
             }
@@ -535,123 +2239,156 @@
         "creatures": [
             {
                 "position": [
+                    2,
+                    13
+                ],
+                "type": "骷髅",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "骷髅_873437",
+                "dead": false
+            },
+            {
+                "position": [
+                    15,
+                    13
+                ],
+                "type": "火史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "火史莱姆_921598",
+                "dead": false
+            },
+            {
+                "position": [
+                    12,
+                    13
+                ],
+                "type": "小史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "小史莱姆_912773",
+                "dead": false
+            },
+            {
+                "position": [
+                    13,
+                    4
+                ],
+                "type": "火史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "火史莱姆_793311",
+                "dead": false
+            },
+            {
+                "position": [
+                    12,
+                    3
+                ],
+                "type": "小史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "小史莱姆_508514",
+                "dead": false
+            },
+            {
+                "position": [
+                    3,
+                    13
+                ],
+                "type": "骷髅兵",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "骷髅兵_795301",
+                "dead": false
+            },
+            {
+                "position": [
+                    3,
+                    14
+                ],
+                "type": "骷髅",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "骷髅_554600",
+                "dead": false
+            },
+            {
+                "position": [
+                    11,
+                    8
+                ],
+                "type": "小蝙蝠",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "小蝙蝠_874918",
+                "dead": false
+            },
+            {
+                "position": [
+                    4,
+                    3
+                ],
+                "type": "小史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "小史莱姆_444010",
+                "dead": false
+            },
+            {
+                "position": [
+                    5,
+                    4
+                ],
+                "type": "火史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "火史莱姆_387528",
+                "dead": false
+            },
+            {
+                "position": [
+                    11,
+                    13
+                ],
+                "type": "火史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "火史莱姆_417420",
+                "dead": false
+            },
+            {
+                "position": [
+                    1,
+                    4
+                ],
+                "type": "火史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "火史莱姆_106196",
+                "dead": false
+            },
+            {
+                "position": [
+                    15,
+                    1
+                ],
+                "type": "小蝙蝠",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "小蝙蝠_988940",
+                "dead": false
+            },
+            {
+                "position": [
                     9,
-                    4
+                    8
                 ],
-                "type": "人形史莱姆",
+                "type": "火史莱姆",
                 "currStatus": "normal",
                 "floor": 1,
-                "name": "人形史莱姆_829354",
-                "dead": false
-            },
-            {
-                "position": [
-                    7,
-                    3
-                ],
-                "type": "小蝙蝠",
-                "currStatus": "normal",
-                "floor": 1,
-                "name": "小蝙蝠_286898",
-                "dead": false
-            },
-            {
-                "position": [
-                    8,
-                    3
-                ],
-                "type": "小蝙蝠",
-                "currStatus": "normal",
-                "floor": 1,
-                "name": "小蝙蝠_528959",
-                "dead": false
-            },
-            {
-                "position": [
-                    10,
-                    4
-                ],
-                "type": "蛮人",
-                "currStatus": "normal",
-                "floor": 1,
-                "name": "蛮人_873766",
-                "dead": false
-            },
-            {
-                "position": [
-                    6,
-                    4
-                ],
-                "type": "火法师",
-                "currStatus": "normal",
-                "floor": 1,
-                "name": "火法师_550034",
-                "dead": false
-            },
-            {
-                "position": [
-                    9,
-                    3
-                ],
-                "type": "小蝙蝠",
-                "currStatus": "normal",
-                "floor": 1,
-                "name": "小蝙蝠_568349",
-                "dead": false
-            },
-            {
-                "position": [
-                    6,
-                    3
-                ],
-                "type": "小蝙蝠",
-                "currStatus": "normal",
-                "floor": 1,
-                "name": "小蝙蝠_850783",
-                "dead": false
-            },
-            {
-                "position": [
-                    8,
-                    4
-                ],
-                "type": "冰守卫",
-                "currStatus": "normal",
-                "floor": 1,
-                "name": "冰守卫_870513",
-                "dead": false
-            },
-            {
-                "position": [
-                    10,
-                    3
-                ],
-                "type": "小蝙蝠",
-                "currStatus": "normal",
-                "floor": 1,
-                "name": "小蝙蝠_126947",
-                "dead": false
-            },
-            {
-                "position": [
-                    7,
-                    4
-                ],
-                "type": "骷髅盔甲兵",
-                "currStatus": "normal",
-                "floor": 1,
-                "name": "骷髅盔甲兵_951329",
-                "dead": false
-            },
-            {
-                "position": [
-                    0,
-                    7
-                ],
-                "type": "红龙",
-                "currStatus": "normal",
-                "floor": 1,
-                "name": "红龙_984875",
+                "name": "火史莱姆_745780",
                 "dead": false
             },
             {
@@ -659,23 +2396,232 @@
                     11,
                     4
                 ],
-                "type": "火警卫",
+                "type": "小蝙蝠",
                 "currStatus": "normal",
                 "floor": 1,
-                "name": "火警卫_569739",
+                "name": "小蝙蝠_710640",
+                "dead": false
+            },
+            {
+                "position": [
+                    10,
+                    9
+                ],
+                "type": "小史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "小史莱姆_807365",
+                "dead": false
+            },
+            {
+                "position": [
+                    3,
+                    11
+                ],
+                "type": "骷髅",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "骷髅_986225",
+                "dead": false
+            },
+            {
+                "position": [
+                    13,
+                    8
+                ],
+                "type": "火史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "火史莱姆_943246",
+                "dead": false
+            },
+            {
+                "position": [
+                    13,
+                    13
+                ],
+                "type": "小蝙蝠",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "小蝙蝠_469207",
+                "dead": false
+            },
+            {
+                "position": [
+                    13,
+                    14
+                ],
+                "type": "小史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "小史莱姆_788477",
+                "dead": false
+            },
+            {
+                "position": [
+                    3,
+                    9
+                ],
+                "type": "骷髅",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "骷髅_483995",
+                "dead": false
+            },
+            {
+                "position": [
+                    12,
+                    9
+                ],
+                "type": "小史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "小史莱姆_133355",
+                "dead": false
+            },
+            {
+                "position": [
+                    7,
+                    13
+                ],
+                "type": "指引精灵",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "指引精灵_939962",
+                "dead": false
+            },
+            {
+                "position": [
+                    4,
+                    13
+                ],
+                "type": "骷髅",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "骷髅_853431",
+                "dead": false
+            },
+            {
+                "position": [
+                    15,
+                    6
+                ],
+                "type": "火史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "火史莱姆_304714",
+                "dead": false
+            },
+            {
+                "position": [
+                    3,
+                    8
+                ],
+                "type": "骷髅",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "骷髅_942136",
+                "dead": false
+            },
+            {
+                "position": [
+                    3,
+                    4
+                ],
+                "type": "小蝙蝠",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "小蝙蝠_704228",
+                "dead": false
+            },
+            {
+                "position": [
+                    9,
+                    4
+                ],
+                "type": "火史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "火史莱姆_672300",
+                "dead": false
+            },
+            {
+                "position": [
+                    10,
+                    3
+                ],
+                "type": "小史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "小史莱姆_976728",
+                "dead": false
+            },
+            {
+                "position": [
+                    2,
+                    3
+                ],
+                "type": "小史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "小史莱姆_920326",
+                "dead": false
+            },
+            {
+                "position": [
+                    13,
+                    15
+                ],
+                "type": "火史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "火史莱姆_573624",
+                "dead": false
+            },
+            {
+                "position": [
+                    7,
+                    1
+                ],
+                "type": "骷髅",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "骷髅_175124",
+                "dead": false
+            },
+            {
+                "position": [
+                    15,
+                    11
+                ],
+                "type": "小史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "小史莱姆_594171",
+                "dead": false
+            },
+            {
+                "position": [
+                    14,
+                    13
+                ],
+                "type": "小史莱姆",
+                "currStatus": "normal",
+                "floor": 1,
+                "name": "小史莱姆_706166",
                 "dead": false
             }
         ],
         "size": [
-            23,
+            17,
             17
         ]
     },
     {
         "abiotics": [{
             "position": [
-                0,
-                15
+                8,
+                1
             ],
             "buddy": "楼梯(上)_663821",
             "floor": 2,
